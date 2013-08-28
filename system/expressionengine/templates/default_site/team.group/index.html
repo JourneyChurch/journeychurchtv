@@ -1,0 +1,113 @@
+{embed="_includes/header" title="{if segment_2 == ''}Meet the Team{/if}{if segment_2 != ''}{exp:channel:entries channel="team" dynamic="on" limit="1"}{title}{/exp:channel:entries}{/if}" bar="yes"}
+
+{if segment_2 == ""}
+	<div class="title-bar">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Meet the Team</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<div class="container clearfix">		
+		<h2 class="grid_12 pastorclark">Clark Mitchell <span>Founding Senior Pastor</span></h2>
+		<div class="team-entry" style="padding-top:25px">
+			<div class="grid_4">
+				<img src="/_img/PastorClark.jpg">
+			</div>
+			<div class="grid_8">
+				<p style="font-size:14px;">At age 15, Clark Mitchell knew God was shaping his desire to help lead people into their God-given potential and dreams. It was that same dream and passion that motivated him to begin JourneyChurch with his wife and 34 others in late 2001. As the church continued to see unprecedented favor in leading the next generation, Pastor Clark continued to look for innovative ways to transform cities one life at a time. Ten years after founding JourneyChurch, Clark and Robin began Loveworks Leadership, Inc. (LLI) Again, the initiative was met with unprecedented enthusiasm as LLI created environments for at-risk middle school students to receive academic tutoring, life skills training, and leadership development to give them hope and to shape their character to become the leaders they were created to be.</p><br>
+				<a href="/pastorclark">Learn more about Pastor Clark</a>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">Leadership Team</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-leadership-orderby" category="11"}
+			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">Pastors</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="21"}
+			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		{!--}		
+		<h2 class="grid_12">Ministry Services</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="12"}
+			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">Groups &amp; Adults</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="13"}
+			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">Journey Worship</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="14"}
+	  		{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">Creative Journey</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="16"}
+  			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">JourneyKids</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="15"}
+  			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">Student Journey</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="17"}
+  			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">College Journey</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="18"}
+  			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">Norman Campus</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="19"}
+  			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		
+		<h2 class="grid_12">SWOKC Campus</h3>
+		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="20"}
+  			{team-shrt-bio}
+		{/exp:channel:entries}
+		<div class="clear marg-b-40">&nbsp;</div>
+		{--}
+	</div>
+{if:else}
+	{exp:channel:entries channel="team" dynamic="on"}
+		<div class="title-bar">
+			<div class="container">
+				<div class="grid_12">
+					<h2>{title}</h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div class="container clearfix">
+			<div class="team-entry">
+				
+			</div>
+		</div>	
+	{/exp:channel:entries}
+{/if}
+{embed="_includes/footer"}

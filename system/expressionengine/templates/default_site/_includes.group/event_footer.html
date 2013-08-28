@@ -1,0 +1,45 @@
+<div class="clear"></div>
+{embed="_includes/footer-content"}
+
+	{!-- Mobile Nav --}
+	<script src="/_js/sidr.js"></script>
+	
+	{!-- Retina Friendly --}
+	<script type="text/javascript" src="/_js/retina.js"></script>
+	
+	<script src="/_js/scripts.js"></script>
+	
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+	<script src="/themes/third_party/acs_bridge/handlebars.runtime.js"></script>
+	<script src="/themes/third_party/acs_bridge/event.js"></script>
+
+	<script type="text/javascript">
+	$.ajax({
+		type: "GET",
+		url: "{exp:acs_bridge:json fetch="event"}",
+		data: { id: "{segment_3}", reg: "true", image: "true" },
+		error: function (data) {
+			console.log(data)
+		},
+		success: function (data) {
+			// Uncomment the next line to preview data in the console.  Useful for debugging
+			console.log(data)
+
+			//  format the ACS date
+			Handlebars.registerHelper('dateFormat', function(context, block) {
+  				if (window.moment) {
+    					return moment(context).format('MMMM D [at] ha'); // edit this format to change the display
+  				}else{
+    					return context;
+				}
+			});
+
+			var source = $("#event_tmpl").html();
+			var template = Handlebars.templates['event'];
+			var html = template(data);
+			$("#event").html(template(data));
+		}
+	});
+	</script>
+</body>
+</html>

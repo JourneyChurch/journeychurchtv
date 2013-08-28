@@ -1,0 +1,26 @@
+{embed="_includes/header" title="Life Groups"}
+
+<div class="container clearfix">
+	<div class="grid_3">
+		{embed="_component/sidebar-groups"}
+	</div>
+	<div class="grid_9">
+		<div class="banner">
+			<span data-picture data-alt="Life Groups">
+				<span data-src="/_img/theology-small.png"></span>
+				<span data-src="/_img/theology.png" data-media="(min-width: 465px)"></span>
+
+				<!-- Fallback content for non-JS browsers -->
+				<noscript><img src="/_img/theology-small.png" alt="Our Theology"></noscript>
+			</span>
+		</div>
+
+		{exp:channel:entries channel="Pages" url_title="groups"}
+			<div class="fancy-page">
+				{page-body}
+			</div>
+		{/exp:channel:entries}
+	</div>
+</div>
+
+{embed="_includes/footer"}

@@ -1,0 +1,12 @@
+{embed="_includes/header" bar="yes" title="Events"}
+
+<link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/dialog.css" />
+
+{if segment_3 == "girlfriends" OR segment_3 == "fe912d67-96cc-4ebb-8bf1-a2270116da6b"}
+	{embed="_component/event-girlfriends"}
+{if:elseif segment_3 == "200b2fd7-72ec-43ad-9486-a2270129740f"}
+	{embed="_component/event-launchu"}
+{if:else}
+<div id="event"></div>
+{/if}
+{embed="_includes/event_footer"}

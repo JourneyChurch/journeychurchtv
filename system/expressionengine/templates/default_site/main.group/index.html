@@ -1,0 +1,200 @@
+{embed="_includes/header" bar="no"}
+{!-- Sliding box addons --}
+<link rel="stylesheet" type="text/css" href="/_css/component.css" />
+<script src="/_js/modernizr.custom.js"></script>
+<script src="/_js/lib.js"></script>
+<script src="/_js/slides.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<div id="full-only">	
+	<div class="slides-container">
+		<div id="slides">
+			{exp:channel:entries channel="slides"}
+				{if slides-link}<a href="{slides-link}">{/if}<img src="{slides-img}">{if slides-link}</a>{/if}
+			{/exp:channel:entries}
+		</div>
+	</div>
+	<script type="text/javascript">
+	  $(function() {
+	    $('#slides').slidesjs({
+	      width: 1400,
+	      height: 450,
+	      play: {
+	        active: true,
+	        auto: true,
+	        interval: 9500,
+	        swap: true
+	      }
+	    });
+	  });
+	</script>
+	
+	<div class="container clearfix boxes">
+		<ul class="cs-style-2">
+			<li class="grid_4">
+				<figure>
+					{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
+						<a href="/media/{url_title}">
+							<div class="slide_content box1">
+								<i class="icon-chevron-sign-up"></i>
+								<span>Watch the</span>
+								Latest Message
+							</div>
+							<figcaption>
+								<p>{title}</p>
+							</figcaption>
+						</a>
+					{/exp:channel:entries}
+				</figure>
+			</li>
+			<li class="grid_4">
+				<figure>
+					<a href="/locations">
+						<div class="slide_content box2">
+							<i class="icon-chevron-sign-up"></i>
+							Locations
+							<span>&amp; times</span>
+						</div>
+						<figcaption>
+							<p>Find a campus near you</p>
+						</figcaption>
+					</a>
+				</figure>
+			</li>
+			<li class="grid_4">
+				<figure>
+					<a href="/new">
+						<div class="slide_content box3">
+							<i class="icon-chevron-sign-up"></i>
+							First time here?
+							<span>Learn more about us</span>
+						</div>
+						<figcaption>
+							<p>Who we are</p>
+						</figcaption>
+					</a>
+				</figure>
+			</li>
+			<div class="clear"></div>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="mobile-only">
+	<div class="title-bar about-alt">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Welcome to JourneyChurch</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<img src="/_img/newtojourney.png">
+	<br><br>
+	<div class="container clearfix">
+		{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
+			<a href="/media/{url_title}">
+				<div class="grid_12 mobile_boxes box1">
+					<strong>Watch the Latest Message:</strong><br>{title}
+				</div>
+			</a>
+		{/exp:channel:entries}
+		
+		<a href="/locations">
+			<div class="grid_12 mobile_boxes box2">
+				<strong>Locations &amp; Times</strong><br>
+				Find a campus near you
+			</div>
+		</a>
+		
+		<a href="/new">
+			<div class="grid_12 mobile_boxes box3">
+				<strong>First time here?</strong><br>
+				Learn more about us
+			</div>
+		</a>
+		
+		
+		{!-- TEMP MOBILE CALENDAR --}
+		<a href="/calendar">
+			<div class="grid_12 mobile_boxes box4">
+				<strong>What's Happening?</strong><br>
+				View the Calendar
+			</div>
+		</a>
+	</div>
+</div>
+
+<div class="container clearfix">
+	<div id="full-only" class="grid_8">
+		<div class="happening">
+			<h2>Happening This Week <a href="/calendar"><i class="icon-chevron-sign-right pull-right"></i></a></h2>
+			
+			<div id="cal-week">
+				<ul class="cal-week-choices">
+					<li><a href="#day-sun">25<span>Sunday</span></a></li>
+					<li><a href="#day-mon">26<span>Monday</span></a></li>
+					<li><a href="#day-tues">27<span>Tuesday</span></a></li>
+					<li><a href="#day-wed">28<span>Wednesday</span></a></li>
+					<li><a href="#day-thurs">29<span>Thursday</span></a></li>
+					<li><a href="#day-fri">30<span>Friday</span></a></li>
+					<li><a href="#day-sat">31<span>Saturday</span></a></li>
+					<div class="clear"></div>
+				</ul>
+				<div class="clear"></div>
+				<div class="cal-week-details">
+					<div id="day-sun">
+			  			8:30am - <a href="/locations">Worship Experience</a><br>
+						10:00am - <a href="/locations">Worship Experience</a><br>
+						11:30am - <a href="/locations">Worship Experience</a><br>
+						3:00pm - <a href="/calendar/event/f419a98c-a5e3-45c4-a498-a20c01695cce">M(e)3.20 Retreat</a><br>
+						6:00pm - <a href="/locations">Worship Experience</a>
+					</div>
+					<div id="day-mon">
+			  			No events listed for the day
+					</div>
+					<div id="day-tues">
+						7:00am - <a href="/calendar/event/bb7a7caf-a437-4ced-9ff7-a1b001075a88">JBL Breakfast</a><br>
+						9:00pm - <a href="/connect/collegejourney">Lifestream - College Worship Experience</a>
+					</div>
+					<div id="day-wed">
+			  			6:30pm - <a href="/calendar/event/c113a8b0-5aff-4167-9d9a-a21200bbaded">Student Journey</a>
+					</div>
+					<div id="day-thurs">
+			  			No events listed for the day
+					</div>
+					<div id="day-fri">
+			  			No events listed for the day
+					</div>
+					<div id="day-sat">
+			  			No events listed for the day
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid_4">
+		<div class="latest">
+			<h2>Latest News and Updates</h2>
+			{exp:channel:entries channel="Latest" orderby="date" sort="desc"}
+				<div class="latest-entry">
+					<h3>{if latest-link}<a href="{latest-link}">{/if}{title}{if latest-link}</a>{/if}</h3>
+					{if latest-body}
+						<p>{latest-body}</p>
+					{/if}
+				</div>
+			{/exp:channel:entries}
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<script>
+  $(function() {
+	  var d = new Date();
+	  var n = d.getDay();
+	  $( "#cal-week" ).tabs({ active: n });
+  });
+</script>
+<script src="/_js/toucheffects.js"></script>
+{embed="_includes/footer"}

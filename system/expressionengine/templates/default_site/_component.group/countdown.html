@@ -1,0 +1,85 @@
+<style type="text/css">
+  #churchonline_counter {display: none;}
+  #churchonline_counter .live {display: none;}
+</style>
+
+<div class="countdown">
+	<div class="container">
+	   		{if service_live=="true"}
+	   			<a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a>
+	   		{if:else}
+			<div id="churchonline_counter">
+				<div class="live"><a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a></div>
+				<div class="notlive">
+				  Our next online worship experience is in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span> days &#8226;</span> <span class="hoursAll"><span class="hours"></span> hours &#8226;</span> <span class="minutes"></span> minutes &#8226; <span class="seconds" style="min-width:28px!important"></span> seconds</span>
+				</div>
+			</div>
+	   		{/if}
+	</div>
+	<div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+      jQuery(function() {
+        var days, goLive, hours, intervalId, minutes, seconds;
+        goLive = function() {
+          $("#churchonline_counter").hide();
+          return $("#counter_live").show();
+        };
+        days = void 0;
+        hours = void 0;
+        minutes = void 0;
+        seconds = void 0;
+        intervalId = void 0;
+        return $.ajax({
+          url: "http://live.journeychurch.tv/api/v1/events/current",
+          dataType: "json",
+          success: function(data) {
+            var seconds_till;
+            $("#churchonline_counter").show();
+            if (data.response.item.isLive) {
+              return goLive();
+            } else {
+              seconds_till = ((new Date(data.response.item.eventStartTime)) - (new Date())) / 1000;
+              days = Math.floor(seconds_till / 86400);
+              hours = Math.floor((seconds_till % 86400) / 3600);
+              minutes = Math.floor((seconds_till % 3600) / 60);
+              seconds = Math.floor(seconds_till % 60);
+              return intervalId = setInterval(function() {
+                if (--seconds < 0) {
+                  seconds = 59;
+                  if (--minutes < 0) {
+                    minutes = 59;
+                    if (--hours < 0) {
+                      hours = 23;
+                      if (--days < 0) {
+                        days = 0;
+                      }
+                    }
+                  }
+                }
+				
+                $("#churchonline_counter .days").html((days.toString().length < 2) ? "0" + days : days);
+                $("#churchonline_counter .hours").html((hours.toString().length < 2 ? "0" + hours : hours));
+                $("#churchonline_counter .minutes").html((minutes.toString().length < 2 ? "0" + minutes : minutes));
+                $("#churchonline_counter .seconds").html((seconds.toString().length < 2 ? "0" + seconds : seconds));
+                if (days === 00) {
+                  $('.daysAll').hide();
+                };
+				if (hours === 00) {
+                  $('.hoursAll').hide();
+                };
+                if (seconds === 0 && minutes === 10 && hours === 0 && days === 0) {
+                  goLive();
+                  return clearInterval(intervalId);
+                }
+              }, 1000);
+            }
+          },
+          error: function(xhr, ajaxOptions, thrownError) {
+            return console.log(thrownError);
+          }
+        });
+      });
+</script>

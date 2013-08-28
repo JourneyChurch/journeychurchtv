@@ -1,0 +1,48 @@
+<style>
+	body {margin:0;}
+</style>
+{if service_live == "true"}
+	<iframe src='http://www.streammonkey.com/jw6iframe/198' width='480' height='270' frameborder='0'></iframe>
+{if:else}
+	<script type="text/javascript" src="http://www.streammonkey.com/_js/jwplayer.js"></script>
+	
+	{exp:channel:entries channel="Media" category="9" limit="1" orderby="media-date" sort="desc"}
+		{if media-video}
+		<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/">Adobe Flash</a>.</div>
+			<script type="text/javascript"> 
+			// Player provided by StreamMonkey.com
+				jwplayer("vid{entry_id}").setup({					   
+				    'autostart': 'false',
+					'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
+				    'width': '480',
+					'height': '270',
+					'menu': 'false',
+					'aspectratio': '16:9',
+					'image': '{media-series}{media-series:series-img}{/media-series}',
+				    'plugins': {
+				    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+				   	},
+				    'modes': [{
+				    	'type':'flash',
+				    	'src': 'http://www.streammonkey.com/_jw/player.swf',
+						config: {
+							'provider': 'rtmp',
+							'playlistfile': 'http://www.streammonkey.com/stream_playlist/{media-video-id}'
+						}
+				    },
+					{'type': 'html5',
+						config:  {
+							'file': 'http://vod1.streammonkey.com:1935/journey/_definst_/mp4:amazons3/cdn.streammonkey.com/journey/{media-video}/playlist.m3u8'
+						}
+				    }]	
+				});
+			</script>
+			<div class="clear"></div>
+		{!-- YouTube --}
+		{if:elseif media-youtube}
+			<object width="480" height="270"><param name="movie" value="//www.youtube.com/v/{media-youtube}?version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="//www.youtube.com/v/{media-youtube}?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="480" height="270" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+			<div class="clear"></div>
+		{/if}
+	{/exp:channel:entries}
+	<div class="clear"></div>
+{/if}

@@ -1,0 +1,278 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	<title>{if embed:title}{embed:title} - {/if}JourneyChurch.tv</title>
+	
+	{if embed:tags}
+		{embed:tags}
+	{/if}
+	<meta name="description" content="JourneyChurch is a house committed to transforming our cities ... one life at a time.">
+	<meta name="author" content="JourneyChurch.tv">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	{!-- Theme it up --}
+	<link rel="stylesheet" href="/_css/base.css">
+	<link rel="stylesheet" href="/_css/grid.css">
+	<link rel="stylesheet" href="/_css/style.css">
+	
+	<link rel='stylesheet' media='screen and (min-width: 768px)' href='/_css/full.css' />
+	<link rel='stylesheet' media='screen and (max-width: 767px)' href='/_css/mobile.css' />
+	<!--[if lt IE 9]><link href='/_css/full.css' rel='stylesheet'/><![endif]-->
+	
+	{!-- Fonts --}
+	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css" />
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+	
+	{!-- Cool Font Icons --}
+	<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'>
+
+	{!-- jQuery (Cloudflare) --}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+	
+	<script src="/_js/transition.js"></script>
+	<script src="/_js/classie.js"></script>
+	
+	{!-- Responsive Images made beautiful --}
+	<script src="/_js/picturefill.js"></script>
+	
+	{!-- Mobile Nav --}
+	<link rel="stylesheet" href="/_css/sidr.css">
+	
+	{!-- Charbeat --}
+	<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+</head>
+<body>
+	<div id="wrapper">
+		{!-- Full Page Top --}
+		<div id="navigation">
+			<div class="top">
+				<div id="countdown_contain"></div>
+				{if embed:bar == 'yes'}
+					<div class="bar-enabled">
+				{if:elseif embed:bar == 'no'}			
+				{/if}
+					<div class="container">
+						<a href="/"><div class="grid_3 journeylogo"><span>JourneyChurch.tv</span></div></a>
+						<div class="grid_9">
+							<ul class="nav-main">
+								<li id="nav-about">About</li>
+								<li><a href="/blogs">Blogs</a></li>
+								<li><a href="/locations">Locations</a></li>
+								<li id="nav-connected">Get Connected</li>
+								<li><a href="/media">Media</a></li>
+								<li><a href="/calendar">Calendar</a></li>
+								<li><a href="/give">Give</a></li>
+								{!-- Oops. Search isn't quite ready yet. }
+								<li id="nav-search"><i class="icon-search"></i></li>
+								{--}
+							</ul>
+						</div>
+						<div class="clear"></div>
+					</div>
+				{if embed:bar == 'yes'}</div>{/if}
+			</div>
+			<div id="nav-about-c" class="nav-sub">
+				<div class="container">
+					<div class="grid_12">
+						<h2>About JourneyChurch</h2>
+					</div>
+					<div class="grid_9">
+						<p>JourneyChurch is a <strong>house</strong> where God is honored, where prayers are answered, hearts are mended and lives are changed. We are a <strong>house</strong> committed to transforming our cities... one life at a time. A <strong>house</strong> that uses creativity to point people to the Creator. A <strong>house</strong> that believes the God of generations past is the answer for the next generation. The people of this <strong>house</strong> gather to build healthy relationships and have a blast together. And the highest calling of our <strong>house</strong> is to worship the God of the universe. The King of kings. The Lord of lords. We are a <strong>house</strong>. We are JourneyChurch.</p>
+					</div>
+					<div class="grid_3">
+						<p><a href="/about/">Our Story</a></p>
+						<p><a href="/about/values">Our Values</a></p>
+						<p><a href="/about/theology">Theology</a></p>
+						<p><a href="/about/structure">Structure (Governance)</a></p>
+						<p><a href="/team/">Our Team</a></p>
+						<p><a href="/new">New to JourneyChurch?</a></p>
+						
+					</div>
+				</div>
+			</div>
+			{!--}
+			<div id="nav-locations-c" class="nav-sub">
+				<div class="container">
+					<div class="grid_12">
+						<h2>Locations</h2>
+					</div>
+				</div>
+			</div>
+			{--}
+			<div id="nav-connected-c" class="nav-sub">
+				<div class="container">
+					<div class="grid_12">
+						<h2>Get Connected</h2>
+					</div>
+					<div class="grid_8">
+						<p>JourneyChurch is a community filled with opportunity to get involved and connect with others. We'd love to help you get connected in a big way! We have created many different and unique connection opportunities, but the best way to engage in community quickly is to do these three things:<br><br>
+							
+							<strong>1. &nbsp;Attend a worship experience each weekend.</strong><br>
+							<strong>2. Join a small group</strong><br>
+							<strong>3. Sign up to serve</strong>
+						</p>
+					</div>
+					<div class="grid_4">
+						<p><a href="/groups/">Life Groups</a></p>
+						{exp:channel:entries channel="Connect" orderby="title" sort="asc" dynamic="off"}
+							<p><a href="/connect/{url_title}">{title}</a></p>
+						{/exp:channel:entries}
+					</div>
+				</div>
+			</div>
+			{!--}
+			<div id="nav-media-c" class="nav-sub">
+				<div class="container">
+					<div class="grid_12">
+						<h2>Media</h2>
+					</div>
+					<div class="grid_6">
+						<h3>Last weekend's experience:</h2>
+						{exp:channel:entries channel="Media" category="9" limit="1" sort="desc" orderby="media-date" dynamic="off"}
+							<a href="/media/{url_title}">
+								{media-series}<img src="{media-series:series-img:med}">{/media-series}<br><br>
+								<h3>{title}</h3>
+							</a>
+						{/exp:channel:entries}
+					</div>
+					<div class="grid_6">
+						<p><a href="/media">All Media</a></p>
+						<div class="clear"></div>
+						<p><a href="/stories">Stories</a></p>
+					</div>
+				</div>
+			</div>
+			{--}
+			{!--}
+			<div id="nav-calendar-c" class="nav-sub">
+				<div class="container">
+					<div class="grid_12">
+						<h2>Calendar</h2>
+					</div>
+					<div class="grid_6">
+						<h3>Upcoming Events:</h3>
+						{exp:calendar:events category="1" dynamic="off"}
+							{title}
+						{/exp:calendar:events}
+					</div>
+				</div>
+			</div>
+			<div id="nav-give-c" class="nav-sub">
+				<div class="container">
+					<div class="grid_12">
+						<h2>Give</h2>
+						<p>Giving information and some helpful links</p>
+					</div>
+				</div>
+			</div>
+			{--}
+			{!-- Oops. Search isn't quite ready yet. }
+			<div id="nav-search-c" class="nav-sub">
+				<div class="container">
+					<div class="grid_12">
+						<h2>Search</h2>
+						<p>Search stuff</p>
+					</div>
+				</div>
+			</div>
+			{--}
+		</div> 
+		
+		{!-- Full Screen JS --}
+    	<script type="text/javascript">			
+			// Countdown
+			$(document).ready(function() {
+				$.ajax({
+					url: '/_component/countdown',
+					success: function(data) {
+						$("#countdown_contain").html(data);
+					}
+				});
+				
+				
+				// // Navigation
+				
+				var id = ""; // Subnav to show
+
+				// Listen to all movement within nav items to update subnav
+				$('.nav-main li').click(function() {						
+					// Find all sub nav items that isn't 1 opening
+					id = $(this).attr('id');
+					// Set the subnav to show regardless of whether animation in progress	
+					var visible_subnav = ".nav-sub:not('#" + id + "-c'):visible";
+																	
+					// If animation in progress don't change things 
+					if (!$(visible_subnav).is(":animated")) {
+						// If no subnav being shown
+						if ($(visible_subnav).length == 0) {
+							$('#' + id + '-c').slideToggle(200);
+						}
+						else {
+							// If subnav is shown, replace with new one
+							$(visible_subnav).slideUp(200, function() {
+								$('#' + id + '-c').slideDown(200);
+							});
+						}
+					}
+				});
+				
+				$('#navigation').mouseleave(function() {
+					$(".nav-sub:not('#" + $(this).attr('id') + "-c'):visible").slideUp(200);
+				});
+				
+				
+			});
+    	</script>
+		
+		{!-- Mobile Top --}
+		<div id="mobile">
+			<div id="mobile-top">
+				<a href="/" id="mobile-logo" title="JourneyChurch.tv"></a>
+				<a id="opensidr" href="#sidr"><i class="icon-reorder"></i></a>
+				<div class="clear"></div>
+			</div>
+			<div id="sidr">
+				<ul>
+					<li><a href="/about">About</a></li>
+					<li><a href="/blogs">Blogs</a></li>
+					<li><a href="/locations">Locations</a></li>
+					<li><a href="/connect">Get Connected</a></li>
+					<li><a href="/media">Media</a></li>
+					<li><a href="/calendar">Calendar</a></li>
+					<li><a href="https://secure.accessacs.com/access/memberlogin.aspx?sn=106649">myJourney</a></li>
+					<li><a href="/give">Give</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+ 		</div>
+		<div id="mobile-only" class="mobile-spacer"></div>
+		{if service_live == "true"}
+			<div id="mobile-only" class="mobile-liveservice">
+				<a href="http://live.journeychurch.tv">Join our live worship experience</a>
+			</div>
+		{/if}
+		<div class="clear"></div>
+		
+		{!-- Mobile JS --}
+		<script src="/_js/toucheffects.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+			  $('#opensidr').sidr();
+			});
+		</script>
+		
+		{if !embed:bar}
+			<div class="bar-disabled">
+		{/if}

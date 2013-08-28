@@ -1,0 +1,25 @@
+{embed="_includes/header" title="Stories" bar="yes"}
+{!-- Stream Monkey Player Helpers --}
+<script type="text/javascript" src="http://www.streammonkey.com/_js/jwplayer.js"></script>
+
+	<div class="title-bar">
+		<div class="container">
+			<div class="grid_12">
+				<h2>All Stories</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container media clearfix">
+		{exp:channel:entries channel="Media" sort="desc" orderby="date" dynamic="no" category="4"}
+			<div class="grid_4 series stories">
+				<a href="/media/{url_title}">
+					{if media-img}<img src="{media-img:med}">{if:else}<img src="/_img/media/_med/BROKEN.png">{/if}
+					<h3>{title}</h3>
+				</a>
+				<p>{media-desc}</p>
+			</div>
+		{/exp:channel:entries}
+		<div class="clear"></div>
+	</div>
+{embed="_includes/footer"}

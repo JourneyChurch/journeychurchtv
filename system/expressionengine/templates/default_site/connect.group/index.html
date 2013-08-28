@@ -1,0 +1,66 @@
+{embed="_includes/header" title="{if segment_2 ==''}Get Connected{if:else}{exp:channel:entries channel='Connect' dynamic='on'}{title}{/exp:channel:entries}{/if}" bar="yes"}
+
+{if segment_2 == ""}
+	<div class="title-bar">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Get Connected</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="fancy-page">
+			<div class="grid_12">
+				<h2>JourneyChurch is a community filled with opportunity to get involved and connect with others. We'd love to help you get connected in a big way! We have created many different and unique connection opportunities:</h2><br>
+			</div>
+			<div class="grid_8">
+				<div class="connect-entry">
+					<h3><a href="/groups">Life Groups</a></h3>
+					<p>Through Life Groups, we connect in honest relationships with others, sharing, supporting, and encouraging one another in our pursuits of becoming fully-devoted followers of Christ. These friends are also ministers to us as they provide care and encouragement through challenging times in a way that the mass of thousands of people on Sunday cannot.</p>
+					<div class="clear"></div>
+				</div>
+				{exp:channel:entries channel="Connect" orderby="title" sort="asc"}
+					<div class="connect-entry">
+						<h3><a href="/connect/{url_title}">{title}</a></h3>
+						<p>{connect-desc}</p>
+						<div class="clear"></div>
+					</div>
+				{/exp:channel:entries}
+			</div>
+		</div>
+		<div class="grid_4">
+			<ul class="side-nav">
+				<h3 class="sub-title blue">Get Connected</h3>
+				{exp:channel:entries channel="Connect" orderby="title" sort="desc"}
+					<li><a href="/connect/{url_title}">{title}</a></li>
+				{/exp:channel:entries}
+			</ul>
+		</div>
+	</div>
+{if:else}
+	{exp:channel:entries channel="Connect" dynamic="on"}
+	
+		{if connect-logo}
+			<div class="container clearfix">
+				<img src="{connect-logo}" class="connect-logo">
+				<div class="clear"></div>
+			</div>
+		{if:else}
+			<div class="title-bar">
+				<div class="container">
+					<div class="grid_12">
+						<h2>{title}</h2>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		{/if}
+		<div class="container clearfix">
+			<div class="grid_12 fancy-page">
+			{connect-body}
+			</div>
+		</div>
+	{/exp:channel:entries}
+{/if}
+{embed="_includes/footer"}

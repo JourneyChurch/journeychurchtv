@@ -1,0 +1,82 @@
+{embed="_includes/footer-content"}
+	
+	{!-- Mobile Nav --}
+	<script src="/_js/sidr.js"></script>
+	
+	{!-- Retina Friendly --}
+	<script type="text/javascript" src="/_js/retina.js"></script>
+	
+	<script src="/_js/scripts.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+	<script src="/themes/third_party/acs_bridge/jquery.calendar.js"></script>
+
+	<script type="text/javascript">
+	var _sf_async_config={uid:49423,domain:"journeychurch.tv",useCanonical:true};
+	(function(){
+	  function loadChartbeat() {
+	    window._sf_endpt=(new Date()).getTime();
+	    var e = document.createElement('script');
+	    e.setAttribute('language', 'javascript');
+	    e.setAttribute('type', 'text/javascript');
+	    e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+	    document.body.appendChild(e);
+	  }
+	  var oldonload = window.onload;
+	  window.onload = (typeof window.onload != 'function') ?
+	     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+	})();
+
+	</script>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-23134458-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	
+
+	<script type="text/javascript">
+	$(function() {
+
+		var cal = $( '#calendar' ).calendar( {
+			onDayClick : function( $el, $contentEl, dateProperties ) {
+
+			for( var key in dateProperties ) {
+				console.log( key + ' = ' + dateProperties[ key ] );
+			}
+
+			},
+			url : '{exp:acs_bridge:json fetch="events_list"}',
+			calId: '74b25c3d-20ea-432f-90ba-a22000d547f8',
+			linkTemplate: '/calendar/event',
+			startIn: 0
+		});
+
+		$month = $( '#custom-month' ).html( cal.getMonthName() ),
+		$year = $( '#custom-year' ).html( cal.getYear() );
+
+		$( '#custom-next' ).on( 'click', function() {
+			cal.gotoNextMonth( updateMonthYear );
+		} );
+		$( '#custom-prev' ).on( 'click', function() {
+			cal.gotoPreviousMonth( updateMonthYear );
+		} );
+		$( '#custom-current' ).on( 'click', function() {
+			cal.gotoNow( updateMonthYear );
+		} );
+
+		function updateMonthYear() {				
+			$month.html( cal.getMonthName() );
+			$year.html( cal.getYear() );
+		}
+	});
+	</script>
+</body>
+</html>

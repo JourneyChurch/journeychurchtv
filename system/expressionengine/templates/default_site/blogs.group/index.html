@@ -1,0 +1,86 @@
+{embed="_includes/header" tags="{exp:channel:entries channel='Blog' limit='1' dynamic='on'}<meta property='og:type' content='blog' /><meta property='og:image' content='http://journeychurch.tv/_img/journeychurch.jpg'/><meta property='og:title' content='{title}'/><meta property='og:description' content='{exp:remove_html}{blog-body}{/exp:remove_html}'/>{/exp:channel:entries}" title="{if segment_2}{exp:channel:entries channel='Blog' dynamic='yes'}{title}{/exp:channel:entries}{if:else}Blogs{/if}" bar="yes"}
+
+{if segment_2 == ""}
+	<div class="title-bar blogs-featured">
+		<div class="container">
+			<div class="grid_12">
+				{exp:channel:entries channel="Blog" orderby="date" sort="desc" category="30"}
+					<h2><strong>Featured:</strong> {title} <span>{if {entry_date format='%Y'} != "1991"}{entry_date format="%F %j, %Y"}{/if} {if blog-author}by {blog-author}{/if}</span></h2>
+					{exp:word_limit total="60"}
+						{exp:remove_html}
+							<p>{blog-body}</p>
+						{/exp:remove_html}
+					{/exp:word_limit}
+					<a href="/blogs/{url_title}" class="pull-right"><button class="no-margin-l">Read More</button></a>
+				{/exp:channel:entries}
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="container clearfix">
+		<div class="grid_12">
+			{exp:channel:entries channel="Blog" orderby="date" sort="desc" category="not 30"}
+				<div class="blog-entry">
+					<h2><a href="/blogs/{url_title}">{title}</a> <span>{if {entry_date format='%Y'} != "1991"}{entry_date format="%F %j, %Y"}{/if} {if blog-author}by {blog-author}{/if}</span></h2>
+	
+					{exp:word_limit total="60"}
+						{exp:remove_html}
+							<p>{blog-body}</p>
+						{/exp:remove_html}
+					{/exp:word_limit}
+					<a href="/blogs/{url_title}" class="pull-right"><button class="no-margin-l">Read More</button></a>
+					<div class="clear"></div>
+				</div>
+			{/exp:channel:entries}
+		</div>
+	</div>
+{if:else}
+	{exp:channel:entries channel="Blog" dynamic="yes"}
+		<div class="title-bar blog-title">
+			<div class="container">
+				<div class="grid_12">
+					<h2>{title}</h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div class="container clearfix">
+			<div class="grid_12">
+				{if {entry_date format='%Y'} != "1991"}
+					<p class="blog-writtenby"><strong>Written 
+					on 
+					{if {entry_date format='%Y'} == '{theyear}'}
+						{entry_date format="%F %j"}
+					{if:else}
+						{entry_date format="%F %j, %Y"}
+					{/if}
+					{if blog-author}
+						by {blog-author}</strong></p>
+					{/if}
+				{/if}
+				<div class="blog-entry">
+					{blog-body}
+				</div>
+				<div class="blog-comments">
+					<div id="fb-root"></div>
+					<script>(function(d, s, id) {
+					  var js, fjs = d.getElementsByTagName(s)[0];
+					  if (d.getElementById(id)) return;
+					  js = d.createElement(s); js.id = id;
+					  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1738425909630038";
+					  fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));</script>
+				
+					<div class="fb-like" data-href="http://journeychurch.tv/blogs/{url_title}" data-send="true" data-width="450" data-show-faces="false"></div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	{/exp:channel:entries}
+{/if}
+
+{embed="_includes/footer"}

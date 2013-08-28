@@ -1,0 +1,189 @@
+{!-- 
+	1. Fix player images (using snippet too)
+	 
+	6. Add download links
+	7. Add Watch/Listen options
+	8. ADD (ee) jump to sermon JW Player time marker
+--}
+
+{embed="_includes/header" title="{if segment_2==""}Media{if:else}{exp:channel:entries channel='media' dynamic='on' limit='1'}{title}{/exp:channel:entries}{/if}" bar="yes"}
+{!-- Stream Monkey Player Helpers --}
+<script type="text/javascript" src="http://www.streammonkey.com/_js/jwplayer.js"></script>
+
+{if segment_2 == ""}
+	<div class="title-bar media-title">
+		<div class="container">
+			<div class="grid_12">
+				<h2>All Media</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container media clearfix">
+		{exp:channel:entries channel="series" sort="desc" orderby="series-start" dynamic="no"}
+			{!--}
+			{if url_title == "stand-alone"}
+				{parents channel="media"}
+					<div class="grid_4 series">
+						<a href="/media/{parents:url_title}">
+							{if parents:media-img}<img src="{parents:media-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+						</a>
+					</div>
+				{/parents}
+			{--}
+			<div class="grid_4 series">
+				<a href="/series/{url_title}">
+					{if series-img}<img src="{series-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+				</a>
+			</div>
+		{/exp:channel:entries}
+		<div class="clear"></div>
+	</div>
+{if:else}
+	{exp:channel:entries channel="Media" dynamic="on" limit="1"}
+		<?php 
+			/* Get the series for this entry */
+			$theseries = "{media-series}{media-series:url_title}{/media-series}";
+		?>
+		<div class="title-bar media-title" {media-series}{if media-series:series-color}style="background-color:{media-series:series-color}"{/if}{/media-series}>
+			<div class="container mobile-media">
+				<div class="grid_12">
+					<h2>{title}</h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	{/exp:channel:entries}
+	<div class="container">
+		<div class="media clearfix">
+			<div class="grid_8">
+				{exp:channel:entries channel="Media" dynamic="on" limit="1"}
+					{if media-video}
+					<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/">Adobe Flash</a>.</div>
+						<script type="text/javascript"> 
+						// Player provided by StreamMonkey.com
+							jwplayer("vid{entry_id}").setup({					   
+							    'autostart': 'false',
+								'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
+							    'width': '100%',
+								'menu': 'false',
+								'aspectratio': '16:9',
+								'image': '{media-series}{media-series:series-img}{/media-series}',
+							    'plugins': {
+							    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+							   	},
+							    'modes': [{
+							    	'type':'flash',
+							    	'src': 'http://www.streammonkey.com/_jw/player.swf',
+									config: {
+										'provider': 'rtmp',
+										'playlistfile': 'http://www.streammonkey.com/stream_playlist/{media-video-id}'
+									}
+							    },
+								{'type': 'html5',
+									config:  {
+										'file': 'http://vod1.streammonkey.com:1935/journey/_definst_/mp4:amazons3/cdn.streammonkey.com/journey/{media-video}/playlist.m3u8'
+									}
+							    }]	
+							});
+						</script>
+						<div class="clear"></div>
+					{!-- YouTube --}
+					{if:elseif media-youtube && media-video == ""}
+					<div id="full-only">
+						<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/">Adobe Flash</a>.</div>
+					</div>
+					<div id="mobile-only">
+						<iframe class="youtube-player" type="text/html" width="100%" height="200" 
+						src="http://www.youtube.com/embed/{media-youtube}" frameborder="0">
+						</iframe>
+					</div>
+						<script type="text/javascript">
+						// Player provided by StreamMonkey.com
+							jwplayer("vid{entry_id}").setup({					   
+							    'autostart': 'false',
+								'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
+								'height': '360px',
+							    'width': '100%',
+								'menu': 'false',
+								'aspectratio': '16:9',
+								'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
+								'image': '{media-series}{media-series:series-img}{/media-series}',
+							    'plugins': {
+							    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+							   	},		    
+							    'modes': [{
+							    	'type':'flash',
+							    	'src': 'http://www.streammonkey.com/_jw/player.swf'
+							    }]
+							});
+						</script>
+						<div class="clear"></div>
+					{!-- Vimeo --}
+					{if:elseif media-vimeo && media-youtube == "" && media-video == ""}
+					<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/">Adobe Flash</a>.</div>
+						<script type="text/javascript"> 
+						// Player provided by StreamMonkey.com
+							jwplayer("vid{entry_id}").setup({					   
+							    'autostart': 'false',
+								'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
+								'height': '360px',
+							    'width': '100%',
+								'menu': 'false',
+								'aspectratio': '16:9',
+								'type': 'http://www.streammonkey.com/_jw/vimeo.swf',
+								'file': 'http://vimeo.com/{media-vimeo}',
+							    'image': '{media-series}{media-series:series-img}{/media-series}',
+							    'plugins': {
+							    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+							   	},		    
+							    'modes': [{
+							    	'type':'flash',
+							    	'src': 'http://www.streammonkey.com/_jw/player.swf',
+							    }]
+							});
+						</script>
+						<div class="clear"></div>
+					{/if}
+				{/exp:channel:entries}
+				<div class="clear"></div>
+			</div>
+			
+			{exp:channel:entries channel="Media" dynamic="on" limit="1"}
+				<div class="grid_4">
+						<p>{media-desc}</p>
+						<br>
+						{if media-speaker}<p><strong>Speaker:</strong> {media-speaker}</p>{/if}
+						{if media-date}<p><strong>Date:</strong> {media-date format="%F %j, %Y"}</p>{/if}
+				</div>
+				<div class="clear"></div>
+			{/exp:channel:entries}
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	{exp:channel:entries channel="Media" limit="1" dynamic="on" category="not 4"}
+		{!-- CKEDITOR - it's down here so it's only looped in when cat4 isn't present --}
+		<script src="/themes/ckeditor/ckeditor.js"></script>
+		<script src="/themes/ckeditor/adapters/jquery.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			CKEDITOR.replace('mediaNotes', {
+				uiColor: '#ffffff'
+			})
+		});
+		</script>
+		
+		{!-- Notes --}
+		<div id="full-only" class="container clearfix">
+			<div class="grid_12 media-notes">						
+				<textarea name="message" id="mediaNotes" class="ckeditor">{if media-notes}{media-notes}{/if}</textarea>
+			</div>
+		</div>
+		
+		{!-- Other Experiences --}
+		{embed="_component/media-series" series="<?=$theseries?>"}
+		
+	{/exp:channel:entries}
+{/if}
+{embed="_includes/footer"}

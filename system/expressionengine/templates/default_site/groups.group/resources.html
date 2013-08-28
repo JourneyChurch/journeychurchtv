@@ -1,0 +1,14 @@
+{embed="_includes/header" title="Life Group Resources"}
+
+<div class="container clearfix">
+	<div class="grid_3">
+		{embed="_component/sidebar-groups"}
+	</div>
+	<div class="grid_9">
+		{exp:channel:entries channel="pages" url_title="life-group-resources"}
+			{page-body}
+		{/exp:channel:entries}
+	</div>
+</div>
+
+{embed="_includes/footer"}
