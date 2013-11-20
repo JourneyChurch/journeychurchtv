@@ -4,14 +4,15 @@
 {if service_live == "true"}
 	<iframe src='http://www.streammonkey.com/iframe/1254' width='480' height='270' frameborder='0'></iframe>
 {if:else}
-	<script type="text/javascript" src="http://www.streammonkey.com/_js/jwplayer.js"></script>
+	<script type="text/javascript" src="/_js/jwplayer.js"></script>
+	<script type="text/javascript">jwplayer.key="kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";</script>
 	
 	{exp:channel:entries channel="Media" category="9" limit="1" orderby="media-date" sort="desc"}
 		{if media-video}
 		<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/" target="_blank">Adobe Flash</a>.</div>
 			<script type="text/javascript"> 
 			// Player provided by StreamMonkey.com
-				jwplayer("vid{entry_id}").setup({					   
+				jwplayer("vid{entry_id}").setup({
 				    'autostart': 'false',
 					'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
 				    'width': '480',
@@ -40,30 +41,30 @@
 			<div class="clear"></div>
 		{!-- YouTube --}
 		{if:elseif media-youtube}
-			<iframe width="480" height="270" src="//www.youtube-nocookie.com/embed/{media-youtube}" frameborder="0" allowfullscreen></iframe>
-			{!-- Stream Monkey Helper}
-			<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/" target="_blank">Adobe Flash</a>.</div>
+			<div style="max-width:480px!important">
+				<div id="vid{entry_id}">
+					<iframe class="mobile-vid" type="text/html" height="270" width="480" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
+				</div>
+			</div>
 			<script type="text/javascript">
-			// Player provided by StreamMonkey.com
 				jwplayer("vid{entry_id}").setup({					   
 				    'autostart': 'false',
-					'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
-					'height': '270',
-				    'width': '480',
+				    'width': '480px',
 					'menu': 'false',
 					'aspectratio': '16:9',
 					'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
 					'image': '{media-series}{media-series:series-img}{/media-series}',
+					'abouttext': 'JourneyChurch.tv Media',
+					'aboutlink': 'http://journeychurch.tv/media',
 				    'plugins': {
 				    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
-				   	},		    
+				   	},    
 				    'modes': [{
 				    	'type':'flash',
-				    	'src': 'http://www.streammonkey.com/_jw/player.swf'
+				    	'src': '/_js/jwplayer.flash.swf'
 				    }]
 				});
 			</script>
-			{--}
 			<div class="clear"></div>
 		{/if}
 	{/exp:channel:entries}
