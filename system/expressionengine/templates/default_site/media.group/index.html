@@ -10,8 +10,8 @@
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "12217aef-f07e-464d-8757-03bfdb881858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
 
-{!-- Stream Monkey Player Helpers --}
-<script type="text/javascript" src="http://www.streammonkey.com/_js/jwplayer.js"></script>
+<script type="text/javascript" src="/_js/jwplayer.js"></script>
+<script type="text/javascript">jwplayer.key="kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";</script>
 
 {if segment_2 == ""}
 	<div class="title-bar media-title">
@@ -66,38 +66,61 @@
 			<div class="grid_8">
 				{exp:channel:entries channel="Media" dynamic="on" limit="1"}
 					{if media-video}
-						<iframe src='http://www.streammonkey.com/iframe/{media-video-id}' width='640' height='360' frameborder='0'></iframe>
+					<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/">Adobe Flash</a>.</div>
+						<script type="text/javascript"> 
+						// Player provided by StreamMonkey.com
+							jwplayer("vid{entry_id}").setup({					   
+							    'autostart': 'false',
+							    'width': '100%',
+								'menu': 'false',
+								'aspectratio': '16:9',
+								'image': '{media-series}{media-series:series-img}{/media-series}',
+							    'plugins': {
+							    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+							   	},
+							    'modes': [{
+							    	'type':'flash',
+							    	'src': '/_js/jwplayer.flash.swf',
+									config: {
+										'provider': 'rtmp',
+										'playlistfile': 'http://www.streammonkey.com/stream_playlist/{media-video-id}'
+									}
+							    },
+								{'type': 'html5',
+									config:  {
+										'file': 'http://vod1.streammonkey.com:1935/journey/_definst_/mp4:amazons3/cdn.streammonkey.com/journey/{media-video}/playlist.m3u8'
+									}
+							    }]	
+							});
+						</script>
 						<div class="clear"></div>
 					{!-- YouTube --}
 					{if:elseif media-youtube && media-video == ""}
-						<iframe width="640" height="360" src="//www.youtube-nocookie.com/embed/{media-youtube}" frameborder="0" allowfullscreen></iframe>
-						{!-- SM PLAYER VERSION}
-						<div style="max-width:650px!important">
-							<div id="vid{entry_id}">
-								<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
-							</div>
+					<div style="max-width:650px!important">
+						<div id="vid{entry_id}">
+							<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
 						</div>
-							<script type="text/javascript">
-							// Player provided by StreamMonkey.com
-								jwplayer("vid{entry_id}").setup({					   
-								    'autostart': 'false',
-									'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
-									'height': '360px',
-								    'width': '100%',
-									'menu': 'false',
-									'aspectratio': '16:9',
-									'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
-									'image': '{media-series}{media-series:series-img}{/media-series}',
-								    'plugins': {
-								    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
-								   	},		    
-								    'modes': [{
-								    	'type':'flash',
-								    	'src': 'http://www.streammonkey.com/_jw/player.swf'
-								    }]
-								});
-							</script>
-						{--}
+					</div>
+						<script type="text/javascript">
+							jwplayer("vid{entry_id}").setup({					   
+							    'autostart': 'false',
+								'height': '360px',
+							    'width': '100%',
+								'menu': 'false',
+								'aspectratio': '16:9',
+								'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
+								'image': '{media-series}{media-series:series-img}{/media-series}',
+								'abouttext': 'JourneyChurch.tv Media',
+								'aboutlink': 'http://journeychurch.tv/media',
+							    'plugins': {
+							    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+							   	},    
+							    'modes': [{
+							    	'type':'flash',
+							    	'src': '/_js/jwplayer.flash.swf'
+							    }]
+							});
+						</script>
 						<div class="clear"></div>
 					{!-- Vimeo --}
 					{if:elseif media-vimeo && media-youtube == "" && media-video == ""}
@@ -111,12 +134,11 @@
 			{exp:channel:entries channel="Media" dynamic="on" limit="1"}
 				<div class="grid_4">
 					{if media-desc}<p>{media-desc}</p><br>{/if}
-					{if media-speaker}<p><strong>Speaker:</strong> {media-speaker}</p>{if !media-date}<br>{/if}{/if}
+					{if media-speaker}<p><strong>Speaker:</strong> {media-speaker}</p>{/if}
 					{if media-date}<p><strong>Date:</strong> {media-date format="%F %j, %Y"}</p><br>{/if}
 					<span class='st_fblike_hcount' displayText='Facebook Like'></span>
 					<span class='st_facebook_hcount' displayText='Facebook'></span>
 					<span class='st_twitter_hcount' st_title='Just watched "{title}" from @JourneyChurchtv:' displayText='Tweet'></span>
-						
 				</div>
 				<div class="clear"></div>
 			{/exp:channel:entries}
