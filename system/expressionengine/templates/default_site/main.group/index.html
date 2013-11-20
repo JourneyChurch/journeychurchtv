@@ -6,7 +6,7 @@
 <script src="/_js/slides.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-<div id="full-only">	
+<div id="full-only">
 	<div class="slides-container">
 		<div id="slides">
 			{exp:channel:entries channel="slides"}
@@ -41,7 +41,7 @@
 								Latest Message
 							</div>
 							<figcaption>
-								<p>{title}</p>
+								<p>{if media-shrt-title}{media-shrt-title}{if:else}{title}{/if}</p>
 							</figcaption>
 						</a>
 					{/exp:channel:entries}
@@ -92,6 +92,7 @@
 	
 	<img src="/_img/newtojourney.png">
 	<br><br>
+	
 	<div class="container clearfix">
 		{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
 			<a href="/media/{url_title}">
@@ -130,16 +131,17 @@
 	<div id="full-only" class="grid_8">
 		<div class="happening">
 			<h2>Happening This Week <a href="/calendar"><i class="icon-chevron-sign-right pull-right"></i></a></h2>
-			
+
 			<div id="cal-week">
 				<ul class="cal-week-choices">
-					<li><a href="#day-sun">25<span>Sunday</span></a></li>
-					<li><a href="#day-mon">26<span>Monday</span></a></li>
-					<li><a href="#day-tues">27<span>Tuesday</span></a></li>
-					<li><a href="#day-wed">28<span>Wednesday</span></a></li>
-					<li><a href="#day-thurs">29<span>Thursday</span></a></li>
-					<li><a href="#day-fri">30<span>Friday</span></a></li>
-					<li><a href="#day-sat">31<span>Saturday</span></a></li>
+					<?php date_default_timezone_set('America/Chicago'); ?>
+					<li id="cal-week-box"><a href="#day-sun"><?php echo date('j', strtotime(date('Y-m-d')." Sunday last week"));?><span>Sunday</span></a></li>
+					<li id="cal-week-box"><a href="#day-mon"><?php echo date('j', strtotime(date('Y-m-d')." Monday this week"));?><span>Monday</span></a></li>
+					<li id="cal-week-box"><a href="#day-tues"><?php echo date('j', strtotime(date('Y-m-d')." Tuesday this week"));?><span>Tuesday</span></a></li>
+					<li id="cal-week-box"><a href="#day-wed"><?php echo date('j', strtotime(date('Y-m-d')." Wednesday this week"));?><span>Wednesday</span></a></li>
+					<li id="cal-week-box"><a href="#day-thurs"><?php echo date('j', strtotime(date('Y-m-d')." Thursday this week"));?><span>Thursday</span></a></li>
+					<li id="cal-week-box"><a href="#day-fri"><?php echo date('j', strtotime(date('Y-m-d')." Friday this week"));?><span>Friday</span></a></li>
+					<li id="cal-week-box"><a href="#day-sat"><?php echo date('j', strtotime(date('Y-m-d')." Saturday this week"));?><span>Saturday</span></a></li>
 					<div class="clear"></div>
 				</ul>
 				<div class="clear"></div>
@@ -148,27 +150,30 @@
 			  			8:30am - <a href="/locations">Worship Experience</a><br>
 						10:00am - <a href="/locations">Worship Experience</a><br>
 						11:30am - <a href="/locations">Worship Experience</a><br>
-						3:00pm - <a href="/calendar/event/f419a98c-a5e3-45c4-a498-a20c01695cce">M(e)3.20 Retreat</a><br>
-						6:00pm - <a href="/locations">Worship Experience</a>
+						12:00pm - <a href="/calendar/event/09bc4c42-75bc-4c73-8fae-a22100bed889">Starting Point</a><br>
+						4:00pm - <a href="/calendar/event/42d391f1-f3ee-430c-86e5-a1dc00e980b4">Overdrive</a><br>
+						6:00pm - <a href="/locations">Worship Experience</a><br>
 					</div>
 					<div id="day-mon">
-			  			No events listed for the day
+						6:00am - <a href="/calendar/event/f8a05783-32f8-4e25-8abb-a22100d87ecf">Men's Fraternity</a><br>
+						9:00am - <a href="/calendar/event/f98c33bc-6193-4cf2-8602-a1dc00a9537f">Overdrive</a><br>
 					</div>
 					<div id="day-tues">
-						7:00am - <a href="/calendar/event/bb7a7caf-a437-4ced-9ff7-a1b001075a88">JBL Breakfast</a><br>
-						9:00pm - <a href="/connect/collegejourney">Lifestream - College Worship Experience</a>
+						9:00pm - <a href="/connect/college-journey">Lifestream - College Worship Experience</a>
 					</div>
 					<div id="day-wed">
-			  			6:30pm - <a href="/calendar/event/c113a8b0-5aff-4167-9d9a-a21200bbaded">Student Journey</a>
+						6:00pm - <a href="/calendar/event/53d2be88-d265-4ce4-aa5b-a1dc00ac00b4">Overdrive</a><br>
+						6:30pm - <a href="/connect/students">Student Journey</a><br>
+						7:00pm - <a href="/calendar/event/5138bc35-af07-446b-9d07-a222010aef6b">56 Experience</a>
 					</div>
 					<div id="day-thurs">
-			  			No events listed for the day
+						6:00pm - <a href="/calendar/event/a4a42160-ec96-4838-a429-a1dc00af0fff">Overdrive</a><br>
 					</div>
 					<div id="day-fri">
-			  			No events listed for the day
+						No events listed for the day
 					</div>
 					<div id="day-sat">
-			  			No events listed for the day
+			  			6:00pm - <a href="/calendar/event/55dd2c43-af84-4cf6-8650-a25100afdbb9">Parent Child Dedication Dinner</a>
 					</div>
 				</div>
 			</div>
@@ -177,6 +182,19 @@
 	<div class="grid_4">
 		<div class="latest">
 			<h2>Latest News and Updates</h2>
+			
+			<div id="mobile-only">
+				{!-- Include the slider details on mobile --}
+				{exp:channel:entries channel="slides" category="not 32"}
+				<div class="latest-entry">
+					<h3>{if slides-link}<a href="{slides-link}">{/if}{title}{if slides-link}</a>{/if}</h3>
+					{if slides-details}
+						<p>{slides-details}</p>
+					{/if}
+				</div>
+				{/exp:channel:entries}
+			</div>
+
 			{exp:channel:entries channel="Latest" orderby="date" sort="desc"}
 				<div class="latest-entry">
 					<h3>{if latest-link}<a href="{latest-link}">{/if}{title}{if latest-link}</a>{/if}</h3>
@@ -190,11 +208,16 @@
 	<div class="clear"></div>
 </div>
 <script>
-  $(function() {
-	  var d = new Date();
-	  var n = d.getDay();
-	  $( "#cal-week" ).tabs({ active: n });
-  });
+  	$(function() {
+  		  var d = new Date();
+  		  var n = d.getDay();
+  		  $( "#cal-week" ).tabs({ active: n });
+  	});
+	$("#cal-week-box").click(function(){
+	     window.location=$(this).find("a").attr("href"); 
+	     return false;
+	});
+	
 </script>
 <script src="/_js/toucheffects.js"></script>
 {embed="_includes/footer"}

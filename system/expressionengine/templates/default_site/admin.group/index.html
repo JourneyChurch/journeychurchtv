@@ -1,102 +1,6 @@
 {embed="_includes/header" title="Admin Panel"}
 
-<script type="text/javascript">
-$(document).ready(function() {
-	StartServiceLiveCheck();
-});
-
-function StartServiceLiveCheck() {
-	UpdateServiceLiveCheck();
-	setTimeout("StartServiceLiveCheck()", 5000);
-}
-
-function UpdateServiceLiveCheck() {
-	$.ajax({
-		url: "/_component/islive",
-		success: function(data) {
-			if (data.indexOf("true") != -1) {
-				$("#service_live").html("<button style='background-color:#7f3e19;'><a onclick='confirm_turn_service_off()'>Experience is LIVE</a></button>");
-			}
-			else {
-				$("#service_live").html("<button class='pull-right'><a onclick='confirm_turn_service_on()'>Experience is OFF</a></button>");
-			}
-		}
-	});
-}
-
-function confirm_turn_service_on() {
-	var r=confirm("Are you sure you want to turn the experience ON?");
-	if (r==true) { 
-		$.ajax({ 
-			url: "/_component/turn_service/on/"
-		}).done(function(data) {
-				if (data.indexOf("Only") != -1) {
-					ShowTextModal(data);
-				}
-				UpdateServiceLiveCheck();			
-			});
-	}
-}
-
-function confirm_turn_service_off() {
-	var r=confirm("Are you sure you want to turn the experience OFF?");
-	if (r==true) { 
-		$.ajax({ 
-			url: "/_component/turn_service/off/"
-		}).done(function(data) { 
-				if (data.indexOf("Only") != -1) {
-					ShowTextModal(data);
-				}
-				UpdateServiceLiveCheck(); 
-			});
-	}
-}
-</script>
-
-<!-- Chartbeat Code -->
-<script type="text/javascript">
-$(document).ready(function() {
-	StartChartbeat();
-});
-
-function StartChartbeat() {
-	UpdateChartbeat();
-	setTimeout("StartChartbeat()", 5000);
-}
-
-function UpdateChartbeat() {
-	var current_pages_html;
-	var title; 
-	
-	$.getJSON('/_scripts/chartbeat.php?type=current_pages', function(json) {
-		current_pages_html = "";
-		for (i = 0; i < json.length; i++) {
-			if (json[i].i.length > 55) { title = json[i].i.substring(0,55) + "…"; }
-			else { title = json[i].i; }
-			
-			if (title.length) {
-				if (json[i].visitors > 1) {
-					current_pages_html += json[i].visitors + " viewers - <strong><a target='_blank' href='http://" + json[i].path + "'>" + title + "</a></strong><br>";
-				}
-				else {
-					current_pages_html += json[i].visitors + " viewer - <strong><a target='_blank' href='http://" + json[i].path + "'>" + title + "</a></strong><br>";
-				}
-			}
-		}
-		
-		$("#current_pages").html(current_pages_html.substring(0, current_pages_html.length - 4));		
-	});
-	
-	$.getJSON('/_scripts/chartbeat.php?type=quick_stats', function(json) {
-		$("#total_visitors").html(json.people);
-	});
-	
-	$.getJSON('/_scripts/chartbeat.php?type=geo', function(json) {
-		$("#geo").html(json.countries);
-	});
-}
-</script>
-<!-- End Chartbeat Code -->
+{embed="_component/admin-tools"}
 
 <div class="container">
 	<div style="margin-bottom:15px;border-bottom:1px solid #eee">
@@ -109,19 +13,21 @@ function UpdateChartbeat() {
 			<h2 id="total_visitors" style="font-size:36px">0</h2>
 			<p style="font-size:12px">Visitors</p>
 		</div>
+		{!-- SM Stats}
+		<div>
+			<h2 id="connections" style="font-size:36px">0</h2>
+			<p style="font-size:12px">Connections (SM)</p>
+		</div>
+		{--}
 	</div>
 	<div class="grid_10">
 		<h3>Most Active Pages</h1>
 		<div class="clear"></div>
-		<div class="series-divider"></div>
-		<p id="current_pages">Loading…</p>
 		
-		<hr>
-		
-		<p id="geo">Loading...</p>
-		
+		<p id="current_pages">Loading Most Active Pages…</p>
 		<div class="clear"></div>
 	</div>
+	<div class="clear"></div>
 </div>
 
 {embed="_includes/footer"}

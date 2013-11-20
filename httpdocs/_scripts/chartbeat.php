@@ -4,7 +4,6 @@
 	    $ch = curl_init(); 
 	
 		if ($_GET['type'] == 'current_pages') {
-		    // set url 
 		    curl_setopt($ch, CURLOPT_URL, "http://api.chartbeat.com/live/toppages/?host=journeychurch.tv&limit=10&apikey=a61ecd0a22efbd09b2d176c08050c81a"); 
 	    }
 	    else if ($_GET['type'] == 'quick_stats') {

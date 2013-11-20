@@ -58,7 +58,7 @@ class CI_DB_active_record extends CI_DB_driver {
 	var $ar_cache_having		= array();
 	var $ar_cache_orderby		= array();
 	var $ar_cache_set			= array();
-	
+
 	var $ar_no_escape 			= array();
 	var $ar_cache_no_escape		= array();
 
@@ -441,7 +441,7 @@ class CI_DB_active_record extends CI_DB_driver {
 
 					$v = ' '.$this->escape($v);
 				}
-				
+
 				if ( ! $this->_has_operator($k))
 				{
 					$k .= ' = ';
@@ -570,11 +570,12 @@ class CI_DB_active_record extends CI_DB_driver {
 			$this->ar_wherein[] = $this->escape($value);
 		}
 
-		$prefix = (count($this->ar_where) == 0) ? '' : $type;
+		$prefix = (count($this->ar_where) == 0 AND count($this->ar_cache_where) == 0) ? '' : $type;
 
 		$where_in = $prefix . $this->_protect_identifiers($key) . $not . " IN (" . implode(", ", $this->ar_wherein) . ") ";
 
 		$this->ar_where[] = $where_in;
+
 		if ($this->ar_caching === TRUE)
 		{
 			$this->ar_cache_where[] = $where_in;
@@ -998,7 +999,7 @@ class CI_DB_active_record extends CI_DB_driver {
 	}
 
 	// --------------------------------------------------------------------
-	
+
 	/**
 	 * "Count All Results" query
 	 *
@@ -1160,7 +1161,7 @@ class CI_DB_active_record extends CI_DB_driver {
 				$this->ar_set[] = array();
 				return;
 			}
-		
+
 			ksort($row); // puts $row in the same order as our keys
 
 			if ($escape === FALSE)
@@ -1357,7 +1358,7 @@ class CI_DB_active_record extends CI_DB_driver {
 		{
 			if ($this->db_debug)
 			{
-				return $this->display_error('db_myst_use_index');
+				return $this->display_error('db_must_use_index');
 			}
 
 			return FALSE;
@@ -1690,7 +1691,7 @@ class CI_DB_active_record extends CI_DB_driver {
 	 * @access	private
 	 * @return	string
 	 */
-	function _compile_select($select_override = FALSE)
+	function _compile_select($select_override = FALSE, $protect_identifiers = TRUE)
 	{
 		// Combine any cached components with the current statements
 		$this->_merge_cache();
@@ -1716,9 +1717,12 @@ class CI_DB_active_record extends CI_DB_driver {
 				// Cycle through the "select" portion of the query and prep each column name.
 				// The reason we protect identifiers here rather then in the select() function
 				// is because until the user calls the from() function we don't know if there are aliases
-				foreach ($this->ar_select as $key => $val)
+				if ($protect_identifiers)
 				{
-					$this->ar_select[$key] = $this->_protect_identifiers($val, FALSE, $this->ar_no_escape[$key]);
+					foreach ($this->ar_select as $key => $val)
+					{
+						$this->ar_select[$key] = $this->_protect_identifiers($val, FALSE, $this->ar_no_escape[$key]);
+					}
 				}
 
 				$sql .= implode(', ', $this->ar_select);
@@ -1988,7 +1992,7 @@ class CI_DB_active_record extends CI_DB_driver {
 		{
 			$this->_track_aliases($this->ar_from);
 		}
-		
+
 		$this->ar_no_escape = $this->ar_cache_no_escape;
 	}
 

@@ -1,26 +1,62 @@
-{embed="_includes/header" title="Life Groups"}
+{embed="_includes/header" title="{if segment_2}{exp:channel:entries channel='Blog' dynamic='yes' category='26'}{title}{/exp:channel:entries}{if:else}Life Groups{/if}" {if segment_2}bar="yes"{/if}}
 
-<div class="container clearfix">
-	<div class="grid_3">
-		{embed="_component/sidebar-groups"}
-	</div>
-	<div class="grid_9">
-		<div class="banner">
-			<span data-picture data-alt="Life Groups">
-				<span data-src="/_img/theology-small.png"></span>
-				<span data-src="/_img/theology.png" data-media="(min-width: 465px)"></span>
-
-				<!-- Fallback content for non-JS browsers -->
-				<noscript><img src="/_img/theology-small.png" alt="Our Theology"></noscript>
-			</span>
+{if segment_2==""}
+	<div class="container clearfix">
+		<div class="grid_3">
+			{embed="_component/sidebar-groups"}
 		</div>
-
-		{exp:channel:entries channel="Pages" url_title="groups"}
-			<div class="fancy-page">
-				{page-body}
+		<div class="grid_9">
+			<div class="banner">
+				<span data-picture data-alt="Life Groups">
+					<span data-src="/_img/theology-small.png"></span>
+					<span data-src="/_img/theology.png" data-media="(min-width: 465px)"></span>
+	
+					<!-- Fallback content for non-JS browsers -->
+					<noscript><img src="/_img/theology-small.png" alt="Our Theology"></noscript>
+				</span>
 			</div>
-		{/exp:channel:entries}
+	
+			{exp:channel:entries channel="Pages" url_title="groups"}
+				<div class="fancy-page">
+					{page-body}
+				</div>
+			{/exp:channel:entries}
+		</div>
 	</div>
-</div>
+{if:else}
+	{exp:channel:entries channel="Blog" dynamic="yes" category="26"}
+		<div class="title-bar">
+			<div class="container">
+				<div class="grid_12">
+					<h2>{title}</h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div class="container clearfix">
+			<div class="grid_12">
+				{if {entry_date format='%Y'} != "1991"}
+					<p class="blog-writtenby"><strong>Written 
+					on 
+					{if {entry_date format='%Y'} == '{theyear}'}
+						{entry_date format="%F %j"}
+					{if:else}
+						{entry_date format="%F %j, %Y"}
+					{/if}
+					{if blog-author}
+						by {blog-author}</strong></p>
+					{/if}
+				{/if}
+				<div class="blog-entry">
+					{blog-body}
+				</div>
+			</div>
+		</div>
+		{if no_results}
+			{redirect="groups/index"}
+		{/if}
+	{/exp:channel:entries}
+{/if}
 
 {embed="_includes/footer"}

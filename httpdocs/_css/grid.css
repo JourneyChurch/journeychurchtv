@@ -226,5 +226,9 @@ Licensed under GPL and MIT
 	.container .pull_9, .container .pull_10,
 	.container .pull_11	{
 		left: 0;
-	}	
+	}
+	.nopad {
+		padding: 0!important;
+		margin: 0!important;
+	}
 }

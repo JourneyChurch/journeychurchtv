@@ -675,7 +675,11 @@ class CI_Email {
 	 */
 	public function subject($subject)
 	{
-		$subject = $this->_prep_q_encoding($subject);
+		if (preg_match('/[^\x20-\x7E]/', $subject))
+		{
+			$subject = $this->_prep_q_encoding($subject);			
+		}
+
 		$this->set_header('Subject', $subject);
 		return $this;
 	}
@@ -1509,7 +1513,7 @@ class CI_Email {
 	{
 		$str = str_replace(array("\r", "\n"), '', $str);
 
-		if ($this->charset === 'UTF-8')
+		if (strtoupper($this->charset) === 'UTF-8')
 		{
 			if (MB_ENABLED === TRUE)
 			{
@@ -1795,6 +1799,12 @@ class CI_Email {
 		if ($this->smtp_host === '')
 		{
 			$this->_set_error_message('lang:email_no_hostname');
+			return FALSE;
+		}
+		
+		if ( ! is_numeric($this->smtp_port) OR $this->smtp_port < 0)
+		{
+			$this->_set_error_message('lang:email_no_port');
 			return FALSE;
 		}
 

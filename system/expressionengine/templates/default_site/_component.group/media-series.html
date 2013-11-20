@@ -3,15 +3,12 @@
 		<div class="grid_12">
 			<h2>Experiences in this series:</h2>
 		</div>
-			{parents channel="media" sort="asc" orderby="media-date"}
+			{parents channel="media" sort="desc" orderby="media-date"}
 				<div class="grid_3 series-ind">
 					<a href="/media/{parents:url_title}" {if series-color}style="color:{series-color}"{/if}>
 						<img src="{if parents:media-img}{parents:media-img:med}{if:elseif series-img}{series-img:med}{if:else}/_img/media/_med/BROKEN.png{/if}">
-						{if parents:url_title == segment_2}
-							<strong>{parents:title}</strong>
-						{if:else}
-							{parents:title}
-						{/if}
+						<strong>{parents:title}</strong><br>
+						{parents:media-date format="%F %j, %Y"}
 					</a>
 				</div>
 			{/parents}

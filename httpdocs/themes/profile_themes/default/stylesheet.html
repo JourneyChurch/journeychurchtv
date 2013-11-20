@@ -1,3 +1,34 @@
+
+/*
+	Default Body
+------------------------------------------------------ */
+body {
+	margin:			0;
+	padding:			0;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			11px;
+	color:				#38394B;
+	background-color:	#fff;
+}
+/*
+	Default Links
+------------------------------------------------------ */
+a {
+	text-decoration:	none;
+	color:				#5F6C74;
+	background-color:	transparent;
+}
+
+.profileMenu a {
+	font-weight:		bold;
+}
+
+a:hover {
+	color:				#E11842;
+	text-decoration:	underline;
+	background-color:	transparent;
+}
+
 /*
 	Main Content Wrapper
 ------------------------------------------------------ */
@@ -17,7 +48,16 @@
 	Basic stuff
 ------------------------------------------------------ */
 
+p {
+	background:		transparent;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			11px;
+	color:				#38394B;
+}
+
 .default, .defaultBold, .defaultRight, .defaultCenter {
+	background:		transparent;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#38394B;
 }
@@ -34,12 +74,55 @@
 text-align: center;
 }
 
+.header {
+	background:		#74779D url({path:image_url}bg_profile_heading.jpg) repeat-x left top;
+	color:				#fff;
+	padding:			5px;
+	border:			1px solid #7B81A9;
+	margin:			0 0 10px 0;
+}
+
+h1 {
+	font-family:		Georgia, Times New Roman, Times, Serif, Arial;
+	font-size:			16px;
+	font-weight:		bold;
+	letter-spacing:	.05em;
+	color:				#fff;
+	margin:			0;
+	padding:			0;
+}
+
+h2 {
+	background:		transparent;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			13px;
+	color:				#38394B;
+	margin:			0 0 6px 0;
+}
+
+h3 {
+	background:		transparent;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			12px;
+	color:				#38394B;
+	margin:			3px 0 3px 0;
+}
+
 .lighttext {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			10px;
 	color:				#8F9A9C;
+	padding:			4px 0 2px 0;
+	background-color:	transparent;
 }
 
 .success {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			11px;
 	color:				#009933;
+	font-weight:		bold;
+	padding:			3px 0 3px 0;
+	background-color:	transparent;
 }
 
 /*
@@ -52,8 +135,11 @@ text-align: center;
 }
 
 .heading {
-	font-size: 24px;
-	color: #fff;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:24px;
+	font-weight:normal;
+	color:				#fff;
+	background-color:	transparent;
 	padding: 0 27px;
 }
 
@@ -71,6 +157,8 @@ text-align: center;
 	Breadcrumb Links
 ------------------------------------------------------ */
 .breadcrumb {
+	background-color:	transparent;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	margin:			3px 0 3px 0;
 }
@@ -153,11 +241,13 @@ padding: 0 0 0 4px;
 }
 
 .profileTitle {
+	font-family:		Tahoma, Verdana, Geneva, Trebuchet MS, Arial, Sans-serif;
 	font-size:			14px;
 	font-weight:		bold;
 	color:				#000;
 	padding:			3px 5px 3px 0;
 	margin:			0;
+	background-color: transparent;	
 }
 
 .profilePhoto {
@@ -194,12 +284,16 @@ padding: 0 0 0 4px;
 }
 
 .profileItem {
+	background:		transparent;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#38394B;
 	margin:			2px 0 2px 0;
+	background-color: transparent;	
 }
 
 .profileHead {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			10px;
 	font-weight:		bold;
 	text-transform:	uppercase;
@@ -208,6 +302,20 @@ padding: 0 0 0 4px;
 	background-color:	#29333B;
 	margin:			0 0 0 0;
 	border-bottom:			1px solid #98A5AD;
+}
+
+.menuHeadingBG, .tableHeadingBG, .profileHeadingBG, tableRowHeading, .tableRowHeadingBold, #memberlist thead {
+	background:		#95A5AE;
+	color:				#fff;
+	padding:			6px 6px 6px 6px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	text-shadow:		0 1px 0 #666666;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:20px;
+	font-weight:normal;
 }
 
 #memberlist {
@@ -241,6 +349,7 @@ padding: 0 0 0 4px;
 }
 
 .menuItem {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	padding:			3px 0;
 	background-color:	transparent;
 }
@@ -256,6 +365,8 @@ padding: 0 0 0 4px;
 
 .altLinks {
 	color:				#fff;
+	background:		transparent;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 }
 .altLinks a:link {
@@ -277,6 +388,7 @@ padding: 0 0 0 4px;
 /*
 .memberlistRowOne {
 	background: #FBFBFC url({path:image_url}bg_table_td_one.jpg) repeat-x left top;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#38394B;
 	padding:			3px 6px 3px 6px;
@@ -287,6 +399,7 @@ padding: 0 0 0 4px;
 }
 .memberlistRowTwo {
 	background: #F0F0F0 url({path:image_url}bg_table_td_two.jpg) repeat-x left top;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#38394B;
 	padding:			3px 6px 3px 6px;
@@ -297,6 +410,7 @@ padding: 0 0 0 4px;
 }
 
 .memberlistHead {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	font-weight:		bold;
 	background:		#74779D url({path:image_url}bg_profile_heading.jpg) repeat-x left top;
@@ -306,6 +420,7 @@ padding: 0 0 0 4px;
 }
 
 .memberlistFooter {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#000;
 	padding:			6px 10px 6px 6px;
@@ -358,6 +473,7 @@ padding: 0 0 0 4px;
 /*
 .tableRowHeading, .tableRowHeadingBold {
 	background: #C9CAE2 url({path:image_url}bg_table_row_heading.jpg) repeat-x left top;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#404055;
 	padding:			8px 10px 8px 6px;
@@ -373,6 +489,7 @@ font-weight: bold;
 /*
 .tableCellOne, .memberlistRowOne {
 	background: #F0F0F2 url({path:image_url}bg_table_td_one.jpg) repeat-x left top;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#38394B;
 	padding:			3px 6px 3px 6px;
@@ -383,6 +500,7 @@ font-weight: bold;
 }
 .tableCellTwo, .memberlistRowTwo {
 	background: #EDEEF3 url({path:image_url}bg_table_td_two.jpg) repeat-x left top;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#38394B;
 	padding:			3px 6px 3px 6px;
@@ -411,6 +529,7 @@ font-weight: bold;
 	}
 .paginate {
 	background:			#ECF1F4 url({path:image_url}bg_table_td_one.jpg) repeat-x left top;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#000;
 	border-right:		1px solid #98A5AD;
@@ -421,6 +540,7 @@ font-weight: bold;
 
 .paginateStat {
 	background:			#ECF1F4;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#5F6C74;
 	border-left:		1px solid #98A5AD;
@@ -431,6 +551,7 @@ font-weight: bold;
 
 .paginateCur {
 	background:			#ECF1F4 url({path:image_url}bg_table_td_one.jpg) repeat-x left top;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#5F6C74;
 	font-weight:		bold;
@@ -476,6 +597,7 @@ form {
 .input {
 	border:			1px solid #98A5AD;
 	color:			#333;
+	font-family:	Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:		11px;
 	height:			1.7em;
 	padding:		0;
@@ -484,13 +606,16 @@ form {
 .textarea {
 	border:			1px solid #98A5AD;
 	color:				#333;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	padding:			0;
 	margin:			0;
 }
 .select {
 	background-color:	#fff;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
+	font-weight:		normal;
 	letter-spacing:	.1em;
 	color:				#333;
 	margin-top:		2px;
@@ -501,6 +626,7 @@ form {
 	border-left:		1px solid #999999;
 	background-color:	#fff;
 	color:				#333;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	margin-top:		2px;
 	margin-top:		2px;
@@ -513,12 +639,15 @@ form {
 	border:			0;
 }
 .checkbox {
+	background-color:	transparent;
 	padding:			0;
 	border:			0;
 }
 /*
 .buttons {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
+	font-weight:		bold;
 	border-top:		1px solid #9EA3D5;
 	border-left:		1px solid #9EA3D5;
 	border-right:		1px solid #000;
@@ -532,7 +661,9 @@ form {
 }
 */
 .submit, .buttons {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
+	font-weight:		bold;
 	border:				1px solid #F72A58;
 	letter-spacing:	.1em;
 	margin:			0;
@@ -548,9 +679,10 @@ form {
 ------------------------------------------------------ */
 
 .alert {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			11px;
 	color:				#990000;
-	font-weight:		700;
+	font-weight:		bold;
 }
 
 .highlight {
@@ -558,12 +690,42 @@ form {
 }
 
 /*
+	Page Footer
+------------------------------------------------------ */
+#footer {
+	clear:				both;
+	text-align:		center;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			9px;
+	color:				#8F9A9C;
+	line-height:		15px;
+	margin-top:			20px;
+	margin-bottom:		15px;
+	background: #2A333A;
+}
+
+#footer a {
+	color:				#CCCCCC
+}
+
+/*
+	Copyright notice
+------------------------------------------------------ */
+.copyright {
+	text-align:		center;
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
+	font-size:			9px;
+	color:				#999;
+	margin-top:		15px;
+	margin-bottom:		15px;
+}
 
 /*
 	Formatting Buttons
 ------------------------------------------------------ */
 
 .buttonMode {
+	font-family:		Verdana, Geneva, Tahoma, Trebuchet MS, Arial, Sans-serif;
 	font-size:			10px;
 	color:				#73769D;
 	background-color:	transparent;
@@ -590,8 +752,9 @@ form {
 	border-bottom:		#ccc 1px solid;
 }
 .htmlButtonOff {
+	font-family:		Verdana, Arial, Trebuchet MS, Tahoma, Sans-serif;
 	font-size:			11px;
-	font-weight:		500;
+	font-weight:		bold;
 	padding:			1px 2px 2px 2px;
 	white-space:		nowrap;
 }
@@ -612,8 +775,9 @@ form {
 	color:				#999;
 }
 .htmlButtonOn {
+	font-family:		Verdana, Arial, Trebuchet MS, Tahoma, Verdana, Sans-serif;
 	font-size:			11px;
-	font-weight:		500;
+	font-weight:		bold;
 	background:		#f6f6f6;
 	padding:			1px 2px 2px 2px;
 	white-space:		nowrap;

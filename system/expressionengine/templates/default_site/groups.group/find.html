@@ -7,7 +7,28 @@
 		{embed="_component/sidebar-groups"}
 	</div>
 	<div class="grid_9">
-		<div id="groups"></div>
+		<div class="groups-filter">
+			<ul>
+				<li>SORT BY:</li>
+				<li {if segment_3=='' OR segment_3=='all'}class="active"{/if}><a href="/groups/find/all">All Groups</a></li>
+				<li {if segment_3=='adult'}class="active"{/if}><a href="/groups/find/adult">Adult</a></li>
+				<li {if segment_3=='classes'}class="active"{/if}><a href="/groups/find/classes">Classes</a></li>
+				<li {if segment_3=='college'}class="active"{/if}><a href="/groups/find/college">College</a></li>
+				<li {if segment_3=='students'}class="active"{/if}><a href="/groups/find/students">Student Journey</a></li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		{if segment_3 == "" OR segment_3 == "all"}
+			<div id="allGroups"></div>
+		{if:elseif segment_3 == "adult"}
+			<div id="groups"></div>
+		{if:elseif segment_3 == "classes"}
+			<div id="classes"></div>
+		{if:elseif segment_3 == "students"}
+			<div id="students"></div>
+		{if:elseif segment_3 == "college"}
+			<div id="college"></div>
+		{/if}
 	</div>
 	<div class="clear"></div>
 </div>
@@ -56,14 +77,57 @@
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
 	<script src="/themes/third_party/acs_bridge/acsView.js"></script>
-	<script type="text/javascript">
-	$(window).load(function() {
-		$("#groups").acsView({
-			template: '/acs/lifegroups',
-			trigger: '.pop',
-			showNav: false,
+	
+	{if segment_3 == "" OR segment_3 == "all"}
+		<script type="text/javascript">
+		$(window).load(function() {
+			$("#allGroups").acsView({
+				template: '/acs/allgroups',
+				trigger: '.pop',
+				showNav: false,
+			});
 		});
-	});
-	</script>
+		</script>
+	{if:elseif segment_3 == "groups" OR segment_3 == "adult"}
+		<script type="text/javascript">
+		$(window).load(function() {
+			$("#groups").acsView({
+				template: '/acs/lifegroups',
+				trigger: '.pop',
+				showNav: false,
+			});
+		});
+		</script>
+	{if:elseif segment_3 == "college"}
+		<script type="text/javascript">
+		$(window).load(function() {
+			$("#college").acsView({
+				template: '/acs/college',
+				trigger: '.pop',
+				showNav: false,
+			});
+		});
+		</script>
+	{if:elseif segment_3 == "students"}
+		<script type="text/javascript">
+		$(window).load(function() {
+			$("#students").acsView({
+				template: '/acs/students',
+				trigger: '.pop',
+				showNav: false,
+			});
+		});
+		</script>
+	{if:elseif segment_3 == "classes"}
+		<script type="text/javascript">
+		$(window).load(function() {
+			$("#classes").acsView({
+				template: '/acs/classes',
+				trigger: '.pop',
+				showNav: false,
+			});
+		});
+		</script>
+	{/if}
 </body>
 </html>

@@ -4,8 +4,8 @@ $active_group = 'expressionengine';
 $active_record = TRUE;
 
 $db['expressionengine']['hostname'] = 'localhost';
-$db['expressionengine']['username'] = 'journeychurchtv';
-$db['expressionengine']['password'] = 'j0urney3801';
+$db['expressionengine']['username'] = 'root';
+$db['expressionengine']['password'] = 'root';
 $db['expressionengine']['database'] = 'ee_';
 $db['expressionengine']['dbdriver'] = 'mysql';
 $db['expressionengine']['pconnect'] = FALSE;
@@ -16,7 +16,7 @@ $db['expressionengine']['cache_on'] = FALSE;
 $db['expressionengine']['autoinit'] = FALSE;
 $db['expressionengine']['char_set'] = 'utf8';
 $db['expressionengine']['dbcollat'] = 'utf8_general_ci';
-$db['expressionengine']['cachedir'] = '/var/www/vhosts/journeychurch.tv/httpdocs/system/expressionengine/cache/db_cache/';
+$db['expressionengine']['cachedir'] = '/Applications/MAMP/htdocs/journeychurch.tv/httpdocs/system/expressionengine/cache/db_cache/';
 
 /* End of file database.php */
 /* Location: ./system/expressionengine/config/database.php */

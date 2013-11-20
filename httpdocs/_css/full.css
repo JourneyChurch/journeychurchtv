@@ -271,3 +271,20 @@
 	#cal-week li a, #cal-week li a:hover {
 		text-decoration: none!important;
 	}
+	
+	/* Groups */
+	.groups-filter {
+		margin-bottom: 15px;
+	}
+	.groups-filter ul li.active {
+		text-decoration: underline;
+	}
+	.groups-filter ul li {
+		list-style-type: none;
+		float: left;
+		padding: 0 10px;
+		font-size: 16px;
+	}
+	.groups-filter ul li:first-child {
+		padding-left: 0;
+	}

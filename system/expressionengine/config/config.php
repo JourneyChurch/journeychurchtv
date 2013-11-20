@@ -11,19 +11,21 @@
 |
 */
 
-$config['app_version'] = '261';
+$config['app_version'] = "272";
 $config['install_lock'] = "";
 $config['license_number'] = "2839-0301-3052-3653";
 $config['debug'] = "1";
-$config['cp_url'] = 'http://journeychurch.tv/system.php';
+$config['cp_url'] = 'http://journeychurch.dev/system.php';
 $config['doc_url'] = "http://ellislab.com/expressionengine/user-guide/";
 $config['is_system_on'] = "y";
 $config['allow_extensions'] = 'y';
 $config['site_label'] = 'JourneyChurch.tv';
-$config['cookie_prefix'] = "journeychurchtv";
+$config['cookie_prefix'] = "journeydev";
 
+$config['tz_country'] = "us";
 
 // END EE config items
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +38,7 @@ $config['cookie_prefix'] = "journeychurchtv";
 |	http://example.com/
 |
 */
-$config['base_url']	= 'http://journeychurch.tv/';
+$config['base_url']	= 'http://journeychurch.dev/';
 
 /*
 |--------------------------------------------------------------------------
@@ -327,3 +329,9 @@ $config['proxy_ips'] = "";
 
 /* End of file config.php */
 /* Location: ./system/expressionengine/config/config.php */
+
+$config['cookie_prefix'] = "journeydev";
+$config['cookie_path'] = '';
+$config['cookie_domain'] = '';
+$config['user_session_type'] = 'c';
+$config['admin_session_type'] = 's';

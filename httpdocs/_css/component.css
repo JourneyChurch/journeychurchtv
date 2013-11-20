@@ -355,6 +355,9 @@
 		background-image: url(/_img/bg-texture.jpg);
 		background-repeat: repeat;
 	}
+	.boxes figcaption p {
+		font-size:11px;
+	}
 	
 	.boxes ul, .boxes menu {
 		-webkit-margin-before: 0;

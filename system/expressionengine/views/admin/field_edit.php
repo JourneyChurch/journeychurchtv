@@ -1,6 +1,6 @@
 <?php extend_template('default') ?>
 
-<?=form_open('C=admin_content'.AMP.'M=field_update', '', $form_hidden)?>
+<?=form_open('C=admin_content'.AMP.'M=field_edit', '', $form_hidden)?>
 
 	<table class="mainTable padTable" cellspacing="0" cellpadding="0" border="0">
 	<thead>
@@ -13,26 +13,48 @@
 	<tbody>
 		<tr>
 			<td width="40%">
-				<strong><?=lang('field_type')?></strong> 
+				<strong><?=lang('field_type')?></strong>
+				<?=form_error('field_type')?>
 			</td>
 			<td>
-				<?=form_dropdown('field_type', $field_type_options, $field_type, 'id="field_type"')?>
+				<?=form_dropdown(
+					'field_type',
+					$field_type_options,
+					set_value('field_type', $field_type),
+					'id="field_type"'
+				)?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?=required().form_label(lang('field_label'), 'field_label')?><br /><?=lang('field_label_info')?>
+				<?=form_error('field_label')?>
 			</td>
 			<td>
-				<?=form_input(array('id'=>'field_label','name'=>'field_label','class'=>'fullfield','value'=>$field_label))?>
+				<?=form_input(
+					array(
+						'id'	=> 'field_label',
+						'name'	=> 'field_label',
+						'class'	=> 'fullfield',
+						'value'	=> set_value('field_label', $field_label)
+					)
+				)?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?=required().form_label(lang('field_name'), 'field_name')?><br /><?=lang('field_name_cont')?>
+				<?=form_error('field_name')?>
 			</td>
 			<td>
-				<?=form_input(array('id'=>'field_name','name'=>'field_name','class'=>'fullfield','value'=>$field_name))?>
+				<?=form_input(
+					array(
+						'id'	=> 'field_name',
+						'name'	=> 'field_name',
+						'class'	=> 'fullfield',
+						'value'	=> set_value('field_name', $field_name)
+					)
+				)?>
 			</td>
 		</tr>
 		<tr>
@@ -81,9 +103,17 @@
 		<tr>
 			<td>
 				<?=lang('field_order', 'field_order')?>
+				<?=form_error('field_order')?>
 			</td>
 			<td>
-				<?=form_input(array('id'=>'field_order','name'=>'field_order', 'size'=>4,'value'=>$field_order))?>
+				<?=form_input(
+					array(
+						'id'	=> 'field_order',
+						'name'	=> 'field_order',
+						'size'	=> 4,
+						'value'	=> set_value('field_order', $field_order)
+					)
+				)?>
 			</td>
 		</tr>
 	</tbody>
@@ -92,7 +122,7 @@
 	<?php foreach ($field_type_tables as $ft => $data):?>
 
 		<div id="ft_<?=$ft?>" class="js_hide">
-		
+
 		<?php
 			if (is_array($data))
 			{
@@ -109,9 +139,9 @@
 		?>
 
 		</div>
-	
+
 	<?php endforeach;?>
 
 	<p><?=form_submit('field_edit_submit', lang($submit_lang_key), 'class="submit"')?></p>
-	
+
 <?=form_close()?>

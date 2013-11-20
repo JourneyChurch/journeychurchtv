@@ -1,0 +1,57 @@
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+	<channel>
+		<lastBuildDate>{current_time format="%D, %j %Y %h:%i:%s"}</lastBuildDate>
+		<title>
+			JourneyChurch.tv Podcast
+		</title>
+		<itunes:author>JourneyChurch.tv</itunes:author>
+		<link>http://journeychurch.tv</link>
+		<description>
+			JourneyChurch is a house committed to transforming our cities ... one life at a time.
+		</description>
+		<itunes:subtitle/>
+		<itunes:summary>
+			JourneyChurch is a house committed to transforming our cities ... one life at a time.
+		</itunes:summary>
+		<itunes:email>connect@journeychurch.tv</itunes:email>
+		<language>en</language>
+		<copyright/>
+		<image>
+			<url>http://journeychurch.tv/_img/journeychurch.jpg</url>
+			<title>
+				JourneyChurch.tv Podcast
+			</title>
+			<link>http://journeychurch.tv</link>
+			<width>144</width>
+			<height>144</height>
+		</image>
+		<itunes:image href="http://journeychurch.tv/_img/journeychurch.jpg"/>
+		<category>Christianity</category>
+		<itunes:category text="Religion &amp; Spirituality">
+			<itunes:category text="Christianity"/>
+		</itunes:category>
+		<itunes:explicit>no</itunes:explicit>
+		{exp:channel:entries channel="Media"}
+			{exp:low_replace find="&" replace="&amp;"}
+				<item>
+					<title>{title}</title>
+					<itunes:author>{media-speaker}</itunes:author>
+					<description>{media-desc}</description>
+					<itunes:subtitle>{media-speaker} ({media-date format="%D, %j %Y"})</itunes:subtitle>
+					<itunes:summary>
+						{media-desc}
+					</itunes:summary>
+					<enclosure url="{media-podcast}" length="{media-duration}" type="audio/mpeg" />
+					<guid>
+						{media-podcast}
+					</guid>
+					<pubDate>{entry_date format="%D, %j %Y %h:%i:%s"}</pubDate>
+					<category>{categories}{category_name}{/categories}</category>
+					<itunes:explicit>no</itunes:explicit>
+					<itunes:duration>{media-duration}</itunes:duration>
+					<link>http://journeychurch.tv/media/{url_title}</link>
+				</item>
+			{/exp:low_replace}
+		{/exp:channel:entries}
+	</channel>
+</rss>

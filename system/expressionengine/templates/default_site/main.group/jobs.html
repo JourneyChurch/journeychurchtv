@@ -1,0 +1,20 @@
+{embed="_includes/header" title="Jobs" bar="yes"}
+
+<div class="title-bar about-alt">
+	<div class="container">
+		<div class="grid_12">
+			<h2>Jobs at JourneyChurch.tv</h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="container clearfix">
+	<div class="grid_12 fancy-page">
+		{exp:channel:entries channel="Pages" url_title="jobs" limit="1"}
+			{page-body}
+		{/exp:channel:entries}
+	</div>
+</div>
+
+{embed="_includes/footer"}

@@ -57,7 +57,7 @@ class Content_files extends CP_Controller {
 		$this->cp->add_to_head($this->view->head_link('css/file_browser.css'));
 
 		// Get upload dirs
-		$upload_dirs = $this->filemanager->fetch_upload_dirs();
+		$upload_dirs = $this->filemanager->fetch_upload_dirs(array('ignore_site_id' => FALSE));
 
 		foreach ($upload_dirs as $row)
 		{
@@ -216,7 +216,7 @@ class Content_files extends CP_Controller {
 		// fileuploader depends on filebrowser's methods
 		$this->cp->add_js_script(array(
 			'plugin'	=> array(
-				'overlay', 'overlay.apple', 'ee_filebrowser', 'ee_fileuploader'
+				'overlay', 'ee_filebrowser', 'ee_fileuploader'
 			),
 			'file'		=> 'cp/files/file_manager_home',
 			'ui' 		=> array('datepicker', 'dialog')
@@ -371,12 +371,27 @@ class Content_files extends CP_Controller {
 				if (strncmp($file['mime_type'], 'image', 5) === 0)
 				{
 					$is_image = $this->filemanager->is_editable_image($file_path, $file['mime_type']);
-					
-					$r['file_name'] = '<a class="less_important_link overlay" id="img_'.str_replace(array(".", ' '), '', $file['file_name']).'" href="'.$file_location.'" title="'.$file['file_name'].'" rel="#overlay">'.$file['file_name'].'</a>';
+
+					$r['file_name'] = anchor(
+						$file_location,
+						$file['file_name'],
+						array(
+							'class'	=> 'less_important_link overlay',
+							'id'	=> 'img_'.str_replace(array(".", ' '), '', $file['file_name']),
+							'rel'	=> '#overlay'
+						)
+					);
 				}
 				else
 				{
-					$r['file_name'] = $file['file_name'];
+					$r['file_name'] = anchor(
+						$file_location,
+						$file['file_name'],
+						array(
+							'class'		=> 'less_important_link',
+							'target'	=> '_blank'
+						)
+					);
 				}
 
 				$r['mime_type'] = $file['mime_type'];
@@ -1188,7 +1203,6 @@ class Content_files extends CP_Controller {
 		$replace_sizes = array();
 		$db_sync = ($this->input->post('db_sync') == 'y') ? 'y' : 'n';
 		
-
 		// If file exists- make sure it exists in db - otherwise add it to db and generate all child sizes
 		// If db record exists- make sure file exists -  otherwise delete from db - ?? check for child sizes??
 
@@ -1244,7 +1258,7 @@ class Content_files extends CP_Controller {
 		// @todo, bail if there are no files in the directory!  :D
 
 		$files = $this->filemanager->fetch_files($id, $current_files, TRUE);
-		
+
 		// Setup data for batch insert
 		foreach ($files->files[$id] as $file)
 		{
@@ -1290,10 +1304,7 @@ class Content_files extends CP_Controller {
 			}
 
 			// Does it exist in DB?
-			$query = $this->db->get_where('files', array(
-				'file_name' => $file['name'],
-				'upload_location_id' => $id
-			));
+			$query = $this->file_model->get_files_by_name($file['name'], $id);
 
 			if ($query->num_rows() > 0)
 			{
@@ -2719,4 +2730,3 @@ class Content_files extends CP_Controller {
 }
 /* End File: content_files.php */
 /* File Location: system/expressionengine/controllers/cp/content_files.php */
-

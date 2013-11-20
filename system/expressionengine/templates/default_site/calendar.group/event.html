@@ -2,11 +2,17 @@
 
 <link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/dialog.css" />
 
-{if segment_3 == "girlfriends" OR segment_3 == "fe912d67-96cc-4ebb-8bf1-a2270116da6b"}
-	{embed="_component/event-girlfriends"}
-{if:elseif segment_3 == "200b2fd7-72ec-43ad-9486-a2270129740f"}
-	{embed="_component/event-launchu"}
+{if segment_3 == "baptism" OR segment_3 == "44566ffe-b5dc-4c0b-a35c-a20c00c06a5e"}
+	{embed="_component/event-baptism"}
+{if:elseif segment_3 == "awakening" OR segment_3 == "771eb5ea-c3e8-4e87-a034-a19600d8946a"}
+	{embed="_component/event-awakening"}
+{if:elseif segment_3 == "1d01bc14-403e-451e-bd5a-a24500d2888a"}
+	{embed="_component/event-radiantretreat"}
+{if:elseif segment_3 == "ba626fae-1fc6-4a37-9e71-a26d00bd9d05" OR segment_3 == "mustacheretreat"}
+	{embed="_component/event-mustacheretreat"}
+{if:elseif segment_3 == "614d668e-c590-4ae9-b7c3-a24900d90f84"}
+		{embed="_component/event-jlifall"}
 {if:else}
-<div id="event"></div>
+	<div id="event"></div>
 {/if}
 {embed="_includes/event_footer"}
