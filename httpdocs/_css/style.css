@@ -535,6 +535,14 @@ ul.side-nav {
 	margin-top: 10px;
 	margin-bottom: 15px;
 }
+.media-desc {
+	position: relative;
+	min-height: 360px;
+}
+	.media-desc-btm {
+		position: absolute;
+		bottom: 0;
+	}
 .media-notes input {
 	margin: 10px 0;
 }
