@@ -28,6 +28,9 @@
 	.album-details {
 		margin-top: 30px;
 	}
+	#albumHolder {
+		margin-top: 20px;
+	}
 	@media only screen and (min-width: 769px) {
 		h2.arvil {
 			font-size: 52px;
@@ -140,7 +143,25 @@
 				<p>Christmas carols are story songs that we all know. They tell the same story of simply a babe in a manger. The vision behind the record is exactly the name: Simply Christmas. We wanted to create a record that conveys, in a fresh way, the story we all know and all need so desperately. And we wanted to have a blast doing it so the listener would have a blast hearing it!</p><br>
 			</div>
 		<div class="grid_7">
+			<?php 
+			$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+			if (false !== strpos($url,'NOEL1213')) {
+				include('downloads/album_preview.php');
+			} else {
+			    echo "Sorry, that doesn't seem to exists.";
+			}
+			?>
+			<div>
+				<strong style="float:left;padding-top:3px;margin-right:10px">Have a free song download code?</strong>
+				<form id="thefreecodes" style="float:left">
+					<input id="freecode" name="freecode" type="text" class="txt" placeholder="enter it here" size="25" tabindex="1" style="padding:5px">
+				</form>
+				<div class="clear"></div>
+			</div>
+			
 			<div id="albumHolder">
+				<h3>Pre-Order the Album</h3>
 				<div id="wufoo-wa5r3ru1gm37fb">
 				Fill out my <a href="https://journeydreamteam.wufoo.com/forms/wa5r3ru1gm37fb">online form</a>.
 				</div>
