@@ -2,42 +2,20 @@
 	body {margin:0;}
 </style>
 {if service_live == "true"}
-	<iframe src='http://www.streammonkey.com/iframe/1254' width='480' height='270' frameborder='0'></iframe>
+	{if '{current_time == "%G"}' > '13'}
+		{!--This is for SUNDAY MORNINGS to use the DVR function - use 'Akamai DVR' on encoder --}
+		<iframe src='http://www.streammonkey.com/iframe/1254' width='480' height='270' frameborder='0'></iframe>
+	{if:else}
+		{!-- This is for EVERYTHING ELSE like Sunday evenings or Lifestream - use 'Akamai LIVE' on encoder --}
+		<iframe src='http://www.streammonkey.com/iframe/1482' width='480' height='270' frameborder='0'></iframe>
+	{/if}
 {if:else}
 	<script type="text/javascript" src="/_js/jwplayer.js"></script>
 	<script type="text/javascript">jwplayer.key="kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";</script>
 	
 	{exp:channel:entries channel="Media" category="9" limit="1" orderby="media-date" sort="desc"}
 		{if media-video}
-		<div id="vid{entry_id}">Please install <a href="http://get.adobe.com/flashplayer/" target="_blank">Adobe Flash</a>.</div>
-			<script type="text/javascript"> 
-			// Player provided by StreamMonkey.com
-				jwplayer("vid{entry_id}").setup({
-				    'autostart': 'false',
-					'skin': 'http://www.streammonkey.com/_jw/Nacht/elements.xml',
-				    'width': '480',
-					'height': '270',
-					'menu': 'false',
-					'aspectratio': '16:9',
-					'image': '{media-series}{media-series:series-img}{/media-series}',
-				    'plugins': {
-				    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
-				   	},
-				    'modes': [{
-				    	'type':'flash',
-				    	'src': 'http://www.streammonkey.com/_jw/player.swf',
-						config: {
-							'provider': 'rtmp',
-							'playlistfile': 'http://www.streammonkey.com/stream_playlist/{media-video-id}'
-						}
-				    },
-					{'type': 'html5',
-						config:  {
-							'file': 'http://vod1.streammonkey.com:1935/journey/_definst_/mp4:amazons3/cdn.streammonkey.com/journey/{media-video}/playlist.m3u8'
-						}
-				    }]	
-				});
-			</script>
+		<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='480' height='270' frameborder='0'></iframe>
 			<div class="clear"></div>
 		{!-- YouTube --}
 		{if:elseif media-youtube}
