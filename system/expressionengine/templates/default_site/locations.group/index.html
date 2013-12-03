@@ -33,10 +33,10 @@
 		<div class="grid_12">
 			<br><br>
 			{if service_live == "true"}
-			<h2 style="text-align:center"><a href="http://live.journeychurch.tv">Join us live online right now!</a></h2>
+				<h2 style="text-align:center"><a href="http://live.journeychurch.tv">Join us live online right now!</a></h2>
 			{if:else}
-			<h3>Can't join us in person?</h2>
-			<p><strong><a href="http://live.journeychurch.tv" target="_blank">Join us live online</a> during all of our experience times.</strong></p>
+				<h3>Can't join us in person?</h2>
+				<p><strong><a href="http://live.journeychurch.tv" target="_blank">Join us live online</a> during all of our experience times.</strong></p>
 			{/if}
 		</div>
 	</div>
@@ -51,7 +51,7 @@
       ];
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
+        zoom: 15,
         center: new google.maps.LatLng(35.3105644, -97.4944153),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
@@ -88,7 +88,8 @@
         //  Fit these to the map
         map.fitBounds(bounds);
       }
-      AutoCenter();
+      //AutoCenter();
+      map.panTo(marker.getPosition());
 </script>
 
 
