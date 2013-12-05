@@ -35,7 +35,7 @@
 {if:else}
 	{exp:channel:entries channel="Media" dynamic="on" limit="1"}
 		<meta name="title" content="{title}">
-		<meta name="description" content="{exp:remove_html}{media-desc}{/exp:remove_html}">
+		<meta name="og:description" content="{exp:remove_html}{media-desc}{/exp:remove_html}">
 		<meta property="og:url" content="http://JourneyChurch.tv/media/{url_title}">
 		<meta property="og:type" content="video" /> 
 		<?php 
