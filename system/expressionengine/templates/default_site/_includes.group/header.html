@@ -65,7 +65,13 @@
 		{!-- Full Page Top --}
 		<div id="navigation">
 			<div class="top">
-				<div id="countdown_contain"></div>
+				{!-- Site announcement/alerts take priority over countdown --}
+				{if site-alert != ""}
+					{embed="_component/alert"}
+				{if:else}
+					<div id="countdown_contain"></div>
+				{/if}
+				
 				{if embed:bar == 'yes'}
 					<div class="bar-enabled">
 				{if:elseif embed:bar == 'no'}			
