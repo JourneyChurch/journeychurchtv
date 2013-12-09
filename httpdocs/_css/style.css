@@ -97,11 +97,21 @@ button.registration {
 	padding: 20px;
 	font-size: 14px;
 }
+button.large {
+	width: 100%;
+	padding: 20px 0;
+	font-size: 20px;
+	margin: 0;
+}
 button.extra-large {
 	width: 100%;
 	padding: 20px 0;
 	font-size: 28px;
 	margin: 0;
+}
+
+.breaker {
+	margin: 20px 0;
 }
 
 .extra-margin {
