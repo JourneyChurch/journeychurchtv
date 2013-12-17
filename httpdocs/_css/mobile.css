@@ -3,7 +3,7 @@
 	#navigation {display:none;}
 	#full-only {display:none;}
 	#mobile {position:fixed;width:100%;z-index:9999;}
-	.mobile-spacer {height:70px;}
+	.mobile-spacer {height:65px;}
 	
 	.ei-title{
 		position: absolute;
