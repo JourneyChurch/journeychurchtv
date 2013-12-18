@@ -92,7 +92,7 @@
 							console.log(data)
 						},
 						success: function (data) {
-							console.log(data);
+							//console.log(data);
 							$('#loader').fadeOut('slow').remove();
 							$('#' + settings.listId).hide().html(data.output + '<div class="' + settings.overlay + '"></div><div class="' + settings.dialog + '"></div>').fadeTo('slow', 1);
 							
