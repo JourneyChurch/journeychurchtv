@@ -5,35 +5,48 @@
 
 <div class="countdown">
 	<div class="container">
-	   	{if service_live=="true"}
-	   		<a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a>
-	   	{if:else}
 		<div id="churchonline_counter">
 			<div class="live"><a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a></div>
 			<div class="notlive">
 			  Our next online worship experience is in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span> <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
 			</div>
 		</div>
-	   	{/if}
 	</div>
 	<div class="clear"></div>
 </div>
 
-{if service_live=="true"}
-	<script type="text/javascript">
-	jQuery(function() {
-		$('.countdown').delay(2000).animate({backgroundColor:"#7f3e19"}, 'slow');
+<script type="text/javascript">
+	$(document).ready(function() {
+		StartServiceLiveCheck();
 	});
-	</script>
-{/if}
+
+	function StartServiceLiveCheck() {
+		UpdateServiceLiveCheck();
+		setTimeout("StartServiceLiveCheck()", 5000);
+	}
+
+	function UpdateServiceLiveCheck() {
+		$.ajax({
+			url: "/_component/islive",
+			success: function(data) {
+				if (data.indexOf("true") != -1) {
+		          	$(".notlive").hide();
+		          	$(".live").fadeIn('fast');
+					$('.countdown').delay(2000).animate({backgroundColor:"#7f3e19"}, 'slow');
+				}
+				else {
+		          	$(".live").hide();
+		          	$(".notlive").fadeIn('fast');
+					$('.countdown').animate({backgroundColor:"#006f7c"}, 'slow');
+				}
+			}
+		});
+	}
+</script>
+
 <script type="text/javascript">
     //<![CDATA[
       jQuery(function() {
-        var days, goLive, hours, intervalId, minutes, seconds;
-        goLive = function() {
-          $(".notlive").hide();
-          return $(".live").show();
-        };
         days = void 0;
         hours = void 0;
         minutes = void 0;
@@ -67,6 +80,7 @@
                   }
                 }
 				
+				// Fix the numbers to make them look good
 				if (days.toString() == 1) {
                 	$("#churchonline_counter .days").html("1 day &#8226;");
 				} else {
@@ -93,7 +107,6 @@
                   $('.hoursAll').hide();
                 };
                 if (seconds === 0 && minutes === 10 && hours === 0 && days === 0) {
-                  goLive();
                   return clearInterval(intervalId);
                 }
               }, 1000);
