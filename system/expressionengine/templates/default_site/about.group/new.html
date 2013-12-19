@@ -35,7 +35,7 @@
 		
 		<div id="accordion">
 			{exp:channel:entries channel="FAQ"}
-				<h3>{title} <span class="icon-plus-sign"></span></h3>
+				<h3>{title} <span class="fa fa-plus"></span></h3>
 				<div>
 					{faq-body}
 				</div>
@@ -51,10 +51,10 @@
 			{exp:channel:entries channel="location" sort="asc" orderby="listing-priority" backspace="39"}
 				<h3>{title}</h3>
 				<h4>Campus Pastor: {location-pastor:title}</h4>
-				<p><i class="icon-time"></i> {location-times}</p>
-				<p><i class="icon-map-marker"></i>  {location-address}<br><a href="http://maps.google.com/?q={location-address}" target="_blank">(get directions)</a></p>
-				<p><i class="icon-phone"></i>  {location-phone}</p>
-				<p><i class="icon-envelope"></i> {location-email}</p>
+				<p><i class="fa fa-clock-o"></i> {location-times}</p>
+				<p><i class="fa fa-map-marker"></i>  {location-address}<br><a href="http://maps.google.com/?q={location-address}" target="_blank">(get directions)</a></p>
+				<p><i class="fa fa-phone"></i>  {location-phone}</p>
+				<p><i class="fa fa-envelope-o"></i> {location-email}</p>
 				
 				<div class="locations-separator"></div>
 			{/exp:channel:entries}

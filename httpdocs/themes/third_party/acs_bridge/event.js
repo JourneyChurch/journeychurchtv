@@ -84,7 +84,7 @@
 		if (stack1 = helpers.EventName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 		else { stack1 = depth0.EventName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 		buffer += escapeExpression(stack1)
-		+ "</h2>\n		</div>\n		<div class=\"clear\"></div>\n	</div>\n</div>\n		\n<div class=\"container clearfix\">\n	<div class=\"grid_12\">\n		<div class=\"entry fancy-page\">\n			<h2>Summary</h2>\n			<p><i class=\"icon-time med-icon\"></i> ";
+		+ "</h2>\n		</div>\n		<div class=\"clear\"></div>\n	</div>\n</div>\n		\n<div class=\"container clearfix\">\n	<div class=\"grid_12\">\n		<div class=\"entry fancy-page\">\n			<h2>Summary</h2>\n			<p><i class=\"fa fa-clock-o med-icon\"></i> ";
 		options = {hash:{},data:data};
 		buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.StartDate, options) : helperMissing.call(depth0, "dateFormat", depth0.StartDate, options)))
 		+ "</p>\n			<p> ";

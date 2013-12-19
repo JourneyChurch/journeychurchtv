@@ -9,9 +9,9 @@
 	{/if}
 	<br>
 	{if Location}
-		<p><i class="icon-map-marker"></i> {Location} {if City}in {City} {State}{/if}</p>
+		<p><i class="fa fa-map-marker"></i> {Location} {if City}in {City} {State}{/if}</p>
 	{/if}
-	<p><i class="icon-time"></i> Meets {MeetingFreq} on {MeetingDay} from {StartTime format="%g:%i%a"} to {EndTime format="%g:%i%a"}.</p>
+	<p><i class="fa fa-clock-o"></i> Meets {MeetingFreq} on {MeetingDay} from {StartTime format="%g:%i%a"} to {EndTime format="%g:%i%a"}.</p>
 	{if ChildCare == 'y'}
 		<p>Childcare is provided.</p>
 	{/if}
