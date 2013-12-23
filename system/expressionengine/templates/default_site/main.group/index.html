@@ -145,35 +145,65 @@
 					<div class="clear"></div>
 				</ul>
 				<div class="clear"></div>
-				<div class="cal-week-details">
-					<div id="day-sun">
-						9:00am - <a href="/christmas">Christmas Spectacular</a><br>
-						10:30am - <a href="/christmas">Christmas Spectacular</a><br>
-						12:00pm - <a href="/christmas">Christmas Spectacular</a><br>
-						4:30pm - <a href="/christmas">Christmas Spectacular</a><br>
-						6:00pm - <a href="/christmas">Christmas Spectacular</a>
+				{if {current_time format='%m%Y'} <= "122014"}
+					<div class="cal-week-details">
+						<div id="day-sun">
+							8:30am - <a href="/calendar/event/5a256115-06ec-4709-b5ae-a225002c34c4">Worship Experience</a><br>
+							10:00am - <a href="/calendar/event/e0d4e99e-bace-44c3-871c-a225002c9110">Worship Experience</a><br>
+							11:30am - <a href="/calendar/event/d2e253dc-595c-4a1b-904f-a225002dec86">Worship Experience</a><br>
+							6:00pm - <a href="/calendar/event/1c485663-d122-4cc3-b461-a225002e6a00">Worship Experience</a>
+						</div>
+						<div id="day-mon">
+							9:00am - <a href="/calendar/event/f98c33bc-6193-4cf2-8602-a1dc00a9537f">Overdrive</a><br>
+						</div>
+						<div id="day-tues">
+							3:00pm - <a href="/calendar/event/aaf03cf2-727d-4d49-b65d-a297012e516d">Christmas Eve Worship Experience</a><br>
+							4:30pm - <a href="/calendar/event/7319e00e-886d-4157-9db8-a297012ebf06">Christmas Eve Worship Experience</a><br>
+							6:00pm - <a href="/calendar/event/9ca1c92e-f021-4ad7-9535-a297012f0016">Christmas Eve Worship Experience</a><br>
+						</div>
+						<div id="day-wed">
+							Merry Christmas!
+						</div>
+						<div id="day-thurs">
+							No events listed for the day
+						</div>
+						<div id="day-fri">
+							No events listed for the day
+						</div>
+						<div id="day-sat">
+			  				No events listed for the day
+						</div>
 					</div>
-					<div id="day-mon">
-						9:00am - <a href="/calendar/event/f98c33bc-6193-4cf2-8602-a1dc00a9537f">Overdrive</a><br>
+				{if:else}
+					<div class="cal-week-details">
+						<div id="day-sun">
+							8:30am - <a href="/calendar/event/5a256115-06ec-4709-b5ae-a225002c34c4">Worship Experience</a><br>
+							10:00am - <a href="/calendar/event/e0d4e99e-bace-44c3-871c-a225002c9110">Worship Experience</a><br>
+							11:30am - <a href="/calendar/event/d2e253dc-595c-4a1b-904f-a225002dec86">Worship Experience</a><br>
+							6:00pm - <a href="/calendar/event/1c485663-d122-4cc3-b461-a225002e6a00">Worship Experience</a>
+						</div>
+						<div id="day-mon">
+							9:00am - <a href="/calendar/event/f98c33bc-6193-4cf2-8602-a1dc00a9537f">Overdrive</a><br>
+						</div>
+						<div id="day-tues">
+							3:00pm - <a href="/calendar/event/aaf03cf2-727d-4d49-b65d-a297012e516d">Christmas Eve Worship Experience</a><br>
+							4:30pm - <a href="/calendar/event/7319e00e-886d-4157-9db8-a297012ebf06">Christmas Eve Worship Experience</a><br>
+							6:00pm - <a href="/calendar/event/9ca1c92e-f021-4ad7-9535-a297012f0016">Christmas Eve Worship Experience</a><br>
+						</div>
+						<div id="day-wed">
+							New Year's Day
+						</div>
+						<div id="day-thurs">
+							No events listed for the day
+						</div>
+						<div id="day-fri">
+							No events listed for the day
+						</div>
+						<div id="day-sat">
+			  				No events listed for the day
+						</div>
 					</div>
-					<div id="day-tues">
-						No events listed for the day
-					</div>
-					<div id="day-wed">
-						6:00pm - <a href="/calendar/event/53d2be88-d265-4ce4-aa5b-a1dc00ac00b4">Overdrive</a><br>
-						7:00pm - <a href="/connect/students">Student Journey</a><br>
-						7:00pm - <a href="/calendar/event/5138bc35-af07-446b-9d07-a222010aef6b">56 Experience</a>
-					</div>
-					<div id="day-thurs">
-						6:00pm - <a href="/calendar/event/a4a42160-ec96-4838-a429-a1dc00af0fff">Overdrive</a><br>
-					</div>
-					<div id="day-fri">
-						No events listed for the day
-					</div>
-					<div id="day-sat">
-			  			No events listed for the day
-					</div>
-				</div>
+				{/if}
 			</div>
 		</div>
 	</div>
