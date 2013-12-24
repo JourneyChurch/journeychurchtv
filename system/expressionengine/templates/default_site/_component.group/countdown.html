@@ -8,7 +8,7 @@
 		<div id="churchonline_counter">
 			<div class="live"><a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a></div>
 			<div class="notlive">
-			  Our next online worship experience is in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span> <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
+			  <span id="eventTitle" style="color:#b7b6b1!important"></span> online experiences begin in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span> <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
 			</div>
 		</div>
 	</div>
@@ -41,6 +41,11 @@
 				}
 			}
 		});
+		goLive = function() {
+          	$(".notlive").hide();
+          	$(".live").fadeIn('fast');
+			$('.countdown').delay(2000).animate({backgroundColor:"#7f3e19"}, 'slow');
+		};
 	}
 </script>
 
@@ -108,7 +113,8 @@
                 };
                 if (seconds === 0 && minutes === 10 && hours === 0 && days === 0) {
                   return clearInterval(intervalId);
-                }
+                };
+				$("#eventTitle").html((data.response.item.title));
               }, 1000);
             }
           },
