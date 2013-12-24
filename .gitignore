@@ -3,6 +3,8 @@
 downloads/*
 email_images/*
 uploads/*
+cache/*
+/system/expressionengine/cache/*
 
 # Compiled source #
 ###################
