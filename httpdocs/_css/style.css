@@ -117,6 +117,9 @@ button.extra-large {
 .extra-margin {
 	margin: 20px 0;
 }
+.abit-margin {
+	margin: 10px 0;
+}
 .no-margin-l {
 	margin-left: 0;
 }
@@ -223,6 +226,10 @@ div.capty-caption a {
 }
 .fancy-page h3 span {
 	font-size: 12px;
+}
+.fancy-body {
+	font-family: 'aleoregular',Georgia,serif;
+	text-transform: none;
 }
 ul.side-nav {
 	-webkit-margin-before: 0;
