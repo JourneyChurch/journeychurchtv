@@ -4,7 +4,7 @@
 		this.compilerInfo = [4,'>= 1.0.0'];
 		helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 		var buffer = "", stack1, stack2, options, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
-
+		
 		function program1(depth0,data) {
   
   
@@ -79,7 +79,10 @@
 			+ "\n				";
 			return buffer;
 		}
-
+		// Set title window
+		if (stack1 = helpers.EventName) { window.parent.document.title = helpers.EventName + " - JourneyChurch.tv" }
+		else { window.parent.document.title = depth0.EventName + " - JourneyChurch.tv" }
+		
 		buffer += "<div class=\"title-bar\">\n	<div class=\"container\">\n		<div class=\"grid_12\">\n			<h2>";
 		if (stack1 = helpers.EventName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 		else { stack1 = depth0.EventName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }

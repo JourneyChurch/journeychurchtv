@@ -218,8 +218,7 @@ class Acs_bridge {
 		ee()->load->library('typography');
 		ee()->typography->initialize();
 			
-		$defaultFields = array('GroupID','ParentID','SGName','Description','CloseDate','EndDate','GroupStatus');	
-			
+		$defaultFields = array('GroupID','ParentID','SGName','Description','CloseDate','EndDate','GroupStatus');
 		$params = array(
 			'fields'			=>	ee()->TMPL->fetch_param('fields'),
 			'group_id'			=>	ee()->TMPL->fetch_param('group_id'),

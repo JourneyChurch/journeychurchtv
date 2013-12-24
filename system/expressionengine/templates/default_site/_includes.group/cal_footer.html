@@ -43,8 +43,7 @@
 	
 
 	<script type="text/javascript">
-	$(function() {
-
+	$(function() {		
 		var cal = $( '#calendar' ).calendar( {
 			onDayClick : function( $el, $contentEl, dateProperties ) {
 
@@ -58,23 +57,51 @@
 			linkTemplate: '/calendar/event',
 			startIn: 0
 		});
-
+		
+		// Set the title window to current month name
+		window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
+		
 		$month = $( '#custom-month' ).html( cal.getMonthName() ),
 		$year = $( '#custom-year' ).html( cal.getYear() );
 
 		$( '#custom-next' ).on( 'click', function() {
 			cal.gotoNextMonth( updateMonthYear );
+			// Add Giant January in der
+			checkGiantJanuary();
 		} );
 		$( '#custom-prev' ).on( 'click', function() {
 			cal.gotoPreviousMonth( updateMonthYear );
+			// Add Giant January in der
+			checkGiantJanuary();
 		} );
 		$( '#custom-current' ).on( 'click', function() {
 			cal.gotoNow( updateMonthYear );
+			// Add Giant January in der
+			checkGiantJanuary();
 		} );
 
 		function updateMonthYear() {				
 			$month.html( cal.getMonthName() );
 			$year.html( cal.getYear() );
+			// Update the window title to current month name
+			window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
+		}
+		
+		function checkGiantJanuary() {
+			if (cal.getMonthName() == "January") {
+	   			$('.custom-calendar-full h2').hide();
+				$('.custom-month').hide();
+				$('.custom-year').hide();
+				$('.custom-calendar-GiantJanuary').show();
+				$('head').append('<link rel="stylesheet" type="text/css" href="/_css/giantJanuary.css">');
+				
+			} else {
+	   			$('.custom-calendar-full h2').show();
+				$('.custom-month').show();
+				$('.custom-year').show();
+				$('.custom-calendar-GiantJanuary').hide();
+				$('link[rel=stylesheet][href~="/_css/giantJanuary.css"]').remove();
+			}
 		}
 	});
 	</script>

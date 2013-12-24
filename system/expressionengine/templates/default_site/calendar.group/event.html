@@ -13,7 +13,9 @@
 {if:elseif segment_3 == "c402db02-8496-4a68-a116-a29d01246d7c" OR segment_3 == "girlfriends"}
 	{embed="_component/event-girlfriends"}
 {if:elseif segment_3 == "614d668e-c590-4ae9-b7c3-a24900d90f84"}
-		{embed="_component/event-jlifall"}
+	{embed="_component/event-jlifall"}
+{if:elseif segment_3 == ""}
+	{redirect="calendar/index"}
 {if:else}
 	<div id="event"></div>
 {/if}

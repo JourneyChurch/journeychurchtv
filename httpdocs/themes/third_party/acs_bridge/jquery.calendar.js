@@ -46,7 +46,7 @@
 		months : [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
 		monthabbrs : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
 		// choose between values in options.weeks or options.weekabbrs
-		displayWeekAbbr : false,
+		displayWeekAbbr : true,
 		// choose between values in options.months or options.monthabbrs
 		displayMonthAbbr : false,
 		// left most day in the calendar
@@ -218,9 +218,14 @@
 						for ( var e = 0; e < this.caldata.length; e++ ) {
 							if (this.caldata[e].StartDate >= (strdate + ' 00:00:00') && this.caldata[e].StartDate <= (strdate + ' 23:59:59')) {
 								
-								var time = moment(this.caldata[e].StartDate).format("h:mma");
+								var time = '<strong>' + moment(this.caldata[e].StartDate).format("h:mma") + '</strong>';
 								
-								dayData += '<div class="fc-event"><a href="' + this.options.linkTemplate + '/' + this.caldata[e].EventId + '">'  + time + '<br /> - ' + this.caldata[e].EventName + '</a></div>';
+								// don't show 12:00am - it's an all day event
+								if (this.caldata[e].StartDate >= (strdate + ' 00:00:01')) {
+									dayData += '<div class="fc-event"><a href="' + this.options.linkTemplate + '/' + this.caldata[e].EventId + '">'  + time + '<br /> - ' + this.caldata[e].EventName + '</a></div>';
+								} else {
+									dayData += '<div class="fc-event"><a href="' + this.options.linkTemplate + '/' + this.caldata[e].EventId + '">'  + ' - ' + this.caldata[e].EventName + '</a></div>';
+								}
 							}	
 						}
 						
