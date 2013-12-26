@@ -3,7 +3,7 @@
 	templates['event'] = template(function (Handlebars,depth0,helpers,partials,data) {
 		this.compilerInfo = [4,'>= 1.0.0'];
 		helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-		var buffer = "", stack1, stack2, options, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+		var buffer = "", stack1, stack2, stack3, options, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 		
 		function program1(depth0,data) {
   
@@ -83,34 +83,54 @@
 		if (stack1 = helpers.EventName) { window.parent.document.title = helpers.EventName + " - JourneyChurch.tv" }
 		else { window.parent.document.title = depth0.EventName + " - JourneyChurch.tv" }
 		
+		// Create the top title bar
 		buffer += "<div class=\"title-bar\">\n	<div class=\"container\">\n		<div class=\"grid_12\">\n			<h2>";
 		if (stack1 = helpers.EventName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 		else { stack1 = depth0.EventName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 		buffer += escapeExpression(stack1)
-		+ "</h2>\n		</div>\n		<div class=\"clear\"></div>\n	</div>\n</div>\n		\n<div class=\"container clearfix\">\n	<div class=\"grid_12\">\n		<div class=\"entry fancy-page\">\n			<h2>Summary</h2>\n			<p><i class=\"fa fa-clock-o med-icon\"></i> ";
-		options = {hash:{},data:data};
-		buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.StartDate, options) : helperMissing.call(depth0, "dateFormat", depth0.StartDate, options)))
-		+ "</p>\n			<p> ";
-		if (stack2 = helpers.Location) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
-		else { stack2 = depth0.Location; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
-		buffer += escapeExpression(stack2)
-		+ "</p>\n					\n					\n  			<p class=\"body\">\n				";
-		stack2 = helpers['if'].call(depth0, depth0.Description, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
-		if(stack2 || stack2 === 0) { buffer += stack2; }
-		buffer += "\n						\n				";
-		stack2 = helpers['if'].call(depth0, depth0.Image, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
-		if(stack2 || stack2 === 0) { buffer += stack2; }
-		buffer += "\n				";
-		if (stack2 = helpers.Description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
-		else { stack2 = depth0.Description; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
-		if(stack2 || stack2 === 0) { buffer += stack2; }
-		buffer += "\n				<div class=\"clear\"></div>\n						\n				";
-		stack2 = helpers['if'].call(depth0, depth0.Sections, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
-		if(stack2 || stack2 === 0) { buffer += stack2; }
-		buffer += "\n\n				";
-		stack2 = helpers['if'].call(depth0, depth0.RegistrationPeriods, {hash:{},inverse:self.noop,fn:self.program(8, program8, data),data:data});
-		if(stack2 || stack2 === 0) { buffer += stack2; }
-		buffer += "\n  			</p>\n		</div>\n	</div>\n</div>";
+		+			"</h2>"
+		+		"</div>"
+		+		"<div class='clear'></div>"
+		+	"</div>"
+		+"</div>"
+		// Start the container and create Summary h2
+		+"<div class='container clearfix'>"
+		+	"<div class='grid_12'>"
+		+		"<div class='entry fancy-page'>"
+		+			"<h2>Summary</h2>"
+					// Set the day / time
+		+			"<p><i class='fa fa-clock-o med-icon'></i> ";
+						options = {hash:{},data:data};
+						buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.StartDate, options) : helperMissing.call(depth0, "dateFormat", depth0.StartDate, options)))
+		+ 			"</p>"
+					// Set the location
+		+ 			"<p> ";
+					if (stack2 = helpers.Location) { stack2 = stack2.call(depth0, {hash:{},data:data});}
+					else { stack2 = depth0.Location; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+					buffer += escapeExpression(stack2)
+		+ 			"</p>"
+					// Show the details
+		+			"<p class='body'>";
+						stack2 = helpers['if'].call(depth0, depth0.Description, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+						if(stack2 || stack2 === 0) { buffer += stack2; }
+						buffer += "\n						\n				";
+						stack2 = helpers['if'].call(depth0, depth0.Image, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+						if(stack2 || stack2 === 0) { buffer += stack2; }
+						buffer += "\n				";
+						if (stack2 = helpers.Description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+						else { stack2 = depth0.Description; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+						if(stack2 || stack2 === 0) { buffer += stack2; }
+						buffer += "<div class='clear'></div>";
+						stack2 = helpers['if'].call(depth0, depth0.Sections, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+						if(stack2 || stack2 === 0) { buffer += stack2; }
+						buffer += "\n\n				";
+						stack2 = helpers['if'].call(depth0, depth0.RegistrationPeriods, {hash:{},inverse:self.noop,fn:self.program(8, program8, data),data:data});
+						if(stack2 || stack2 === 0) { buffer += stack2; }
+					buffer += escapeExpression(stack3)
+		+			"</p>"
+		+		"</div>"
+		+	"</div>"
+		+"</div>";
 		return buffer;
 	});
 })();

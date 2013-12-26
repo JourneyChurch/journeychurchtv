@@ -23,12 +23,17 @@
 		},
 		success: function (data) {
 			// Uncomment the next line to preview data in the console.  Useful for debugging
-			console.log(data)
+			// console.log(data)
 
 			//  format the ACS date
 			Handlebars.registerHelper('dateFormat', function(context, block) {
   				if (window.moment) {
-    					return moment(context).format('MMMM D [at] ha'); // edit this format to change the display
+					// Dont show time if it's an all day event
+					if (moment(context).format('ha') == "12am") {
+    					return moment(context).format('MMMM D'); // edit this format to change the display
+					} else {
+						return moment(context).format('MMMM D [at] ha'); // edit this format to change the display
+					}
   				}else{
     					return context;
 				}
