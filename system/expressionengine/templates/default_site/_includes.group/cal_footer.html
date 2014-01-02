@@ -40,10 +40,9 @@
 	  })();
 
 	</script>
-	
 
 	<script type="text/javascript">
-	$(function() {		
+	$(function() {
 		var cal = $( '#calendar' ).calendar( {
 			onDayClick : function( $el, $contentEl, dateProperties ) {
 
@@ -94,7 +93,6 @@
 				$('.custom-year').hide();
 				$('.custom-calendar-GiantJanuary').show();
 				$('head').append('<link rel="stylesheet" type="text/css" href="/_css/giantJanuary.css">');
-				
 			} else {
 	   			$('.custom-calendar-full h2').show();
 				$('.custom-month').show();
@@ -103,6 +101,13 @@
 				$('link[rel=stylesheet][href~="/_css/giantJanuary.css"]').remove();
 			}
 		}
+		
+		// For JANUARY ONLY - set Giant January as default
+		$('.custom-calendar-full h2').hide();
+		$('.custom-month').hide();
+		$('.custom-year').hide();
+		$('.custom-calendar-GiantJanuary').show();
+		$('head').append('<link rel="stylesheet" type="text/css" href="/_css/giantJanuary.css">');
 	});
 	</script>
 </body>
