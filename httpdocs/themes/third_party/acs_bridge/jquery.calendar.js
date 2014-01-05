@@ -133,12 +133,12 @@
 				type: "GET",
 				url: this.options.url,
 				data: {id: this.options.calId, start: moment(this.start).format('X'), stop: moment(stop).format('X'), limit: this.options.limit},
-				error: function ( data ) {
-					console.log( data )
-				},
-				success: function ( data ) {
-					console.log( data )
-				}
+				//	error: function ( data ) {
+				//		console.log( data )
+				//	},
+				//	success: function ( data ) {
+				//		console.log( data )
+				//	}
 			}).responseJSON.Page;
 			
 			this.caldata = events;

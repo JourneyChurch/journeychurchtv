@@ -30,9 +30,9 @@
   				if (window.moment) {
 					// Dont show time if it's an all day event
 					if (moment(context).format('ha') == "12am") {
-    					return moment(context).format('MMMM D'); // edit this format to change the display
+    					return moment(context).format('MMMM Do'); // edit this format to change the display
 					} else {
-						return moment(context).format('MMMM D [at] ha'); // edit this format to change the display
+						return moment(context).format('MMMM Do [at] h:mma'); // edit this format to change the display
 					}
   				}else{
     					return context;
