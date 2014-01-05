@@ -199,16 +199,6 @@
 					if ( day <= monthLength && ( i > 0 || j >= p ) ) {
 
 						inner += '<span class="fc-date">' + day + '</span><span class="fc-weekday">' + this.options.weekabbrs[ j + this.options.startIn > 6 ? j + this.options.startIn - 6 - 1 : j + this.options.startIn ] + '</span>';
-
-						/* Original Code
-						// this day is:
-						var strdate = ( this.month + 1 < 10 ? '0' + ( this.month + 1 ) : this.month + 1 ) + '-' + ( day < 10 ? '0' + day : day ) + '-' + this.year,
-							dayData = this.caldata[ strdate ];
-							console.log(dayData);
-						if( dayData ) {
-							content = dayData;
-						}
-						*/
 						
 						// this day is:
 						var strdate = this.year + '-' + (this.month + 1 < 10 ? '0' + (this.month + 1) : this.month + 1) + '-' + ( day < 10 ? '0' + day : day);
@@ -238,7 +228,6 @@
 						}
 
 						++day;
-
 					}
 					else {
 						today = false;

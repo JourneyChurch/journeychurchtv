@@ -10,7 +10,7 @@
 		// Details
 		function program1(depth0,data) {
 			// If extensive information exists
-			return "<h2>Details</h2>";
+			return "<br><h2>Details</h2>";
 		}
 
 		// Image
@@ -45,11 +45,23 @@
 		// In Depth Contact Info
 		function program6(depth0,data) {
 			var buffer = "", stack1;
-			buffer += "<strong>Email:</strong> ";
+			// If no email
+			if (stack1 = helpers.Contactemail) {
+				
+			}
+			// If email
+			else {
+				buffer += "<strong>Email:</strong> ";
+			}
 				if (stack1 = helpers.Contactemail) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 				else { stack1 = depth0.Contactemail; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 			buffer += escapeExpression(stack1)
-			+	"<br><strong>Phone:</strong> ";
+			// If no phone
+			if (stack1 = helpers.ContactPhone) {
+
+			} else {
+				+	"<br><strong>Phone:</strong> ";
+			}
 				if (stack1 = helpers.ContactPhone) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 				else { stack1 = depth0.ContactPhone; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 			buffer += escapeExpression(stack1)
@@ -106,17 +118,30 @@
 		+	"<div class='grid_12'>"
 		+		"<div class='entry fancy-page'>"
 		+			"<h2>Summary</h2>"
+					
 					// Set the day / time
 		+			"<p><i class='fa fa-clock-o med-icon'></i> ";
 						options = {hash:{},data:data};
-						buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.StartDate, options) : helperMissing.call(depth0, "dateFormat", depth0.StartDate, options)))
+						// Start Date
+						buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),
+								  stack1 ? stack1.call(depth0, depth0.StartDate, options) : helperMissing.call(depth0, "dateFormat", depth0.StartDate, options)))
+						// Stop Date
+						buffer += escapeExpression(((stack2 = helpers.endDateFormat || depth0.endDateFormat),
+								  stack2 ? stack2.call(depth0, depth0.StopDate, options) : helperMissing.call(depth0, "endDateFormat", depth0.StopDate, options)))
 		+ 			"</p>"
-					// Set the location
-		+ 			"<p> ";
+					
+					// If there's a Location
+					if (depth0.Location) {
+						buffer += "<p><i class='fa fa-map-marker med-icon'></i> ";
+					}
+					
 					if (stack2 = helpers.Location) { stack2 = stack2.call(depth0, {hash:{},data:data});}
 					else { stack2 = depth0.Location; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
 					buffer += escapeExpression(stack2)
-		+ 			"</p>"
+					if (depth0.Location) {
+						buffer += "</p>";
+					}
+		
 					// Show the details
 		+			"<p class='body'>";
 						stack2 = helpers['if'].call(depth0, depth0.Description, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});

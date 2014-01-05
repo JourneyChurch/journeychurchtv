@@ -22,20 +22,46 @@
 			console.log(data)
 		},
 		success: function (data) {
-			// Uncomment the next line to preview data in the console.  Useful for debugging
 			// console.log(data)
 
-			//  format the ACS date
+			//  format the ACS start date
 			Handlebars.registerHelper('dateFormat', function(context, block) {
+				startDateMonth=moment(context).format('MMMM Do');
+				startDateHour=moment(context).format('h:mma');
   				if (window.moment) {
 					// Dont show time if it's an all day event
 					if (moment(context).format('ha') == "12am") {
-    					return moment(context).format('MMMM Do'); // edit this format to change the display
+    					return moment(context).format('MMMM Do');
 					} else {
-						return moment(context).format('MMMM Do [at] h:mma'); // edit this format to change the display
+						return moment(context).format('MMMM Do [at] h:mma');
 					}
   				}else{
-    					return context;
+    				return context;
+				}
+			});
+			
+			//  format the ACS stop date
+			Handlebars.registerHelper('endDateFormat', function(stopcontext, block) {
+  				if (window.moment) {
+					if (moment(stopcontext).format('MMMM Do') != startDateMonth) {
+						if (moment(stopcontext).format('h:mma') != "11:59pm") {
+							return moment(stopcontext).format(' [-] MMMM Do [at] h:mma');
+						} else {
+							return moment(stopcontext).format(' [-] MMMM Do');
+						}
+					} else if (moment(stopcontext).format('h:mma') != startDateHour) {
+						if (moment(stopcontext).format('h:mma') != "11:59pm") {
+							return moment(stopcontext).format(' [-] h:mma');
+						}
+					} else {
+						if (moment(stopcontext).format('h:mma') != "11:59pm") {
+							return moment(stopcontext).format(' [-] MMMM Do [at] h:mma');
+						} else {
+							return moment(stopcontext).format(' [-] MMMM Do');
+						}
+					}
+  				}else{
+    				return stopcontext;
 				}
 			});
 
