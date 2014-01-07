@@ -103,6 +103,9 @@
 		if (stack1 = helpers.EventName) { window.parent.document.title = helpers.EventName + " - JourneyChurch.tv" }
 		else { window.parent.document.title = depth0.EventName + " - JourneyChurch.tv" }
 		
+		// Add Social Sharing details to head
+	    $('head').append("<meta name='title' content='" + depth0.EventName + "'><meta name='og:description' content='" + depth0.Description + "'>");
+		
 		// Create the top title bar
 		buffer += "<div class='title-bar'><div class='container'><div class='grid_12'><h2>";
 		if (stack1 = helpers.EventName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
