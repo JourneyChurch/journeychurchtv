@@ -14,9 +14,6 @@
 
 	<title>{if embed:title}{embed:title} - {/if}JourneyChurch.tv {if embed:title2}{embed:title2}{/if}</title>
 	
-	{if embed:tags}
-		{embed:tags}
-	{/if}
 	<meta name="description" content="JourneyChurch is a house committed to transforming our cities ... one life at a time.">
 	<meta name="author" content="JourneyChurch.tv">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -62,8 +59,10 @@
 		});
 	</script>
 	{exp:missing_link:head}
-{if embed:noclose!="true"}</head>{/if}
-<body>
+	{if embed:tags}
+		{embed:tags}
+	{/if}
+{if embed:noclose!="true"}</head><body>{/if}
 	<div id="wrapper">
 		{!-- Full Page Top --}
 		<div id="navigation">
