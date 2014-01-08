@@ -51,6 +51,19 @@
 	{!-- Charbeat --}
 	<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
 	
+	{!-- Pingdom Real Stats --}
+	<script>
+	var _prum = [['id', '52cda967abe53db449000000'],
+	             ['mark', 'firstbyte', (new Date()).getTime()]];
+	(function() {
+	    var s = document.getElementsByTagName('script')[0]
+	      , p = document.createElement('script');
+	    p.async = 'async';
+	    p.src = '//rum-static.pingdom.net/prum.min.js';
+	    s.parentNode.insertBefore(p, s);
+	})();
+	</script>
+	
 	{!-- Mobile JS --}
 	<script src="/_js/toucheffects.js"></script>
 	<script type="text/javascript">
@@ -58,6 +71,7 @@
 		  $('#opensidr').sidr();
 		});
 	</script>
+	
 	{if embed:tags}
 		{embed:tags}
 	{/if}
