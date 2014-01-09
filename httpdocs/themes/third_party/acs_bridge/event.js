@@ -47,8 +47,8 @@
 			var buffer = "", stack1;
 			// Email
 			if (stack1 = helpers.Contactemail) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-			else { buffer += "<strong>Email:</strong> "; stack1 = depth0.Contactemail; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-			buffer += escapeExpression(stack1)
+			else {stack1 = depth0.Contactemail; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1;}
+			buffer += "<strong>Email:</strong> <a href='mailto:"; buffer += escapeExpression(stack1); buffer +="'>";buffer += escapeExpression(stack1); buffer += "</a>"
 			// Phone
 			if (stack1 = helpers.ContactPhone) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 			else { buffer += "<br><strong>Phone:</strong> "; stack1 = depth0.ContactPhone; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
