@@ -45,25 +45,13 @@
 		// In Depth Contact Info
 		function program6(depth0,data) {
 			var buffer = "", stack1;
-			// If no email
-			if (stack1 = helpers.Contactemail) {
-				
-			}
-			// If email
-			else {
-				buffer += "<strong>Email:</strong> ";
-			}
-				if (stack1 = helpers.Contactemail) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-				else { stack1 = depth0.Contactemail; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+			// Email
+			if (stack1 = helpers.Contactemail) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+			else { buffer += "<strong>Email:</strong> "; stack1 = depth0.Contactemail; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 			buffer += escapeExpression(stack1)
-			// If no phone
-			if (stack1 = helpers.ContactPhone) {
-
-			} else {
-				+	"<br><strong>Phone:</strong> ";
-			}
-				if (stack1 = helpers.ContactPhone) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-				else { stack1 = depth0.ContactPhone; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+			// Phone
+			if (stack1 = helpers.ContactPhone) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+			else { buffer += "<br><strong>Phone:</strong> "; stack1 = depth0.ContactPhone; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 			buffer += escapeExpression(stack1)
 			+	"<br>";
 			return buffer;
@@ -75,7 +63,7 @@
 			buffer += "<h2>Registration Periods</h2>";
 			stack1 = helpers.each.call(depth0, depth0.RegistrationPeriods, {hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data});
 			if(stack1 || stack1 === 0) { buffer += stack1; }
-			buffer += "<a href='https://secure.accessacs.com/access/login_guest.aspx?sn=106649'><button class='pull-right'>Register Now</button></a>";
+			buffer += "<div class='register-button'><a href='https://secure.accessacs.com/access/login_guest.aspx?sn=106649' target='_blank'><button class='pull-right'>Register Now</button></a></div>";
 			return buffer;
 		}
 		
@@ -90,7 +78,7 @@
 			if (stack1 = helpers.Cost) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 			else { stack1 = depth0.Cost; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 			buffer += escapeExpression(stack1)
-			+ "   From ";
+			+ "   from ";
 			options = {hash:{},data:data};
 			buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.StartTime, options) : helperMissing.call(depth0, "dateFormat", depth0.StartTime, options)))
 			+ " to ";

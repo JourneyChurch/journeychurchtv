@@ -69,6 +69,12 @@
 			var template = Handlebars.templates['event'];
 			var html = template(data);
 			$("#event").html(template(data));
+			
+			// Event Registration from EE
+			{exp:channel:entries channel="events" url_title="{segment_3}"}
+				var eventreg = "{event-reg}";
+			{/exp:channel:entries}
+			$(".register-button").html("<a href='" + eventreg + "' target='_blank'><button class='pull-right'>Register Now</button></a>");
 		}
 	});
 	</script>
