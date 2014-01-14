@@ -89,6 +89,9 @@
 	.media-title {
 		background-color: #989d00;
 	}
+	.media-title h2 {
+		color: #FFF;
+	}
 	.mobile-media h2, .mobile-media span {
 		color: #FFF !important;
 	}

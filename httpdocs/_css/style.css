@@ -571,6 +571,18 @@ ul.side-nav {
 	max-width: 638px;
 	max-height: 360px;
 }
+.media-viewall {
+	background-color: #b2b4b1;
+	min-height: 174px;
+}
+.media-viewall h2 {
+	color: #fff;
+	text-align: center;
+	line-height: 165px;
+}
+.media-viewall a:hover, .media-viewall a:focus, .media-viewall a:active, .media-viewall a:visited {
+	text-decoration: none!important;
+}
 
 /* Series */
 .series {

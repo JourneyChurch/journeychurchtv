@@ -1,8 +1,9 @@
-{exp:channel:entries channel="series" url_title="{embed:series}" dynamic="no" limit="1"}
-	<div class="container series-sub clearfix">	
-		<div class="grid_12">
-			<h2>Experiences in this series:</h2>
-		</div>
+{exp:channel:entries channel="series" url_title="{embed:series}" dynamic="no"}
+	{if {parents:total_results} >= "2" OR segment_1 == "series"}
+		<div class="container series-sub clearfix">	
+			<div class="grid_12">
+				<h2>Experiences in this series:</h2>
+			</div>
 			{parents channel="media" sort="desc" orderby="media-date"}
 				<div class="grid_3 series-ind">
 					<a href="/media/{parents:url_title}" {if series-color}style="color:{series-color}"{/if}>
@@ -12,5 +13,6 @@
 					</a>
 				</div>
 			{/parents}
-	</div>
+		</div>
+	{/if}
 {/exp:channel:entries}

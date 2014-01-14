@@ -3,8 +3,8 @@
 	3. Make dates of series relate to months PLUS certain week periods if only a couple weeks long (June 2 - June 9 [?])
 --}
 
-
-{embed="_includes/header" title="{if segment_2}{exp:channel:entries channel='series' dynamic='on' limit='1'}{title}{/exp:channel:entries}{if:elseif segment_1=='media'}Media{if:else}Series{/if}" bar="yes"}
+{embed="_includes/header-opener" title="{if segment_2=='lifestream'}Lifestream Media{if:elseif segment_2 != ''}{exp:channel:entries channel='series' dynamic='on' limit='1'}{title}{/exp:channel:entries}{if:elseif segment_1=='media'}Media{if:else}Series{/if}"}
+{embed="_includes/header-closer" bar="yes"}
 
 {if segment_2 == ""}
 	<div class="title-bar media-title">
@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	<div class="container media clearfix">
-		{exp:channel:entries channel="series" sort="desc" orderby="series-start" dynamic="no"}
+		{exp:channel:entries channel="series" category="7" sort="desc" orderby="series-start" dynamic="no"}
 			{if url_title=="stand-alone"}
 				{parents channel="media"}
 					<div class="grid_4 series">
@@ -36,10 +36,27 @@
 		{/exp:channel:entries}
 		<div class="clear"></div>
 	</div>
-	
+{if:elseif segment_2 == "lifestream"}
+	<div class="title-bar media-title">
+		<div class="container">
+			<div class="grid_12">
+				<h2>Lifestream</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container media clearfix">
+		{exp:channel:entries channel="series" category="37" sort="desc" orderby="series-start" dynamic="no"}
+			<div class="grid_4 series">
+				<a href="/series/{url_title}">
+					{if series-img}<img src="{series-img:med}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+				</a>
+			</div>
+		{/exp:channel:entries}
+		<div class="clear"></div>
+	</div>
 {if:else}
-
-	{exp:channel:entries channel="series" url_title="{segment_2}" dynamic="yes" limit="1"}
+	{exp:channel:entries channel="series" url_title="{if segment_2!="lifestream"}{segment_2}{/if}" dynamic="yes" limit="1"}
 		<?php 
 			/* Get the series data */
 			$theseries = "{url_title}";
@@ -61,7 +78,7 @@
 		</div>
 	
 		<div class="container media clearfix">
-			{if no_results}{redirect="series/index"}{/if}
+			{if no_results}{redirect="media/index"}{/if}
 			
 			{if series-desc}
 				<div class="grid_8">
