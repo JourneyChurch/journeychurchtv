@@ -599,8 +599,18 @@ ul.side-nav {
 .series-details h2 {
 	padding-bottom: 10px;
 }
-.series-sub a:hover{
+.series-sub a, .series img {
+	opacity: 1;
+	filter:alpha(opacity=1.00); /* For IE8 and earlier */
+	   transition: opacity .25s ease-in-out;
+	   -moz-transition: opacity .25s ease-in-out;
+	   -webkit-transition: opacity .25s ease-in-out;
+}
+.series-sub a:hover, .series img:hover {
 	color: #222 !important; 
+	text-decoration: none!important;
+	opacity:0.6;
+	filter:alpha(opacity=60); /* For IE8 and earlier */
 }
 .series-sub h2 {
 	margin: 20px 0;
