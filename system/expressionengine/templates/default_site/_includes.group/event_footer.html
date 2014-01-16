@@ -27,13 +27,13 @@
 			//  format the ACS start date
 			Handlebars.registerHelper('dateFormat', function(context, block) {
 				startDateMonth=moment(context).format('MMMM Do');
-				startDateHour=moment(context).format('h:mma');
+				startDateHour=moment(context).format('h:mm A');
   				if (window.moment) {
 					// Dont show time if it's an all day event
-					if (moment(context).format('ha') == "12am") {
+					if (moment(context).format('h A') == "12 AM") {
     					return moment(context).format('MMMM Do');
 					} else {
-						return moment(context).format('MMMM Do [at] h:mma');
+						return moment(context).format('MMMM Do [at] h:mm A');
 					}
   				}else{
     				return context;
@@ -44,18 +44,18 @@
 			Handlebars.registerHelper('endDateFormat', function(stopcontext, block) {
   				if (window.moment) {
 					if (moment(stopcontext).format('MMMM Do') != startDateMonth) {
-						if (moment(stopcontext).format('h:mma') != "11:59pm") {
-							return moment(stopcontext).format(' [-] MMMM Do [at] h:mma');
+						if (moment(stopcontext).format('h:mm A') != "11:59 PM") {
+							return moment(stopcontext).format(' [-] MMMM Do [at] h:mm A');
 						} else {
 							return moment(stopcontext).format(' [-] MMMM Do');
 						}
-					} else if (moment(stopcontext).format('h:mma') != startDateHour) {
-						if (moment(stopcontext).format('h:mma') != "11:59pm") {
-							return moment(stopcontext).format(' [-] h:mma');
+					} else if (moment(stopcontext).format('h:mm A') != startDateHour) {
+						if (moment(stopcontext).format('h:mm A') != "11:59 PM") {
+							return moment(stopcontext).format(' [-] h:mm A');
 						}
 					} else {
-						if (moment(stopcontext).format('h:mma') != "11:59pm") {
-							return moment(stopcontext).format(' [-] MMMM Do [at] h:mma');
+						if (moment(stopcontext).format('h:mm A') != "11:59 PM") {
+							return moment(stopcontext).format(' [-] MMMM Do [at] h:mm A');
 						} else {
 							return moment(stopcontext).format(' [-] MMMM Do');
 						}

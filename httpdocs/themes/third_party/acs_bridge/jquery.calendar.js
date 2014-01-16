@@ -208,7 +208,7 @@
 						for ( var e = 0; e < this.caldata.length; e++ ) {
 							if (this.caldata[e].StartDate >= (strdate + ' 00:00:00') && this.caldata[e].StartDate <= (strdate + ' 23:59:59')) {
 								
-								var time = '<strong>' + moment(this.caldata[e].StartDate).format("h:mma") + '</strong>';
+								var time = '<strong>' + moment(this.caldata[e].StartDate).format("h:mm A") + '</strong>';
 								
 								// don't show 12:00am - it's an all day event
 								if (this.caldata[e].StartDate >= (strdate + ' 00:00:01')) {
