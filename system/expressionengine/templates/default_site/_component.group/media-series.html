@@ -1,8 +1,8 @@
 {exp:channel:entries channel="series" url_title="{embed:series}" dynamic="no"}
-	{if {parents:total_results} >= "2" OR segment_1 == "series"}
+	{if {parents:total_results} >= "2" OR segment_1 == "series" OR segment_1 == "studies"}
 		<div class="container series-sub clearfix">	
 			<div class="grid_12">
-				<h2>Experiences in this series:</h2>
+				<h2>Experiences in this study:</h2>
 			</div>
 			{parents channel="media" sort="desc" orderby="media-date"}
 				<div class="grid_3 series-ind">
