@@ -92,7 +92,9 @@
 							console.log(data)
 						},
 						success: function (data) {
-							//console.log(data);
+							// console.log(data);
+							
+							// YAY! So take away that loader and replace it with real content
 							$('#loader').fadeOut('slow').remove();
 							$('#' + settings.listId).hide().html(data.output + '<div class="' + settings.overlay + '"></div><div class="' + settings.dialog + '"></div>').fadeTo('slow', 1);
 							
@@ -102,6 +104,7 @@
 								settings.length = data.displayLength;
 							}
 
+							// If nav is set to be shown
 							if ((settings.showNav === true) && (!data.error)) {
 								if (settings.navPosition === "top" || settings.navPosition === "both") {
 									if (settings.start > settings.origStart) {
