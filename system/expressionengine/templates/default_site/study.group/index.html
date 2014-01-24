@@ -57,6 +57,12 @@
 	</div>
 {if:else}
 	{exp:channel:entries channel="series" url_title="{if segment_2!="lifestream"}{segment_2}{/if}" dynamic="yes" limit="1"}
+		{if {parents:total_results} == "1"}
+			{!-- This redirects if there's only 1 entry in study --}
+			{parents channel="media" sort="desc" orderby="media-date"}
+				{redirect="/media/{parents:url_title}"}
+			{/parents}
+		{/if}
 		<?php 
 			/* Get the series data */
 			$theseries = "{url_title}";
