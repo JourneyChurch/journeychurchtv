@@ -67,7 +67,7 @@
 				<div class="grid_12">
 					<h2 class="series-title" {categories}{if category_id=="22"}style="text-transform:none"{/if}{/categories}>{title}
 						{if '{series-start format="%Y%m"}' != '{series-end format="%Y%m"}'}
-							<span>{series-start format="%F %Y"} - {series-end format="%F %Y"}</span>
+							<span>{series-start format="%F %Y"} {if series-end}- {series-end format="%F %Y"}{/if}</span>
 						{if:elseif '{series-start format="%Y%m"}' == '{series-end format="%Y%m"}'}
 							<span>{series-start format="%F %Y"}</span>
 						{/if}
