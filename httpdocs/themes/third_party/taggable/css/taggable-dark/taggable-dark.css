@@ -1,0 +1,124 @@
+/**
+ * Taggable
+ *
+ * A powerful, easy to use folksonomy
+ * engine for ExpressionEngine 2.0.
+ *
+ * @author Jamie Rumbelow <http://jamierumbelow.net>
+ * @copyright Copyright (c)2010 Jamie Rumbelow
+ * @license http://getsparkplugs.com/taggable/docs#license
+ * @version 1.4.6
+ **/
+
+.taggable-dark ul.token-input-list {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    width: 400px;
+    border: 1px solid #999;
+    cursor: text;
+    font-size: 12px;
+    font-family: Verdana;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.taggable-dark ul.token-input-list li {
+    list-style-type: none;
+}
+
+.taggable-dark ul.token-input-list li input {
+    border: 0;
+    width: 350px;
+    padding: 3px 8px;
+    background-color: white;
+}
+
+.taggable-dark li.token-input-token {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    margin: 3px;
+    padding: 3px 5px;
+    border: 1px solid #666666; 
+    background: #CCC;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: default;
+    display: block;
+}
+
+.taggable-dark li.token-input-token p {
+    float: left;
+    padding: 0;
+    margin: 0;
+    color: #333;
+}
+
+.taggable-dark li.token-input-token span {
+    float: right;
+    color: #777;
+    cursor: pointer;
+}
+
+.taggable-dark li.token-input-selected-token {
+    background-color: #FFF;
+    color: #fff;
+}
+
+.taggable-dark li span.token-input-delete-token {
+    color: #333;
+}
+
+.taggable-dark li.token-input-selected-token span {
+    color: #bbb;
+}
+
+.taggable-dark div.token-input-dropdown {
+    position: absolute;
+    width: 400px;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 12px;
+    font-family: Verdana;
+    z-index: 1;
+    background: #CCC;
+}
+
+.taggable-dark div.token-input-dropdown p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.taggable-dark div.token-input-dropdown ul {
+    margin: 0;
+    padding: 0;
+}
+
+.taggable-dark div.token-input-dropdown ul li {
+    background-color: #fff;
+    padding: 3px;
+    list-style-type: none;
+}
+
+.taggable-dark div.token-input-dropdown ul li.token-input-dropdown-item {
+    background: #CCCCCC; 
+    color: #333;
+}
+
+.taggable-dark div.token-input-dropdown ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.taggable-dark div.token-input-dropdown ul li.token-input-selected-dropdown-item {
+    background: #EEE; 
+    color: #2e7db2;
+}

@@ -305,6 +305,7 @@ class Acs_bridge_mcp {
 			
 			ee()->table->set_template($tbl);
 			ee()->table->set_caption(lang('small_groups'));
+			ee()->table->set_caption(lang('small_groups2'));
 			ee()->table->set_heading(
 				lang('group_id'),
 				lang('parent_id'),
