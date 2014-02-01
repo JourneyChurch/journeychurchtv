@@ -84,7 +84,7 @@
 			+ " to ";
 			options = {hash:{},data:data};
 			buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.EndTime, options) : helperMissing.call(depth0, "dateFormat", depth0.EndTime, options)))
-			+ " ";
+			+ "<br> ";
 			return buffer;
 		}
 		// Set title window
