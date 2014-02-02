@@ -60,7 +60,7 @@
 		// Set Registration
 		function program8(depth0,data) {
 			var buffer = "", stack1;
-			buffer += "<h2>Registration Periods</h2>";
+			buffer += "<h2>Registration Options</h2>";
 			stack1 = helpers.each.call(depth0, depth0.RegistrationPeriods, {hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data});
 			if(stack1 || stack1 === 0) { buffer += stack1; }
 			buffer += "<div class='register-button'><a href='https://secure.accessacs.com/access/login_guest.aspx?sn=106649' target='_blank'><button class='pull-right'><i class='fa fa-ticket'></i> Register Now</button></a></div>";
