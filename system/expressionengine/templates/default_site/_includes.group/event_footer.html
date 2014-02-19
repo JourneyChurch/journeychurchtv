@@ -40,6 +40,17 @@
 				}
 			});
 			
+			//  format the ACS Registration end time
+			Handlebars.registerHelper('dateFormatReg', function(context, block) {
+				startDateMonth=moment(context).format('MMMM Do');
+				startDateHour=moment(context).format('h:mm A');
+  				if (window.moment) {
+					return moment(context).format('MMMM Do');
+  				}else{
+    				return context;
+				}
+			});
+			
 			//  format the ACS stop date
 			Handlebars.registerHelper('endDateFormat', function(stopcontext, block) {
   				if (window.moment) {

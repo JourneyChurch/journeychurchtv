@@ -78,13 +78,10 @@
 			if (stack1 = helpers.Cost) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
 			else { stack1 = depth0.Cost; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
 			buffer += escapeExpression(stack1)
-			+ "   from ";
+			+ " (registration ends ";
 			options = {hash:{},data:data};
-			buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.StartTime, options) : helperMissing.call(depth0, "dateFormat", depth0.StartTime, options)))
-			+ " to ";
-			options = {hash:{},data:data};
-			buffer += escapeExpression(((stack1 = helpers.dateFormat || depth0.dateFormat),stack1 ? stack1.call(depth0, depth0.EndTime, options) : helperMissing.call(depth0, "dateFormat", depth0.EndTime, options)))
-			+ "<br> ";
+			buffer += escapeExpression(((stack1 = helpers.dateFormatReg || depth0.dateFormatReg),stack1 ? stack1.call(depth0, depth0.EndTime, options) : helperMissing.call(depth0, "dateFormatReg", depth0.EndTime, options)))
+			+ ")<br> ";
 			return buffer;
 		}
 		// Set title window
