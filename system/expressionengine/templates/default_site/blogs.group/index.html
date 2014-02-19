@@ -30,10 +30,9 @@
 		<div class="grid_12">
 			{exp:channel:entries channel="Blog" orderby="date" sort="desc" category="not 26"}
 				{categories}
-					{if count=="1" && category_id=="30"}
-					{if:else}
+					{if count!="1" && category_id!="30"}
 						<div class="blog-entry">
-							<h3>{if {entry_date format='%Y'} != "1991"}{entry_date format="%F %j, %Y"}{/if}</h3>
+							<h3>{if {entry_date format='%Y'} >= "1999"}{entry_date format="%F %j, %Y"}{/if}</h3>
 							<h2>{if category_id == '33'}<a href="{blog-external}" target="_blank">{if:else}<a href="/blogs/{url_title}">{/if}{title}</a></h2>
 						
 							<div class="blog-preview">
@@ -62,7 +61,7 @@
 		<div class="container clearfix">
 			<div class="grid_12">
 				<div class="blog-title">
-					<h3>{if {entry_date format='%Y'} != "1991"}{entry_date format="%F %j, %Y"}{/if}</h3>
+					<h3>{if {entry_date format='%Y'} >= "1999"}{entry_date format="%F %j, %Y"}{/if}</h3>
 					<h2>{title}</h2>
 				</div>
 				
