@@ -1,62 +1,56 @@
-{embed="_includes/header" title="{if segment_2}{exp:channel:entries channel='Blog' dynamic='yes' category='26'}{title}{/exp:channel:entries}{if:else}Life Groups{/if}" {if segment_2}bar="yes"{/if}}
+{embed="_includes/header" title="{if segment_2}{exp:channel:entries channel='Groups' dynamic='yes'}{title}{/exp:channel:entries}{if:else}Life Groups{/if}"}
 
-{if segment_2==""}
-	<div class="container clearfix">
-		<div class="grid_3">
-			{embed="_component/sidebar-groups"}
-		</div>
+<div class="container clearfix">
+	<div class="grid_3">
+		{embed="_component/sidebar-groups"}
+	</div>
+	{if segment_2==""}
 		<div class="grid_9">
 			<div class="banner">
 				<span data-picture data-alt="Life Groups">
 					<span data-src="/_img/theology-small.png"></span>
 					<span data-src="/_img/theology.png" data-media="(min-width: 465px)"></span>
-	
+		
 					<!-- Fallback content for non-JS browsers -->
 					<noscript><img src="/_img/theology-small.png" alt="Our Theology"></noscript>
 				</span>
 			</div>
-	
+		
 			{exp:channel:entries channel="Pages" url_title="groups"}
 				<div class="fancy-page">
 					{page-body}
 				</div>
 			{/exp:channel:entries}
 		</div>
-	</div>
-{if:else}
-	{exp:channel:entries channel="Blog" dynamic="yes" category="26"}
-		<div class="title-bar">
-			<div class="container">
-				<div class="grid_12">
+	{if:else}
+		<div class="grid_9">
+			{exp:channel:entries channel="Groups" dynamic="yes"}
 					<h2>{title}</h2>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
-		
-		<div class="container clearfix">
-			<div class="grid_12">
-				{if {entry_date format='%Y'} != "1991"}
-					<p class="blog-writtenby"><strong>Written 
-					on 
-					{if {entry_date format='%Y'} == '{theyear}'}
-						{entry_date format="%F %j"}
-					{if:else}
-						{entry_date format="%F %j, %Y"}
+					<p>
+						<strong>Tags:</strong>
+						{exp:taggable sort="asc" entry_id="{entry_id}" backspace="2"}{name}, {/exp:taggable}
+					</p>
+					{if groups-location}
+						<p><i class="fa fa-map-marker"></i> {groups-location}</p>
 					{/if}
-					{if blog-author}
-						by {blog-author}</strong></p>
+					<p><i class="fa fa-clock-o"></i> Meets {groups-meet-frequency} on {groups-meet-day} in the {if groups-meet-time == "Morning"}morning{if:elseif groups-meet-time == "Afternoon"}afternoon{if:elseif groups-meet-time == "Evening"}evening{/if}.</p>
+					{if groups-childcare == "Yes"}
+						<p><i class="fa fa-user"></i> Childcare is provided.</p>
 					{/if}
-				{/if}
-				<div class="blog-entry">
-					{blog-body}
-				</div>
-			</div>
+					{if Webpage}
+						<p>Connect with this group: {Webpage}</p>
+					{/if}
+					<br>
+					<p>{groups-details}</p>
+					<br>
+					<a href="#" onclick="window.open('https://secure.accessacs.com/access/groups/sgcontactrequest.aspx?grp={groups-acs}','popup','width=960,height=500,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0'); return false"><button class="no-margin-l">Sign Up for the Group</button></a>
+			{/exp:channel:entries}
 		</div>
-		{if no_results}
-			{redirect="groups/index"}
-		{/if}
-	{/exp:channel:entries}
-{/if}
+	{/if}
+</div>
 
+	{!-- We have to load ACS in the background for cookies --}
+	<div style="display:none">
+		<iframe src="https://secure.accessacs.com/access/login_guest.aspx?sn=106649&sc=sgguest" height="0" width="0" border="0"></iframe>
+	</div>
 {embed="_includes/footer"}

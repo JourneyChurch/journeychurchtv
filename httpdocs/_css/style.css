@@ -92,6 +92,7 @@ button a {
 }
 
 button:hover  { background: #7f3e19; }
+button:focus { outline: 0; }
 
 button.registration {
 	padding: 20px;
@@ -321,7 +322,7 @@ ul.side-nav {
 	}
 	
 /* About */
-	
+	#accordion h3:focus { outline: 0; }
 	#accordion, #accordion2 {
 		cursor: pointer;
 	}
@@ -511,16 +512,28 @@ ul.side-nav {
 }
 
 .group-entry {
-	padding: 5px 0;
+	padding: 10px 0;
 	border-bottom: 1px solid #b2b4b1;
 }
 
-#acs_events h3 {
+.group-entry h3 {
 	font-size: 18px;
 	font-weight: 500;
+	width: 100%;
 }
-#acs_events .groups-date {
+.getDetails {
+	float: right;
+}
+.getDetails button {
+	margin-top: 0;
+}
+
+.group-entry .groups-date {
 	font-weight: 400;
+}
+
+.groups-individual li {
+	list-style-position:inside;
 }
 
 /* Locations */

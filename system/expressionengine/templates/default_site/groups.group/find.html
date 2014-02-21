@@ -1,133 +1,79 @@
 {embed="_includes/header" title="Find a Life Group"}
-<link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/dialog.css" />
-
-
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-collapse.js"></script>
+<script type="text/javascript">	
+	function Filter() {
+		// Days filter										
+		if ($("#monday-filter").attr('checked')) { day_string += ", .Monday"; }
+		if ($("#tuesday-filter").attr('checked')) { day_string += ", .Tuesday"; }	
+		if ($("#wednesday-filter").attr('checked')) { day_string += ", .Wednesday"; }	
+		if ($("#thursday-filter").attr('checked')) { day_string += ", .Thursday";; }	
+		if ($("#friday-filter").attr('checked')) { day_string += ", .Friday"; }	
+		if ($("#saturday-filter").attr('checked')) { day_string += ", .Saturday"; }	
+		if ($("#sunday-filter").attr('checked')) { day_string += ", .Sunday"; }
+		
+		
+	}
+	$(document).ready(function() {
+		{exp:taggable sort="asc"}
+			$("#{name}-filter").change(function(){
+				if ($(this).is(':checked')) {
+					$('.group-entry').hide();
+			        $('.{name}').stop().show();
+					return;
+				} else {
+					$('.group-entry').show();
+				}
+			});
+			
+			//	$("#{name}-filter").change(function(){
+			//	    var id = $(this).attr("filtername");
+			//	    $("#{name}-filter[filtername='"+id+"']:checked").each(function(){
+			//			if ($(this).is(':checked')) {
+			//				$('.group-entry').hide();
+			//				$('.{name}').stop().show();
+			//				return;
+			//			} else if $("#{name}-filter[filtername='"+id+"']:not:checked").each(function(){
+			//				$('.group-entry').show();
+			//			} else {
+			//				$('.group-entry').show();
+			//			}
+			//	    });
+			//	});
+		{/exp:taggable}
+	});
+</script>
+		
+		
 <div class="container clearfix">
 	<div class="grid_3">
 		{embed="_component/sidebar-groups"}
 	</div>
 	<div class="grid_9">
 		<div class="groups-filter">
-			<ul>
-				<li>SORT BY:</li>
-				<li {if segment_3=='' OR segment_3=='all'}class="active"{/if}><a href="/groups/find/all">All Groups</a></li>
-				<li {if segment_3=='adult'}class="active"{/if}><a href="/groups/find/adult">Adult</a></li>
-				<li {if segment_3=='classes'}class="active"{/if}><a href="/groups/find/classes">Classes</a></li>
-				<li {if segment_3=='college'}class="active"{/if}><a href="/groups/find/college">College</a></li>
-				<li {if segment_3=='students'}class="active"{/if}><a href="/groups/find/students">Student Journey</a></li>
-			</ul>
+			<h3 style="margin-bottom:5px;">Search by Tag</h3>
+				<div id="theFilters">
+					{exp:splitter blocks="4" delimiter="<br>" class="grid_2"}
+						{exp:taggable sort="asc"}
+							<input type="checkbox" id="{name}-filter" class='filter'> <label for="{name}-filter">{name}</label><br>
+						{/exp:taggable}
+					{/exp:splitter}
+				</div>
 			<div class="clear"></div>
 		</div>
-		{if segment_3 == "" OR segment_3 == "all"}
-			<div id="allGroups"></div>
-		{if:elseif segment_3 == "adult"}
-			<div id="groups"></div>
-		{if:elseif segment_3 == "classes"}
-			<div id="classes"></div>
-		{if:elseif segment_3 == "students"}
-			<div id="students"></div>
-		{if:elseif segment_3 == "college"}
-			<div id="college"></div>
-		{/if}
+		<div class="groups-individual">
+			{exp:channel:entries channel="Groups" sort="asc"}
+				<div id="group_{entry_id}" class="group-entry {exp:remove_html}{groups-meet-day}{/exp:remove_html}{exp:taggable entry_url_title='{url_title}'} {name}{/exp:taggable}">
+					<h3>
+						{title}
+						<a href="/groups/{entry_id}" class="getDetails"><button>Get Details</button></a>
+					</h3>
+					<p class="groups-date">Meets {groups-meet-day} {if groups-meet-time == "Morning"}mornings{if:elseif groups-meet-time == "Afternoon"}afternoons{if:elseif groups-meet-time == "Evening"}evenings{/if}</p>
+					<p>{groups-details}</p>
+				</div>
+			{/exp:channel:entries}
+		</div>
 	</div>
 	<div class="clear"></div>
 </div>
 
-
-	{embed="_includes/footer-content"}
-
-	{!-- Mobile Nav --}
-	<script src="/_js/sidr.js"></script>
-	
-	{!-- Retina Friendly --}
-	<script type="text/javascript" src="/_js/retina.js"></script>
-	
-	<script src="/_js/scripts.js"></script>
-	
-	<script type="text/javascript">
-	var _sf_async_config={uid:49423,domain:"journeychurch.tv",useCanonical:true};
-	(function(){
-	  function loadChartbeat() {
-	    window._sf_endpt=(new Date()).getTime();
-	    var e = document.createElement('script');
-	    e.setAttribute('language', 'javascript');
-	    e.setAttribute('type', 'text/javascript');
-	    e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
-	    document.body.appendChild(e);
-	  }
-	  var oldonload = window.onload;
-	  window.onload = (typeof window.onload != 'function') ?
-	     loadChartbeat : function() { oldonload(); loadChartbeat(); };
-	})();
-
-	</script>
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-23134458-1']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
-
-	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
-	<script src="/themes/third_party/acs_bridge/acsView.js"></script>
-	
-	{if segment_3 == "" OR segment_3 == "all"}
-		<script type="text/javascript">
-		$(window).load(function() {
-			$("#allGroups").acsView({
-				template: '/acs/allgroups',
-				trigger: '.pop',
-				showNav: false,
-			});
-		});
-		</script>
-	{if:elseif segment_3 == "groups" OR segment_3 == "adult"}
-		<script type="text/javascript">
-		$(window).load(function() {
-			$("#groups").acsView({
-				template: '/acs/lifegroups',
-				trigger: '.pop',
-				showNav: false,
-			});
-		});
-		</script>
-	{if:elseif segment_3 == "college"}
-		<script type="text/javascript">
-		$(window).load(function() {
-			$("#college").acsView({
-				template: '/acs/college',
-				trigger: '.pop',
-				showNav: false,
-			});
-		});
-		</script>
-	{if:elseif segment_3 == "students"}
-		<script type="text/javascript">
-		$(window).load(function() {
-			$("#students").acsView({
-				template: '/acs/students',
-				trigger: '.pop',
-				showNav: false,
-			});
-		});
-		</script>
-	{if:elseif segment_3 == "classes"}
-		<script type="text/javascript">
-		$(window).load(function() {
-			$("#classes").acsView({
-				template: '/acs/classes',
-				trigger: '.pop',
-				showNav: false,
-			});
-		});
-		</script>
-	{/if}
-</body>
-</html>
+{embed="_includes/footer"}
