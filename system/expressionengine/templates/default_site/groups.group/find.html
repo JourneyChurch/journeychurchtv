@@ -24,22 +24,18 @@
 					$('.group-entry').show();
 				}
 			});
-			
-			//	$("#{name}-filter").change(function(){
-			//	    var id = $(this).attr("filtername");
-			//	    $("#{name}-filter[filtername='"+id+"']:checked").each(function(){
-			//			if ($(this).is(':checked')) {
-			//				$('.group-entry').hide();
-			//				$('.{name}').stop().show();
-			//				return;
-			//			} else if $("#{name}-filter[filtername='"+id+"']:not:checked").each(function(){
-			//				$('.group-entry').show();
-			//			} else {
-			//				$('.group-entry').show();
-			//			}
-			//	    });
-			//	});
 		{/exp:taggable}
+		{exp:channel:categories channel="Groups" style="linear" sort="asc"}
+			$("#{category_name}-filter").change(function(){
+				if ($(this).is(':checked')) {
+					$('.group-entry').hide();
+			        $('.{category_name}').stop().show();
+					return;
+				} else {
+					$('.group-entry').show();
+				}
+			});
+		{/exp:channel:categories}
 	});
 </script>
 		
@@ -50,6 +46,16 @@
 	</div>
 	<div class="grid_9">
 		<div class="groups-filter">
+			<h3 style="margin-bottom:5px;">Search by Category</h3>
+				<div id="theFilters">
+					{exp:splitter blocks="4" delimiter="<br>" class="grid_2"}
+						{exp:channel:categories channel="Groups" style="linear" sort="asc"}
+							<input type="checkbox" id="{category_name}-filter" class='filter'> <label for="{category_name}-filter">{category_name}</label><br>
+						{/exp:channel:categories}
+					{/exp:splitter}
+				</div>
+			<div class="clear"></div>
+			
 			<h3 style="margin-bottom:5px;">Search by Tag</h3>
 				<div id="theFilters">
 					{exp:splitter blocks="4" delimiter="<br>" class="grid_2"}
