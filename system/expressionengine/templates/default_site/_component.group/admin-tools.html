@@ -100,18 +100,6 @@ function confirm_turn_service_off() {
 		});
 	}
 	
-	//$.ajax({
-	//	url: '/_scripts/sm_numbers.php',
-	//	type: 'GET',
-	//    dataType: 'text',
-	//    success: function(string) {
-	//        data = $.parseJSON(string);
-	//        $("#connections").html(json.total_users);
-	//		$("#connections-mini").html(json.total_users);
-	//    },
-	//});
-	
-	
 	function StartGetStreamConnections() {
 		GetStreamConnections();
 		setTimeout("StartGetStreamConnections()", 30000);
