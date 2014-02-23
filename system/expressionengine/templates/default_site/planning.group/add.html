@@ -1,0 +1,30 @@
+<div class="modal fade" id="addEvent" tabindex="-1" role="dialog" aria-hidden="true">
+	{exp:channel:form channel="Planning" datepicker="no"}
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Add Event</h4>
+				</div>
+				<div class="modal-body">
+					<input name="title" type="text" class="form-control" placeholder="Title"><br>
+					{category_menu}
+						<select name="category[]" id="categories" size="6" multiple="multiple">
+							{select_options}
+						</select>
+					{/category_menu}
+					<br><br>
+					<input id="datepicker" name="entry_date" type="text" class="form-control hasDatepicker" placeholder="Start Date"><br>
+					<input id="datepicker" name="expiration_date" type="text" class="form-control hasDatepicker" placeholder="End Date"><br>
+					<input name="planning-person" type="text" class="form-control" placeholder="Contact Person"><br>
+					<input name="planning-location" type="text" class="form-control" placeholder="Location"><br>
+					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5" placeholder="Detailed Description"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
+					<input type="submit" class="btn btn-primary" value="Submit">
+				</div>
+			</div>
+		</div>
+	{/exp:channel:form}
+</div>
