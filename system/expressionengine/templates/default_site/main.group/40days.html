@@ -1,0 +1,59 @@
+{embed="_includes/header" bar="no" title="40 Days"}
+{!-- Sliding box addons --}
+<link rel="stylesheet" type="text/css" href="/_css/component.css" />
+<link rel="stylesheet" type="text/css" href="/_css/layerslider.css" />
+
+<script src="/_js/modernizr.custom.js"></script>
+<script src="/_js/lib.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>	
+
+<div id="layerslider-container">
+	<div id="layerslider" style="height: 450px;margin-bottom:40px">
+		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
+			<img class="ls-bg" src="/_img/slider/40Days-bg.png">
+			<img class="ls-s3"  src="/_img/slider/40Days-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; ">
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="grid_12">
+		<p>March 9th we begin a new season of teaching and more called "40 Days." This is more than just a new study... it is a time designed for us as a church to get coser to God than ever before and and to prepare us for the next great move of God in our church. Pastor Clark and the leadership of Journey believe that "40 Days" will be a pivotal turning point in your life and in our church. You do NOT want to miss a single moment of "40 Days." 
+		</p>
+	</div>
+</div>
+
+
+<script src="/_js/layerslider.js"type="text/javascript"></script>
+<script src="/_js/layerslider.transitions.js"type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#layerslider').layerSlider({
+			skinsPath : '/themes/assets/',
+			sublayerContainer : 966,
+			skin : 'fullwidth',
+			autoStart : true,
+			navStartStop : false,
+			responsive : true,
+			responsiveUnder : 760,
+			hoverPrevNext : false,
+			thumbnailNavigation : false,
+			showCircleTimer: false,
+			touchnav: true
+		});
+	});		
+</script>	
+<script>
+  	$(function() {
+  		  var d = new Date();
+  		  var n = d.getDay();
+  		  $( "#cal-week" ).tabs({ active: n });
+  	});
+	$("#cal-week-box").click(function(){
+	     window.location=$(this).find("a").attr("href"); 
+	     return false;
+	});
+	
+</script>
+<script src="/_js/toucheffects.js"></script>
+{embed="_includes/footer"}
