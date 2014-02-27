@@ -11,24 +11,6 @@
 
 
 /* Global settings */
-@media only screen and (max-width: 767px) {
-	img.mobileimg {
-		display: inline;
-	}
-	img.fullimg {
-		display:none;
-	}
-}
-@media only screen and (min-width: 768px) {
-	img.mobileimg img {
-		display: hidden;
-	}
-	img.fullimg {
-		display: inline;
-	}
-}
-
-
 .ls-container {
 	visibility: hidden;
 	position: relative;

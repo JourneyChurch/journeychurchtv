@@ -8,10 +8,10 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>	
 
 <div id="layerslider-container">
-	<div id="layerslider" style="height: 450px;margin-bottom:40px">
+	<div id="layerslider" style="width:100%;height:450px;margin-bottom:40px">
 		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
 			<img class="ls-bg" src="/_img/slider/Awakening-bg.png">
-			<img class="ls-s3 fullimg" src="/_img/slider/Awakening-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; ">
+			<img class="ls-s3 resimg" src="/_img/slider/Awakening-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; ">
 			<a href="/calendar/event/671a17f5-e321-4d5d-b102-a2a700f650b7?/awakening" class="ls-link"></a>
 		</div>
 		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
@@ -22,6 +22,7 @@
 		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
 			<img class="ls-bg" src="/_img/slider/GoodFriday-bg.png">
 			<img class="ls-s3"  src="/_img/slider/GoodFriday-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; ">
+			<a href="/calendar/event/7787bd58-fcab-4b12-b093-a2df01258bbc" class="ls-link">
 		</div>
 	</div>
 </div>
@@ -187,12 +188,12 @@
 	$(document).ready(function(){
 		$('#layerslider').layerSlider({
 			skinsPath : '/themes/assets/',
-			sublayerContainer : 966,
 			skin : 'fullwidth',
 			autoStart : true,
 			navStartStop : false,
 			responsive : true,
-			responsiveUnder : 760,
+			responsiveUnder : 768,
+			sublayerContainer : 966,
 			hoverPrevNext : false,
 			thumbnailNavigation : false,
 			showCircleTimer: false,
