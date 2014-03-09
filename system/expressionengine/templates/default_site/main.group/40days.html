@@ -48,9 +48,9 @@
 		<div class="grid_4">
 			<ul class="side-nav">
 				<h3 class="sub-title blue">Resources</h3>
-				<li><a href="/groups/find">Join a Group</a></li>
+				<li><a href="/groups/find"><i class="fa fa-group"></i>  Join a Group</a></li>
 				{!--}<li><a href="#">Download the Prayer Guide</a></li>{--}
-				<li><a href="/downloads/40Days_Guide.pdf" target="_blank">Download All Devotions</a></li>
+				<li><a href="/downloads/40Days_Guide.pdf" target="_blank"><i class="fa fa-download"></i> Download All Devotions <small>(PDF)</small></a></li>
 				{!--}<li><a href="/media">Watch media from 40 Days</a></li>{--}
 			</ul>
 		</div>
@@ -88,6 +88,7 @@
 		<div class="container clearfix">
 			<div class="grid_12">
 				<br>
+				{!--}
 				{exp:channel:prev_entry}
 					{if segment_2 != "first-words"}
 						<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
@@ -97,7 +98,9 @@
 					{if segment_2 != "first-words"}&nbsp; | &nbsp;{/if}
 					<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
 				{/exp:channel:next_entry}
-				<a href="/40days" style="float:right"><strong>See All Devotions</strong></a>
+				{--}
+				<a href="/40days" style="float:right"><strong>See All Devotionals</strong></a>
+				<br>
 				<hr>
 				
 				<div class="blog-title">
@@ -121,7 +124,7 @@
 					</div>
 				</div>
 				
-				<a href="/40days"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Go Back</strong></a>
+				<a href="/40days"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; See All Devotionals</strong></a>
 			</div>
 		</div>
 	{/exp:channel:entries}

@@ -9,21 +9,10 @@
 
 <div id="layerslider-container">
 	<div id="layerslider" style="width:100%;height:450px;margin-bottom:40px">
-		{if "{current_time format='%m%d%H'}" < "030520"}
-		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
-			<img class="ls-bg" src="/_img/slider/Awakening-bg.png">
-			<img class="ls-s3 si" src="/_img/slider/Awakening-1.png" style="max-wdith:966px;slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; ">
-			<a href="/calendar/event/671a17f5-e321-4d5d-b102-a2a700f650b7" class="ls-link"></a>
-		</div>
-		{/if}
-		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
-			<img class="ls-bg" src="/_img/slider/SpringForward-bg.png">
-			<img class="ls-s3 si" src="/_img/slider/SpringForward-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; ">
-		</div>
 		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
 			<img class="ls-bg" src="/_img/slider/40Days-bg.png">
 			<img class="ls-s3 si" src="/_img/slider/40Days-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; ">
-			<a href="/main/40days" class="ls-link"></a>
+			<a href="/40days" class="ls-link"></a>
 		</div>
 		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
 			<img class="ls-bg" src="/_img/slider/GoodFriday-bg.png">
@@ -41,7 +30,7 @@
 					{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
 						<a href="/media/{url_title}">
 							<div class="slide_content box1">
-								<i class="fa fa-chevron-circle-up"></i>
+								<i class="fa fa-chevron-up" style="padding-top:2px"></i>
 								<span>Watch the</span>
 								Latest Message
 							</div>
@@ -56,12 +45,12 @@
 				<figure>
 					<a href="/locations">
 						<div class="slide_content box2">
-							<i class="fa fa-chevron-circle-up"></i>
-							Locations
+							<i class="fa fa-chevron-up" style="padding-top:2px"></i>
+							Location
 							<span>&amp; times</span>
 						</div>
 						<figcaption>
-							<p>Find a campus near you</p>
+							<p>Where We Gather</p>
 						</figcaption>
 					</a>
 				</figure>
@@ -70,7 +59,7 @@
 				<figure>
 					<a href="/new">
 						<div class="slide_content box3">
-							<i class="fa fa-chevron-circle-up"></i>
+							<i class="fa fa-chevron-up" style="padding-top:2px"></i>
 							First time here?
 							<span>Learn more about us</span>
 						</div>
@@ -98,7 +87,7 @@
 		<a href="/locations">
 			<div class="grid_12 mobile_boxes box2">
 				<strong>Locations &amp; Times</strong><br>
-				Find a campus near you
+				Where We Gather
 			</div>
 		</a>
 		
@@ -123,7 +112,7 @@
 <div class="container clearfix">
 	<div id="full-only" class="grid_8">
 		<div class="happening">
-			<h2>Happening This Week <a href="/calendar"><i class="fa fa-chevron-circle-right pull-right"></i></a></h2>
+			<h2>Happening This Week <a href="/calendar"><i class="fa fa-chevron-right pull-right" style="padding-top:1px"></i></a></h2>
 
 			<div id="cal-week">
 				<ul class="cal-week-choices">
@@ -143,6 +132,7 @@
 					<div id="day-sun">
 						8:30 AM - <a href="/calendar/event/9b64d70c-bebb-4a7e-98d5-a2a90168a000">Worship Experience</a><br>
 						10:00 AM - <a href="/calendar/event/dde8a359-7b36-484b-8b35-a2a901690eb2">Worship Experience</a><br>
+						10:00 AM - <a href="/calendar/event/4e8c7702-62e6-4520-b7a2-a2d201168768">Five Foundations of Freedom</a><br>
 						11:30 AM - <a href="/calendar/event/24ce2fd1-bb54-4cd7-85ed-a2a90169549f">Worship Experience</a><br>
 						4:00 PM - <a href="/calendar/event/b15cddb4-07c1-43f3-8f9b-a2b000fe1e7b">Equip Class- Financial Peace University</a><br>
 						6:00 PM - <a href="/calendar/event/cebf8c19-8724-4af7-b7c4-a2a901698e72">Worship Experience</a><br>
@@ -155,13 +145,15 @@
 						9:00 PM - <a href="/calendar/event/c6912665-a726-41ca-91ab-a29e00cf67c0">Lifestream</a>
 					</div>
 					<div id="day-wed">
-						7:00 PM - <a href="/calendar/event/671a17f5-e321-4d5d-b102-a2a700f650b7">Awakening</a><br>
-						7:00 PM - <a href="/calendar/event/cef029e0-a2e0-43f1-941b-a27c00d1afd5">56 Worship Experience</a>
+						6:00 AM - <a href="/calendar/event/d50c32ee-ba4a-4957-8a39-a2e000b7230f">Prayer Event</a><br>
+						12:00 PM - <a href="/calendar/event/065eb915-ce0e-4ddc-936f-a2e000bbf157">Prayer Event</a><br>
+						7:00 PM - <a href="/calendar/event/cef029e0-a2e0-43f1-941b-a27c00d1afd5">56 Worship Experience</a><br>
+						8:00 PM - <a href="/calendar/event/6f4da5e8-7870-4a04-9341-a2e000c3bac1">Prayer Event</a>
 					</div>
 					<div id="day-thurs">
 						9:30 AM - <a href="/calendar/event/b7f38bb1-1f5f-4205-a98d-a2a700efb9ba">Reflect</a><br>
 						7:00 PM - <a href="/calendar/event/38affd34-ec73-4192-9c76-a2a700f01223">Reflect</a><br>
-						7:00 PM - <a href="/calendar/event/2f1e9e27-7eed-4aa8-a093-a2a700b9c3a5">Prayer Groups</a>
+						7:00 PM - <a href="/calendar/event/2f1e9e27-7eed-4aa8-a093-a2a700b9c3a5">Prayer Group</a>
 					</div>
 					<div id="day-fri">
 						No events listed for this day
