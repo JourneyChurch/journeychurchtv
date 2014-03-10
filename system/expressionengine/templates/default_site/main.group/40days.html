@@ -30,7 +30,7 @@
 						{devos-body}
 					{/exp:word_limit}
 					<br><br>
-					<a href="/40days/{url_title}" style="padding-left:20px"><strong>Continue Reading Today's Devotional &nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a></p>
+					<a href="/40days/{url_title}" class="continueon"><strong>Continue Reading Today's Devotional &nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a></p>
 			{/exp:channel:entries}
 		</div>
 		<div class="clear"></div>
@@ -50,8 +50,39 @@
 				<h3 class="sub-title blue">Resources</h3>
 				<li><a href="/groups/find"><i class="fa fa-group"></i>  Join a Group</a></li>
 				{!--}<li><a href="#">Download the Prayer Guide</a></li>{--}
-				<li><a href="/downloads/40Days_Guide.pdf" target="_blank"><i class="fa fa-download"></i> Download All Devotions <small>(PDF)</small></a></li>
-				{!--}<li><a href="/media">Watch media from 40 Days</a></li>{--}
+				<li><a href="/downloads/40Days_Guide.pdf" target="_blank"><i class="fa fa-download"></i> Download All Devotionals <small>(PDF)</small></a></li>
+				<li><a href="/study/40-days-to-a-healthier-life"><i class="fa fa-youtube-play"></i> Watch media from 40 Days</a></li>
+				<br><br>
+				<p style="text-transform:uppercase"><strong>Get a daily text reminder</strong></p>
+				<form
+					enctype="application/x-www-form-urlencoded"
+					action="https://app.clubtexting.com/widgets?_method=subscribe"
+					id="ez-form"
+					method="post"
+					target="subscribed"            onsubmit="
+					                                    window.open(
+					            '',
+					            'subscribed',
+					            'width=530,' +
+					            'height=370,' +
+					            'scrollbars=no,resizable=yes,status=no,toolbar=0'
+					    );
+					                "
+				>
+				            <input type="hidden" name="serializedData" value="eNpVUUtP3EAM/ivWXHpJlzyWNNkbEhUFtQLxEEKlB5NxMlMmM9E8dlkh/jseVq3E8XvY/mzLGru+Lb81zXHfj11XE7Z1Ra1sK1y36/5V6HDmXVrCDRkaonb2xBi3Iyk2ohSFwAM6eMTmt6jrtmtL8acQoyYjDxwbG1FUTAY92bT8IJTkucUZRUCQqM0eIr1E8DRrmzW2pmGgEMZk/tuZ1eG7xSdD8sJp+4t1nIiViqW/n5h7+uIJdmietZ0gKk44qTyMti7vgQaimygq8oCBhUElPygYcc5pZPK5ziUPgTA4C26EdQmnuA8reHAJdtoYzjuQ3hKXf8THCD0CbcnvYXbecosVXNPCDW9uL694IpCVKw4b90tOmU9jcabDckMK0c3ng7N33jClYlw2j0ePR6zttIyKueMy312RnlRk2DQZai5hMGof4tcPUIgUyJ/zn/qmr7pCTPlFP3Xgotd/X9qIdZkXEm9v77nWp7k=">
+
+            
+				    <label class="ez-lb" for="PhoneNumber">Phone Number</label><br>
+				    <input id="PhoneNumber" style="width:100%" class="ez-text" name="PhoneNumber" type="tel"
+				               value=""
+				               required="required" placeholder="(e.g. 2223334444 no dots)"
+				               pattern="^[2-9][0-9]{9}$" />
+							   
+
+					<button class="ez-button" type="submit" style="margin-left:0">Join Now</button>
+				</form>
+				
+				<small>Msg &amp; data rates may apply.<br>To unsubscribe, text STOP to 25827.</small>
 			</ul>
 		</div>
 		<div class="clear"></div>
@@ -77,30 +108,44 @@
 		});
 	</script>
 {if:else}
-<link rel="alternate" type="application/rss+xml" title="JourneyChurch.tv Blogs" href="http://journeychurch.tv/blogs/feed"><script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "12217aef-f07e-464d-8757-03bfdb881858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-
-	{exp:channel:entries channel="Devos" dynamic="on"}
-	<style type="text/css">
-		p {padding: 5px 0;}
-		h2 {color:#7f3e19}
-	</style>
+	{exp:channel:entries channel="Devos" dynamic="yes" url_title="{segment_2}"}
+		{if no_results}{redirect="40days"}{/if}
+		<link rel="alternate" type="application/rss+xml" title="{title} - JourneyChurch.tv" href="http://journeychurch.tv/blogs/feed"><script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "12217aef-f07e-464d-8757-03bfdb881858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 		
+		<style type="text/css">
+			p {padding: 5px 0;}
+			h2 {color:#7f3e19}
+		</style>
+			
 		<div class="container clearfix">
 			<div class="grid_12">
 				<br>
-				{!--}
-				{exp:channel:prev_entry}
-					{if segment_2 != "first-words"}
-						<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
-					{/if}
-				{/exp:channel:prev_entry}
-				{exp:channel:next_entry}
-					{if segment_2 != "first-words"}&nbsp; | &nbsp;{/if}
-					<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
-				{/exp:channel:next_entry}
-				{--}
-				<a href="/40days" style="float:right"><strong>See All Devotionals</strong></a>
-				<br>
+				<div id="full-only">
+					{exp:channel:prev_entry}
+						{if segment_2 != "first-words"}
+							<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
+						{/if}
+					{/exp:channel:prev_entry}
+					{exp:channel:next_entry}
+						{if segment_2 != "first-words"}&nbsp; | &nbsp;{/if}
+						<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+					{/exp:channel:next_entry}
+	            	
+					<a href="/40days" class="pull-right"><strong>Main 40 Days Page</strong></a>
+				</div>
+				<div id="mobile-only" class="mobile-nav">
+					{exp:channel:prev_entry}
+						{if segment_2 != "first-words"}
+							&nbsp;<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
+						{/if}
+					{/exp:channel:prev_entry}
+					{exp:channel:next_entry}
+						{if segment_2 != "first-words"}<br>{/if}
+						&nbsp;<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+					{/exp:channel:next_entry}
+					<br>
+					<a href="/40days"><strong>&nbsp;Main 40 Days Page</strong></a>
+				</div>
 				<hr>
 				
 				<div class="blog-title">
@@ -124,7 +169,10 @@
 					</div>
 				</div>
 				
-				<a href="/40days"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; See All Devotionals</strong></a>
+				<a href="/40days" id="full-only"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Main 40 Days Page</strong></a>
+			</div>
+			<div id="mobile-only" class="mobile-nav" style="margin:0 auto;text-align:center">
+				<a href="/40days"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Main 40 Days Page</strong></a>
 			</div>
 		</div>
 	{/exp:channel:entries}

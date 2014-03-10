@@ -427,6 +427,11 @@ ul.side-nav {
 		.blog-writtenby {
 			margin-bottom: 10px;
 		}
+		@media only screen and (max-width: 767px) {
+			.blog-comments {
+				float:left!important;
+			}
+		}
 	.blog-preview {
 		width: 100%;
 	}
@@ -697,6 +702,25 @@ h2.pastorclark span {
 	}
 }
 
+/* 40 Days Devos */
+@media (min-width: 768px) {
+	.continueon {
+		padding-left: 20px
+	}
+}
+@media (max-width: 767px) {
+	p {
+		padding: 0 5px;
+	}
+}
+
+
+.mobile-nav {
+	font-size: 16px;
+}
+	
+	
+	
 /* Footer */
 #footer {
 	background-image: url(/_img/bg-texture.jpg);
