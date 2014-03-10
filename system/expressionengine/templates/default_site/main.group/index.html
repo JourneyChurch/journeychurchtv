@@ -27,18 +27,16 @@
 		<ul class="cs-style-2">
 			<li class="grid_4">
 				<figure>
-					{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
-						<a href="/media/{url_title}">
-							<div class="slide_content box1">
-								<i class="fa fa-chevron-up" style="padding-top:2px"></i>
-								<span>Watch the</span>
-								Latest Message
-							</div>
-							<figcaption>
-								<p>{if media-shrt-title}{media-shrt-title}{if:else}{title}{/if}</p>
-							</figcaption>
-						</a>
-					{/exp:channel:entries}
+					<a href="/new">
+						<div class="slide_content box1">
+							<i class="fa fa-chevron-up" style="padding-top:2px"></i>
+							First time here?
+							<span>Learn more about us</span>
+						</div>
+						<figcaption>
+							<p>Who we are</p>
+						</figcaption>
+					</a>
 				</figure>
 			</li>
 			<li class="grid_4">
@@ -57,16 +55,18 @@
 			</li>
 			<li class="grid_4">
 				<figure>
-					<a href="/new">
-						<div class="slide_content box3">
-							<i class="fa fa-chevron-up" style="padding-top:2px"></i>
-							First time here?
-							<span>Learn more about us</span>
-						</div>
-						<figcaption>
-							<p>Who we are</p>
-						</figcaption>
-					</a>
+					{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
+						<a href="/media/{url_title}">
+							<div class="slide_content box3">
+								<i class="fa fa-chevron-up" style="padding-top:2px"></i>
+								<span>Watch the</span>
+								Latest Message
+							</div>
+							<figcaption>
+								<p>{if media-shrt-title}{media-shrt-title}{if:else}{title}{/if}</p>
+							</figcaption>
+						</a>
+					{/exp:channel:entries}
 				</figure>
 			</li>
 			<div class="clear"></div>
@@ -76,13 +76,12 @@
 </div>
 <div id="mobile-only">
 	<div class="container clearfix">
-		{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
-			<a href="/media/{url_title}">
-				<div class="grid_12 mobile_boxes box1">
-					<strong>Watch the Latest Message:</strong><br>{title}
-				</div>
-			</a>
-		{/exp:channel:entries}
+		<a href="/new">
+			<div class="grid_12 mobile_boxes box1">
+				<strong>First time here?</strong><br>
+				Learn more about us
+			</div>
+		</a>
 		
 		<a href="/locations">
 			<div class="grid_12 mobile_boxes box2">
@@ -91,13 +90,14 @@
 			</div>
 		</a>
 		
-		<a href="/new">
+		{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
+		<a href="/media/{url_title}">
 			<div class="grid_12 mobile_boxes box3">
-				<strong>First time here?</strong><br>
-				Learn more about us
+				<strong>Watch the Latest Message:</strong><br>
+				{title}
 			</div>
 		</a>
-		
+		{/exp:channel:entries}
 		
 		{!-- TEMP MOBILE CALENDAR --}
 		<a href="/calendar">
