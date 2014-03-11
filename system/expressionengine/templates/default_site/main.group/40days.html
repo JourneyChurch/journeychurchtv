@@ -1,6 +1,5 @@
-{embed="_includes/header" bar="{if segment_2==''}yes{if:else}no{/if}" title="40 Days"}
-
 {if segment_2 == ""}
+	{embed="_includes/header" bar="{if segment_2==''}yes{if:else}no{/if}" title="40 Days"}
 	<link rel="stylesheet" type="text/css" href="/_css/layerslider.css" />
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<style type="text/css">
@@ -110,6 +109,7 @@
 {if:else}
 	{exp:channel:entries channel="Devos" dynamic="yes" url_title="{segment_2}"}
 		{if no_results}{redirect="40days"}{/if}
+		{embed="_includes/header" bar="{if segment_2==''}yes{if:else}no{/if}" title="{title} - 40 Days"}
 		<link rel="alternate" type="application/rss+xml" title="{title} - JourneyChurch.tv" href="http://journeychurch.tv/blogs/feed"><script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "12217aef-f07e-464d-8757-03bfdb881858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 		
 		<style type="text/css">
@@ -121,12 +121,12 @@
 			<div class="grid_12">
 				<br>
 				<div id="full-only">
-					{exp:channel:prev_entry}
+					{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
 						{if segment_2 != "first-words"}
 							<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
 						{/if}
 					{/exp:channel:prev_entry}
-					{exp:channel:next_entry}
+					{exp:channel:next_entry channel="Devos" show_future_entries="no"}
 						{if segment_2 != "first-words"}&nbsp; | &nbsp;{/if}
 						<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
 					{/exp:channel:next_entry}
@@ -134,12 +134,12 @@
 					<a href="/40days" class="pull-right"><strong>Main 40 Days Page</strong></a>
 				</div>
 				<div id="mobile-only" class="mobile-nav">
-					{exp:channel:prev_entry}
+					{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
 						{if segment_2 != "first-words"}
 							&nbsp;<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
 						{/if}
 					{/exp:channel:prev_entry}
-					{exp:channel:next_entry}
+					{exp:channel:next_entry channel="Devos" show_future_entries="no"}
 						{if segment_2 != "first-words"}<br>{/if}
 						&nbsp;<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
 					{/exp:channel:next_entry}
@@ -171,7 +171,7 @@
 				
 				<a href="/40days" id="full-only"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Main 40 Days Page</strong></a>
 			</div>
-			<div id="mobile-only" class="mobile-nav" style="margin:0 auto;text-align:center">
+			<div id="mobile-only" class="mobile-nav">
 				<a href="/40days"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Main 40 Days Page</strong></a>
 			</div>
 		</div>
