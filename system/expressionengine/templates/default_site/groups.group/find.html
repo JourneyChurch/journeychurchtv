@@ -67,7 +67,7 @@
 			<div class="clear"></div>
 		</div>
 		<div class="groups-individual">
-			{exp:channel:entries channel="Groups" sort="asc"}
+			{exp:channel:entries channel="Groups" sort="asc" orderby="title"}
 				<div id="group_{entry_id}" class="group-entry {exp:remove_html}{groups-meet-day}{/exp:remove_html}{exp:taggable entry_url_title='{url_title}'} {name}{/exp:taggable}">
 					<h3>
 						{title}
