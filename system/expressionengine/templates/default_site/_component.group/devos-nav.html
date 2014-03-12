@@ -1,0 +1,28 @@
+<br>
+<div id="full-only">
+	{exp:channel:prev_entry channel="Devos" show_future_entries="no" url_title="{embed:url}"}
+		{if segment_2 != "first-words"}
+			<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp;{title}</strong></a>
+		{/if}
+	{/exp:channel:prev_entry}
+	{exp:channel:next_entry channel="Devos" show_future_entries="no" url_title="{embed:url}"}
+		{if segment_2 != "first-words"}&nbsp; | &nbsp;{/if}
+		<a href="{path='40days'}"><strong>{title} &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+	{/exp:channel:next_entry}
+	
+	<a href="/40days" class="pull-right"><strong>Main 40 Days Page</strong></a>
+</div>
+<div id="mobile-only" class="mobile-nav">
+	{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
+		{if segment_2 != "first-words"}
+			&nbsp;<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; {title}</strong></a>
+		{/if}
+	{/exp:channel:prev_entry}
+	{exp:channel:next_entry channel="Devos" show_future_entries="no"}
+		{if segment_2 != "first-words"}<br><br>{/if}
+		&nbsp;<a href="{path='40days'}"><strong>{title} &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+	{/exp:channel:next_entry}
+	<br><br>
+	<a href="/40days"><strong>&nbsp;Main 40 Days Page</strong></a>
+</div>
+<hr>

@@ -48,8 +48,8 @@
 			<ul class="side-nav">
 				<h3 class="sub-title blue">Resources</h3>
 				<li><a href="/groups/find"><i class="fa fa-group"></i>  Join a Group</a></li>
-				{!--}<li><a href="#">Download the Prayer Guide</a></li>{--}
 				<li><a href="/downloads/40Days_Guide.pdf" target="_blank"><i class="fa fa-download"></i> Download All Devotionals <small>(PDF)</small></a></li>
+				<li><a href="/downloads/Prayer_Card.pdf" target="_blank"><i class="fa fa-download"></i> Download Prayer Card <small>(PDF)</small></a></li>
 				<li><a href="/study/40-days-to-a-healthier-life"><i class="fa fa-youtube-play"></i> Watch media from 40 Days</a></li>
 				<br><br>
 				<p style="text-transform:uppercase"><strong>Get a daily text reminder</strong></p>
@@ -119,39 +119,16 @@
 			
 		<div class="container clearfix">
 			<div class="grid_12">
-				<br>
-				<div id="full-only">
-					{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
-						{if segment_2 != "first-words"}
-							<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
-						{/if}
-					{/exp:channel:prev_entry}
-					{exp:channel:next_entry channel="Devos" show_future_entries="no"}
-						{if segment_2 != "first-words"}&nbsp; | &nbsp;{/if}
-						<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
-					{/exp:channel:next_entry}
-	            	
-					<a href="/40days" class="pull-right"><strong>Main 40 Days Page</strong></a>
-				</div>
-				<div id="mobile-only" class="mobile-nav">
-					{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
-						{if segment_2 != "first-words"}
-							&nbsp;<a href="{path='40days'}"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Previous Devotional</strong></a>
-						{/if}
-					{/exp:channel:prev_entry}
-					{exp:channel:next_entry channel="Devos" show_future_entries="no"}
-						{if segment_2 != "first-words"}<br>{/if}
-						&nbsp;<a href="{path='40days'}"><strong>Next Devotional &nbsp; <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
-					{/exp:channel:next_entry}
-					<br>
-					<a href="/40days"><strong>&nbsp;Main 40 Days Page</strong></a>
-				</div>
-				<hr>
+				<?php
+					$today = "{entry_date format='%F %j'}";
+					$backward = date($today,strtotime("-1 days"));
+				?>
+				{embed="_component/devos-nav" url="{segment_2}"}
 				
 				<div class="blog-title">
 					<h3>{if {entry_date format='%Y'} >= "1999"}{entry_date format="%F %j, %Y"}{/if}</h3>
 					<h2>{title}</h2>
-					<h4>{if devos-author}Written by {devos-author}{/if}</h4>
+					{if devos-author}<h4>By {devos-author}</h4>{/if}
 				</div>
 				
 				<div class="blog-entry">
