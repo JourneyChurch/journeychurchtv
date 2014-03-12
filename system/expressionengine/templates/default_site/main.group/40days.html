@@ -108,7 +108,7 @@
 		});
 	</script>
 {if:else}
-	{exp:channel:entries channel="Devos" dynamic="yes" url_title="{segment_2}"}
+	{exp:channel:entries channel="Devos" dynamic="yes" url_title="{segment_2}" show_future_entries="yes"}
 		{if no_results}{redirect="40days"}{/if}
 		{embed="_includes/header" bar="{if segment_2==''}yes{if:else}no{/if}" title="{title} - 40 Days"}
 		<link rel="alternate" type="application/rss+xml" title="{title} - JourneyChurch.tv" href="http://journeychurch.tv/blogs/feed"><script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "12217aef-f07e-464d-8757-03bfdb881858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
