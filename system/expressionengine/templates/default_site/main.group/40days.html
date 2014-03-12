@@ -117,7 +117,7 @@
 			p {padding: 5px 0;}
 			h2 {color:#7f3e19}
 		</style>
-			
+		
 		<div class="container clearfix">
 			<div class="grid_12">
 				<?php
@@ -130,6 +130,8 @@
 					<h3>{if {entry_date format='%Y'} >= "1999"}{entry_date format="%F %j, %Y"}{/if}</h3>
 					<h2>{title}</h2>
 					{if devos-author}<h4>By {devos-author}</h4>{/if}
+					<br>
+					<h4><a href="{devos-mp3}" target="_blank"><i class="fa fa-volume-up"></i> <strong>LISTEN</strong></a></h4>
 				</div>
 				
 				<div class="blog-entry">
