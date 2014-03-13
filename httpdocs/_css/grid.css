@@ -147,7 +147,7 @@ Licensed under GPL and MIT
 	body{min-width:0;}
 	
 	/* Container */
-	.container { margin:0 auto; width:100%; overflow:hidden; }
+	.container { margin:0 auto; width:95%; overflow:hidden; }
 	
 	/* Global */
 	.container .grid_1,
@@ -172,20 +172,6 @@ Licensed under GPL and MIT
 		/* IE 6&7 */
 		zoom:1;
 		*display:inline;
-	}
-	.container .grid_1 p, .container .grid_1 h2, .container .grid_1 h3, .container .grid_1 h4,
-	.container .grid_2 p, .container .grid_2 h2, .container .grid_2 h3, .container .grid_2 h4,
-	.container .grid_3 p, .container .grid_3 h2, .container .grid_3 h3, .container .grid_3 h4,
-	.container .grid_4 p, .container .grid_4 h2, .container .grid_4 h3, .container .grid_4 h4,
-	.container .grid_5 p, .container .grid_5 h2, .container .grid_5 h3, .container .grid_5 h4,
-	.container .grid_6 p, .container .grid_6 h2, .container .grid_6 h3, .container .grid_6 h4,
-	.container .grid_7 p, .container .grid_7 h2, .container .grid_7 h3, .container .grid_7 h4,
-	.container .grid_8 p, .container .grid_8 h2, .container .grid_8 h3, .container .grid_8 h4,
-	.container .grid_9 p, .container .grid_9 h2, .container .grid_9 h3, .container .grid_9 h4,
-	.container .grid_10 p, .container .grid_10 h2, .container .grid_10 h3, .container .grid_10 h4,
-	.container .grid_11 p, .container .grid_11 h2, .container .grid_11 h3, .container .grid_11 h4,
-	.container .grid_12	p, .container .grid_12 h2, .container .grid_12 h3, .container .grid_12 h4 {
-		padding-left: 5px;
 	}
 	
 	.sub-title {
