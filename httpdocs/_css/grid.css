@@ -147,7 +147,7 @@ Licensed under GPL and MIT
 	body{min-width:0;}
 	
 	/* Container */
-	.container { margin:0 auto; width:95%; overflow:hidden; }
+	.container { margin:0 auto; width:92%; overflow:hidden; }
 	
 	/* Global */
 	.container .grid_1,
