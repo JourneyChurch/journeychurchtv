@@ -708,12 +708,6 @@ h2.pastorclark span {
 		padding-left: 20px
 	}
 }
-@media (max-width: 767px) {
-	p {
-		padding: 0 5px;
-	}
-}
-
 
 .mobile-nav {
 	font-size: 16px;
