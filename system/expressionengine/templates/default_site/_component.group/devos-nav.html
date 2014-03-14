@@ -21,5 +21,14 @@
 	{exp:channel:next_entry channel="Devos" show_future_entries="no"}
 		&nbsp;<a href="{path='40days'}" class="pull-right" style="font-size:36px;padding-right:10px"><strong><i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
 	{/exp:channel:next_entry}
+	<br>
+	{exp:channel:prev_entry channel="Devos" show_future_entries="no"}
+		{if segment_2 != "first-words"}
+			<a href="{path='40days'}"><small>Previous</small></a>
+		{/if}
+	{/exp:channel:prev_entry}
+	{exp:channel:next_entry channel="Devos" show_future_entries="no"}
+		<a href="{path='40days'}" class="pull-right" style="padding-right:10px"><small>Next</small></a>
+	{/exp:channel:next_entry}
 </div>
 <hr>
