@@ -1,5 +1,11 @@
 <link rel="stylesheet" type="text/css" href="/_css/layerslider.css" />
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>	
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+
+<style>
+  #map { width:100%; height:450px;}
+</style>
 
 <div id="layerslider-container">
 	<div id="layerslider" style="width:100%;height:450px;margin-bottom:40px">
@@ -15,7 +21,15 @@
 		<p><i class="fa fa-clock-o med-icon"></i> April 18th at 5:45 PM - 7:30 PM</p>
 		<p><i class="fa fa-map-marker med-icon"></i> &nbsp;<a href="https://www.google.com/maps/place/Myriad+Botanical+Gardens/@35.4653638,-97.517964,18z/data=!3m1!4b1!4m2!3m1!1s0x0:0x8fd2a7a17df9affc" target="_blank">Myriad Botanical Gardens</a></p>
 		<br>
-		<p>JourneyChurch.tv invites all of the Oklahoma City area to join us as we experience Good Friday in the Park at the Myriad Botanical Gardens. Bring your friends, family, blankets and lawn chairs for a time of community at 5:45 PM, followed by an incredible time of worship and remembrance at 6:30 PM. This outdoor event is the perfect opportunity to invite the entire city to experience Jesus’ sacrificial love and forgiveness.</p>
+		<p>JourneyChurch.tv invites all of the Oklahoma City area to join us as we experience Good Friday in the Park at the Myriad Botanical Gardens. Bring your friends, family, blankets and lawn chairs for a time of community at 5:45 PM, followed by an incredible time of worship and remembrance at 6:30 PM. This outdoor event is the perfect opportunity to invite the entire city to experience Jesus’ sacrificial love and forgiveness.
+		<br><br>
+		Limited, reserved parking is available in lot 320 located at 240 W Reno and lot 322 located at 350 W Reno. Please present your Good Friday in the Park invite card as a parking pass. Additional public parking is available in downtown around the gardens.</p>
+		<br>
+		<div id='map'></div>
+		<script>
+		var map = L.mapbox.map('map', 'journeychurchtv.hi81h4l9')
+		    .setView([35.4653638,-97.517964], 17);
+		</script>
 		
 		<div class="clear"></div>
 		<script type="text/javascript">
