@@ -25,11 +25,13 @@
 			{exp:channel:entries channel="Devos" category="49" orderby="date" sort="asc" show_future_entries="yes" start_on="{current_time format='%Y-%m-%d'} 00:00" stop_before="{current_time format='%Y-%m-%d'} 23:59" limit="1"}
 				<h2><a href="/40days/{url_title}">Daily Devotional - {entry_date format="%F %j"}</a></h2>
 				<h3>{title} {if devos-author}by {devos-author}{/if}</h3>
-				<p>{exp:word_limit total="120"}
+				<p>
+					{exp:word_limit total="120"}
 						{devos-body}
 					{/exp:word_limit}
 					<br><br>
-					<a href="/40days/{url_title}" class="continueon"><strong>Continue Reading Today's Devotional &nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a></p>
+					<a href="/40days/{url_title}" class="continueon"><strong>Continue Reading Today's Devotional &nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
+				</p>
 			{/exp:channel:entries}
 		</div>
 		<div class="clear"></div>
@@ -48,7 +50,7 @@
 		<div class="grid_4">
 			<ul class="side-nav">
 				<h3 class="sub-title blue">Resources</h3>
-				<li><a href="/groups/find"><i class="fa fa-group"></i>  Join a Group</a></li>
+				<li><a href="/groups"><i class="fa fa-group"></i>  Join a Group</a></li>
 				<li><a href="/downloads/40Days_Guide.pdf" target="_blank"><i class="fa fa-download"></i> Download All Devotionals <small>(PDF)</small></a></li>
 				<li><a href="/downloads/Prayer_Card.pdf" target="_blank"><i class="fa fa-download"></i> Download Prayer Card <small>(PDF)</small></a></li>
 				<li><a href="/study/40-days-to-a-healthier-life"><i class="fa fa-youtube-play"></i> Watch media from 40 Days</a></li>
