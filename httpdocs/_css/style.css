@@ -712,6 +712,103 @@ h2.pastorclark span {
 .mobile-nav {
 	font-size: 16px;
 }
+
+/* Easter 2014 */
+.easter_top {
+	border-top: #231f20 15px solid;
+	border-bottom: #231f20 15px solid;
+}
+
+.easter_1 {
+	height: 400px;
+	width: 50%;
+	float: left;
+	display: block;
+}
+	.easter_1-container {
+		background-image: url(/_img/easter/easter_1.png);
+		display: block;
+		height: 100%;
+		border-right: #231f20 15px solid;
+		border-bottom: #231f20 15px solid;
+	}
+.easter_2 {
+	height: 400px;
+	width: 50%;
+	float: right;
+}
+	.easter_2-container {
+		background-image: url(/_img/easter/easter_2.png);
+		display: block;
+		height: 100%;
+		border-bottom: #231f20 15px solid;
+	}
+.easter_3 {
+	height: 400px;
+	width: 50%;
+	float: left;
+	display: block;
+}
+	.easter_3-container {
+		background-image: url(/_img/easter/easter_3.png);
+		display: block;
+		height: 100%;
+		border-top: #231f20 15px solid;
+		border-right: #231f20 15px solid;
+		border-bottom: #231f20 15px solid;
+	}
+.easter_4 {
+	height: 400px;
+	width: 50%;
+	float: right;
+}
+	.easter_4-container {
+		background-image: url(/_img/easter/easter_4.png);
+		display: block;
+		height: 100%;
+		border-top: #231f20 15px solid;
+		border-bottom: #231f20 15px solid;
+	}
+
+@media (max-width: 767px) {
+	.easter_1, .easter_2, .easter_3, .easter_4 {
+		width: 100%;
+		display: block;
+	}
+	.easter_1-container {
+		border-top: none;
+		border-bottom: #231f20 15px solid;
+		border-left: none;
+		border-right: none;
+	}
+	.easter_2-container {
+		border-top: #231f20 15px solid;
+		border-bottom: #231f20 15px solid;
+		border-left: none;
+		border-right: none;
+	}
+	.easter_3-container {
+		border-top: #231f20 15px solid;
+		border-bottom: #231f20 15px solid;
+		border-left: none;
+		border-right: none;
+	}
+	.easter_4-container {
+		border-top: #231f20 15px solid;
+		border-bottom: #231f20 15px solid;
+		border-left: none;
+		border-right: none;
+	}
+}
+
+.easter14 span.fa-clock-o {
+	font-size: 82px;
+	color: #fff;
+}
+.easter14 span.fa-twitter-square, .easter14 span.fa-facebook-square {
+	font-size: 64px;
+	color: #fff;
+}
 	
 	
 	
