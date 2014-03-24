@@ -330,21 +330,25 @@ body {
 	}
 
 	.fc-calendar .fc-row > div > span.fc-date {
-		width: 20px;
-		display: inline-block;
+		min-width: 45px;
+		display: block;
 		text-align: right;
-		margin: 10px 0;
+		margin: 10px 0 5px;
+		float: left;
 	}
 
 	.fc-calendar .fc-row > div > span.fc-weekday {
-		display: inline-block;
-		width: 30px;
+		min-width: 45px;
+		display: block;
 		color: #fff;
 		color: rgba(0,0,0,0.7);
 		font-size: 10px;
 		text-transform: uppercase;
 		float: left;
-		padding-top: 5px;
-		margin: 10px 0;
+		text-align: right;
+		clear: both;
+	}
+	.fc-calendar .fc-row > div > div {
+		padding-left: 5px;
 	}
 }
