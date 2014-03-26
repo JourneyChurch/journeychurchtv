@@ -801,14 +801,27 @@ h2.pastorclark span {
 	}
 }
 
-.easter14 span.fa-clock-o {
-	font-size: 82px;
+.easter14 span.fa-clock-o, .easter14 span.fa-map-marker  {
+	font-size: 62px;
 	color: #fff;
+	float: left;
+	margin-right: 20px;
 }
 .easter14 span.fa-twitter-square, .easter14 span.fa-facebook-square {
+	width: 100%;
 	font-size: 64px;
 	color: #fff;
+	text-align: center;
 }
+
+/* Good Friday */
+	.easter14 .goodfriday p {
+		color: #fff;
+	}
+	.easter14 .goodfriday h3 {
+		color: #f4f2ba;
+		text-transform: uppercase;
+	}
 	
 	
 	
