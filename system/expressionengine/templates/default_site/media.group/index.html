@@ -40,10 +40,12 @@
 			</div>
 			<div class="grid_7">
 				{if media-video}
-					<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='555' height='297' frameborder='0'></iframe>
+					<div class="videoWrapper">
+						<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='555' height='297' frameborder='0'></iframe>
+					</div>
 				{!-- YouTube --}
 				{if:elseif media-youtube && media-video == ""}
-				<div style="max-width:650px!important">
+				<div class="videoWrapper" style="max-width:650px!important">
 					<div id="vid{entry_id}">
 						<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
 					</div>
@@ -132,10 +134,12 @@
 				{exp:channel:entries channel="Media" dynamic="on" limit="1"}
 					{!-- Stream Monkey --}
 					{if media-video}
-						<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='640' height='360' frameborder='0'></iframe>
+						<div class="videoWrapper">
+							<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='640' height='360' frameborder='0'></iframe>
+						</div>
 					{!-- YouTube --}
 					{if:elseif media-youtube && media-video == ""}
-					<div style="max-width:650px!important">
+					<div class="videoWrapper" style="max-width:650px!important">
 						<div id="vid{entry_id}">
 							<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
 						</div>
@@ -163,7 +167,9 @@
 						<div class="clear"></div>
 					{!-- Vimeo --}
 					{if:elseif media-vimeo && media-youtube == "" && media-video == ""}
-						<iframe src="//player.vimeo.com/video/{media-vimeo}?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						<div class="videoWrapper">
+							<iframe src="//player.vimeo.com/video/{media-vimeo}?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
 						<div class="clear"></div>
 					{/if}
 				{/exp:channel:entries}
