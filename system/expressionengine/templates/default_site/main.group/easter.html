@@ -1,4 +1,4 @@
-{embed="_includes/header" title="Easter Weekend at JourneyChurch.tv" bar="no"}
+{embed="_includes/header" title="Easter Weekend" bar="no"}
 <meta name="Description" content="DESCRIPTION">
 <link rel="stylesheet" type="text/css" href="/_css/layerslider.css" />
 
@@ -23,35 +23,74 @@
 	</div>
 	<div class="easter_2 container">
 		<div class="easter_2-container goodfriday">
-			<img src="/_img/easter/goodfriday_crosses.png" class="pull-right" style="width:40%">
+			<img src="/_img/easter/goodfriday_title.png" align="center" style="max-width:800px;margin:0 auto;width:100%">
+			<br><br>
 			<div>
 				<span class="fa fa-clock-o" style="float: left"></span>
-				<h3>Friday, April 18th 2014</h3>
+				<h3>Friday, April 18<sup>th</sup> 2014</h3>
 				<p>5:45 PM - Food Trucks and Activities</p>
 				<p>6:30 PM - Worship Experience</p>
+				<br>
 			</div>
-			
+			<div class="clear"></div>
 			<div>
-				<span class="fa fa-map-marker" style="float:left"></span>
-				<p>local</p>
+				<span class="fa fa-map-marker"></span>
+				<h3>Myriad Botanical Gardens</h3>
+				<p>301 W. Reno Ave</p>
+				<p>Oklahoma City, OK 73102</p>
 			</div>
+			<div class="clear"></div>
+			<a href='#' class='goodfriday-modal-bump'>Demo</a>
+			<div id="goodfriday-modal">
+				<h3>Basic Modal Dialog</h3>
+				<p>For this demo, SimpleModal is using this "hidden" data for its content. You can also populate the modal dialog with an AJAX response, standard HTML or DOM element(s).</p>
+				<p>Examples:</p>
+				<p><code>$('#basicModalContent').modal(); // jQuery object - this demo</code></p>
+				<p><code>$.modal(document.getElementById('basicModalContent')); // DOM</code></p>
+				<p><code>$.modal('&lt;p&gt;&lt;b&gt;HTML&lt;/b&gt; elements&lt;/p&gt;'); // HTML</code></p>
+				<p><code>$('&lt;div&gt;&lt;/div&gt;').load('page.html').modal(); // AJAX</code></p>
+	
+				<p><a href='http://www.ericmmartin.com/projects/simplemodal/'>More details...</a></p>
+			</div>
+			<p style="padding:10px">
+				<small>*In case of inclement weather, Good Friday in the Park will take place at JourneyChurch Norman Campus Auditorium, 3801 Journey Parkway, Norman. Please watch this website and our social media channels for updates or call 405-217-8700. </small></p>
 		</div>
 	</div>
 	<div class="easter_3">
 		<div class="easter_3-container">
-			<span class="fa fa-clock-o"></span>
+			<div class="easter_smalldeets">
+				<h2>Saturday<br>April 19</h2>
+				<span class="fa fa-clock-o" style="float: left"></span>
+				<p>4:30 PM</p>
+				<p>6:00 PM</p>
+				<br>
+			</div>
 		</div>
 	</div>
 	<div class="easter_4">
 		<div class="easter_4-container">
-			<span class="fa fa-clock-o"></span>
+			<div class="easter_smalldeets">
+				<h2>Sunday<br>April 20</h2>
+				<span class="fa fa-clock-o" style="float: left"></span>
+				<div class="suntimes">
+					<p>8:30 AM</p>
+					<p>10:00 AM</p>
+					<p>11:30 AM</p>
+				</div>
+				<div class="suntimes2">
+					<p>4:30 PM</p>
+					<p>6:00 PM</p>
+				</div>
+			</div>
 		</div>
+		<div class="clear"></div>
 	</div>
 	<div class="clear"></div>
 </div>
 
 <script src="/_js/layerslider.js"type="text/javascript"></script>
 <script src="/_js/layerslider.transitions.js"type="text/javascript"></script>
+<script type='text/javascript' src='/_js/jquery.simplemodal.js'></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#layerslider').layerSlider({
@@ -67,6 +106,11 @@
 			showCircleTimer: false,
 			touchnav: true
 		});
-	});		
+	});
+	$('#goodfriday-modal').hide();
+	$('.easter_2 .goodfriday-modal-bump').click(function (e) {
+		$('#goodfriday-modal').modal();
+		return false;
+	});
 </script>
 {embed="_includes/footer"}
