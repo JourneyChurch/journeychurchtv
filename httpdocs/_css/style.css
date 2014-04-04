@@ -749,9 +749,25 @@ h2.pastorclark span {
 	border-top: #231f20 15px solid;
 	border-bottom: #231f20 15px solid;
 }
+.easter14 #layerslider h2 {
+	width: 966px;
+	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
+	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
+	font-size: 180px;
+	line-height: 135px;
+	letter-spacing: 5px;
+	color: #fff;
+	text-align: center;
+	text-shadow: #b15300 0px 5px 20px;
+	padding-top: 50px;
+}
+.easter14 #layerslider h2 span {
+	font-size: 135px;
+	padding-left: 10px;
+}
 
 .easter_1 {
-	height: 450px;
+	height: 550px;
 	width: 50%;
 	float: left;
 	display: block;
@@ -763,8 +779,38 @@ h2.pastorclark span {
 		border-right: #231f20 15px solid;
 		border-bottom: #231f20 15px solid;
 	}
+	.easter_1 p {
+		padding: 40px;
+		font-size: 16px;
+		font-weight: 500;
+		color: #fff	;
+	}
+	.easter_1 p strong {
+		font-size: 18px;
+	}
+	.easter-socialshare {
+		display: block;
+		margin: 0 auto;
+		padding-left: 30%;
+	}
+	.easter_1 span.fa {
+		float: left;
+		margin: 0 auto;
+		padding: 0 10px;
+	}
+	.st_facebook_large {
+		font-family: FontAwesome;
+		font-size: 64px;
+		font-style: normal;
+		font-weight: normal;
+		height: 64px;
+		line-height: 64px;
+		-webkit-font-smoothing: antialiased;
+		content: "\f081";
+		background-image: none!important;
+	}
 .easter_2 {
-	height: 450px;
+	height: 550px;
 	width: 50%;
 	float: right;
 }
@@ -773,6 +819,9 @@ h2.pastorclark span {
 		display: block;
 		height: 100%;
 		border-bottom: #231f20 15px solid;
+	}
+	.easter_2 a {
+		color: #bae3dd;
 	}
 .easter_3 {
 	height: 350px;
@@ -801,7 +850,7 @@ h2.pastorclark span {
 		border-bottom: #231f20 15px solid;
 	}
 	.easter_4 span.fa-clock-o {
-		min-height: 150px;
+		min-height: 200px;
 	}
 	.easter_4 .suntimes {
 		float: left;
@@ -844,12 +893,22 @@ h2.pastorclark span {
 		border-left: none;
 		border-right: none;
 	}
+		.easter_1 {
+			height: 580px;
+		}
+		.easter_1 p {
+			padding: 20px;
+			font-size: 13px;
+		}
 	.easter_2-container {
 		border-top: #231f20 15px solid;
 		border-bottom: #231f20 15px solid;
 		border-left: none;
 		border-right: none;
 	}
+		.easter_2 {
+			height: 650px;
+		}
 	.easter_3-container {
 		border-top: #231f20 15px solid;
 		border-bottom: #231f20 15px solid;
@@ -876,6 +935,9 @@ h2.pastorclark span {
 		font-size: 48px;
 		line-height: 50px;
 	}
+	.easter_4 span.fa-clock-o {
+		min-height: 200px!important;
+	}
 }
 
 .easter_smalldeets {
@@ -892,9 +954,9 @@ h2.pastorclark span {
 	margin-right: 20px;
 	min-width: 65px;
 	text-align: center;
+	min-height: 75px;
 }
 .easter14 span.fa-twitter-square, .easter14 span.fa-facebook-square {
-	width: 100%;
 	font-size: 64px;
 	color: #fff;
 }
