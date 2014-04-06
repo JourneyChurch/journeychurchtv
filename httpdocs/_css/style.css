@@ -886,10 +886,16 @@ h2.pastorclark span {
 		font-size: 20px;
 		text-shadow: #5A5A5A 0px 1px 10px;
 	}
-	.easter_5 .socilashares {
-		width: 100%;
+	.easter_5 .easterlocal {
+		float: left;
+		width: 50%;
+	}
+	.easter_5 .socialshares {
+		float: right;
 		margin: 0 auto;
-		text-align: center;
+		text-align: right;
+		padding-top: 15px	;
+		padding-right: 20px;
 	}
 	.easter_5 span.fa-twitter-square, .easter_5 span.fa-facebook-square, .easter_5 span.fa-google-plus-square {
 		font-size: 64px;
@@ -1040,4 +1046,40 @@ h2.pastorclark span {
 #footer .footer-social a, #footer .footer-social a:hover, #footer .footer-social a:active {
 	color: #fff;
 	text-decoration: none!important;
+}
+
+h2.easterfont {
+	width: 966px;
+	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
+	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
+	font-size: 180px;
+	line-height: 135px;
+	letter-spacing: 5px;
+	color: #fff;
+	text-align: left;
+	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
+	padding-top: 60px;
+}
+h3.easterfont {
+	width: 966px;
+	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
+	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
+	font-size: 135px;
+	line-height: 135px;
+	letter-spacing: 5px;
+	color: #fff;
+	text-align: left;
+	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
+	padding-top: 200px;
+	padding-left: 10px;
+}
+h4.easterfont {
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: 5px;
+	color: #fff;
+	text-align: left;
+	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
+	padding-top: 360px;
+	padding-left: 10px;
 }
