@@ -980,14 +980,17 @@ h2.pastorclark span {
 	.easter_4 span.fa-clock-o {
 		min-height: 200px!important;
 	}
-	.easterlocal {
-		width: 100%!important;
+	.easter_5-container {
+		padding: 20px 0;
 	}
-	.socialshares {
-		width: 100%!important;
-		margin: 0 auto!important;
-		text-align:center!important;
-	}
+		.easterlocal {
+			width: 100%!important;
+		}
+		.socialshares {
+			width: 100%!important;
+			margin: 0 auto!important;
+			text-align:center!important;
+		}
 }
 
 .easter_smalldeets {
