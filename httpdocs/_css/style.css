@@ -757,26 +757,52 @@ h2.pastorclark span {
 	line-height: 135px;
 	letter-spacing: 5px;
 	color: #fff;
-	text-align: center;
-	text-shadow: #b15300 0px 5px 20px;
+	text-align: left;
+	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
 	padding-top: 50px;
 }
-.easter14 #layerslider h2 span {
+.easter14 #layerslider h3 {
+	width: 966px;
+	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
+	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
 	font-size: 135px;
+	line-height: 135px;
+	letter-spacing: 5px;
+	color: #fff;
+	text-align: left;
+	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
+	padding-top: 200px;
 	padding-left: 10px;
 }
-
+.easter_2 {
+	height: auto;
+	width: 100%;
+	display: block;
+}
+	.easter_2-container {
+		background-image: url(/_img/easter/easter_2.png);
+		display: block;
+		height: 100%;
+		border-bottom: #231f20 15px solid;
+	}
+	.easter_2 a {
+		color: #bae3dd;
+	}
+	.easter_2 .infoblocks {
+		float:left;
+		width: 50%;
+	}
+	.easter_2 span.fa-clock-o {
+		min-height: 95px!important;
+	}
 .easter_1 {
-	height: 550px;
-	width: 50%;
-	float: left;
+	width: 100%;
 	display: block;
 }
 	.easter_1-container {
-		background-image: url(/_img/easter/easter_1.png);
+		background-image: url(/_img/easter/Easter-bg.png);
 		display: block;
 		height: 100%;
-		border-right: #231f20 15px solid;
 		border-bottom: #231f20 15px solid;
 	}
 	.easter_1 p {
@@ -808,20 +834,6 @@ h2.pastorclark span {
 		-webkit-font-smoothing: antialiased;
 		content: "\f081";
 		background-image: none!important;
-	}
-.easter_2 {
-	height: 550px;
-	width: 50%;
-	float: right;
-}
-	.easter_2-container {
-		background-image: url(/_img/easter/easter_2.png);
-		display: block;
-		height: 100%;
-		border-bottom: #231f20 15px solid;
-	}
-	.easter_2 a {
-		color: #bae3dd;
 	}
 .easter_3 {
 	height: 350px;
@@ -859,6 +871,32 @@ h2.pastorclark span {
 		float:left;
 		padding-left:25px
 	}
+.easter_5 {
+	height: auto;
+	width: 100%;
+}
+	.easter_5-container {
+		background-image: url(/_img/easter/easter_5.png);
+		display: block;
+		height: 100%;
+		padding: 50px 0;
+	}
+	.easter_5 p {
+		color: #fff;
+		font-size: 20px;
+		text-shadow: #5A5A5A 0px 1px 10px;
+	}
+	.easter_5 .socilashares {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.easter_5 span.fa-twitter-square, .easter_5 span.fa-facebook-square, .easter_5 span.fa-google-plus-square {
+		font-size: 64px;
+		color: #fff;
+		padding: 0 10px;
+		text-align: center;
+	}
 
 .easter_3 h2, .easter_4 h2 {
 	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
@@ -881,7 +919,6 @@ h2.pastorclark span {
 	text-align: left!important;
 	text-shadow: #5A5A5A 0px 1px 10px;
 }
-	
 @media (max-width: 767px) {
 	.easter_1, .easter_2, .easter_3, .easter_4 {
 		width: 100%;
@@ -889,32 +926,31 @@ h2.pastorclark span {
 	}
 	.easter_1-container {
 		border-top: none;
-		border-bottom: #231f20 15px solid;
 		border-left: none;
 		border-right: none;
 	}
-		.easter_1 {
-			height: 580px;
-		}
 		.easter_1 p {
 			padding: 20px;
 			font-size: 13px;
 		}
 	.easter_2-container {
-		border-top: #231f20 15px solid;
 		border-bottom: #231f20 15px solid;
 		border-left: none;
 		border-right: none;
 	}
-		.easter_2 {
-			height: 650px;
+		.easter_2 .infoblocks {
+			display: block;
+			width: 100%;
 		}
 	.easter_3-container {
 		border-top: #231f20 15px solid;
-		border-bottom: #231f20 15px solid;
+		border-bottom: none;
 		border-left: none;
 		border-right: none;
 	}
+		.easter_3 {
+			height: auto;
+		}
 	.easter_4-container {
 		border-top: #231f20 15px solid;
 		border-bottom: #231f20 15px solid;
@@ -922,7 +958,7 @@ h2.pastorclark span {
 		border-right: none;
 	}
 		.easter_4 {
-			height: 400px;
+			height: auto;
 		}
 		.easter_4 .suntimes {
 			float: none;
@@ -955,10 +991,6 @@ h2.pastorclark span {
 	min-width: 65px;
 	text-align: center;
 	min-height: 75px;
-}
-.easter14 span.fa-twitter-square, .easter14 span.fa-facebook-square {
-	font-size: 64px;
-	color: #fff;
 }
 
 /* Good Friday */
