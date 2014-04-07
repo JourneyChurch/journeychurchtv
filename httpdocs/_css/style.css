@@ -849,6 +849,12 @@ h2.pastorclark span {
 		border-right: #231f20 15px solid;
 		border-bottom: #231f20 15px solid;
 	}
+	.easter_3-container .easter_smalldeets h2 {
+		text-align: right;
+	}
+	.easter_3-times p {
+		float: right;
+	}
 .easter_4 {
 	height: 350px;
 	width: 50%;
@@ -956,6 +962,15 @@ h2.pastorclark span {
 	}
 		.easter_3 {
 			height: auto;
+		}
+		.easter_3-times {
+			float: left!important;
+		}
+		.easter_3-container .easter_smalldeets h2 {
+			text-align: left;
+		}
+		.easter_3-times p {
+			float: left;
 		}
 	.easter_4-container {
 		border-top: #231f20 15px solid;
