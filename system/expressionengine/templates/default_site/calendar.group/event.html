@@ -16,5 +16,12 @@
 	{redirect="calendar/index"}
 {if:else}
 	<div id="event"></div>
+	{exp:channel:entries channel="events" url_title="{segment_3}"}
+		<div class="container">
+			<div class="grid_12">
+				<a href="{event-reg}" target='_blank'><button class='pull-right'><i class='fa fa-ticket'></i> Register Now</button></a>
+			</div>
+		</div>
+	{/exp:channel:entries}
 {/if}
 {embed="_includes/event_footer"}
