@@ -65,25 +65,15 @@
 
 		$( '#custom-next' ).on( 'click', function() {
 			cal.gotoNextMonth( updateMonthYear );
-			// Special calendars for 2014 only
-			if (cal.getYear() == "2014") {
-				checkSpecialMonths();
-			}
+			checkSpecialMonths();
 		} );
 		$( '#custom-prev' ).on( 'click', function() {
 			cal.gotoPreviousMonth( updateMonthYear );
-			// Special calendars for 2014 only
-			if (cal.getYear() == "2014") {
-				checkSpecialMonths();
-			}
+			checkSpecialMonths();
 		} );
 		$( '#custom-current' ).on( 'click', function() {
 			cal.gotoNow( updateMonthYear );
-			
-			// Special calendars for 2014 only
-			if (cal.getYear() == "2014") {
-				checkSpecialMonths();
-			}
+			checkSpecialMonths();
 		} );
 
 		function updateMonthYear() {				
