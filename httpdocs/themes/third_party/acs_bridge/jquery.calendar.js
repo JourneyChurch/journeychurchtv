@@ -223,9 +223,8 @@
 							content = dayData;
 						}
 						
-						if( content !== '' ) {
-							inner += '<div>' + content + '</div>';
-						}
+							inner += '<div class="fc-day_holder">' + content + '</div>';
+						
 
 						++day;
 					}

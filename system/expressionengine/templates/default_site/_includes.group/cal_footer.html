@@ -65,18 +65,25 @@
 
 		$( '#custom-next' ).on( 'click', function() {
 			cal.gotoNextMonth( updateMonthYear );
-			// Add Giant January in der
-			checkGiantJanuary();
+			// Special calendars for 2014 only
+			if (cal.getYear() == "2014") {
+				checkSpecialMonths();
+			}
 		} );
 		$( '#custom-prev' ).on( 'click', function() {
 			cal.gotoPreviousMonth( updateMonthYear );
-			// Add Giant January in der
-			checkGiantJanuary();
+			// Special calendars for 2014 only
+			if (cal.getYear() == "2014") {
+				checkSpecialMonths();
+			}
 		} );
 		$( '#custom-current' ).on( 'click', function() {
 			cal.gotoNow( updateMonthYear );
-			// Add Giant January in der
-			checkGiantJanuary();
+			
+			// Special calendars for 2014 only
+			if (cal.getYear() == "2014") {
+				checkSpecialMonths();
+			}
 		} );
 
 		function updateMonthYear() {				
@@ -86,19 +93,45 @@
 			window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
 		}
 		
-		function checkGiantJanuary() {
-			if (cal.getMonthName() == "January") {
+		function checkSpecialMonths() {
+			if (cal.getMonthName() == "January" && cal.getYear() == "2014") {
 	   			$('.custom-calendar-full h2').hide();
 				$('.custom-month').hide();
 				$('.custom-year').hide();
 				$('.custom-calendar-GiantJanuary').show();
 				$('head').append('<link rel="stylesheet" type="text/css" href="/_css/giantJanuary.css">');
+			} else if (cal.getMonthName() == "June" && cal.getYear() == "2014" || cal.getMonthName() == "July" && cal.getYear() == "2014" || cal.getMonthName() == "August" && cal.getYear() == "2014") {
+	   			$('.custom-calendar-full h2').hide();
+				$('.custom-year').hide();
+				$('.custom-calendar-OneSweetSummer').show();
+				$('head').append('<link rel="stylesheet" type="text/css" href="/_css/onesweetsummer.css">');
 			} else {
 	   			$('.custom-calendar-full h2').show();
 				$('.custom-month').show();
 				$('.custom-year').show();
 				$('.custom-calendar-GiantJanuary').hide();
+				$('.custom-calendar-OneSweetSummer').hide();
 				$('link[rel=stylesheet][href~="/_css/giantJanuary.css"]').remove();
+				$('link[rel=stylesheet][href~="/_css/onesweetsummer.css"]').remove();
+			}
+			
+			if (cal.getMonthName() == "June" && cal.getYear() == "2014") {
+				$(".custom-month").css("color", "#f05032");
+				$(".fc-day_holder").css("backgroundColor", "#f05032");
+				$("span.fc-date").css("color", "#f05032");
+				$(".OneSweetSummer-body h2").css("color", "#f05032");
+			} else if (cal.getMonthName() == "July" && cal.getYear() == "2014") {
+				$(".custom-month").css("color", "#f48024");
+				$(".fc-day_holder").css("backgroundColor", "#f48024");
+				$("span.fc-date").css("color", "#f48024");
+				$(".OneSweetSummer-body h2").css("color", "#f48024");
+			} else if (cal.getMonthName() == "August" && cal.getYear() == "2014") {
+				$(".custom-month").css("color", "#eeb111");
+				$(".fc-day_holder").css("backgroundColor", "#eeb111");
+				$("span.fc-date").css("color", "#eeb111");
+				$(".OneSweetSummer-body h2").css("color", "#eeb111");
+			} else {
+				$(".custom-month").css("color", "rgba(0, 0, 0, 0.6)")
 			}
 		}
 	});
