@@ -83,7 +83,6 @@
 	}
 	
 	.custom-calendar-OneSweetSummer h3 {
-		color: #006f7c;
 		font-weight: 700;
 		font-size: 20px;
 		padding-bottom: 10px;
@@ -100,4 +99,8 @@
 	}
 	.fc-calendar .fc-row > div.fc-today {
 		background-color: #00616D !important;
+	}
+	
+	h2.OneSweetSummer-body {
+		font-family: 'Archer SSm A', 'Archer SSm B' !important; font-weight: 600!important; font-style: normal;
 	}
