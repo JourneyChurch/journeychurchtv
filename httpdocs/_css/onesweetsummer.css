@@ -1,17 +1,4 @@
-	* {
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
-	
-	@media screen and (max-width: 880px), screen and (max-height: 450px) {
-		.custom-month-year nav {
-			margin: 20px 0!important;
-		}
-	}
+
 	.fc-head {
 		display: none;
 	}
@@ -22,10 +9,6 @@
 		margin: 10px 0;
 	}
 	
-	/* Date Number Holder */
-	.fc-calendar .fc-row > div > div {
-		margin-top: 30px!important;
-	}
 	.fc-date {
 		font-size: 32px !important;
 		text-align: left !important;
@@ -56,10 +39,6 @@
 	.fc-calendar .fc-row > div > span.fc-weekday {
 		color: rgba(255, 255, 255, 0.7)!important;
 	}
-	.fc-day_holder {
-		min-height: 245px;
-		margin: 0 5px;
-	}
 	h3.custom-month-year {
 		text-align: left!important;
 		font-family: 'Archer SSm A', 'Archer SSm B' !important; font-weight: 600!important; font-style: normal;
@@ -75,11 +54,6 @@
 	}
 	.custom-calendar-OneSweetSummer p {
 		color: #231f20;
-	}
-	@media screen and (max-width: 880px) , screen and (max-height: 450px) {
-		.custom-calendar-OneSweetSummer h2 {
-			font-size: 42px;
-		}
 	}
 	
 	.custom-calendar-OneSweetSummer h3 {
@@ -101,6 +75,41 @@
 		background-color: #00616D !important;
 	}
 	
-	h2.OneSweetSummer-body {
+	.OneSweetSummer-body h2 {
 		font-family: 'Archer SSm A', 'Archer SSm B' !important; font-weight: 600!important; font-style: normal;
+	}
+	
+	
+	@media screen and (min-width: 881px) {
+		/* Date Number Holder */
+		.fc-calendar .fc-row > div > div {
+			margin-top: 30px!important;
+		}
+		.fc-day_holder {
+			min-height: 245px;
+			margin: 0 5px;
+		}
+	}
+	@media screen and (max-width: 880px) , screen and (max-height: 450px) {
+		.custom-month-year nav {
+			margin: 20px 0!important;
+		}
+		.custom-calendar-OneSweetSummer h2 {
+			font-size: 42px;
+		}
+		.fc-weekday {
+			display:none!important;
+		}
+		.fc-day_holder {
+			min-width: 100%!important;
+			margin-top: 0!important;
+		}
+		.fc-date {
+			margin-bottom:0!important;
+			padding-left:10px!important;
+		}
+		.OneSweetSummer-body h2 {
+			font-size: 44px;
+			line-height: 46px!important;
+		}
 	}
