@@ -739,13 +739,15 @@ h2.pastorclark span {
 		padding-bottom: 5px;
 }
 .blog-entry blockquote {
-	margin: 0 20px;
 	font-family: 'aleoregular',Georgia,serif;
 	text-align: center;
 	font-size: 22px;
 	color: #666666;
 	border-top: 2px solid #b2b4b1;
 	border-bottom: 2px solid #b2b4b1;
+}
+.blog-entry blockquote p {
+	padding: 0 20px;
 }
 
 /* 40 Days Devos */
