@@ -732,6 +732,13 @@ h2.pastorclark span {
 	}
 }
 
+#devos h2, h2 a {
+		font-family: 'aleoregular',Georgia,serif;
+		font-weight: normal;
+		color: #7f3e19;
+		padding-bottom: 5px;
+}
+
 /* 40 Days Devos */
 @media (min-width: 768px) {
 	.continueon {
