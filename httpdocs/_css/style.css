@@ -738,7 +738,7 @@ h2.pastorclark span {
 		color: #7f3e19;
 		padding-bottom: 5px;
 }
-#devos blockquote {
+.blog-entry blockquote {
 	margin: 0 20px;
 	font-family: 'aleoregular',Georgia,serif;
 	text-align: center;
