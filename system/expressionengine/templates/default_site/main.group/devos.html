@@ -13,8 +13,8 @@
 	<div class="container clearfix">
 		<div class="grid_12">
 			{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="yes" limit="1"}
-				<h2><a href="/devos/{url_title}">{title}</a></h2>
-				<h3>{entry_date format="%F %j"} {if devos-author}by {devos-author}{/if}</h3>
+				<h2 style="padding-bottom:0"><a href="/devos/{url_title}">Today's Devotional - {entry_date format="%F %j"}</a></h2>
+				<h3 style="font-size:18px">{title} {if devos-author}by {devos-author}{/if}</h3>
 				<p>
 					{exp:word_limit total="120"}
 						{devos-body}
@@ -30,7 +30,7 @@
 	<div class="container clearfix" style="margin-top:50px">
 		<div class="grid_8">
 			{exp:channel:categories channel="Devos" show="50" parent_only="no" style="linear" show_expired="no"}
-			    <h2>{category_name}</h2>
+			    <h2>Current Study - "{category_name}"</h2>
 				{category_description}
 			{/exp:channel:categories}
 		</div>
