@@ -12,8 +12,8 @@
 <div id="devos">
 	<div class="container clearfix">
 		<div class="grid_12">
-			{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="yes" limit="1"}
-				<h2 style="padding-bottom:0"><a href="/devos/{url_title}">Today's Devotional - {entry_date format="%F %j"}</a></h2>
+			{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
+				<h2 style="padding-bottom:0"><a href="/devos/{url_title}">{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Today's Devotional{if:else}Daily Devotional{/if} - {entry_date format="%F %j"}</a></h2>
 				<h3 style="font-size:18px">{title} {if devos-author}by {devos-author}{/if}</h3>
 				<p>
 					{exp:word_limit total="120"}
