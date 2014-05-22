@@ -45,9 +45,11 @@
 					<div class="clear"></div>
 				</div>
 				<div class="connect-entry">
-					<h3><a href="/classes">Classes</a></h3>
-					<p>Journey offers an ever-growing selection of classes such as spiritual formation, relationships, healthy marriages, and family finance to help our people learn how to walk in the blessings of God. Equip classes happen Sunday and Thursday evenings. A list of current classes can be found at <a href="/classes">JourneyChurch.tv/classes</a></p>
-					<div class="clear"></div>
+					{exp:channel:entries channel="Connect" orderby="title" sort="asc" limit="1"}
+						<h3><a href="/{url_title}">{title}</a></h3>
+						<p>{connect-desc}</p>
+						<div class="clear"></div>
+					{/exp:channel:entries}
 				</div>
 				
 			</div>
@@ -55,7 +57,7 @@
 			<div class="clear"></div>
 			
 			<div class="grid_8">
-				{exp:channel:entries channel="Connect" orderby="title" sort="asc"}
+				{exp:channel:entries channel="Connect" orderby="title" sort="asc" offset="1"}
 					<div class="connect-entry">
 						<h3><a href="/connect/{url_title}">{title}</a></h3>
 						<p>{connect-desc}</p>
