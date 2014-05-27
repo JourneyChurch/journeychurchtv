@@ -338,6 +338,11 @@ ul.side-nav {
 			margin: 2px 0 !important;
 		}
 	}
+
+/* Home */
+	.noevents {
+		display: none;
+	}
 	
 /* About */
 	#accordion h3:focus { outline: 0; }

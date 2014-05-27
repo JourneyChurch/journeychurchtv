@@ -17,19 +17,16 @@
 			<a href="http://creativejourney.tv" class="ls-link"></a>
 		</div>
 		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
+			<img class="ls-s3 si" src="/_img/slider/ManDay-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
+			<a href="/calendar/event/1f6eb0b2-6ff1-4dc5-b9b3-a2a70117a35e" class="ls-link"></a>
+		</div>
+		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
 			<img class="ls-bg" src="/_img/slider/VBX-bg.jpg">
 			<img class="ls-s3 si" src="/_img/slider/VBX-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
 			<a href="http://vbx2014.ticketleap.com/jkids/" class="ls-link"></a>
 		</div>
-		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;background-color: #006f7c">
-			<h2 class="ls-s3 si" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; width:966px; color: #fff; text-align:center; font-size: 56px; top:150px; font-family: 'aleoregular',Georgia,serif">Daily Devotionals</h2>
-			<h3 class="ls-s3 si" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0; width:966px; color: #fff; text-align:center; font-size: 24px; top:220px; line-height:26px">Read today's devotional, "{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="yes" limit="1"}{title}{/exp:channel:entries}" <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></h3>
-			<a href="/devos" class="ls-link"></a>
-		</div>
-		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;">
-			<img class="ls-bg" src="/_img/slider/futurepassed-bg.jpg">
-			<img class="ls-s3 si" src="/_img/slider/futurepassed-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
-			<a href="/study/future-passed" class="ls-link"></a>
+		<div class="ls-layer" style="slidedirection: top; slidedelay: 6000; delayout: 1000;background-color:#36bebb">
+			<img class="ls-s3 si" src="/_img/slider/JesusLoves-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
 		</div>
 	</div>
 </div>
@@ -111,7 +108,6 @@
 		</a>
 		{/exp:channel:entries}
 		
-		{!-- TEMP MOBILE CALENDAR --}
 		<a href="/calendar">
 			<div class="grid_12 mobile_boxes box4">
 				<strong>What's Happening?</strong><br>
@@ -123,51 +119,90 @@
 
 <div class="container clearfix">
 	<div id="full-only" class="grid_8">
+		<div class="clear"></div>
 		<div class="happening">
 			<h2>Happening This Week <a href="/calendar"><i class="fa fa-chevron-right pull-right" style="padding-top:1px"></i></a></h2>
 
 			<div id="cal-week">
 				<ul class="cal-week-choices">
-					<?php date_default_timezone_set('America/Chicago'); ?>
-					<li id="cal-week-box"><a href="#day-sun"><?php echo date('j', strtotime(date('Y-m-d')." Sunday last week"));?><span>Sunday</span></a></li>
-					<li id="cal-week-box"><a href="#day-mon"><?php echo date('j', strtotime(date('Y-m-d')." Monday this week"));?><span>Monday</span></a></li>
-					<li id="cal-week-box"><a href="#day-tues"><?php echo date('j', strtotime(date('Y-m-d')." Tuesday this week"));?><span>Tuesday</span></a></li>
-					<li id="cal-week-box"><a href="#day-wed"><?php echo date('j', strtotime(date('Y-m-d')." Wednesday this week"));?><span>Wednesday</span></a></li>
-					<li id="cal-week-box"><a href="#day-thurs"><?php echo date('j', strtotime(date('Y-m-d')." Thursday this week"));?><span>Thursday</span></a></li>
-					<li id="cal-week-box"><a href="#day-fri"><?php echo date('j', strtotime(date('Y-m-d')." Friday this week"));?><span>Friday</span></a></li>
-					<li id="cal-week-box"><a href="#day-sat"><?php echo date('j', strtotime(date('Y-m-d')." Saturday this week"));?><span>Saturday</span></a></li>
+					<li id="cal-week-box"><a href="#day-sun"><i class="sunDate"></i> <span>Sunday</span></a></li>
+					<li id="cal-week-box"><a href="#day-mon"><i class="monDate"></i> <span>Monday</span></a></li>
+					<li id="cal-week-box"><a href="#day-tues"><i class="tuesDate"></i> <span>Tuesday</span></a></li>
+					<li id="cal-week-box"><a href="#day-wed"><i class="wedDate"></i> <span>Wednesday</span></a></li>
+					<li id="cal-week-box"><a href="#day-thurs"><i class="thursDate"></i> <span>Thursday</span></a></li>
+					<li id="cal-week-box"><a href="#day-fri"><i class="friDate"></i> <span>Friday</span></a></li>
+					<li id="cal-week-box"><a href="#day-sat"><i class="satDate"></i> <span>Saturday</span></a></li>
 					<div class="clear"></div>
 				</ul>
 				<div class="clear"></div>
-				
+				<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
+				<script type="text/javascript">
+					var weekstart = moment().weekday(0).format("YYYY-MM-DD");
+					$(document).ready(function() {
+						// Replace selector box dates
+						$('i.sunDate').replaceWith(moment().weekday(0).format("D"));
+						$('i.monDate').replaceWith(moment().weekday(1).format("D"));
+						$('i.tuesDate').replaceWith(moment().weekday(2).format("D"));
+						$('i.wedDate').replaceWith(moment().weekday(3).format("D"));
+						$('i.thursDate').replaceWith(moment().weekday(4).format("D"));
+						$('i.friDate').replaceWith(moment().weekday(5).format("D"));
+						$('i.satDate').replaceWith(moment().weekday(6).format("D"));
+			    		
+						// Set correct box day
+						var d = new Date();
+			    		var n = d.getDay();
+			    		$( "#cal-week" ).tabs({ active: n });
+						  
+						// Replace calendar content from ACS
+						$.ajax({
+							url: "/?ACT=36&id=74b25c3d-20ea-432f-90ba-a22000d547f8&start=1400976000&stop=1401580799&limit=100",
+							dataType: "text",
+							success: function(data) {
+								var json = $.parseJSON(data);
+								for(var i = 0; i < json.Page.length; ++ i) {
+									if //Sunday
+									(moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(0).format("YYYY-MM-DD")) {
+										$('#day-sun').find('p.noevents').remove();
+										$('#day-sun').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Monday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(1).format("YYYY-MM-DD")) {
+										$('#day-mon').find('p.noevents').remove();
+										$('#day-mon').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Tuesday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(2).format("YYYY-MM-DD")) {
+										$('#day-tues').find('p.noevents').remove();
+										$('#day-tues').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Wednesday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(3).format("YYYY-MM-DD")) {
+										$('#day-wed').find('p.noevents').remove();
+										$('#day-wed').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Thursday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(4).format("YYYY-MM-DD")) {
+										$('#day-thurs').find('p.noevents').remove();
+										$('#day-thurs').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Friday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(5).format("YYYY-MM-DD")) {
+										$('#day-fri').find('p.noevents').remove();
+										$('#day-fri').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									} // Saturday
+									else if (moment(json.Page[i].StartDate).format("YYYY-MM-DD") == moment().weekday(6).format("YYYY-MM-DD")) {
+										$('#day-sat').find('p.noevents').remove();
+										$('#day-sat').append('<p>' + ((moment(json.Page[i].StartDate).format("h:mm A") === "12:00 AM") ? '' : moment(json.Page[i].StartDate).format("h:mm A") + ' - ') + '<a href="/calendar/event/' + json.Page[i].EventId + '">' + json.Page[i].EventName + '</p>');
+									}
+								};
+								$('p.noevents').show();
+							}
+						});
+					});
+				</script>
 				<div class="cal-week-details">
-					<div id="day-sun">
-						9:30 AM - <a href="/location">Worship Experience</a><br>
-						10:00 AM - <a href="/calendar/event/4ccbc0cb-8265-499f-9030-a31600f9dda6">Senior Sunday</a><br>
-						11:00 AM - <a href="/location">Worship Experience</a><br>
-						6:00 AM - <a href="/location">Worship Experience</a>
-					</div>
-					<div id="day-mon">
-						7:00 PM - <a href="/calendar/event/f524f732-86cb-45c1-a86a-a2a800b8bd03">MMA (Mixed Marcial Arts)</a>
-					</div>
-					<div id="day-tues">
-						No events listed for today
-					</div>
-					<div id="day-wed">
-						7:00 PM - <a href="/calendar/event/d293d6ce-9e17-48a0-8128-a29e00d0865c">Student Journey</a><br>
-						7:00 PM - <a href="/calendar/event/cef029e0-a2e0-43f1-941b-a27c00d1afd5">56 Worship Experience</a><br>
-					</div>
-					<div id="day-thurs">
-						7:00 PM - <a href="/calendar/event/fd238c71-7860-4afa-abfd-a3250125250c">Adult Volleyball</a><br>
-						7:00 PM - <a href="/calendar/event/1532eeb7-5ff7-465d-a0e4-a32501222366">Adult Basketball</a><br>
-						8:00 PM - <a href="/calendar/event/3483dbb6-3d05-4231-ae74-a32501275636">Adult Cycling</a>
-					</div>
-					<div id="day-fri">
-						No events listed for today
-					</div>
-					<div id="day-sat">
-						No events listed for today
-					</div>
+					<div id="day-sun"><p class="noevents">No events listed for today</p></div>
+					<div id="day-mon"><p class="noevents">No events listed for today</p></div>
+					<div id="day-tues"><p class="noevents">No events listed for today</p></div>
+					<div id="day-wed"><p class="noevents">No events listed for today</p></div>
+					<div id="day-thurs"><p class="noevents">No events listed for today</p></div>
+					<div id="day-fri"><p class="noevents">No events listed for today</p></div>
+					<div id="day-sat"><p class="noevents">No events listed for today</p></div>
 				</div>
 			</div>
 		</div>
@@ -206,17 +241,5 @@
 		});
 	});		
 </script>	
-<script>
-  	$(function() {
-  		  var d = new Date();
-  		  var n = d.getDay();
-  		  $( "#cal-week" ).tabs({ active: n });
-  	});
-	$("#cal-week-box").click(function(){
-	     window.location=$(this).find("a").attr("href"); 
-	     return false;
-	});
-	
-</script>
 <script src="/_js/toucheffects.js"></script>
 {embed="_includes/footer"}
