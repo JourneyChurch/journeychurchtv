@@ -160,7 +160,8 @@
 						  
 						// Replace calendar content from ACS
 						$.ajax({
-							url: "/?ACT=36&id=74b25c3d-20ea-432f-90ba-a22000d547f8&start=1400976000&stop=1401580799&limit=100",
+							url: "/?ACT=36&id=74b25c3d-20ea-432f-90ba-a22000d547f8",
+							data: {start: moment().weekday(-1).format("X"), stop: moment().weekday(7).format("X"), limit: '100'},
 							dataType: "text",
 							success: function(data) {
 								var json = $.parseJSON(data);
