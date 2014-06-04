@@ -10,8 +10,8 @@
 		</div>
 	</div>
 <div id="devos">
-	<div class="container clearfix">
-		<div class="grid_12">
+	<div class="container clearfix" style="margin-top:50px">
+		<div class="grid_8">
 			{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
 				<h2 style="padding-bottom:0"><a href="/devos/{url_title}">{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Today's Devotional{if:else}Daily Devotional{/if} - {entry_date format="%F %j"}</a></h2>
 				<h3 style="font-size:18px">{title} {if devos-author}by {devos-author}{/if}</h3>
@@ -23,16 +23,7 @@
 					<a href="/devos/{url_title}" class="continueon"><strong>Continue Reading &nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
 				</p>
 			{/exp:channel:entries}
-		</div>
-		<div class="clear"></div>
-	</div>
-	<div class="clear"></div>
-	<div class="container clearfix" style="margin-top:50px">
-		<div class="grid_8">
-			{exp:channel:categories channel="Devos" show="51" parent_only="no" style="linear" show_expired="no"}
-			    <h2>Current Study - "{category_name}"</h2>
-				{category_description}
-			{/exp:channel:categories}
+			<div class="clear"></div>
 		</div>
 		<div class="grid_4">
 			<ul class="side-nav">
