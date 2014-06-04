@@ -629,6 +629,11 @@ ul.side-nav {
 	padding-bottom: 56.25%; /* 16:9 */
 	height: 0;
 }
+@media only screen and (min-width: 768px) {
+	.videoWrapper {
+		padding-bottom: 42.25%;
+	}
+}
 .videoWrapper iframe {
 	position: absolute;
 	top: 0;
