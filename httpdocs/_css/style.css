@@ -216,7 +216,7 @@ div.capty-caption a {
 }
 .fancy-page h2 {
 	font-family: 'aleoregular',Georgia,serif;
-	color: #7f3e19;
+	color: #006f7c;
 	font-size: 28px;
 	text-transform: none;
 	line-height: 30px;
@@ -1135,4 +1135,46 @@ h4.easterfont {
 	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
 	padding-top: 360px;
 	padding-left: 10px;
+}
+
+
+/* Extra Toppings */
+#layerslider h2.bigtitle {
+	color: #fff;
+	font-size: 42px;
+	padding-top: 40%;
+	text-shadow: 0px 1px 15px #000;
+}
+
+.subnav {
+	background-color: #eee;
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 10px 0;
+}
+.subnav li {
+	display: inline;
+	color: #3F3F3F;
+	list-style-type: none;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+.subnav li a {
+	color: #3F3F3F;
+}
+.subnav li.active {
+	font-weight: 500;
+}
+.subnav li:after {content: " | ";padding:0 5px;}
+.subnav li:last-child:after { content: "";}
+@media (max-width: 767px) {
+	.subnav li {
+		display: block;
+		font-size: 16px;
+		padding: 5px 0;
+	}
+	.subnav li:after {
+		content: "";
+	}
 }
