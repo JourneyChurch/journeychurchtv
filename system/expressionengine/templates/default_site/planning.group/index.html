@@ -1,7 +1,3 @@
-{!-- 
-	add event - need building request? design request?
---}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +11,14 @@
 	<link href="/strap/dist/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css" />
 	<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'>
+	<link href="{path=css/_ee_channel_form_css}" type="text/css" rel="stylesheet" media="screen">
 	
-	{exp:jquery:script_tag}
-	{exp:jquery:script_tag ui='core'}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="/_js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/_js/jquery.cookies.2.2.0.min.js"></script>
 	{exp:jquery:script_tag ui='datepicker'}
-	{exp:jquery:script_tag ui='slider'}
 	
 	<script src="/strap/dist/js/bootstrap.min.js"></script>
-	<script src="/strap/dist/js/timepicker.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -32,15 +28,117 @@
 		
 	<script type="text/javascript">
 	$(function() {
-		$('#datepicker').datetimepicker({
+		$('#datepicker').datepicker({
 			timeFormat: "hh:mm TT"
 		});
 	});
 	</script>
+	
+	<script type="text/javascript">
+		var datalog = "";
+		var consolelogtime;
+
+		// Use this one for bug reporting
+		console = { log: function(data) {
+				datalog = datalog + data + "\n";		
+			} 
+		};
+
+		$(document).ready(function() {
+			InitializeScreennameHeader();
+			InitializeLoginClickHandlers();
+			document.cookie="jrnych_screenname={screen_name}";
+		});
+
+		function ee_logout() {
+			  document.cookie =  'jrnych_screenname=; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0';
+			$.ajax({
+			  	url: "/?ACT=16",
+			  	complete: function() { window.location.reload(true); }
+			});
+		}
+
+		function getCookie(cname) {
+		    var name = cname + "=";
+		    var ca = document.cookie.split(';');
+		    for(var i=0; i<ca.length; i++) {
+		        var c = ca[i].trim();
+		        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+		    }
+		    return "";
+		}
+		
+		// Update logged in header info from cookie
+		function InitializeScreennameHeader() {
+		    var username=getCookie("jrnych_screenname");
+		    if (username!="") {
+		        $("#logged_status").html('<p id="logged-in">' + username + ' - <a onclick="javascript:ee_logout();" class="logout">Log Out</a></p>');
+		    }else{
+				$("#logged_status").html('<a class="user-login" href="#login-register-box">Login</a>');
+			    $(window).load(function(){
+			        $('#loggedout').modal({
+						backdrop: 'static',
+						keyboard: true
+			        });
+			    });
+		    }
+		}
+		
+		function InitializeLoginClickHandlers() {
+			$(".logout").click(function(){
+				$.ajax({
+				  	url: "/index.php?ACT=16",
+				  	complete: function(){
+				  		window.location.reload(true);
+					}
+				});
+				return false;
+			});
+
+			$(".login_form").submit(function() {
+				var values = $(this).serialize();
+				$.ajax({
+					url: '/index.php?ACT=15',
+					type: 'POST',
+					data: values,
+					success: function(data) {	
+						var pos = data.indexOf("<title>Error");
+						var titlePos = data.indexOf("<title>");
+						$('.modal-body').html("You are currently being logged in.");
+						window.location.reload(true);
+					}
+				});
+					
+				return false;
+			});
+			
+			
+			//	$(".login_form").submit(function() {
+			//		var values = $(this).serialize();
+			//		$.ajax({
+			//			url: '/index.php',
+			//			type: 'POST',
+			//			data: values,
+			//			success: function(data) {	
+			//				var pos = data.indexOf("<title>Error");
+			//				var titlePos = data.indexOf("<title>");
+			//		        $('#loggedout').modal('hide');
+			//			}
+			//		});
+			//	
+			//		return false;
+			//	});		
+		}
+	</script>
+	
+	<style type="text/css">
+		body {margin: 0 20px!important; width:2000px; overflow-x: scroll;}
+		#loggedout {background-color:rgb(49, 49, 49);}
+	</style>
 </head>
 
 <body>
-	{if member_group == "1" OR member_group == "7"}	
+	{!--}	
 		<section>
 			<div class="container">
 				<?php 
@@ -48,105 +146,121 @@
 				?>
 				
 				{exp:channel:entries channel="planning_week" show_expired="yes" show_future_entries="yes" limit="1" dynamic="yes" url_title="2014-02-09"}
-					<?php
-						$date = new DateTime('{title}');
-						$newtitle = $date->format('F jS, Y');
-					?>
-					<h2>
-						Week of <?php echo $newtitle ?>
-						<div class="pull-right">
-							{exp:channel:prev_entry channel="planning_week"}
-								<a href="/planning/{prev_entry->title}">
-									<i class="fa fa-chevron-left"></i>
-								</a>
-							{/exp:channel:prev_entry}
+						<?php
+							$date = new DateTime('{title}');
+							$newtitle = $date->format('F jS, Y');
+						?>
+						<h2>
+							Week of <?php echo $newtitle ?>
+							<div class="pull-right">
+								{exp:channel:prev_entry channel="planning_week"}
+									<a href="/planning/{prev_entry->title}">
+										<i class="fa fa-chevron-left"></i>
+									</a>
+								{/exp:channel:prev_entry}
+								
+								{exp:channel:next_entry channel="planning_week"}
+									<a href="/planning/{next_entry->title}">
+										<i class="fa fa-chevron-right"></i>
+									</a>
+								{/exp:channel:next_entry}
+							</div>
+						</h2>
 							
-							{exp:channel:next_entry channel="planning_week"}
-								<a href="/planning/{next_entry->title}">
-									<i class="fa fa-chevron-right"></i>
-								</a>
-							{/exp:channel:next_entry}
-						</div>
-					</h2>
-						
-					{embed="planning/item" itemtitle="Worship Guide" urltitle="{url_title}" itemname="worshipguide"}
-					{embed="planning/item" itemtitle="Video Announcements" urltitle="{url_title}" itemname="videoann"}
-					{embed="planning/item" itemtitle="Insert" urltitle="{url_title}" itemname="insert"}
-					{embed="planning/item" itemtitle="Email" urltitle="{url_title}" itemname="email"}
-					{embed="planning/item" itemtitle="Social Media" urltitle="{url_title}" itemname="socialmedia"}
-					{embed="planning/item" itemtitle="Blog" urltitle="{url_title}" itemname="blog"}
-					{embed="planning/item" itemtitle="Experience Video" urltitle="{url_title}" itemname="experiencevideo"}
-					{embed="planning/item" itemtitle="Notes for Pastor Clark" urltitle="{url_title}" itemname="pastor"}
-					
+						{embed="planning/item" itemtitle="Worship Guide" urltitle="{url_title}" itemname="worshipguide"}
+						{embed="planning/item" itemtitle="Video Announcements" urltitle="{url_title}" itemname="videoann"}
+						{embed="planning/item" itemtitle="Insert" urltitle="{url_title}" itemname="insert"}
+						{embed="planning/item" itemtitle="Email" urltitle="{url_title}" itemname="email"}
+						{embed="planning/item" itemtitle="Social Media" urltitle="{url_title}" itemname="socialmedia"}
+						{embed="planning/item" itemtitle="Blog" urltitle="{url_title}" itemname="blog"}
+						{embed="planning/item" itemtitle="Experience Video" urltitle="{url_title}" itemname="experiencevideo"}
+						{embed="planning/item" itemtitle="Notes for Pastor Clark" urltitle="{url_title}" itemname="pastor"}
+
 				{/exp:channel:entries}
 				
 				<div class="clearfix"></div>
 			</div>
 		</section>
-	{/if}
-	
+	{--}
 	<section>
-		<div class="container">
+		<h2>Communications Planning</h2>
+		<div id="logged_status" style="display:none"></div>
+	</section>
+	<section>
+		<div class="">
 			<div class="panel panel-default">
 			 	<div class="panel-heading">
-					<strong>What's Coming Up</strong>
-					<div class="pull-right">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-							<i class="fa fa-th-list"></i> Tier Color Codes 
-						</a>
-						&nbsp; &nbsp;
-						<a data-toggle="modal" data-target="#addEvent" href="#">
-							<strong><i class="fa fa-plus"></i> Add Event</strong>
-						</a>
-					</div>
+					<a data-toggle="modal" data-target="#addEvent" href="#">
+						<strong><i class="fa fa-plus"></i> Add Event</strong>
+					</a>
 				</div>
-						<div id="collapseOne" class="panel-collapse collapse">
-							<div class="panel-body">
-								<div class="tier-key tier-1">Tier 1</div>
-								<div class="tier-key tier-2">Tier 2</div>
-								<div class="tier-key tier-3">Tier 3</div>
-								<div class="tier-key tier-4">Tier 4</div>
-								<div class="tier-key tier-5">Tier 5</div>
-							</div>
-						</div>
-				<table class="table table-hover table-condensed table-bordered">
+				<table class="table table-hover table-condensed table-bordered" style="overflow:scroll">
 					<thead>
 						<tr>
-							<th>Title</th>
+							<th>Event Name</th>
+							<th>Tier</th>
 							<th>Date</th>
-							<th>Contact</th>
 							<th>Location</th>
-							<th class="col-sm-6">Detailed Description</th>
+							<th>Owner</th>
+							<th>Event Contact</th>
+							<th class="col-sm-4">Blurb</th>
+							<th>Detailed Event Info</th>
+							<th>Promo Dates</th>
+							<th>Annc Vid</th>
+							<th>Promo Vid</th>
+							<th>Worship Guide</th>
+							<th>Social</th>
+							<th>Email</th>
+							<th>Insert</th>
+							<th>Other</th>
 						</tr>
 					</thead>
 					<tbody class="planning-items">
-						{exp:channel:entries channel="Planning" orderby="date" sort="asc" show_future_entries="yes" dynamic="no"}
-							<tr data-toggle="modal" data-target="#edit{entry_id}" class="{categories}{category_url_title}{/categories}">
-								<td>{title}</td>
-								<td>
-									{!-- If start and end dates are same --}
-									{if "{entry_date format='%m/%d/%y %g:%i%a'}" == "{expiration_date format='%m/%d/%y %g:%i%a'}"}
-										{entry_date format="%m/%d/%y"}
+						{exp:channel:entries channel="Planning" show_future_entries="yes" orderby="{planning-event_date format='%Y-%m-%d'}" sort="asc" dynamic="no"}
+							{if planning-approved == "Yes" OR logged_in_member_id == author_id OR member_group == "1" OR member_group == "7"}
+								<tr data-toggle="modal" {if logged_in_member_id == author_id OR member_group=="1" OR member_group=="7"}data-target="#edit{entry_id}"{/if} style="{if planning-approved != 'Yes'}background-color:rgb(244, 225, 209){/if}">
+									<td>
+										{title}
+									</td>
+									<td>{categories}{category_name}<br>{/categories}</td>
+									<td>
+										{planning-event_date format="%m/%d/%Y"}
 										
-									{!-- If dates are same but times are different --}
-									{if:elseif "{entry_date format='%m/%d/%y'}" == "{expiration_date format='%m/%d/%y'}" && "{entry_date format='%g:%i%a'}" != "{expiration_date format='%g:%i%a'}"}
-										{entry_date format="%m/%d/%y %g:%i%a"} - {expiration_date format='%g:%i%a'}
+										{!-- If start and end dates are same 
+										{if "{entry_date format='%m/%d/%y %g:%i%a'}" == "{expiration_date format='%m/%d/%y %g:%i%a'}"}
+											{entry_date format="%m/%d/%y"}
+											
+										-- If dates are same but times are different 
+										{if:elseif "{entry_date format='%m/%d/%y'}" == "{expiration_date format='%m/%d/%y'}" && "{entry_date format='%g:%i%a'}" != "{expiration_date format='%g:%i%a'}"}
+											{entry_date format="%m/%d/%y %g:%i%a"} - {expiration_date format='%g:%i%a'}
+											
+										-- If dates are different 
+										{if:elseif "{entry_date format='%m/%d/%y'}" != "{expiration_date format='%m/%d/%y'}" && "{entry_date format='%g:%i%a'}" == "{expiration_date format='%g:%i%a'}"}
+											{entry_date format="%m/%d/%y"} -<br> {expiration_date format='%m/%d/%y'}
 										
-									{!-- If dates are different --}
-									{if:elseif "{entry_date format='%m/%d/%y'}" != "{expiration_date format='%m/%d/%y'}" && "{entry_date format='%g:%i%a'}" == "{expiration_date format='%g:%i%a'}"}
-										{entry_date format="%m/%d/%y"} -<br> {expiration_date format='%m/%d/%y'}
-									
-									{!-- If dates and times are different --}
-									{if:elseif "{entry_date format='%m/%d/%y'}" != "{expiration_date format='%m/%d/%y'}" && "{entry_date format='%g:%i%a'}" != "{expiration_date format='%g:%i%a'}"}
-										{entry_date format="%m/%d/%y %g:%i%a"} -<br> {expiration_date format='%m/%d/%y %g:%i%a'}
-									{/if}
-								</td>
-								<td>{planning-person}</td>
-								<td>{planning-location}</td>
-								<td>{planning-desc}</td>
-							</tr>
-							
-							{embed="planning/edit" editid="{entry_id}"}
+										-- If dates and times are different 
+										{if:elseif "{entry_date format='%m/%d/%y'}" != "{expiration_date format='%m/%d/%y'}" && "{entry_date format='%g:%i%a'}" != "{expiration_date format='%g:%i%a'}"}
+											{entry_date format="%m/%d/%y %g:%i%a"} -<br> {expiration_date format='%m/%d/%y %g:%i%a'}
+										{/if}
+										{--}
+									</td>
+									<td>{planning-location}</td>
+									<td>{planning-person}</td>
+									<td>{planning-contact}</td>
+									<td>{planning-blurb}</td>
+									<td>{planning-desc}</td>
+									<td>{planning-promo_dates}</td>
+									<td>{planning-annc}</td>
+									<td>{planning-promovid}</td>
+									<td>{planning-guide}</td>
+									<td>{planning-social}</td>
+									<td>{planning-theemail}</td>
+									<td>{planning-theinsert}</td>
+									<td>{planning-other}</td>
+								</tr>
+							{/if}
+								
+							{if logged_in_member_id == author_id OR member_group=="1" OR member_group=="7"}{embed="planning/edit" editid="{entry_id}"}{/if}
 						{/exp:channel:entries}
 					</tbody>
 				</table>
@@ -155,5 +269,30 @@
 	</section>
 	
 	{embed="planning/add"}
+	
+	<div class="modal fade" id="loggedout" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Login</h4>
+					</div>
+					{exp:member:login_form form_class="login_form" return="<?php echo $_SERVER['HTTP_REFERER']; ?>"}
+						<div class="modal-body">
+								<label>Username</label><br>
+								<input type="text" name="username" value="" maxlength="40" size="40" class="form-control">
+								<br>
+							    <label>Password</label><br>
+							    <input type="password" name="password" value="" maxlength="40" size="40" class="form-control">
+							
+							<p><a href="{path='member/forgot_password'}">Forgot your password?</a></p>
+							<div id="forgotpass" style="display:none">forgot it.</div>
+						</div>
+						<div class="modal-footer">
+							<input type="submit" name-"submit" class="btn btn-primary" value="Submit">
+						</div>
+					{/exp:member:login_form}
+				</div>
+			</div>
+	</div>
 </body>
 </html>

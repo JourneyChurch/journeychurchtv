@@ -1,5 +1,5 @@
 <div class="modal fade" id="addEvent" tabindex="-1" role="dialog" aria-hidden="true">
-	{exp:channel:form channel="Planning" datepicker="no"}
+	{exp:channel:form channel="Planning" datepicker="no" return="planning/index"}
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -8,17 +8,38 @@
 				</div>
 				<div class="modal-body">
 					<input name="title" type="text" class="form-control" placeholder="Title"><br>
-					{category_menu}
-						<select name="category[]" id="categories" size="6" multiple="multiple">
-							{select_options}
-						</select>
-					{/category_menu}
-					<br><br>
-					<input id="datepicker" name="entry_date" type="text" class="form-control hasDatepicker" placeholder="Start Date"><br>
-					<input id="datepicker" name="expiration_date" type="text" class="form-control hasDatepicker" placeholder="End Date"><br>
-					<input name="planning-person" type="text" class="form-control" placeholder="Contact Person"><br>
+					{if member_group=="1" OR member_group=="7"}
+						{category_menu}
+							<select name="category[]" id="categories" size="9" multiple="multiple" style="width:100%">
+								{select_options}
+							</select>
+						{/category_menu}
+						<br><br>
+					{/if}
+					<input id="datepicker" name="planning-event_date" type="text" class="form-control hasDatepicker" placeholder="Event Date"><br>
+					{if member_group=="1" OR member_group=="7"}
+						<input id="datepicker" name="expiration_date" type="text" class="form-control hasDatepicker" placeholder="Expiration Date"><br>
+					{/if}
 					<input name="planning-location" type="text" class="form-control" placeholder="Location"><br>
-					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5" placeholder="Detailed Description"></textarea>
+					<input name="planning-person" type="text" class="form-control" placeholder="Owner" value="{screen_name}"><br>
+					<input name="planning-contact" type="text" class="form-control" placeholder="Event Contact"><br>
+					{if member_group=="1"}
+						<textarea name="planning-blurb" id="planningblurb{entry_id}" class="form-control" rows="5" placeholder="Blurb">{planning-blurb}</textarea><br>
+					{/if}
+					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5" placeholder="Detailed Description"></textarea><br>
+					{if member_group=="1"}
+						<input name="planning-promo_dates" type="text" class="form-control" placeholder="Promo Dates"><br>
+						<input name="planning-annc" type="text" class="form-control" placeholder="Announcement Video"><br>
+						<input name="planning-promovid" type="text" class="form-control" placeholder="Promo Vid"><br>
+						<input name="planning-guide" type="text" class="form-control" placeholder="Worship Guide"><br>
+						<input name="planning-social" type="text" class="form-control" placeholder="Social Media"><br>
+						<input name="planning-theemail" type="text" class="form-control" placeholder="Email"><br>
+						<input name="planning-theinsert" type="text" class="form-control" placeholder="Insert"><br>
+						<textarea name="planning-other" id="planningother" class="form-control" rows="5" placeholder="Other"></textarea>
+					{if:else}
+						<br>
+						<h5><input type="checkbox" name="approved-overseer" required="required"> Check if your overseer has approved this event.</h5>
+					{/if}
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
@@ -26,5 +47,16 @@
 				</div>
 			</div>
 		</div>
+		
+		{!-- CKEDITOR - it's down here so it's only looped in when cat4 isn't present --}
+		<script src="/themes/ckeditor/ckeditor.js"></script>
+		<script src="/themes/ckeditor/adapters/jquery.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			CKEDITOR.replace('planningblurb{entry_id}', {
+				uiColor: '#ffffff'
+			})
+		});
+		</script>
 	{/exp:channel:form}
 </div>

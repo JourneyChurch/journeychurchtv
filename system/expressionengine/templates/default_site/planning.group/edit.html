@@ -1,18 +1,63 @@
-{exp:channel:form channel="Planning" entry_id="{embed:editid}" datepicker="no"}
+{exp:channel:form channel="Planning" entry_id="{embed:editid}" datepicker="yes" return="planning/index"}
 	<div class="modal fade" id="edit{entry_id}" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">{title}</h4>
+					<div id="otherholder"></div>
+					<input name="title" type="text" class="form-control modal-title" value="{title}" placeholder="Title">
 				</div>
 				<div class="modal-body">
-					<input name="title" type="text" class="form-control" value="{title}" placeholder="Title"><br>
-					<input name="entry_date" type="text" class="form-control" value="{entry_date}" placeholder="Start Date"><br>
-					<input name="expiration_date" type="text" class="form-control" value="{expiration_date}" placeholder="End Date"><br>
-					<input name="planning-person" type="text" class="form-control" value="{planning-person}" placeholder="Contact Person"><br>
-					<input name="planning-location" type="text" class="form-control" value="{planning-location}" placeholder="Location"><br>
-					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5">{planning-desc}</textarea>
+					{if member_group=="1" OR member_group=="7"}
+						{category_menu}
+							<select name="category[]" id="categories" size="9" multiple="multiple" style="width:100%">
+								{select_options}
+							</select>
+						{/category_menu}
+						<br><br>
+					{/if}
+					<label>Event Date</label>
+					<input name="planning-event_date" type="text" class="form-control hasDatepicker" value="{planning-event_date}"><br>
+					{if member_group=="1" OR member_group=="7"}
+						<label>Expiration Date</label>
+						<input name="expiration_date" type="text" class="form-control hasDatepicker" value="{expiration_date}"><br>
+					{/if}
+					<label>Location</label>
+					<input name="planning-location" type="text" class="form-control" value="{planning-location}"><br>
+					<label>Owner</label>
+					<input name="planning-person" type="text" class="form-control" value="{planning-person}"><br>
+					<label>Event Contact</label>
+					<input name="planning-contact" type="text" class="form-control" value="{planning-contact}"><br>
+					{if member_group=="1" OR member_group=="7"}
+						<label>Blurb</label>
+						<textarea name="planning-blurb" id="planningblurb{entry_id}" class="form-control" rows="5">{planning-blurb}</textarea><br>
+					{/if}
+					<label>Detailed Description</label>
+					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5">{planning-desc}</textarea><br>
+					{if member_group=="1" OR member_group=="7"}
+						<label>Promo Dates</label>
+						<input name="planning-promo_dates" type="text" class="form-control" value="{planning-promo_dates}"><br>
+						<label>Announcement Video</label>
+						<input name="planning-annc" type="text" class="form-control" value="{planning-annc}"><br>
+						<label>Promo Vid</label>
+						<input name="planning-promovid" type="text" class="form-control" value="{planning-promovid}"><br>
+						<label>Worship Guide</label>
+						<input name="planning-guide" type="text" class="form-control" value="{planning-guide}"><br>
+						<label>Social Media</label>
+						<input name="planning-social" type="text" class="form-control" value="{planning-social}"><br>
+						<label>Email</label>
+						<input name="planning-theemail" type="text" class="form-control" value="{planning-theemail}"><br>
+						<label>Insert</label>
+						<input name="planning-theinsert" type="text" class="form-control" value="{planning-theinsert}"><br>
+						<label>Other</label>
+						<textarea name="planning-other" id="planningother" class="form-control" rows="5">{planning-other}</textarea><br>
+						<label>Approved</label>
+						<select name="planning-approved" class="form-control">
+							{options:planning-approved}
+				        		<option value="{option_value}"{selected}>{option_name}</option>
+					    	{/options:planning-approved}
+						</select>
+					{/if}
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
@@ -21,4 +66,15 @@
 			</div>
 		</div>
 	</div>
+	
+	{!-- CKEDITOR - it's down here so it's only looped in when cat4 isn't present --}
+	<script src="/themes/ckeditor/ckeditor.js"></script>
+	<script src="/themes/ckeditor/adapters/jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		CKEDITOR.replace('planningblurb{entry_id}', {
+			uiColor: '#ffffff'
+		})
+	});
+	</script>
 {/exp:channel:form}
