@@ -7,10 +7,10 @@
  *
  * @package		Solspace:Calendar
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2010-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2010-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/calendar
  * @license		http://www.solspace.com/license_agreement
- * @version		1.8.4
+ * @version		1.8.8
  * @filesource	calendar/act.calendar.php
  */
 
@@ -820,12 +820,14 @@ class Calendar_actions extends Addon_builder_calendar
 		//	Get already-imported events
 		// -------------------------------------
 
-		$imported			= $this->data->get_imported_events($calendar_id);
+		$imported = $this->data->get_imported_events($calendar_id);
 
-		$imported_not_found	= array_combine(
-			array_keys($imported),
-			array_keys($imported)
-		);
+		$imported_not_found	= ( ! empty($imported)) ?
+					array_combine(
+						array_keys($imported),
+						array_keys($imported)
+					) :
+					array();
 
 		// -------------------------------------
 		//	Don't let EXT drop us early
@@ -836,6 +838,8 @@ class Calendar_actions extends Addon_builder_calendar
 		// -------------------------------------
 		//	Cycle through the URLs
 		// -------------------------------------
+
+		$errors = array();
 
 		foreach ($urls as $url)
 		{
@@ -1023,16 +1027,12 @@ class Calendar_actions extends Addon_builder_calendar
 					'site_id'					=> $this->data->get_site_id(),
 					'author_id'					=> $author_id,
 					'entry_id'					=> $entry_id,
-					'weblog_id'					=> $channel_id,
 					'channel_id'				=> $channel_id,
 					'status'					=> 'open',
 
 					//subtracting 2 days here
 					//because people are seeing things post in the future? :/
-					'entry_date'				=> date(
-						'Y-m-d H:i a',
-						(ee()->localize->now - ((3600 * 24) * 2))
-					),
+					'entry_date'				=> (ee()->localize->now - ((3600 * 24) * 2)),
 					'title'						=> $title,
 					'url_title'					=> url_title($title),
 					'calendar_id'				=> $calendar_id,
@@ -1098,20 +1098,29 @@ class Calendar_actions extends Addon_builder_calendar
 					}
 
 					//fire update and cross fingers
-					ee()->api_channel_entries->update_entry($entry_id, $post_data);
+					$result = ee()->api_channel_entries->update_entry($entry_id, $post_data);
 				}
 				else
 				{
 					//now we can do the new entry
-					ee()->api_channel_entries->submit_new_entry($channel_id, $post_data);
+					$result = ee()->api_channel_entries->submit_new_entry($channel_id, $post_data);
+				}
+
+				if ($result === FALSE)
+				{
+					//restore old post
+					$_POST = $old_POST;
+
+					$errors[] = ee()->api_channel_entries->errors;
+					continue;
 				}
 
 				// -------------------------------------
 				//	Update the imports table
 				// -------------------------------------
 
-				if (isset($this->cache['ical_event_id']))
-				{
+				/*if (isset($this->cache['ical_event_id']))
+				{*/
 					$data = array(
 						'calendar_id'	=> $calendar_id,
 						'event_id'		=> $this->cache['ical_event_id'],
@@ -1130,7 +1139,7 @@ class Calendar_actions extends Addon_builder_calendar
 						//$data['import_id'] = '0';
 						$this->data->add_imported_event($data);
 					}
-				}
+				/*}*/
 
 			//restore old post
 			$_POST = $old_POST;
@@ -1352,8 +1361,8 @@ class Calendar_actions extends Addon_builder_calendar
 			if (isset($irule['UNTIL']))
 			{
 				$rule['end_by'][$k] =	trim($irule['UNTIL']['year']) .
-										trim($irule['UNTIL']['month']) .
-										trim($irule['UNTIL']['day']);
+										str_pad(trim($irule['UNTIL']['month']), 2, "0", STR_PAD_LEFT) .
+										str_pad(trim($irule['UNTIL']['day']), 2, "0", STR_PAD_LEFT);
 			}
 
 			// -------------------------------------
@@ -2417,7 +2426,7 @@ class Calendar_actions extends Addon_builder_calendar
 
 		if (REQ == 'CP')
 		{
-			ee()->cp->add_to_head($publish_js);
+			ee()->cp->add_to_foot($publish_js);
 		}
 		else
 		{

@@ -1,10 +1,6 @@
 .clear { clear: both; }
 br.clear { height: 1px; }
 
-*:focus {
-  outline: none;
-}
-
 /*----------------------
 	that damned add rule button
 -----------------------*/

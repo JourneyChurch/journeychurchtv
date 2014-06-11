@@ -42,7 +42,7 @@
 				(never ends)
 			{if:else}
 				{if "{event_first_date format='%Y%m%d%g%i%a'}" != "{event_last_date format='%Y%m%d%g%i%a'}"} <b>to:</b>
-					{if "{event_first_date format="%Y%m%d"}" != "{event_last_date format="%Y%m%d"}"}
+					{if "{event_first_date format='%Y%m%d'}" != "{event_last_date format='%Y%m%d'}"}
 						{event_last_date format="%l, %F %j, %Y at %g:%i%a"}
 					{if:else}
 						{event_last_date format="%g:%i%a"}

@@ -5,7 +5,7 @@
  *
  * @package		Solspace:Calendar
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2010-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2010-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/calendar
  * @license		http://www.solspace.com/license_agreement
  * @filesource	calendar/libraries/calendar_permissions.php

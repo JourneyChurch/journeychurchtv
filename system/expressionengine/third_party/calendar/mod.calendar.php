@@ -5,10 +5,10 @@
  *
  * @package		Solspace:Calendar
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2010-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2010-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/calendar
  * @license		http://www.solspace.com/license_agreement
- * @version		1.8.4
+ * @version		1.8.8
  * @filesource	calendar/mod.calendar.php
  */
 
@@ -130,46 +130,53 @@ class Calendar extends Module_builder_calendar
 		// -------------------------------------
 
 		$params = array(
-			array(	'name' => 'category',
-					'required' => FALSE,
-					'type' => 'string',
-					'multi' => TRUE
-					),
-			array(	'name' => 'site_id',
-					'required' => FALSE,
-					'type' => 'integer',
-					'min_value' => 1,
-					'multi' => TRUE,
-					'default' => $this->data->get_site_id()
-					),
-			array(	'name' => 'calendar_id',
-					'required' => FALSE,
-					'type' => 'integer',
-					'min_value' => 1,
-					'multi' => TRUE,
-					'not' => TRUE
-					),
-			array(	'name' => 'calendar_name',
-					'required' => FALSE,
-					'type' => 'string',
-					'multi' => TRUE,
-					'not' => TRUE
-					),
-			array(	'name' => 'status',
-					'required' => FALSE,
-					'type' => 'string',
-					'multi' => TRUE,
-					'default' => 'open'
-					),
-			array(	'name' => 'date_range_start',
-					'required' => FALSE,
-					'type' => 'date'
-					),
-			array(	'name' => 'date_range_end',
-					'required' => FALSE,
-					'type' => 'date'
-					)
-			);
+			array(
+				'name' => 'category',
+				'required' => FALSE,
+				'type' => 'string',
+				'multi' => TRUE
+			),
+			array(
+				'name' => 'site_id',
+				'required' => FALSE,
+				'type' => 'integer',
+				'min_value' => 1,
+				'multi' => TRUE,
+				'default' => $this->data->get_site_id()
+			),
+			array(
+				'name' => 'calendar_id',
+				'required' => FALSE,
+				'type' => 'integer',
+				'min_value' => 1,
+				'multi' => TRUE,
+				'not' => TRUE
+			),
+			array(
+				'name' => 'calendar_name',
+				'required' => FALSE,
+				'type' => 'string',
+				'multi' => TRUE,
+				'not' => TRUE
+			),
+			array(
+				'name' => 'status',
+				'required' => FALSE,
+				'type' => 'string',
+				'multi' => TRUE,
+				'default' => 'open'
+			),
+			array(
+				'name' => 'date_range_start',
+				'required' => FALSE,
+				'type' => 'date'
+			),
+			array(
+				'name' => 'date_range_end',
+				'required' => FALSE,
+				'type' => 'date'
+			)
+		);
 
 		//ee()->TMPL->log_item('Calendar: Processing parameters');
 
@@ -303,14 +310,7 @@ class Calendar extends Module_builder_calendar
 		//  Invoke Pagination for EE 2.4 and Above
 		// --------------------------------------------
 
-		if ($this->ee_version >= '2.4.0')
-		{
-			ee()->load->library('pagination');
-			$channel->pagination = new Pagination_object('Channel');
-
-			// Used by pagination to determine whether we're coming from the cache
-			$channel->pagination->dynamic_sql = FALSE;
-		}
+		$channel = $this->add_pag_to_channel($channel);
 
 		// -------------------------------------
 		//  Prepare parameters
@@ -347,15 +347,7 @@ class Calendar extends Module_builder_calendar
 		//  Pagination Tags Parsed Out
 		// --------------------------------------------
 
-		if ($this->ee_version >= '2.4.0')
-		{
-			$channel->pagination->get_template();
-		}
-		else
-		{
-			$channel->fetch_pagination_data();
-		}
-
+		$this->fetch_pagination_data($channel);
 
 		// -------------------------------------
 		//  Querification
@@ -476,14 +468,7 @@ class Calendar extends Module_builder_calendar
 		//  Paginate
 		// -------------------------------------
 
-		if ($this->ee_version >= '2.4.0')
-		{
-			$channel->return_data = $channel->pagination->render($channel->return_data);
-		}
-		else
-		{
-			$channel->add_pagination_data();
-		}
+		$channel = $this->add_pagination_data($channel);
 
 		// -------------------------------------
 		//  Related entries
@@ -882,8 +867,41 @@ class Calendar extends Module_builder_calendar
 			if (($pos = strpos($k, ' format')) !== FALSE)
 			{
 				$name = substr($k, 0, $pos);
+
 				if (array_key_exists($name, $var_dates))
 				{
+					// -------------------------------------
+					//	hash fix for EE 2.8.2
+					// -------------------------------------
+					//	Due to the new conditionals parser
+					//	everything is just whack, so we have
+					//	to hash and replace formats because
+					//	EE is just barfing on it now :/.
+					// -------------------------------------
+
+					//EE 2.9+ converting quotes and escaping on its conditional
+					//tokenizer so we now have to match escaped quotes
+					//This should be backward compatible.
+					preg_match("/format=(\\\'|\'|\\\"|\"])(.*)?\\1/i", $k, $matches);
+
+					if ( ! empty($matches))
+					{
+						$old_k = $k;
+						$k = str_replace($matches[0], md5($matches[0]), $k);
+						ee()->TMPL->tagdata = str_replace($old_k, $k, ee()->TMPL->tagdata);
+
+						//EE 2.9's new conditional parser also screws with how
+						//template variables were pulling out the formats for
+						//us due to the quote conversion and escaping
+						//so we are fixing it here with this since we are
+						//capturing it ourselves and converting to hashes
+						//anyway.
+						if ($v == false)
+						{
+							$v = $matches[2];
+						}
+					}
+
 					$var_dates[$name][$k] = $v;
 					ee()->TMPL->var_single[$k] = $k;
 				}
@@ -909,14 +927,7 @@ class Calendar extends Module_builder_calendar
 		//  Invoke Pagination for EE 2.4 and Above
 		// --------------------------------------------
 
-		if ($this->ee_version >= '2.4.0')
-		{
-			ee()->load->library('pagination');
-			$channel->pagination = new Pagination_object('Channel');
-
-			// Used by pagination to determine whether we're coming from the cache
-			$channel->pagination->dynamic_sql = FALSE;
-		}
+		$channel = $this->add_pag_to_channel($channel);
 
 		// -------------------------------------
 		//  Prepare parameters
@@ -957,14 +968,7 @@ class Calendar extends Module_builder_calendar
 		//  Pagination Tags Parsed Out
 		// --------------------------------------------
 
-		if ($this->ee_version >= '2.4.0')
-		{
-			$channel->pagination->get_template();
-		}
-		else
-		{
-			$channel->fetch_pagination_data();
-		}
+		$channel = $this->fetch_pagination_data($channel);
 
 		// -------------------------------------
 		//  Querification
@@ -3165,14 +3169,7 @@ class Calendar extends Module_builder_calendar
 		//  Invoke Pagination for EE 2.4 and Above
 		// --------------------------------------------
 
-		if ($this->ee_version >= '2.4.0')
-		{
-			ee()->load->library('pagination');
-			$channel->pagination = new Pagination_object('Channel');
-
-			// Used by pagination to determine whether we're coming from the cache
-			$channel->pagination->dynamic_sql = FALSE;
-		}
+		$channel = $this->add_pag_to_channel($channel);
 
 		// -------------------------------------
 		//  Prepare parameters
@@ -3212,14 +3209,7 @@ class Calendar extends Module_builder_calendar
 			//  Pagination Tags Parsed Out
 			// --------------------------------------------
 
-			if ($this->ee_version >= '2.4.0')
-			{
-				$channel->pagination->get_template();
-			}
-			else
-			{
-				$channel->fetch_pagination_data();
-			}
+			$channel = $this->fetch_pagination_data($channel);
 
 			// -------------------------------------
 			//  Querification
@@ -3327,14 +3317,7 @@ class Calendar extends Module_builder_calendar
 			//  Paginate
 			// -------------------------------------
 
-			if ($this->ee_version >= '2.4.0')
-			{
-				$channel->return_data = $this->channel->pagination->render($this->channel->return_data);
-			}
-			else
-			{
-				$channel->add_pagination_data();
-			}
+			$channel = $this->add_pagination_data($channel);
 
 			// -------------------------------------
 			//  Related entries
@@ -5301,14 +5284,7 @@ class Calendar extends Module_builder_calendar
 					//  Invoke Pagination for EE 2.4 and Above
 					// --------------------------------------------
 
-					if ($this->ee_version >= '2.4.0')
-					{
-						ee()->load->library('pagination');
-						$channel->pagination = new Pagination_object('Channel');
-
-						// Used by pagination to determine whether we're coming from the cache
-						$channel->pagination->dynamic_sql = FALSE;
-					}
+					$channel = $this->add_pag_to_channel($channel);
 
 					// -------------------------------------
 					//  Prepare parameters
@@ -5358,18 +5334,25 @@ class Calendar extends Module_builder_calendar
 					//  Pagination Tags Parsed Out
 					// --------------------------------------------
 
-					if ($this->ee_version >= '2.4.0')
-					{
-						$channel->pagination->get_template();
-					}
-					else
-					{
-						$channel->fetch_pagination_data();
-					}
+					$channel = $this->fetch_pagination_data($channel);
 
 					// -------------------------------------
 					//  Querification
 					// -------------------------------------
+
+					//for some reason without this in EE 2.8.x
+					//pagination has some sort of dynamic detection
+					//that it didn't in EE 2.7 and below and hoses our
+					//pagination setup because we are doing it
+					//manually later as this is just data gathering
+					//for events.
+					if (
+						version_compare($this->ee_version, '2.8.0', '>=') &&
+						isset($channel->pagination)
+					)
+					{
+						$channel->pagination->paginate = false;
+					}
 
 					$channel->build_sql_query();
 
@@ -7955,7 +7938,7 @@ class Calendar extends Module_builder_calendar
 				 strpos($tagdata, ' format=') !== FALSE)
 			{
 				preg_match_all(
-					'#'.LD.'([a-zA-Z_]+)\s+format\s*=\s*[\'|\"](.*?)[\'|\"]'.RD.'#s',
+					'#'.LD.'([a-zA-Z_]+)\s+format\s*=\s*([\'|\"|]|&\#39;|&\#34;)(.*?)\\2'.RD.'#s',
 					$tagdata,
 					$matches
 				);
@@ -7992,7 +7975,7 @@ class Calendar extends Module_builder_calendar
 							$match,
 							$this->cdt_format_date_string(
 								$this->CDT->datetime_array(),
-								$matches[2][$k],
+								$matches[3][$k],
 								'%'
 							),
 							$tagdata
@@ -8806,14 +8789,7 @@ class Calendar extends Module_builder_calendar
 			//  Invoke Pagination for EE 2.4 and Above
 			// --------------------------------------------
 
-			if ($this->ee_version >= '2.4.0')
-			{
-				ee()->load->library('pagination');
-				$channel->pagination = new Pagination_object('Channel');
-
-				// Used by pagination to determine whether we're coming from the cache
-				$channel->pagination->dynamic_sql = FALSE;
-			}
+			$channel = $this->add_pag_to_channel($channel);
 
 			// -------------------------------------
 			//  Prepare parameters
@@ -8847,14 +8823,7 @@ class Calendar extends Module_builder_calendar
 			//  Pagination Tags Parsed Out
 			// --------------------------------------------
 
-			if ($this->ee_version >= '2.4.0')
-			{
-				$channel->pagination->get_template();
-			}
-			else
-			{
-				$channel->fetch_pagination_data();
-			}
+			$channel = $this->fetch_pagination_data($channel);
 
 			// -------------------------------------
 			//  Add occurrence_ prefix to custom fields

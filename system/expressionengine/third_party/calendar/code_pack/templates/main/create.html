@@ -25,18 +25,16 @@
 {if logged_in_group_id == "1"}
 
 <div id="calendar_saef">
-   {exp:calendar:form weblog="calendar_events" return="%prefix%main/create/success"}
+   {exp:channel:form channel="calendar_events" return="%prefix%main/event/{segment_3}/updated"}
    <p><label>Title:</label><br />
    <input type="text" name="title" value="{title}" size="80" style="width: 600px;" /></p>
-   {calendar_date_widget}
+   {exp:calendar:date_widget}
    <p><label>Summary:</label><br />
-   <textarea name="{event_summary_field_name}" rows="5" cols="65" style="width: 600px; height: 100px;">{event_summary}</textarea>
-   <input type="hidden" name="{event_summary_format_name}" value="{event_summary_format_value}" /></p>
+   <textarea name="event_summary" rows="5" cols="65" style="width: 600px; height: 100px;">{event_summary}</textarea>
    <p><label>Location:</label><br />
-   <input type="text" name="{event_location_field_name}" value="{event_location}" size="80" style="width: 600px;" /></p>
-   <input type="hidden" name="{event_location_format_name}" value="{event_location_format_value}" /></p>
+   <input type="text" name="event_location" value="{event_location}" size="80" style="width: 600px;" /></p>
    <p><input type="submit" name="submit" value="Submit" /></p>
-   {/exp:calendar:form}
+   {/exp:channel:form}
 </div>
 
 {if:else}
@@ -60,7 +58,7 @@
 					<p>It makes use of the following function:</p>
 
 					<ul>
-						<li><a href="http://www.solspace.com/docs/detail/calendar_form/">Calendar:Form</a> to display the SAEF form for users to create new events.</li>
+						<li><a href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_form/index.html">Channel:Form</a> to display the channel entry form for users to create new events.</li>
 						<li><a href="http://www.solspace.com/docs/detail/calendar_mini/">Calendar:Cal in Mini mode</a> to display a Mini Calendar that links to days that have events.</li>
 						<li><a href="http://www.solspace.com/docs/detail/calendar_calendars/">Calendar:Calendars</a> to display a list of all available Calendars.</li>
 					</ul>

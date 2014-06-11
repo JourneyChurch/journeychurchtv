@@ -88,7 +88,7 @@
 
 <form method="post" action="<?=$form_url?>" autocomplete="off" id="calendar_permissions_form">
 	<input type="hidden" name="permissions_enabled" value="n" />
-	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
 	<p>
 		<input type="checkbox" value="y" name="permissions_enabled" id="permissions_enabled"<?php
 			if ($permissions_enabled):?> checked="checked"<?php endif;?>/>&nbsp;

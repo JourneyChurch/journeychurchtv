@@ -2,7 +2,7 @@
 	<input type="hidden" name="C" value="modules" />
 	<input type="hidden" name="M" value="calendar" />
 	<input type="hidden" name="method" value="view_events" />
-	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
 	<fieldset>
 		<legend><strong><?=lang('filter');?></strong></legend>
 		<select name="calendar">

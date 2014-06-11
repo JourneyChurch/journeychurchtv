@@ -5,7 +5,7 @@
  *
  * @package		Solspace:Calendar
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2010-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2010-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/calendar
  * @license		http://www.solspace.com/license_agreement
  * @filesource	calendar/libraries/calendar_permissions.php
@@ -557,7 +557,9 @@ class Calendar_permissions extends Addon_builder_calendar
 			$allowed_entry_ids = preg_split("/\|/", $id_query->row('entry_ids'), -1, PREG_SPLIT_NO_EMPTY);
 
 			//could implode here, but would be slower on larger arrays, which will be common
-			$search = ee()->db->escape_str(str_replace('||', '|', $id_query->row('entry_ids')));
+			$search = ee()->db->escape_str(
+				trim(str_replace('||', '|', $id_query->row('entry_ids')), '|')
+			);
 
 			//occurrence IDs are different
 			$oc_query = ee()->db->query(

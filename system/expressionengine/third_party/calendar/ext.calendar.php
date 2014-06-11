@@ -5,10 +5,10 @@
  *
  * @package		Solspace:Calendar
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2010-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2010-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/calendar
  * @license		http://www.solspace.com/license_agreement
- * @version		1.8.4
+ * @version		1.8.8
  * @filesource	calendar/ext.calendar.php
  */
 
@@ -575,12 +575,12 @@ class Calendar_ext extends Extension_builder_calendar
 							'calendar_id'		=> $data['calendar_id'],
 							'site_id'			=> $data['site_id'],
 							'entry_id'			=> $id,
-							'start_date'		=> ($rule['start_date'] !== '') ? $rule['start_date'] : 0,
-							'start_year'		=> ($rule['start_year'] !== '') ? $rule['start_year'] : 0,
-							'start_month'		=> ($rule['start_month'] !== '') ? $rule['start_month'] : 0,
-							'start_day'			=> ($rule['start_day'] !== '') ? $rule['start_day'] : 0,
+							'start_date'		=> $this->is_positive_intlike($rule['start_date']) ? $rule['start_date'] : 0,
+							'start_year'		=> $this->is_positive_intlike($rule['start_year']) ? $rule['start_year'] : 0,
+							'start_month'		=> $this->is_positive_intlike($rule['start_month']) ? $rule['start_month'] : 0,
+							'start_day'			=> $this->is_positive_intlike($rule['start_day']) ? $rule['start_day'] : 0,
 							'all_day'			=> $rule['all_day'],
-							'start_time'		=> ($rule['start_time'] !== '') ? $rule['start_time'] : 0,
+							'start_time'		=> $this->is_positive_intlike($rule['start_time']) ? $rule['start_time'] : 0,
 							'end_date'			=> ($rule['end_date'] != 0) ?
 													$rule['end_date'] :
 													$rule['start_date'],
@@ -625,20 +625,20 @@ class Calendar_ext extends Extension_builder_calendar
 							'start_date'		=> $rule['start_date'],
 							'all_day'			=> (isset($rule['all_day'])) ?
 													$rule['all_day'] : 'n',
-							'start_time'		=> ($rule['start_time'] !== '') ? $rule['start_time'] : 0,
-							'end_date'			=> ($rule['end_date'] !== '') ? $rule['end_date'] : 0,
-							'end_time'			=> ($rule['end_time'] !== '') ? $rule['end_time'] : 0,
-							'repeat_years'		=> ($rule['repeat_years'] !== '') ? $rule['repeat_years'] : 0,
-							'repeat_months'		=> ($rule['repeat_months'] !== '') ? $rule['repeat_months'] : 0,
-							'repeat_days'		=> ($rule['repeat_days'] !== '') ? $rule['repeat_days'] : 0,
-							'repeat_weeks'		=> ($rule['repeat_weeks'] !== '') ? $rule['repeat_weeks'] : 0,
+							'start_time'		=> $this->is_positive_intlike($rule['start_time']) ? $rule['start_time'] : 0,
+							'end_date'			=> $this->is_positive_intlike($rule['end_date']) ? $rule['end_date'] : 0,
+							'end_time'			=> $this->is_positive_intlike($rule['end_time']) ? $rule['end_time'] : 0,
+							'repeat_years'		=> $this->is_positive_intlike($rule['repeat_years']) ? $rule['repeat_years'] : 0,
+							'repeat_months'		=> $this->is_positive_intlike($rule['repeat_months']) ? $rule['repeat_months'] : 0,
+							'repeat_days'		=> $this->is_positive_intlike($rule['repeat_days']) ? $rule['repeat_days'] : 0,
+							'repeat_weeks'		=> $this->is_positive_intlike($rule['repeat_weeks']) ? $rule['repeat_weeks'] : 0,
 							'days_of_week'		=> $rule['days_of_week'],
 							'relative_dow'		=> $rule['relative_dow'],
 							'days_of_month'		=> $rule['days_of_month'],
 							'months_of_year'	=> $rule['months_of_year'],
-							'stop_after'		=> ($rule['stop_after'] !== '') ? $rule['stop_after'] : 0,
-							'stop_by'			=> ($rule['stop_by'] !== '') ? $rule['stop_by'] : 0,
-							'last_date'			=> ($rule['last_date'] !== '') ? $rule['last_date'] : 0
+							'stop_after'		=> $this->is_positive_intlike($rule['stop_after']) ? $rule['stop_after'] : 0,
+							'stop_by'			=> $this->is_positive_intlike($rule['stop_by']) ? $rule['stop_by'] : 0,
+							'last_date'			=> $this->is_positive_intlike($rule['last_date']) ? $rule['last_date'] : 0
 						);
 
 						if ($edit == TRUE AND

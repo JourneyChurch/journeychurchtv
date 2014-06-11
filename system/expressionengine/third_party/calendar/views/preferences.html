@@ -1,5 +1,5 @@
 <form action="<?=$form_url; ?>" method="post">
-	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
 	<table class="mainTable padTable"  style="width:100%;"  cellspacing="0"  cellpadding="0"  border="0">
 	    <thead>
   				<tr>

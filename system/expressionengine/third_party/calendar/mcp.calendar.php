@@ -7,10 +7,10 @@
  *
  * @package		Solspace:Calendar
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2010-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2010-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/calendar
  * @license		http://www.solspace.com/license_agreement
- * @version		1.8.4
+ * @version		1.8.8
  * @filesource	calendar/mcp.calendar.php
  */
 

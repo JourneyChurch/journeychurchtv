@@ -8,7 +8,7 @@
 	<input type="hidden" name="offset"		value="<?=$offset?>" />
 	<input type="hidden" name="limit"		value="<?=$limit?>" />
 	<input type="hidden" name="event_id" 	value="<?=$event_id?>" />
-	<input type="hidden" name="XID" 		value="<?=$XID_SECURE_HASH?>" />
+	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
 	<fieldset>
 		<legend><strong><?=lang('filter');?></strong></legend>
 		<select name="status">

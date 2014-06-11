@@ -7,10 +7,10 @@
  *
  * @package		Solspace:Calendar
  * @author		Solspace, Inc.
- * @copyright	Copyright (c) 2010-2013, Solspace, Inc.
+ * @copyright	Copyright (c) 2010-2014, Solspace, Inc.
  * @link		http://solspace.com/docs/calendar
  * @license		http://www.solspace.com/license_agreement
- * @version		1.8.4
+ * @version		1.8.8
  * @filesource	calendar/constants.calendar.php
  */
 
@@ -18,7 +18,7 @@ if ( ! defined('CALENDAR_VERSION'))
 {
 	$path = rtrim(realpath(dirname(__FILE__)), '/') . '/';
 
-	define('CALENDAR_VERSION',	'1.8.4');
+	define('CALENDAR_VERSION',	'1.8.8');
 	define('CALENDAR_DOCS_URL',	'http://solspace.com/docs/calendar');
 
 	// -------------------------------------
