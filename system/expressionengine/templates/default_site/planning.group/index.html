@@ -1,3 +1,8 @@
+{!--}
+1. remove all indv fields and make them one big box w/ prefilled text
+2. make creative form after the process of adding event? Prefilled text post approval?
+3. 
+{--}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,23 +116,6 @@
 					
 				return false;
 			});
-			
-			
-			//	$(".login_form").submit(function() {
-			//		var values = $(this).serialize();
-			//		$.ajax({
-			//			url: '/index.php',
-			//			type: 'POST',
-			//			data: values,
-			//			success: function(data) {	
-			//				var pos = data.indexOf("<title>Error");
-			//				var titlePos = data.indexOf("<title>");
-			//		        $('#loggedout').modal('hide');
-			//			}
-			//		});
-			//	
-			//		return false;
-			//	});		
 		}
 	</script>
 	
@@ -271,26 +259,48 @@
 	{embed="planning/add"}
 	
 	<div class="modal fade" id="loggedout" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
+			<div id="accordion" class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h4 class="modal-title">Login</h4>
 					</div>
-					{exp:member:login_form form_class="login_form" return="<?php echo $_SERVER['HTTP_REFERER']; ?>"}
-						<div class="modal-body">
-								<label>Username</label><br>
-								<input type="text" name="username" value="" maxlength="40" size="40" class="form-control">
-								<br>
-							    <label>Password</label><br>
-							    <input type="password" name="password" value="" maxlength="40" size="40" class="form-control">
-							
-							<p><a href="{path='member/forgot_password'}">Forgot your password?</a></p>
-							<div id="forgotpass" style="display:none">forgot it.</div>
-						</div>
-						<div class="modal-footer">
-							<input type="submit" name-"submit" class="btn btn-primary" value="Submit">
-						</div>
-					{/exp:member:login_form}
+					<div id="normallogin" class="panel-collapse collapse in" data-parent="#accordion">
+						{exp:member:login_form form_class="login_form" return="<?php echo $_SERVER['HTTP_REFERER']; ?>"}
+							<div class="modal-body">
+								<div id="normallogin" class="collapse in">
+									<label>Username</label><br>
+									<input type="text" name="username" value="" maxlength="40" size="40" class="form-control">
+									<br>
+									<label>Password</label><br>
+									<input type="password" name="password" value="" maxlength="40" size="40" class="form-control">
+									<br>
+									<p data-toggle="collapse" data-target="#forgotpass">
+									  Forgot your password?
+									</p>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input type="submit" name-"submit" class="btn btn-primary" value="Submit">
+							</div>
+						{/exp:member:login_form}
+					</div>
+					<div id="forgotpass" class="panel-collapse collapse" data-parent="#accordion">
+						<form id="forgot_password_form" method="post" action="http://journeychurch.tv/">
+							<div class="modal-body">
+								<div class="hiddenFields">
+									<input type="hidden" name="XID" value="bd77593c46c41e84e3687c57bd38e6be76ec691e">
+									<input type="hidden" name="ACT" value="17">
+									<input type="hidden" name="FROM" value="">
+									<input type="hidden" name="site_id" value="1">
+								</div>
+								<label>Email Address</label>
+								<p><input type="text" name="email" value="" maxlength="40" size="40" class="form-control"></p>
+							</div>
+							<div class="modal-footer">
+								<input type="submit" name-"submit" class="btn btn-primary" value="Submit">
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 	</div>
