@@ -21,21 +21,18 @@
 						<input id="datepicker" name="expiration_date" type="text" class="form-control hasDatepicker" placeholder="Expiration Date"><br>
 					{/if}
 					<input name="planning-location" type="text" class="form-control" placeholder="Location"><br>
-					<input name="planning-person" type="text" class="form-control" placeholder="Owner Email" value="{screen_name}"><br>
+					<input name="planning-person" type="text" class="form-control" placeholder="Owner Email"><br>
 					<input name="planning-contact" type="text" class="form-control" placeholder="Event Contact"><br>
 					{if member_group=="1"}
 						<textarea name="planning-blurb" id="planningblurb{entry_id}" class="form-control" rows="5" placeholder="Blurb">{planning-blurb}</textarea><br>
 					{/if}
 					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5" placeholder="Detailed Description"></textarea><br>
 					{if member_group=="1"}
-						<input name="planning-promo_dates" type="text" class="form-control" placeholder="Promo Dates"><br>
-						<input name="planning-annc" type="text" class="form-control" placeholder="Announcement Video"><br>
-						<input name="planning-promovid" type="text" class="form-control" placeholder="Promo Vid"><br>
-						<input name="planning-guide" type="text" class="form-control" placeholder="Worship Guide"><br>
-						<input name="planning-social" type="text" class="form-control" placeholder="Social Media"><br>
-						<input name="planning-theemail" type="text" class="form-control" placeholder="Email"><br>
-						<input name="planning-theinsert" type="text" class="form-control" placeholder="Insert"><br>
-						<textarea name="planning-other" id="planningother" class="form-control" rows="5" placeholder="Other"></textarea>
+						<textarea name="planning-other" id="planningother{entry_id}" class="form-control" rows="5" placeholder="Marketing Plan">
+							<strong>Design</strong><br><br>
+							<strong>Video</strong><br><br>
+							<strong>Web</strong><br><br>
+						</textarea>
 					{if:else}
 						<br>
 						<h5><input type="checkbox" name="approved-overseer" required="required"> Check if your overseer has approved this event.</h5>
@@ -54,6 +51,9 @@
 		<script type="text/javascript">
 		$(document).ready(function() {
 			CKEDITOR.replace('planningblurb{entry_id}', {
+				uiColor: '#ffffff'
+			});
+			CKEDITOR.replace('planningother{entry_id}', {
 				uiColor: '#ffffff'
 			})
 		});
