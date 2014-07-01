@@ -89,7 +89,10 @@
 					<h3>{if {entry_date format='%Y'} >= "1999"}{entry_date format="%F %j, %Y"}{/if}</h3>
 					<h2>{title}</h2>
 					{if devos-author}<h4>By {devos-author}</h4>{/if}
-					{if devos-mp3}
+					{if devos-mp3_s3}
+						<br>
+						<h4><a href="{devos-mp3_s3}" target="_blank"><i class="fa fa-volume-up"></i></a> <a href="{devos-mp3_s3}" target="_blank"><strong>LISTEN</strong></a></h4>
+					{ifelse:if devos-mp3}
 						<br>
 						<h4><a href="{devos-mp3}" target="_blank"><i class="fa fa-volume-up"></i></a> <a href="{devos-mp3}" target="_blank"><strong>LISTEN</strong></a></h4>
 					{/if}
