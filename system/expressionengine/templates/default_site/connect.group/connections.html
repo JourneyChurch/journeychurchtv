@@ -1,0 +1,57 @@
+{embed="_includes/header" title="Connections Team" bar="yes"}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<style type="text/css">
+	:target {
+	    -webkit-animation: target-fade 3s 1;
+	    -moz-animation: target-fade 3s 1;
+	}
+
+	@-webkit-keyframes target-fade {
+	    0% { background-color: rgba(0,0,0,.1); }
+	    100% { background-color: rgba(0,0,0,0); }
+	}
+	@-moz-keyframes target-fade {
+	    0% { background-color: rgba(0,0,0,.1); }
+	    100% { background-color: rgba(0,0,0,0); }
+	}
+</style>
+<div class="container" style="margin:40px auto">
+	<div class="grid_4">
+		<h2 style="color:#989d00;font-size:36px;line-height:36px"><strong>Connection</strong><br>
+			Team
+		</h2>
+	</div>
+	<div class="grid_8">
+			<h3>We are looking for energetic, joyful and excited people who want to make it their mission to create a comfortable environment where people feel needed and known!</h3>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class="container clearfix">
+	<div class="grid_12 fancy-page">
+		{exp:channel:entries channel="Connect" url_title="{segment_2}"}
+			{connect-body}
+		{/exp:channel:entries}
+		<br>
+		<a href="https://journeydreamteam.wufoo.com/forms/join-the-connection-team/" target="_blank"><button style="margin-left:0">Join the Connection Team</button></a>
+		<br><br>
+		<div id="accordion">
+			{exp:channel:entries channel="FAQ" category="59" orderby="date" sort="asc"}
+				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
+				<div>
+					{faq-body}
+					<br>
+					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/join-the-connection-team/" target="_blank">Click here to let us know you're interested.</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+	</div>
+</div>
+
+<script>
+$(function() {
+	 $("#accordion").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
+});
+</script>
+{embed="_includes/footer"}
