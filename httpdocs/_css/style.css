@@ -200,6 +200,21 @@ div.capty-caption a {
 	display: none;
 }
 
+@media print {
+	#navigation {
+		display: none!important;
+	}
+	#sidr {
+		display: none!important;
+	}
+	#mobile-top {
+		display: none!important;
+	}
+	#footer {
+		display: none!important;
+	}
+}
+
 .admin-bar {
 	background-color: #EEE;
 	padding: 10px 0;
