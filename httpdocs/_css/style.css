@@ -106,6 +106,12 @@ button.registration {
 	padding: 20px;
 	font-size: 14px;
 }
+button.full {
+	width: 80%;
+	font-size: 16px;
+	margin: 0 auto;
+	margin-left: 10%;
+}
 button.large {
 	width: 100%;
 	padding: 20px 0;
@@ -538,6 +544,35 @@ ul.side-nav {
 	color: #ffffff;
 }
 
+	/* Connections Team */
+	.connections_container {
+		margin: 40px auto;
+	}
+	.connections-logo {
+		color:#989d00;
+		font-size:36px;
+		line-height:36px
+	}
+	.connections-imgs {
+		margin: 30px auto;
+	}
+		.connections-imgs img {
+			margin: auto 10px;
+		}
+		.connections-imgs img:first-child {
+			margin-left: 0;
+		}
+		.connections-imgs img:last-child {
+			margin-right: 0;
+		}
+	.connections-social {
+		margin: 40px auto;
+	}
+		.connections-social button {
+			text-align: center;
+			padding: 10px 5px;
+		}
+
 /* Groups */
 .groups-logo {
 	margin-bottom: 30px;
@@ -577,6 +612,20 @@ ul.side-nav {
 
 .groups-individual li {
 	list-style-position:inside;
+}
+
+/* Latest */
+#latest {
+	margin: 20px auto 40px;
+}
+	#latest h2 {
+		color: #707170;
+		font-size: 36px;
+		padding-top: 65px;
+		text-transform: uppercase;
+	}
+.latest-ind {
+	margin: 20px auto;
 }
 
 /* Locations */

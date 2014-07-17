@@ -16,9 +16,9 @@
 	    100% { background-color: rgba(0,0,0,0); }
 	}
 </style>
-<div class="container" style="margin:40px auto">
+<div class="connections_container container">
 	<div class="grid_4">
-		<h2 style="color:#989d00;font-size:36px;line-height:36px"><strong>Connection</strong><br>
+		<h2 class="connections-logo"><strong>Connection</strong><br>
 			Team
 		</h2>
 	</div>
@@ -36,6 +36,7 @@
 		<br>
 		<a href="https://journeydreamteam.wufoo.com/forms/join-the-connection-team/" target="_blank"><button style="margin-left:0">Join the Connection Team</button></a>
 		<br><br>
+		<h2>Frequently Asked</h2>
 		<div id="accordion">
 			{exp:channel:entries channel="FAQ" category="59" orderby="date" sort="desc"}
 				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
@@ -46,12 +47,46 @@
 				</div>
 			{/exp:channel:entries}
 		</div>
+		<div class="connections-imgs">
+			<img src="/_img/connections-1.png">
+			<img src="/_img/connections-3.jpg">
+			<img src="/_img/connections-2.jpg">
+		</div>
+		
+		<a href="https://journeydreamteam.wufoo.com/forms/join-the-connection-team/" target="_blank"><button class="full" style="padding: 20px 5px">Join the Connection Team</button></a>
+		
+		<div id="accordion2">
+			{exp:channel:entries channel="FAQ" category="61" orderby="date" sort="desc"}
+				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
+				<div>
+					{faq-body}
+					<br>
+					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/join-the-connection-team/" target="_blank">Click here to let us know you're interested.</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="container">
+	<div class="connections-social">
+		<div class="grid_4">
+			<a href="https://www.facebook.com/groups/517578594982712/?ref=br_tf" target="_blank"><button class="full"><span class="fa fa-facebook"></span> &nbsp;Get in the Group</button></a>
+		</div>
+		<div class="grid_4">
+			<a href="#" target="_blank"><button class="full"><span class="fa fa-envelope"></span> &nbsp;Get the emails</button></a>
+		</div>
+		<div class="grid_4">
+			<a href="https://journeydreamteam.wufoo.com/forms/join-the-connection-team/" target="_blank"><button class="full"><span class="fa fa-twitter"></span> &nbsp;Follow us</button></a>
+		</div>
+		<div class="clear"></div>
 	</div>
 </div>
 
 <script>
 $(function() {
-	 $("#accordion").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
+	 $("#accordion").accordion({ header: "h3", active: 0, collapsible: true, heightStyle: "content" });
+	 $("#accordion2").accordion({ header: "h3", active: 0, collapsible: true, heightStyle: "content" });
 });
 </script>
 {embed="_includes/footer"}
