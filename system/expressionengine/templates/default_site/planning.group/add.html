@@ -1,5 +1,5 @@
 <div class="modal fade" id="addEvent" tabindex="-1" role="dialog" aria-hidden="true">
-	{exp:channel:form channel="Planning" datepicker="no" return="planning/index"}
+	{exp:channel:form channel="Planning" return="planning/index" json="yes" author_id="CURRENT_USER"}
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -16,17 +16,23 @@
 						{/category_menu}
 						<br><br>
 					{/if}
-					<input id="datepicker" name="planning-event_date" type="text" class="form-control hasDatepicker" placeholder="Event Date"><br>
+					<label>Image</label>
+					{field:planning-img}
+					<br>
+					<input id="datepicker" name="planning-event_date" type="text" class="form-control datepicker" placeholder="Event Date"><br>
 					{if member_group=="1" OR member_group=="7"}
-						<input id="datepicker" name="expiration_date" type="text" class="form-control hasDatepicker" placeholder="Expiration Date"><br>
+						<input id="datepicker" name="expiration_date" type="text" class="form-control datepicker" placeholder="Expiration Date"><br>
 					{/if}
 					<input name="planning-location" type="text" class="form-control" placeholder="Location"><br>
 					<input name="planning-person" type="text" class="form-control" placeholder="Owner Email"><br>
 					<input name="planning-contact" type="text" class="form-control" placeholder="Event Contact"><br>
 					{if member_group=="1"}
+						<label>Blurb</label>
 						<textarea name="planning-blurb" id="planningblurb{entry_id}" class="form-control" rows="5" placeholder="Blurb">{planning-blurb}</textarea><br>
 					{/if}
-					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5" placeholder="Detailed Description"></textarea><br>
+					<label>Detailed Description</label>
+					<p>This description MUST be included and MUST answer the questions of WHO (target audience), WHAT (the details of your event and what will happen), and WHY (what makes this event important, how it connects to the cultural values of JourneyChurch and what creates urgency for someone to be involved).</p>
+					<textarea name="planning-desc" id="planningdesc" class="form-control" rows="5"></textarea><br>
 					{if member_group=="1"}
 						<textarea name="planning-other" id="planningother{entry_id}" class="form-control" rows="5" placeholder="Marketing Plan">
 							<strong>Design</strong><br><br>
