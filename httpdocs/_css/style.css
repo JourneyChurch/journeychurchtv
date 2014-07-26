@@ -1120,8 +1120,34 @@ h2.pastorclark span {
 		text-transform: uppercase;
 	}
 	
-	
-	
+
+/* Search */
+input.gsc-search-button {
+	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
+	font-weight: 300!important;
+	text-transform: uppercase;
+	font-style: normal!important;
+}	
+.cse input.gsc-input, input.gsc-input {
+	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
+	font-weight: 300!important;
+	font-style: normal!important;
+}
+.gsc-control-cse .gsc-table-result {
+	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
+}
+.gsc-result .gs-title {
+	font-family: 'aleoregular',Georgia,serif!important;
+	color: #7f3e19!important;
+	padding-bottom: 5px;
+}
+.cse .gsc-webResult.gsc-result, .gsc-webResult.gsc-result, .gsc-imageResult-classic, .gsc-imageResult-column {
+	margin-bottom: 15px;
+}
+.cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page, .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+	text-shadow: none!important;
+}
+
 /* Footer */
 #footer {
 	background-image: url(/_img/bg-texture.jpg);
@@ -1131,7 +1157,7 @@ h2.pastorclark span {
 	float: left;
 }
 #footer ul {
-	margin-top: 16px;
+	margin-top: 22px;
 }
 #footer ul > li {
 	float: left;
