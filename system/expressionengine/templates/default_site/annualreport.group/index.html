@@ -19,9 +19,31 @@
   	<link rel="stylesheet" href="/_css/base.css">
   	<link rel="stylesheet" href="/_css/grid.css">
   	<link rel="stylesheet" href="/_css/annualreport.css">
+    <link rel="stylesheet" type="text/css" href="/_css/layerslider.css" />
 
   	<script src="/_js/modernizr-2.6.2.min.js"></script>
-  	
+  	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="/_js/jwplayer.js"></script>
+    <script type="text/javascript">jwplayer.key="kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";</script>
+
+    <div id="layerslider-container">
+      <div id="layerslider" style="width:100%;height:450px;margin-bottom:40px">
+        <div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
+          <img class="ls-bg" src="/_img/slider/sweetsundays-bg.jpg">
+          <img class="ls-s3 si" src="/_img/slider/sweetsundays-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
+          <a href="/calendar/event/4fabe8a2-4cc7-4c63-80dd-a32500fbea49" class="ls-link"></a>
+        </div>
+        <div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;background-color:#821d24">
+          <img class="ls-s3 si" src="/_img/slider/unleashinghope-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
+          <a href="/unleashing" class="ls-link"></a>
+        </div>
+        <div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
+          <img class="ls-bg" src="/_img/slider/createdays-bg.jpg">
+          <img class="ls-s3 si" src="/_img/slider/createdays-1.png" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
+          <a href="/kids" class="ls-link"></a>
+        </div>
+      </div>
+    </div>
   </head>
   <body>
     <section id="letter">
@@ -58,25 +80,60 @@
     </section>
     --}
 
-     <section id="bapsalv">
+     <section id="bapcommit">
       <div class="container clearfix">
-        <div class="grid_12">
-          <div id="salvations">
-            <h1>1,925 Total Commitments to Christ</h1>
-            <h1>232 Commitments at Christmas Spectacular</h1>
-            <h1>107 Commitments at Easter</h1>
-            <img src="_img/salvations.jpg"/>
-          </div>
+        <div id="totalcommit" class="push_1">
+          <h1>1,925 Total Commitments to Christ in 2013-2014</h1>
+          {!--Background Image--}
+        </div>
 
-          <div id="baptisms">
-            <img src="_img/baptisms.jpg"/>
-            <h1>169 Total Baptisms</h1>
-          </div>
+        <div class="commitentry grid_6 push_1">
+          <h1>Commitments to Christ at Christmas Spectacular</h1><h2>232</h2>
+        </div>
 
-          <div id="livingroom">
-            <h1>257 visitors to The Living Room</h1>
+        <div class="commitentry grid_6">
+          <h1>Commitments to Christ at Easter</h1><h2>107</h2>
+        </div>
+
+        <div id="baptisms" class="commitentry grid_6 push_1">
+          <h1>169 Total Baptisms in 2013-2014</h1>
+          <img src="_img/baptisms.jpg"/>
+        </div>
+
+        <div class="commitentry grid_4 push_2">
+          <h1>Number of Visitors to The Living Room</h1><h2>257</h2>
+        </div>
+
+        {!-- Two Videos --}
+        <div class="grid_6">
+          <div class="videoWrapper" style="max-width:650px!important">
+            <div id="vid{entry_id}">
+              <iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
+            </div>
           </div>
-       </div>
+          <script type="text/javascript">
+            jwplayer("vid{entry_id}").setup({            
+              'autostart': 'false',
+              'height': '360px',
+              'width': '100%',
+              'menu': 'false',
+              'aspectratio': '16:9',
+              'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
+              'image': '{media-series}{media-series:series-img}{/media-series}',
+              'abouttext': 'JourneyChurch.tv Media',
+              'aboutlink': 'http://journeychurch.tv/media',
+              'plugins': {
+                'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+              },    
+              'modes': [{
+                'type':'flash',
+                'src': '/_js/jwplayer.flash.swf'
+              }]
+            });
+          </script>
+          <div class="grid_6">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -222,7 +279,7 @@
           <img src="sj-logo.jpg"/>
         </div>
         <div class="grid_3">
-          <h1 class="sjentry">248</h1>
+          <h1 class="sjentry">Number of Students at SJ Summer Camp 157</h1>
         </div>
         <div class="grid_3">
           <h1 class="sjentry">248</h1>
