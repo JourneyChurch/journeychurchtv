@@ -119,438 +119,609 @@ button.extra-large {
 }
 
 
-#title {
-	/**background: url(/_img/annualreport/title.jpg) no-repeat center center fixed;  
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	background-size: cover;**/
-	background-color:black;
-	color:white;
+/* Global Stuff */
+.ministry_logo {
+	margin: 100px 0 120px;
+	text-align: center;
 }
-
-#title h1 {
-	font-weight:500;
+h1 {
 	font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+	font-weight: 200;
+	font-size: 70px;
+	color: #fff;
+	text-transform: initial;
+	text-align: center;
+	margin: 100px 0 120px;
 }
-
-#title h2 {
-	font-weight:300;
-	font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+h2 {
+	font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+	font-size: 170px;
+	font-weight: 400;
+	color: #fff;
 }
-
-#playtubes {
-	background: url(/_img/annualreport/playtubes.jpg) no-repeat center center fixed;  
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	background-size: cover;
+	h2 span {
+		font-size: 25px;
+	}
+h3 {
+	font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+	font-size: 35px;
+	font-weight: 500;
+	color: #fff;
+	width: 100%;
+	border-bottom: 2px solid #fff;
+	letter-spacing: 1px;
 }
-
-#vision {
-	background: url(/_img/annualreport/vision.jpg) no-repeat center center fixed;  
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	background-size: cover;
+h4 {
+		font-size: 25px;
+		font-weight: 500;
+	}
+h5 {
+	font-size: 47px;
+	font-weight: 400;
 }
+	h5 span {
+		font-size: 25px;
+		font-weight: 400;
+	}
+h6 {
+	font-size: 30px;
+	font-weight: 400;
+	margin: 0;
+	text-transform: uppercase;
+}
+	h6 span {
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 18px;
+		text-transform: uppercase;
+	}
+.boxed_content {
+	padding: 20px 10px;
+	color: #fff;
+	margin-bottom: 30px;
+}
+	.boxed_content h5 {
+		font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+		font-weight: 400;
+		font-size: 17px;
+		width: 100%;
+		color: #fff;
+		border-bottom: 2px solid #fff;
+	}
+	.boxed_content h4 {
+		font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+		font-weight: 400;
+		font-size: 110px;
+	}
+		.boxed_content h4 span {
+			font-size: 25px;
+		}
+	.boxed_content p {
+		font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+		font-weight: 400;
+		font-size: 12px;
+		padding-top: 20px;
+	}
 
+/* Pastor Letter */
 #letter {
 	background: url(/_img/annualreport/letter.jpg) no-repeat center center fixed;  
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	background-size: cover;
+	padding: 100px 0;
 }
+	#letter .letter-logo {
+		margin-bottom: 50px;
+		text-align: center;
+	}
 
-#letter h1 {
-	color:#b2b4b1;
-	font-size:130px;
-	line-height:130px;
-	letter-spacing:30px;
-	font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
-	font-weight:700px;
-	margin-left:-25px;
-}
+	#letter p {
+		color: #fff;
+		font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 14px;
+	}
+	#letter .familyphoto {
+		margin-top: 40px;
+	}
 
-#letter h2 {
-	color:#989d00;
-	font-size:32px;
-	line-height:32px;
-	margin-top:-10px;
-	margin-right:-5px;
-	font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
-	font-weight:300px;
-	text-transform:none;
-	text-align:right;
-}
-
-#attendance {
-	color:white;
-	background-color:#989d00;
-}
-
-#average {
-	border-bottom:3px solid white;
-	margin-left:0px;
-	margin-right:0px;
-}
-
-#average h1 {
-	float:left;
-	font-size:250px;
-	margin:0px;
-	line-height:250px;
-	padding-bottom:20px;
-}
-
-#average h2 {
-	text-transform:uppercase;
-	font-size:30px;
-	padding:30px 0px 0px 0px;
-	margin:0px;
-	line-height:30px;
-}
-
-#average h1 span {
-	text-transform:uppercase;
-	font-size:30px;
-	line-height:30px;
-}
-
-#jkaverage {
-	border-bottom:3px solid white;
-	margin-left:0px;
-	margin-right:0px;
-}
-
-#jkaverage h1 {
-	float:left;
-	font-size:250px;
-	margin:0px;
-	line-height:250px;
-	padding-bottom:10px;
-}
-
-#jkaverage h2 {
-	text-transform:uppercase;
-	font-size:30px;
-	padding:0px;
-	margin:20px 0px 0px 0px;
-	line-height:30px;
-}
-
-#jkaverage h1 span {
-	text-transform:uppercase;
-	font-size:30px;
-	line-height:30px;
-}
-
-#easter {
-	border-right:3px solid white;
-	text-align:center;
-	padding-top:5px;
-}
-
-#easter h2 {
-	font-size:45px;
-	line-height:45px;
-}
-
-#easter h2 span {
-	text-transform:uppercase;
-	font-size:30px;
-	line-height:30px;
-}
-
-#easter h1 {
-	font-size:67px;
-	line-height:67px;
-	margin-bottom:-4px;
-}
-
-#easter h3 {
-	font-size:30px;
-	line-height:30px;
-	margin-top:4px;
-}
-
-#easter h3 span {
-	font-size:25px;
-	line-height:25px;
-}
-
-#christmas {
-	margin-left:10px;
-	text-align:center;
-	padding-top:5px;
-}
-
-#christmas h2 {
-	font-size:45px;
-	line-height:45px;
-}
-
-#christmas h2 span {
-	text-transform:uppercase;
-	font-size:30px;
-	line-height:30px;
-}
-
-#christmas h3 {
-	font-size:30px;
-	line-height:30px;
-	margin-top:5px;
-}
-
-#christmas h3 span {
-	font-size:25px;
-	line-height:25px;
-}
-
-#attendance h4 {
-	padding:30px 0px 30px 0px;
-	text-align:center;
-	font-style:italic;
-	font-size:17px;
-}
-
-#bapsalv {
-	/*background: url(/_img/annualreport/bapsalv.jpg) no-repeat center center fixed;  
+/* Baptisms and Commitments */
+#bapcommit {
+	background: url(/_img/annualreport/bapcommit.jpg) no-repeat center center fixed;  
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
-	background-size: cover;*/
+	background-size: cover;
 	background-color:black;
 }
 
-#bapsalv h1 {
-	font-size:45px;
-	text-align:center;
+	#bapcommit .totalcommit {
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	#bapcommit h3 {
+		font-size: 20px;
+	}
+
+	#bapcommit .baptisms h2 {
+		font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+		font-size: 45px;
+		font-weight: 500;
+		color: #007A89;
+		border-bottom: 2px solid #007A89;
+		margin-bottom: 10px;
+	}
+	#bapcommit .baptisms img {
+		width: 100%;
+	}
+	#bapcommit .baptism-videos {
+		margin: 50px auto;
+	}
+
+/* Attendance */
+#attendance {
+	background-color: #AAAD00;
+	color: #fff;
+	padding-bottom: 100px;
+}
+		#attendance p {
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 18px;
+			text-transform: uppercase;
+		}
+	
+	#attendance .attendance_details {
+		border-top: 2px solid #fff;
+		margin-bottom: 20px;
+		display: flex;
+	}
+		#attendance .attendance_details .att_block {
+			border-right: 2px solid #fff;
+			padding: 20px 0;
+			flex: 1;
+			vertical-align: top;
+			width: 24%;
+			float: left;
+		}
+		#attendance .attendance_details .att_block > div {
+			padding: 0 20px;
+			display: block;
+		}
+		#attendance .attendance_details .att_block.omega{
+			border-right: none;
+		}
+	#attendance .tag {
+		margin-bottom: 100px;
+	}
+		#attendance .tag p {
+			font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+			font-size: 20px;
+			font-weight: 400;
+			font-style: italic;
+			text-transform: initial;
+		}
+
+
+/* Serving */
+#serving {
+	background: url(/_img/annualreport/serving.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
+	padding-bottom: 100px;
 }
 
-#baptisms {
-	border-bottom:3px solid white;
+	#serving .boxed_content {
+		background-color: #A6DBDE;
+		color: #231F20;
+	}
+		#serving .boxed_content h5 {
+			color: #231F20;
+			border-bottom: 2px solid #231F20;
+		}
+		
+	#serving .serving-vid {
+		margin-top: 50px;
+	}
+
+
+/* Life Groups */
+#lifegroups {
+	background: url(/_img/annualreport/lifegroups.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
+	padding-bottom: 100px;
 }
 
-#baptisms h1 {
-	color:blue;
-}
-
-#salvations h1 {
-	color:white;
-}
-
+	.increase-wrapper {
+		margin-top: 40px;
+	}
+	.increase-wrapper:after {
+		clear: both;
+	}
+	.increase-groups, .increase-adultgroups {
+		background-color: #fff;
+		padding: 10px;
+		float: left;
+	}
+		.increase-groups p, .increase-adultgroups p {
+			font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+			font-weight: 400;
+			color: #9C542A;
+			font-size: 26px;
+			margin: 0;
+		}
+	
+	.increase-wrapper .increase-side {
+		font-size: 26px;
+		font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+		font-weight: 400;
+		color: #fff;
+		margin-top: 10px;
+		float: left;
+		padding-left: 20px;
+	}
+	.increase-groups {
+		width: 62%;
+	}
+	.increase-adultgroups {
+		width: 39%;
+	}
+	
+	#lifegroups .groupleaders {
+		background: #CCA892;
+		padding: 20px 40px 0;
+	}
+	#lifegroups .lifegroups-vid {
+		margin-top: 50px;
+	}
+	
+/* JKIDS */
 #jkids {
-	/*background: url(/_img/annualreport/jkids.jpg) no-repeat center center fixed;  
+	background: url(/_img/annualreport/jkids.jpg) no-repeat center center fixed;  
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
-	background-size: cover;*/
-	background-color:blue;
+	background-size: cover;
+	padding-bottom: 100px;
 }
+	
+	#jkids .boxed_content {
+		background-color: #A6DBDE;
+		color: #231F20;
+	}
+		#jkids .boxed_content h5 {
+			color: #231F20;
+			border-bottom: 2px solid #231F20;
+		}
+	#jkids .serving-vid {
+		margin-top: 50px;
+	}
 
-#jkids .grid_4 h1 {
-	color:white;
-	font-size:100px;
-	border-top:6px solid grey;
-	line-height:118px;
-	display:inline;
-	font-weight:500;
-	padding-top:2px;
-}
 
-#jkids .grid_4 {
-	border-top:1px solid white;
-}
-
-#jkids .grid_2 h2 {
-	color:black;
-	font-size:100px;
-	border-top:6px solid grey;
-	display:inline;
-	line-height:111px;
-	font-weight:500;
-	padding-top:2px;
-}
-
-#jkids .grid_2 {
-	margin-left:0px;
-}
-
-#jkids #twenty {
-	border-top:1px solid white;
-	padding-top:4px;
-	margin-top:7px;
-	margin-bottom:20px;
-}
-
-#jkids #twenty_wrapper {
-	margin:130px 0px 15px 0px;
-	width:1000px;
-	height:175px;
-	background-color:#CEF6F5;
-}
-
-#jkids .grid_2 h3 {
-	font-size:25px;
-	line-height:25px;
-	color:black;
-}
-
-#sj {
-	/*background: url(/_img/annualreport/sj.jpg) no-repeat center center fixed;  
+/* 56 Ministry */
+#ministry56 {
+	background: url(/_img/annualreport/ministry56.jpg) no-repeat center center fixed;  
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
-	background-size: cover;*/
-	background-color:white;
+	background-size: cover;
+	padding-bottom: 100px;
 }
 
-#sj .grid_3, #sj .grid_2 {
-	border-top:1px solid black;
-	margin-top:9px;
+	#ministry56 h1 {
+		color: #AAAD00;
+	}
+	#ministry56 h2 {
+		color: #AAAD00;
+		float: left;
+	}
+	#ministry56 h3 {
+		color: #AAAD00;
+		border-bottom: 2px solid #AAAD00;
+	}
+	#ministry56 .ministry56-launch {
+		background-color: #AAAD00;
+		padding: 20px;
+		float: right;
+		width: 70%;
+		margin: 55px 10px 10px;
+	}
+		#ministry56 .ministry56-launch p {
+			color: #fff;
+			font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+			font-weight: 400;
+			font-size: 12px;
+		}
+	#ministry56 .boxed_content {
+		background-color: #AAAD00;
+		color: #fff;
+	}
+		#ministry56 .boxed_content h5 {
+			color: #fff;
+			border-bottom: 2px solid #fff;
+		}
+
+		
+/* Student Journey */
+#studentjourney {
+	background: url(/_img/annualreport/sj.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
+	padding-bottom: 100px;
 }
 
-#sjwrapper {
-	margin:140px 0px 30px 0px;
-	width:1000px;
-	height:135px;
-	background-color:yellow;
-}
-
-.sjentry {
-	color:black;
-	font-size:100px;
-	border-top:6px solid grey;
-	display:inline;
-	line-height:118px;
-	font-weight:500;
-	padding-top:2px;
-}
-
-#sj .grid_3 h3 {
-	font-size:40px;
-	padding-top:6px;
-	line-height:55px;
-}
-
-#sj h1 {
-	color:yellow;
-}
-
-#sj h2, #sj h3 {
-	color:white;
-}
-
+	#studentjourney .boxed_content {
+		background-color: #E8E270;
+		color: #231F20;
+	}
+		#studentjourney .boxed_content h5 {
+			color: #231F20;
+			border-bottom: 2px solid #231F20;
+		}
+		
+	#studentjourney .sj-locations {
+		margin-top: 60px;
+	}
+	
+	
+/* College */
 #college {
-	/*background: url(/_img/annualreport/college.jpg) no-repeat center center fixed;  
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	background-size: cover;*/
-	background-color:purple;
-	padding-top:30px;
-	padding-bottom:30px;
-}
-
-.cjentry {
-	color:blue;
-	font-size:100px;
-	border-top:6px solid grey;
-	display:inline;
-	line-height:118px;
-	font-weight:500;
-	padding-top:2px;
-}
-
-#college .grid_12, #college .grid_2, #college .grid_3, #college .grid_4 {
-	border-top:1px solid blue;
-}
-
-#college span {
-	border-top:6px solid grey;
-	font-weight:500;
-	padding-top:25px;
-	line-height:60px;
-}
-
-#cjwrapper {
-	margin:192px 0px 30px 0px;
-	padding-top:15px;
-	width:1000px;
-	height:120px;
-	background-color:blue;
-}
-
-#cjwrapper .grid_4, #cjwrapper .grid_2 {
-	border-top:1px solid white;
-}
-
-#cjwrapper h2 {
-	color:white;
-}
-
-#lworks {
-	/*background: url(/_img/annualreport/lworks.jpg) no-repeat center center fixed;  
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	background-size: cover;*/
-	background-color:orange;
-	padding-top:30px;
-	padding-bottom:30px;
-}
-
-.lwentry {
-	color:white;
-	font-size:100px;
-	border-top:6px solid grey;
-	display:inline;
-	line-height:118px;
-	font-weight:500;
-	padding-top:2px;
-}
-
-#lworks .grid_12, #lworks .grid_3, #lworks .grid_4 {
-	border-top:1px solid yellow;
-}
-
-#lwwrapper {
-	margin:140px 0px 15px 0px;
-	padding-top:25px;
-	width:1000px;
-	height:120px;
-	background-color:yellow;
-}
-
-#lwwrapper .grid_3 {
-	border-top:1px solid grey;
-}
-
-#lwwrapper h2 {
-	color:black;
-}
-
-#lwwrapper h2 span {
-	border-top:6px solid grey;
-	padding-top:10px;
-}
-
-#cafe {
-	background: url(/_img/annualreport/cafe.jpg) no-repeat center center fixed;  
+	background: url(/_img/annualreport/college.jpg) no-repeat center center fixed;  
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	background-size: cover;
+	padding-bottom: 100px;
 }
+	#college .increases h2 {
+		font-size: 100px;
+		line-height: 110px;
+	}
+	#college .increase-wrapper {
+		margin-top: 10px;
+	}
+		#college .increase-wrapper .increase-side {
+			font-size: 17px;
+			margin-top: 0;
+		}
+	#college .increase-2013, #college .increase-2014 {
+		background-color: #fff;
+		padding: 0 10px;
+		float: left;
+	}
+		#college .increase-2013 p, #college .increase-2014 p {
+			font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+			font-weight: 400;
+			color: #007A89;
+			font-size: 17px;
+			margin: 0;
+		}
+		#college .increase-2013 {
+			width: 55%;
+		}
+		#college .increase-2014 {
+			width: 70%;
+		}
+	
+	#college .boxed_content {
+		background-color: #007A89;
+		color: #fff;
+	}
+		#college .boxed_content h5 {
+			border-bottom: 2px solid #fff;
+		}
 
-#e320 {
-	background: url(/_img/annualreport/e320.jpg) no-repeat center center fixed;  
+	#college .college-locations {
+		margin-top: 30px;
+	}
+	
+
+/* Equip & Pastoral Care */
+#equip {
+	background: #9C542A;  
+	padding-bottom: 100px;
+}
+	#equip h1 {
+		text-transform: uppercase;
+	}
+	
+/* Creative Journey */
+	
+
+/* Interns */
+#interns {
+	background: #007A89;  
+	padding-bottom: 100px;
+}
+	#interns .interns_rock {
+		font-size: 400px;
+		line-height: 400px;
+	}
+	
+/* Loveworks */
+#loveworks {
+	background: url(/_img/annualreport/loveworks.jpg) no-repeat center center fixed;  
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	background-size: cover;
+	padding-bottom: 100px;
 }
+	#loveworks h2 {
+		line-height: 170px;
+		margin-top: 20px;
+	}
+	#loveworks h4 {
+		font-size: 72px;
+		line-height: 72px;
+		color: #fff;
+		font-weight: 400;
+	}
+		#loveworks h4 span {
+			font-size: 25px;
+		}
+	#loveworks .increases h2 {
+		font-size: 100px;
+		line-height: 110px;
+	}
+	#loveworks .increase-wrapper {
+		margin-top: 10px;
+	}
+		#loveworks .increase-wrapper .increase-side {
+			font-size: 17px;
+			color: #fff;
+			margin-top: 10px;
+			float: left;
+			padding-left: 20px;
+		}
+	#loveworks .increase-2012 {
+		width: 20%;
+		background-color: #fff;
+		padding: 10px;
+		float: left;
+	}
+		#loveworks .increase-2012 p {
+			font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+			font-weight: 400;
+			font-size: 17px;
+			margin: 0;
+			color: #AAAD00;
+		}
+	#loveworks .increase-2013 {
+		width: 70%;
+		background-color: #E8E270;
+		padding: 10px;
+		float: left;
+	}
+		#loveworks .increase-2013 p {
+			font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+			font-weight: 400;
+			font-size: 17px;
+			margin: 0;
+			color: #231F20;
+		}
+		
+	#loveworks .boxed_content {
+		margin-top: 40px;
+	}
+		#loveworks .boxed_content h4 {
+			font-size: 112px;
+			line-height: 114px;
+		}
+		#loveworks .boxed_content .grid_3 {
+			padding: 20px 0;
+		}
+		#loveworks .loveworks-special {
+			background-color: #E8E270;
+			color: #231F20;
+			padding: 20px 0 10px;
+		}
+			#loveworks .loveworks-special h5 {
+				color: #231F20;
+				border-bottom: 2px solid #231F20;
+			}
+			#loveworks .loveworks-special h4 {
+				color: #231F20;
+			}
+	#loveworks .loveworks-vid {
+		margin-top: 50px;
+	}
+	
+	
+/* Outreach */
+#outreach {
+	background: url(/_img/annualreport/outreach.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
+	padding-bottom: 100px;
+}
+	#outreach h1 {
+		color: #AAAD00;
+	}
+	#outreach h2 {
+		color: #AAAD00;
+		font-size: 105px;
+	}
+	#outreach h3 {
+		color: #AAAD00;
+		border-bottom: 2px solid #AAAD00;
+		font-size: 16px;
+	}
+	#outreach .totalgiven {
+		text-align: center;
+		margin: 40px auto 60px;
+	}
+		
+		
+/* Finances */
+#finances {
+	background: #007A89;  
+	padding-bottom: 100px;
+}
+	#finances h2 {
+		font-size: 112px;
+	}
+	
+	#finances .boxed_content {
+		background-color: #003E45;
+		color: #fff;
+		margin: 40px auto;
+	}
+		#finances .boxed_content h5 {
+			color: #fff;
+			font-size: 35px;
+			border-bottom: 2px solid #fff;
+		}
+		
 
-
+/* Seeds */
+#seeds {
+	background: url(/_img/annualreport/seeds.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
+	padding-bottom: 100px;
+}
+	#seeds h2 {
+		font-size: 112px;
+	}
+	#seeds h4 {
+		font-size: 60px;
+		color: #fff;
+		font-weight: 400;
+		line-height: 62px;
+	}
+	#seeds .seeds-about {
+		background: #fff;
+		padding: 20px;
+		padding-right: 0;
+		margin-bottom: 30px;
+	}
+		#seeds .seeds-about > div {
+			padding-right: 20px;
+		}
+		#seeds .seeds-about h3 {
+			color: #000;
+			border-bottom: #000 solid 2px;
+		}
+		#seeds .seeds-about p {
+			padding-top: 25px;
+			font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+			font-weight: 400;
+			font-size: 12px;
+			color: #000;
+		}
