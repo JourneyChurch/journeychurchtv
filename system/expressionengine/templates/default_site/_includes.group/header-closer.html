@@ -13,6 +13,7 @@
 				
 				{if embed:bar == 'yes'}
 					<div class="bar-enabled">
+				{if:elseif segment_1 == "calendar"}
 				{if:else}
 					<div class="bar-disabled">
 				{/if}
@@ -32,7 +33,7 @@
 						</div>
 						<div class="clear"></div>
 					</div>
-				</div>
+				{if segment_1 != "calendar"}</div>{/if}
 			</div>
 			<div id="nav-about-c" class="nav-sub">
 				<div class="container">
