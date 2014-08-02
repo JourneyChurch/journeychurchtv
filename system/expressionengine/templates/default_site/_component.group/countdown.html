@@ -1,19 +1,8 @@
 <style type="text/css">
+  .countdown {display:none;}
   #churchonline_counter {display: none;}
   #churchonline_counter .live {display: none;}
 </style>
-
-<div class="countdown">
-	<div class="container">
-		<div id="churchonline_counter">
-			<div class="live"><a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a></div>
-			<div class="notlive">
-			  {!--}<span id="eventTitle" style="color:#b7b6b1!important"></span>{--}Our next online experience begins in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span> <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
-			</div>
-		</div>
-	</div>
-	<div class="clear"></div>
-</div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -29,6 +18,7 @@
 		$.ajax({
 			url: "/_component/islive",
 			success: function(data) {
+				$('.countdown').slideDown(1000);
 				if (data.indexOf("true") != -1) {
 		          	$(".notlive").hide();
 		          	$(".live").fadeIn('fast');
@@ -48,6 +38,18 @@
 		};
 	}
 </script>
+
+<div class="countdown">
+	<div class="container">
+		<div id="churchonline_counter">
+			<div class="live"><a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a></div>
+			<div class="notlive">
+			  Our next online experience begins in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span> <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
 
 <script type="text/javascript">
     //<![CDATA[

@@ -186,6 +186,7 @@ div.capty-caption a {
 }
 
 .countdown {
+	min-height: 20px;
 	background-color: #006f7c;
 	padding: 5px 0;
 	text-align: center;
@@ -193,9 +194,9 @@ div.capty-caption a {
 	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B'; font-weight: 400; font-style: normal;
 	font-size: 14px;
 	color: #b7b6b1;
-	-moz-box-shadow: 0px 1px 5px #020202;
-	-webkit-box-shadow: 0px 1px 5px #020202;
-	box-shadow: 0px 1px 5px #020202;
+	/*	-moz-box-shadow: 0px 1px 5px #020202;
+	/*	-webkit-box-shadow: 0px 1px 5px #020202;
+	/*	box-shadow: 0px 1px 5px #020202; */
 }
 .countdown span {
 	color: #FFFFFF;
