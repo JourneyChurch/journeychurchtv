@@ -12,12 +12,16 @@
 
 	{!-- Set pretty fonts --}
 	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/688704/css/fonts.css" />
+	
+	{!-- Cool Font Icons --}
+	<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'>
 
 	{!-- Set other prettiness factors --}
 	<link rel="stylesheet" href="/_css/normalize.css">
 	<link rel="stylesheet" href="/_css/base.css">
 	<link rel="stylesheet" href="/_css/grid.css">
 	<link rel="stylesheet" href="/_css/annualreport.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 	
 	{!-- Start the cool components --}
 	<link rel="stylesheet" type="text/css" href="/_css/component.css" />
@@ -28,6 +32,15 @@
 	<script type="text/javascript">jwplayer.key="kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";</script>
 </head>
 <body>
+	{!-- Side Navigation --}
+	<nav>
+		<ul>
+			<li><a href="#letter"><span>Letter</span> <i class="fa fa-square"></i></a></li>
+			<li><a href="#images"><span>Images</span> <i class="fa fa-square"></i></a></li>
+			<li><a href="#bapcommit"><span>Commitments/Baptisms</span> <i class="fa fa-square"></i></a></li>
+		</ul>
+	</nav>
+	
 	{!-- Cover --}
 	<div id="layerslider-container">
 		<div id="cover" style="width:100%;height:1024px;">
@@ -612,6 +625,9 @@
 				<h3>Summer Interns</h3>
 				<h2>13</h2>
 			</div>
+			<div class="grid_3">
+				<img src="/_img/annualreport/interns-fall13.jpg">
+			</div>
 		</div>
 	</section>
 	
@@ -873,7 +889,7 @@
 	{!-- Accomplishments --}
 
 
-	{!-- Interns --}
+	{!-- Giving --}
 	<section id="giving">
 		<div class="container clearfix">
 			<div class="grid_12">
@@ -885,6 +901,28 @@
 			<div class="grid_10 push_1">
 				<h3>MARKETABLE SECURITIES: TRANSFER OWNERSHIP OF STOCKS, BONDS OR MUTUAL FUND SHARES</h3>
 				<p>Marketable Securities are a great way to maximize your giving because you may receive an immediate tax reduction for the full fair market value of your securities. In addition, you could pay no capital gains tax on the difference between your cost and fair market value.</p>
+				
+				<h3>OTHER NON - CASH GIFTS: DONATED ITEMS LIKE CARS, BOATS AND JEWELRY</h3>
+				<p>Did you know that over 90% of the world’s wealth is held in assets, not cash? That means that most of your giving capacity is tied up in your “stuff,” not your checkbook. Contact the Ministry Services office at the church and we will work with you to determine the most appropriate way to donate your non-cash gift to the church. Donors will be sent an acknowledgement letter, including a description of the donated item and the date it was received.</p>
+				
+				<h3>LIFE INSURANCE: NAME JOURNEYCHURCH AS A BENEFICIARY OF YOUR POLICY</h3>
+				<p>A current life insurance policy can be transferred to JourneyChurch, for which you will receive an immediate income tax deduction for the cash surrendered value. JourneyChurch will elect one of two options: cash in the policy for immediate ministry needs or keep it and utilize the death benefit later.</p>
+
+				<h3>PLANNED GIFTS: GIVING RETIREMENT ASSETS, BEQUESTS, TRUSTS, ETC. AS PART OF YOUR OVERALL PERSONAL FINANCE STRATEGY</h3>
+				<p>If you have planned in advance to give a gift as part of your overall personal finance strategy, we recommend that you discuss your decision with your tax and/or financial adviser. There are several types of gifts that may fall under this category, many of which are very simple to make and do not require any formal communication which include:</p>
+				<ul>
+					<li>Life Insurance: you can simply name JourneyChurch as a beneficiary.</li>
+					<li>Retirement Assets: you can name JourneyChurch as a beneficiary of your IRA, 401(k) or other qualified retirement plan. Did you know that 50-60% of your retirement assets may be taxed if you leave them to your heirs at your death? Any amounts left in your plan will transfer to JourneyChurch free of income and estate tax.</li>
+					<li>Bequests: you can name JourneyChurch in your will as a beneficiary, and your estate will receive an income tax deduction for the value of your bequest. A bequest written in a will can be made for either a percentage or an actual amount.</li>
+					<ul>
+						<li>Charitable Gift Annuity: cash or marketable securities are transferred to a charitable organization in exchange for a current income tax deduction and the organization’s promise to make fixed annual payments to you for life.</li>
+						<li>Charitable Lead Trust: cash or marketable securities are transferred to a trust, which makes fixed payments to the charitable organization over a specified period of time, then transfers the remaining assets to your heirs.</li>
+					</ul>
+				</ul>
+				<br><br>
+				<div class="givebtn">
+					<a href="/give">Give Online <span class="fa fa-chevron-right"></span></a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -896,6 +934,17 @@
 	<script src="/_js/modernizr-2.6.2.min.js"></script>
 	<script src="/_js/modernizr.custom.js"></script>
 	<script src="/_js/scripts.js"></script>
+	
+	<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+	
+	{!-- Do cool nav stuff --}
+	<script type="text/javascript">
+		$( "nav li" ).hover(function() {
+			$(this).find("span").show("slide", { direction: "right" });
+		}, function(){
+			$(this).find("span").hide("slide", { direction: "right" });
+		});
+	</script>
 	
 	{!-- Make pretty sliders --}
 	<script src="/_js/layerslider.js"type="text/javascript"></script>
