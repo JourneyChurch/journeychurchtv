@@ -21,6 +21,11 @@
 	<link rel="stylesheet" href="/_css/base.css">
 	<link rel="stylesheet" href="/_css/grid.css">
 	<link rel="stylesheet" href="/_css/annualreport.css">
+	
+	<link rel='stylesheet' media='screen and (min-width: 768px)' href='/_css/full.css' />
+	<link rel='stylesheet' media='screen and (max-width: 767px)' href='/_css/mobile.css' />
+	<!--[if lt IE 9]><link href='/_css/full.css' rel='stylesheet'/><![endif]-->
+	
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 	
 	{!-- Start the cool components --}
@@ -58,7 +63,6 @@
 			</div>
 			
 			<div class="grid_8 push_2">
-				<p>LETTER FROM CLARK,</p>
 				<p>Church,</p>
 				<p>It’s been a miraculous fiscal year! The numbers and graphics that follow paint a picture of the abundance of people who participate and serve in our house, the salvations and baptisms we’ve celebrated as a church family, your generous gifts and obedient tithes that mobilize our ministries and create environments where people meet with God, and so much more! It is amazing to see God’s hand at work and moving in this body of believers.</p>
 				<p>As the culture continues to blossom with distractions and the variance of the economy ebb and flow, we remain grounded in a consistent God whose love never fails and whom we believe can do anything. I pray that as you review our 2013-2014 annual report, you will celebrate with us the growth we’ve experienced, join us in prayer for our newest ministries, and anticipate God’s continued favor over our church in the coming years.</p>
@@ -66,6 +70,7 @@
 				<br>
 				<p>e3:20,</p>
 				
+				<img src="/_img/annualreport/letter-signature.png">
 
 				<p>Clark Mitchell</p>
 				
@@ -75,12 +80,8 @@
 	</section>
 
 	{!-- Images --}
-	<div id="layerslider-container">
-		<div id="images" style="width:100%;height:1024px;">
-			<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
-				<img class="ls-bg" src="/_img/annualreport/images.jpg">
-			</div>
-		</div>
+	<div id="images">
+		<div class="images-allimgs"></div>
 	</div>
 	
 	{!-- Baptisms & Commitments --}
@@ -107,7 +108,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="grid_4 push_1">
-				<h3><br>Icon Key</h3>
+				<h3><br id="full-only">Icon Key</h3>
 				<img src="/_img/annualreport/bapcommit-icons.png"/>
 			</div>
 			
@@ -447,11 +448,11 @@
 			<div class="clear"></div>
 			
 			<div class="grid_6 push_1">
-				<h3><br>Average Weekly Attendance</h3>
+				<h3><br id="full-only">Average Weekly Attendance</h3>
 				<h2>197</h2>
 			</div>
 			<div class="grid_3">
-				<h3><br>Life Groups</h3>
+				<h3><br id="full-only">Life Groups</h3>
 				<h2>13</h2>
 			</div>
 			<div class="grid_3">
@@ -507,7 +508,7 @@
 			<div class="clear"></div>
 			
 			<div class="grid_6 push_1">
-				<h3><br>Average Weekly Attendance</h3>
+				<h3><br id="full-only">Average Weekly Attendance</h3>
 				<h2>775</h2>
 			</div>
 			<div class="grid_3 increases">
@@ -528,7 +529,7 @@
 				</div>
 			</div>
 			<div class="grid_3">
-				<h3><br>Life Groups</h3>
+				<h3><br id="full-only">Life Groups</h3>
 				<h2>37</h2>
 			</div>
 			
@@ -590,7 +591,72 @@
 	</section>
 	
 	{!-- Creative Journey --}
-	
+	<section id="creative">
+		<div class="container clearfix">
+			<div class="grid_12 ministry_logo">
+				<img src="/_img/annualreport/creative-logo.png">
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="grid_3">
+				<h3>Artists to Attend Creative Journey Fall Event</h3>
+				<h2>88</h2>
+			</div>
+			<div class="grid_3">
+				<h3><br id="full-only">Worship Experiences Led</h3>
+				<h2>417</h2>
+			</div>
+			<div class="grid_4">
+				<h3><br id="full-only">Journey Business Leadership Breakfasts</h3>
+				<h2>4</h2>
+				<div class="jbl-speakers">
+					<h3>JBL Speakers</h3>
+
+					<h2>CLARK MITCHELL &amp; SAM WAMPLER</h2>
+					<h2>BOE PARRISH</h2>
+					<h2>ROSS HILL</h2>
+					<h2>STEVE DULIN</h2>
+				</div>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="grid_4">
+				<h3>Attended JBL<span>s</span></h3>
+				<h2>330</h2>
+			</div>
+			<div class="grid_8">
+				<h3>Attended M<span>e</span>3:20</h3>
+				<h2>67</h2>
+				<div class="details">
+					<p>Me3.20 was e3:20, Inc.’s first event: a mini-retreat for students in 7th-12th grades, hosted by Pastor Clark and his family. Students met for an extended afternoon to learn about the meaning of Ephesians 3:20 and several other topics like faith, family, focus, friends, future, finances, etiquette, and self-esteem, to help prepare them for an incredible school year.</p>
+				</div>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<img src="/_img/annualreport/creative-album.png" style="margin: 40px auto">
+			
+			<div class="clear"></div>
+			
+			<div class="grid_12" style="margin-bottom:20px">
+				<h3>Kids Create Day</h3>
+			</div>
+			<div class="grid_4">
+				<h5>Numbers of Attendees</h5>
+				<h2>372</h2>
+			</div>
+			<div class="grid_4">
+				<h5>Numbers of Canvases Painted</h5>
+				<h2>132</h2>
+			</div>
+			<div class="grid_4">
+				<h5>Gallons of Paint Splattered</h5>
+				<h2>12</h2>
+			</div>
+		</div>
+	</section>
 	
 	{!-- Interns --}
 	<section id="interns">
@@ -601,17 +667,20 @@
 			
 			<div class="clear"></div>
 			
-			<div class="grid_4 push_1">
+			<div class="grid_5">
 				<h3>Total # of Interns</h3>
 				<h2 class="interns_rock">59</h2>
 				
 				<br>
 				
 				<div class="interns-details">
-					
+					<div>
+						<h3>Internship Program</h3>
+						<p>Part of the relentless commitment to develop young leaders was the birth of the Journey Internship Program. It began it’s pilot semester in the fall of 2013. After being enthusiastically received the program grew to include fall, spring, and summer semesters. Our goal is not to use errand-runners but rise up a generation of world changers and influential leaders to impact lives and see families transformed through the power of the gospel.</p>
+					</div>
 				</div>
 			</div>
-			<div class="grid_5">
+			<div class="grid_3">
 				<h3>Fall Interns</h3>
 				<h2>15</h2>
 				<br>
@@ -621,8 +690,10 @@
 				<h3>Summer Interns</h3>
 				<h2>13</h2>
 			</div>
-			<div class="grid_3">
+			<div class="grid_4">
 				<img src="/_img/annualreport/interns-fall13.jpg">
+
+				<img src="/_img/annualreport/interns-spring14.jpg">
 			</div>
 		</div>
 	</section>
@@ -682,7 +753,7 @@
 				<h4>40%<span> Increase</span></h4>
 				<div class="increases">
 					<div class="increase-wrapper clearfix">
-						<div class="increase-2012" style="width:45%">
+						<div class="increase-2012" style="width:40%">
 							<p>2012</p>
 						</div>
 						<div class="increase-side">10</div>
@@ -874,15 +945,17 @@
 				<h4>Baptismal</h4>
 				<h4>Loveworks Center</h4>
 				<h4>Mobile Cafe</h4>
-				<br>
-				<h3 class="">Pledged Amount Outstanding</h3>
+				<br><br>
+				<h3 class="outstanding">Pledged Amount Outstanding</h3>
 				<h2>421,275.85</h2>
 			</div>
 		</div>
 	</section>
 	
 	{!-- Accomplishments --}
-
+	<div id="accomplishments">
+		<div class="acc-all"></div>
+	</div>
 
 	{!-- Giving --}
 	<section id="giving">
@@ -893,7 +966,7 @@
 			
 			<div class="clear"></div>
 			
-			<div class="grid_10 push_1">
+			<div class="grid_8 push_2">
 				<h3>MARKETABLE SECURITIES: TRANSFER OWNERSHIP OF STOCKS, BONDS OR MUTUAL FUND SHARES</h3>
 				<p>Marketable Securities are a great way to maximize your giving because you may receive an immediate tax reduction for the full fair market value of your securities. In addition, you could pay no capital gains tax on the difference between your cost and fair market value.</p>
 				
@@ -928,16 +1001,37 @@
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="/_js/modernizr-2.6.2.min.js"></script>
 	<script src="/_js/modernizr.custom.js"></script>
+	<script src="/_js/jquery.appear.js"></script>
 	<script src="/_js/scripts.js"></script>
 	
 	<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 	
-	{!-- Do cool nav stuff --}
+	{!-- Do cool stuff --}
 	<script type="text/javascript">
-		$( "nav li" ).hover(function() {
-			$(this).find("span").show("slide", { direction: "right" });
-		}, function(){
-			$(this).find("span").hide("slide", { direction: "right" });
+		$(function() {
+			var $appeared = $('#appeared');
+			var $disappeared = $('#disappeared');
+			
+			/* Images */
+			$('#images').appear();
+			$(document.body).on('appear', '#images', function(e, $affected) {
+			  $('.images-allimgs').fadeIn(1000);
+			});
+			$(document.body).on('disappear', '#images', function(e, $affected) {
+				  
+			});
+			
+			/* Baptism */
+			$('#bapcommit').appear();
+			$(document.body).on('appear', '#bapcommit', function(e, $affected) {
+			  $("#bapcommit h1").animate({ color: "#fff" }, 1000);
+			});
+			
+			/* Accomplishments */
+			$('#accomplishments').appear();
+			$(document.body).on('appear', '#accomplishments', function(e, $affected) {
+			  $('.acc-all').fadeIn(1000);
+			});
 		});
 	</script>
 	
@@ -946,7 +1040,7 @@
 	<script src="/_js/layerslider.transitions.js"type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#cover,#images').layerSlider({
+			$('#cover').layerSlider({
 				skinsPath : '/themes/assets/',
 				skin : 'fullwidth',
 				autoStart : true,
