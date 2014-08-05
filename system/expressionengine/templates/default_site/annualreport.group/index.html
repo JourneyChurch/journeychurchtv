@@ -876,7 +876,7 @@
 			
 			<div class="grid_3">
 				<h3>% of Budget to Outreach</h3>
-				<h2 class="outreach-given-nbr">0%</h2>
+				<h2>23%</h2>
 			</div>
 			<div class="outreach-given grid_6">
 				<h3>Given to Local Outreach</h3>
@@ -1118,7 +1118,7 @@
 				    number: 805,
 				    numberStep: comma_separator_number_step
 				  },
-    			  3000
+    			  1800
 				);
 			});
 			
@@ -1131,7 +1131,7 @@
 				    number: 47,
 				    numberStep: comma_separator_number_step
 				  },
-    			  3000
+    			  1500
 				);
 			});
 			
@@ -1144,7 +1144,7 @@
 				    number: 197,
 				    numberStep: comma_separator_number_step
 				  },
-    			  3000
+    			  2000
 				);
 			});
 			
@@ -1180,7 +1180,7 @@
 				    number: 59,
 				    numberStep: comma_separator_number_step
 				  },
-    			  3000
+    			  2200
 				);
 			});
 			
@@ -1242,21 +1242,13 @@
 			// Outreach
 			$('#outreach .outreach-given').appear();
 			$(document.body).on('appear', '#outreach .outreach-given', function(e, $affected) {
-				var percent_number_step = $.animateNumber.numberStepFactories.append(' %')
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-				$('.outreach-given-nbr').animateNumber(
-				  {
-				    number: 23,
-				    numberStep: percent_number_step
-				  },
-				  3000
-				);
 				$('.outreach-given-act').animateNumber(
 				  {
 				    number: 1149604,
 					numberStep: comma_separator_number_step
 				  },
-    			  3000
+    			  2000
 				);
 			});
 		});
