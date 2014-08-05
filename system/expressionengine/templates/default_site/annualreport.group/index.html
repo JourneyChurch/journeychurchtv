@@ -617,7 +617,7 @@
 	
 	{!-- Creative Journey --}
 	<section id="creative">
-		<div class="creative-special container clearfix">
+		<div class="container clearfix">
 			<div class="grid_12 ministry_logo">
 				<img src="/_img/annualreport/creative-logo.png">
 			</div>
@@ -985,8 +985,12 @@
 	</section>
 	
 	{!-- Accomplishments --}
-	<div id="accomplishments">
-		<div class="acc-all"></div>
+	<div id="layerslider-container">
+		<div id="accomplishments" style="width:100%;height:1056px;">
+			<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
+				<img class="ls-bg" src="/_img/annualreport/accomplishments.jpg">
+			</div>
+		</div>
 	</div>
 
 	{!-- Giving --}
@@ -1045,7 +1049,7 @@
 			var $appeared = $('#appeared');
 			var $disappeared = $('#disappeared');
 			
-			/* Images */
+			// Images
 			$('#images').appear();
 			$(document.body).on('appear', '#images', function(e, $affected) {
 				$('.images-allimgs').fadeIn(1000);
@@ -1054,7 +1058,7 @@
 				  
 			});
 			
-			/* Attendance */
+			// Attendance
 			$('#attendance .avgattenders').appear();
 			$(document.body).on('appear', '#attendance .avgattenders', function(e, $affected) {
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
@@ -1068,7 +1072,7 @@
 				$('.avgweekly-ppl').delay(4350).fadeIn();
 			});
 			
-			/* Serving */
+			// Serving
 			$('#serving .srvtactive').appear();
 			$(document.body).on('appear', '#serving .srvtactive', function(e, $affected) {
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
@@ -1082,7 +1086,7 @@
 				$('.srvtldrs-ppl').delay(3100).fadeIn();
 			});
 			
-			/* Life Groups */
+			// Life Groups
 			$('#lifegroups .increases').appear();
 			$(document.body).on('appear', '#lifegroups .increases', function(e, $affected) {
 				$(".increase-groups").animate({ width: "62%" }, 3000);
@@ -1105,7 +1109,7 @@
 				);
 			});
 			
-			/* JourneyKIDS */
+			// JourneyKIDS
 			$('#jkids .jkids-avgatt').appear();
 			$(document.body).on('appear', '#jkids .jkids-avgatt', function(e, $affected) {
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
@@ -1118,7 +1122,7 @@
 				);
 			});
 			
-			/* 56 Ministry */
+			// 56 Ministry
 			$('#ministry56 .ministry56-avgatt').appear();
 			$(document.body).on('appear', '#ministry56 .ministry56-avgatt', function(e, $affected) {
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
@@ -1131,7 +1135,7 @@
 				);
 			});
 			
-			/* Student Journey */
+			// Student Journey
 			$('#studentjourney .sj-avgatt').appear();
 			$(document.body).on('appear', '#studentjourney .sj-avgatt', function(e, $affected) {
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
@@ -1144,7 +1148,7 @@
 				);
 			});
 			
-			/* College */
+			// College
 			$('#college .increases').appear();
 			$(document.body).on('appear', '#college .increases', function(e, $affected) {
 				$(".increase-2013").animate({ width: "55%" }, 3000);
@@ -1167,13 +1171,7 @@
 				);
 			});
 			
-			/* Creative */
-			$('#creative').appear();
-			$(document.body).on('appear', '#creative', function(e, $affected) {
-				$('.creative-special').delay(500).slideDown( "slow" );
-			});
-			
-			/* Interns */
+			// Interns
 			$('#interns .interns-amt').appear();
 			$(document.body).on('appear', '#interns .interns-amt', function(e, $affected) {
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
@@ -1186,7 +1184,7 @@
 				);
 			});
 			
-			/* Loveworks */
+			// Loveworks
 			$('#loveworks .increases').appear();
 			$(document.body).on('appear', '#loveworks .increases', function(e, $affected) {
 				$(".increase-fall-2012").animate({ width: "20%" }, 3000);
@@ -1241,7 +1239,7 @@
 				);
 			});
 			
-			/* Outreach */
+			// Outreach
 			$('#outreach .outreach-given').appear();
 			$(document.body).on('appear', '#outreach .outreach-given', function(e, $affected) {
 				var percent_number_step = $.animateNumber.numberStepFactories.append(' %')
@@ -1261,12 +1259,6 @@
     			  3000
 				);
 			});
-			
-			/* Accomplishments */
-			$('#accomplishments').appear();
-			$(document.body).on('appear', '#accomplishments', function(e, $affected) {
-				$('.acc-all').fadeIn(1000);
-			});
 		});
 	</script>
 	
@@ -1275,7 +1267,7 @@
 	<script src="/_js/layerslider.transitions.js"type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#cover').layerSlider({
+			$('#cover,#accomplishments').layerSlider({
 				skinsPath : '/themes/assets/',
 				skin : 'fullwidth',
 				autoStart : true,

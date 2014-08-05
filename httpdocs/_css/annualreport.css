@@ -189,6 +189,9 @@ p {
 		h3 {
 			font-size: 25px;
 		}
+		p {
+			text-align: left;
+		}
 	}
 .boxed_content {
 	padding: 20px 10px;
@@ -270,6 +273,7 @@ nav {
 	#letter .familyphoto {
 		margin-top: 40px;
 	}
+	
 
 /* Images */
 #images {
@@ -284,6 +288,7 @@ nav {
 		display: none;
 	}
 
+
 /* Baptisms and Commitments */
 #bapcommit {
 	background: url(/_img/annualreport/bapcommit.jpg) no-repeat center center fixed;  
@@ -295,6 +300,7 @@ nav {
 }
 	#bapcommit h1 {
 		margin-bottom: 60px;
+		font-size: 40px;
 	}
 
 	#bapcommit .totalcommit {
@@ -330,6 +336,7 @@ nav {
 			font-size: 35px;
 		}
 	}
+
 
 /* Attendance */
 #attendance {
@@ -397,6 +404,7 @@ nav {
 			border-bottom: 2px solid #fff;
 		}
 	}
+
 
 /* Serving */
 #serving {
@@ -490,6 +498,9 @@ nav {
 	@media only screen and (max-width: 767px) {
 		#lifegroups .increases {
 			margin-bottom: 40px;
+		}
+		.increase-groups p, .increase-adultgroups p { 
+			font-size: 20px;
 		}
 		.increase-groups {
 			width: 20%;
@@ -696,6 +707,7 @@ nav {
 		text-transform: uppercase;
 	}
 	
+
 /* Creative Journey */
 #creative {
 	background: #000;
@@ -706,9 +718,6 @@ nav {
 	background-size: cover;
 	padding-bottom: 100px;
 }
-	#creative .creative-special {
-		display: none;
-	}
 	#creative h2 {
 		float: left;
 	}
@@ -995,6 +1004,12 @@ nav {
 			border-bottom: 2px solid #fff;
 		}
 		
+	@media only screen and (max-width: 767px) {
+		#finances h2 {
+			font-size: 80px;
+		}
+	}
+		
 
 /* SEEDS */
 #seeds {
@@ -1061,12 +1076,6 @@ nav {
 	height:1056px;
 	background: #000;
 }
-	#accomplishments .acc-all{
-		background: url(/_img/annualreport/accomplishments.jpg);
-		height: 1056px;
-		max-width: 2000px;
-		display: none;
-	}
 	
 
 /* Giving */
