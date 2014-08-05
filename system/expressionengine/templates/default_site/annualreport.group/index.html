@@ -63,14 +63,17 @@
 	{--}
 	
 	{!-- Cover --}
-	<div id="layerslider-container">
-		<div id="cover" style="width:100%;height:1024px;">
-			<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
-				<img class="ls-bg" src="/_img/annualreport/cover.jpg">
+	<section id="cover">
+		<div id="layerslider-container">
+			<div style="width:100%;height:1024px;">
+				<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
+					<img class="ls-bg" src="/_img/annualreport/cover.jpg">
+				</div>
 			</div>
 		</div>
-	</div>
-
+		<img class="print-cover" src="/_img/annualreport/print-cover.jpg">
+	</section>
+	
 	{!-- Letter from Clark --}
 	<section id="letter">
 		<div class="container clearfix">
@@ -86,7 +89,7 @@
 				<br>
 				<p>e3:20,</p>
 				
-				<img src="/_img/annualreport/letter-signature.png">
+				<img class="clarksig" src="/_img/annualreport/letter-signature.png">
 
 				<p>Clark Mitchell</p>
 				
@@ -125,7 +128,7 @@
 			<div class="clear"></div>
 			<div class="grid_4">
 				<h3><br id="full-only">Icon Key</h3>
-				<img src="/_img/annualreport/bapcommit-icons.png"/>
+				<img class="bacommit-icons" src="/_img/annualreport/bapcommit-icons.png"/>
 			</div>
 			
 			<div class="baptisms grid_8">
@@ -150,7 +153,7 @@
 				
 			<div class="avgattenders grid_6 push_1">
 				<h3>Average Weekly Attendance</h3>
-				<h2><span class="avgweekly">0</span><span class="avgweekly-ppl">People</span></h2>
+				<h2><span class="avgweekly">3,771</span><span class="avgweekly-ppl">People</span></h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>Participating in Staring Point</h3>
@@ -214,7 +217,7 @@
 			</div>
 			<div class="srvtactive grid_6">
 				<h3>Active Servant Leaders</h3>
-				<h2><span class="srvtldrs">0</span><span class="srvtldrs-ppl"> &nbsp;People</span></h2>
+				<h2><span class="srvtldrs">1,724</span><span class="srvtldrs-ppl"> &nbsp;People</span></h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>Active Weekly Servant Leaders</h3>
@@ -298,14 +301,14 @@
 					<div class="increase-groups">
 						<p>GROUPS</p>
 					</div>
-					<div class="increase-groups-perc increase-side">0%</div>
+					<div class="increase-groups-perc increase-side">19%</div>
 				</div>
 				<div class="increase-wrapper clearfix">
 					<div class="clear"></div>
 					<div class="increase-adultgroups">
 						<p>ADULT GROUPS</p>
 					</div>
-					<div class="increase-adultgroups-perc increase-side">0%</div>
+					<div class="increase-adultgroups-perc increase-side">7%</div>
 				</div>
 			</div>
 			<div class="grid_4">
@@ -368,7 +371,7 @@
 			
 			<div class="jkids-avgatt grid_6 push_1">
 				<h3>Average Weekly Attendance</h3>
-				<h2 class="jkids-avgatt-nbr">0</h2>
+				<h2 class="jkids-avgatt-nbr">805</h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>LAUNCH Groups</h3>
@@ -415,7 +418,7 @@
 			
 			<div class="ministry56-avgatt grid_6 push_1">
 				<h3>Average Weekly Attendance</h3>
-				<h2 class="ministry56-avgatt-nbr">0</h2>
+				<h2 class="ministry56-avgatt-nbr">47</h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>LAUNCH Groups</h3>
@@ -465,7 +468,7 @@
 			
 			<div class="sj-avgatt grid_6 push_1">
 				<h3><br id="full-only">Average Weekly Attendance</h3>
-				<h2 class="sj-avgatt-nbr">0</h2>
+				<h2 class="sj-avgatt-nbr">197</h2>
 			</div>
 			<div class="grid_3">
 				<h3><br id="full-only">Life Groups</h3>
@@ -523,7 +526,7 @@
 			
 			<div class="clear"></div>
 			
-			<div class="grid_6 push_1">
+			<div class="grid_6">
 				<h3><br id="full-only">Average Weekly Attendance</h3>
 				<h2>775</h2>
 			</div>
@@ -534,14 +537,14 @@
 					<div class="increase-2013">
 						<p>2013</p>
 					</div>
-					<div class="increase-2014-perc increase-side">0</div>
+					<div class="increase-2014-perc increase-side">775</div>
 				</div>
 				<div class="increase-wrapper clearfix">
 					<div class="clear"></div>
 					<div class="increase-2014">
 						<p>2014</p>
 					</div>
-					<div class="increase-2013-perc increase-side">0</div>
+					<div class="increase-2013-perc increase-side">646</div>
 				</div>
 			</div>
 			<div class="grid_3">
@@ -554,11 +557,15 @@
 			<img id="full-only" class="college-themissions" src="/_img/annualreport/college-themissions.png">
 			<div id="mobile-only" class="college-themissions-mobile">
 				<div class="container">
-					<h3>Students on Mission Trips</h3>
-					<h2>79</h2>
-					<br>
-					<h3>Places Served</h3>
-					<h2>2<span> Nicaraguia and Haiti</span></h2>
+					<div class="grid_6">
+						<h3>Students on Mission Trips</h3>
+						<h2>79</h2>
+						<br id="mobile-only"><br id="mobile-only">
+					</div>
+					<div class="grid_6">
+						<h3>Places Served</h3>
+						<h2>2<span> Nicaraguia and Haiti</span></h2>
+					</div>
 				</div>
 			</div>
 			
@@ -582,7 +589,6 @@
 			</div>
 		</div>
 	</section>
-	
 	
 	{!-- Equip & Pastoral Care --}
 	<section id="equip">
@@ -709,7 +715,7 @@
 			
 			<div class="interns-amt grid_5">
 				<h3>Total # of Interns</h3>
-				<h2 class="interns_rock">0</h2>
+				<h2 class="interns_rock">59</h2>
 				
 				<div class="interns-details">
 					<div>
@@ -754,14 +760,14 @@
 						<div class="increase-fall-2012 increase-2012">
 							<p>2012</p>
 						</div>
-						<div class="increase-fall-side-2012 increase-side">0</div>
+						<div class="increase-fall-side-2012 increase-side">134</div>
 					</div>
 					<div class="increase-wrapper clearfix">
 						<div class="increase-fall-2013 increase-2013">
 							<p>2013</p>
 							<div class="clear"></div>
 						</div>
-						<div class="increase-fall-side-2013 increase-side">0</div>
+						<div class="increase-fall-side-2013 increase-side">257</div>
 					</div>
 				</div>
 			</div>
@@ -774,14 +780,14 @@
 						<div class="increase-spring-2012 increase-2012">
 							<p>2012</p>
 						</div>
-						<div class="increase-spring-side-2012 increase-side">0</div>
+						<div class="increase-spring-side-2012 increase-side">178</div>
 					</div>
 					<div class="increase-wrapper clearfix">
 						<div class="increase-spring-2013 increase-2013">
 							<p>2013</p>
 							<div class="clear"></div>
 						</div>
-						<div class="increase-spring-side-2013 increase-side">0</div>
+						<div class="increase-spring-side-2013 increase-side">200</div>
 					</div>
 				</div>
 			</div>
@@ -794,14 +800,14 @@
 						<div class="increase-total-2012 increase-2012">
 							<p>2012</p>
 						</div>
-						<div class="increase-total-side-2012 increase-side">0</div>
+						<div class="increase-total-side-2012 increase-side">10</div>
 					</div>
 					<div class="increase-wrapper clearfix">
 						<div class="increase-total-2013 increase-2013">
 							<p>2013</p>
 							<div class="clear"></div>
 						</div>
-						<div class="increase-total-side-2013 increase-side">0</div>
+						<div class="increase-total-side-2013 increase-side">14</div>
 					</div>
 				</div>
 			</div>
@@ -880,7 +886,7 @@
 			</div>
 			<div class="outreach-given grid_6">
 				<h3>Given to Local Outreach</h3>
-				<h2><span class="outreach-given-act">0</span>.11</h2>
+				<h2><span class="outreach-given-act">1,149,604</span>.11</h2>
 			</div>
 			<div class="grid_3">
 				<h3>Given to International Outreach</h3>
@@ -985,8 +991,9 @@
 	</section>
 	
 	{!-- Accomplishments --}
+	<section id="accomplishments">
 	<div id="layerslider-container">
-		<div id="accomplishments" style="width:100%;height:1056px;">
+		<div style="width:100%;height:1056px;">
 			<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
 				<img class="ls-bg" src="/_img/annualreport/accomplishments.jpg">
 			</div>
