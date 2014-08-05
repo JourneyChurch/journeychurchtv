@@ -201,13 +201,6 @@ p {
 		@page {
 			margin: 2cm;
 		}
-	    /* IE4-8 and 9 (deprecated). */
-	      filter: Gray();
-	      /* CSS3 filter, at the moment Webkit only. Prefix it for
-	         future implementations */
-	      -webkit-filter: grayscale(100%); 
-	      filter: grayscale(100%); /* future-proof */
-	    }
 		h1, h2, h3 {
 		   page-break-after: avoid;
 		}
@@ -225,6 +218,9 @@ p {
 			filter: url(inverse.svg#negative);
 			-webkit-filter: invert(100%);
 			filter: invert(100%);
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
 		}
 		.videoWrapper {
 			display: none;
@@ -611,7 +607,7 @@ nav {
 	
 	@media print {
 		.increase-groups, .increase-adultgroups {
-			border: 1px solid #CCA892;
+			border: 1px solid #000;
 		}
 		.increase-groups {
 			width: 62%;
@@ -997,6 +993,9 @@ nav {
 		}
 		#interns img {
 			margin: 20px 0;
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
 		}
 		#interns .interns_rock {
 			font-size: 160px;
@@ -1177,6 +1176,9 @@ nav {
 			filter: url(inverse.svg#negative);
 			-webkit-filter: invert(100%);
 			filter: invert(100%);
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
 		}
 		.seeds-about {
 			margin-left: 0;
@@ -1331,7 +1333,7 @@ nav {
 		}
 		
 	@media print {
-		.givebtn {
+		#giving .givebtn {
 			display: none;
 			visibility: hidden;
 		}
