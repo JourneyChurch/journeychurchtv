@@ -322,6 +322,9 @@ nav {
 	}
 	#letter .familyphoto {
 		margin-top: 40px;
+		-webkit-filter: grayscale(100%);
+		-moz-filter: grayscale(100%);
+		filter: grayscale(100%);
 	}
 	
 	
