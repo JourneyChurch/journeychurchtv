@@ -964,9 +964,11 @@ GRID_FALLBACK;
 		$js_defaults['plugin'][] = 'tmpl';
 
 		if ($this->datepicker)
-		{
-			$js_defaults['ui'][] = 'datepicker';
-		}
+		  {
+		   $js_defaults['ui'][] = 'datepicker';
+		   $js_defaults['file'][] = 'cp/date';
+
+		  }
 
 		foreach ($js_defaults as $type => $files)
 		{

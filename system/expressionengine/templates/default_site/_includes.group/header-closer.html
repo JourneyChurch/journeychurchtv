@@ -13,7 +13,9 @@
 				
 				{if embed:bar == 'yes'}
 					<div class="bar-enabled">
-				{if:elseif embed:bar == 'no'}			
+				{if:elseif segment_1 == "calendar"}
+				{if:else}
+					<div class="bar-disabled">
 				{/if}
 					<div class="container">
 						<a href="/"><div class="grid_3 journeylogo"><span>JourneyChurch.tv</span></div></a>
@@ -26,14 +28,12 @@
 								<li><a href="/media">Media</a></li>
 								<li><a href="/calendar">Calendar</a></li>
 								<li><a href="/give">Give</a></li>
-								{!-- Oops. Search isn't quite ready yet. }
-								<li id="nav-search"><i class="fa fa-search"></i></li>
-								{--}
+								<li><a href="/search"><i class="fa fa-search"></i></a></li>
 							</ul>
 						</div>
 						<div class="clear"></div>
 					</div>
-				{if embed:bar == 'yes'}</div>{/if}
+				{if segment_1 != "calendar"}</div>{/if}
 			</div>
 			<div id="nav-about-c" class="nav-sub">
 				<div class="container">
@@ -80,10 +80,10 @@
 						<p><a href="http://journeybusinessdirectory.com">Business Directory</a></p>
 						<p><a href="/connect/care">Care Ministry</a></p>
 						<p><a href="/connect/college-journey">College Journey</a></p>
+						<p><a href="/connect/connections">Connection Team</a></p>
 						<p><a href="/connect/creative-journey">Creative Journey</a></p>
 						<p><a href="http://journeyinterns.tv">Internships</a></p>
 						<p><a href="/connect/journeykids">JourneyKids</a></p>
-						<p><a href="/connect/launch-u">Launch U</a></p>
 						<p><a href="/connect/leadership-journey">Leadership Journey</a></p>
 						<p><a href="/groups">Life Groups</a></p>
 						<p><a href="http://operationstronghold.org/">Operation Stronghold</a></p>
@@ -210,8 +210,8 @@
 					<li><a href="/connect">Get Connected</a></li>
 					<li><a href="/media">Media</a></li>
 					<li><a href="/calendar">Calendar</a></li>
-					<li><a href="https://secure.accessacs.com/access/memberlogin.aspx?sn=106649">myJourney</a></li>
 					<li><a href="/give">Give</a></li>
+					<li><a href="/search"><i class="fa fa-search"></i> Search</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
@@ -225,5 +225,5 @@
 		<div class="clear"></div>
 		
 		{if !embed:bar}
-			<div class="bar-disabled">
+			<div class="bar-empty">
 		{/if}

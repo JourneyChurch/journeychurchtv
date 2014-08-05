@@ -1,8 +1,9 @@
 {!--}
-1. remove all indv fields and make them one big box w/ prefilled text
 2. make creative form after the process of adding event? Prefilled text post approval?
-3. 
+3. Send approval email to user  - use new button under approval process
+4. Another btn for update to approved event
 {--}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,6 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<script type="text/javascript" src="/_js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="/_js/jquery.cookies.2.2.0.min.js"></script>
-	{exp:jquery:script_tag ui='datepicker'}
 	
 	<script src="/strap/dist/js/bootstrap.min.js"></script>
 
@@ -30,146 +30,32 @@
 		<script src="/strap/assets/js/html5shiv.js"></script>
 		<script src="/strap/assets/js/respond.min.js"></script>
 		<![endif]-->
-		
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="/themes/third_party/calendar/js/jquery-ui.custom.min.js"></script>
+	{exp:calendar:datepicker_js}
+	{exp:calendar:datepicker_css}
+	
+	<script src="/themes/ckeditor/ckeditor.js"></script>
+	<script src="/themes/ckeditor/adapters/jquery.js"></script>
+	
 	<script type="text/javascript">
-	$(function() {
-		$('#datepicker').datepicker({
-			timeFormat: "hh:mm TT"
+	$(document).ready(function(){ 
+		$('tr[data-target="#edit"]').click(function(event) {
+		    event.preventDefault();
+			var select = $(this);
+			var id = select.attr('id');
+		    var myModal = $('#edit');
+		    var modalBody = myModal.find('.modal-content');
+		    // load content into modal
+			modalBody.html('<div class="modal-body"><span class="fa fa-spinner fa-spin"></span> <strong>Loading...</strong></div>');
+		    modalBody.load('/planning/edit/'+id);
 		});
 	});
 	</script>
-	
-	<script type="text/javascript">
-		var datalog = "";
-		var consolelogtime;
-
-		// Use this one for bug reporting
-		console = { log: function(data) {
-				datalog = datalog + data + "\n";		
-			} 
-		};
-
-		$(document).ready(function() {
-			InitializeScreennameHeader();
-			InitializeLoginClickHandlers();
-			document.cookie="jrnych_screenname={screen_name}";
-		});
-
-		function ee_logout() {
-			  document.cookie =  'jrnych_screenname=; expires=Thu, 01 Jan 1970 00:00:01 GMT; Max-Age=0';
-			$.ajax({
-			  	url: "/?ACT=16",
-			  	complete: function() { window.location.reload(true); }
-			});
-		}
-
-		function getCookie(cname) {
-		    var name = cname + "=";
-		    var ca = document.cookie.split(';');
-		    for(var i=0; i<ca.length; i++) {
-		        var c = ca[i].trim();
-		        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-		    }
-		    return "";
-		}
-		
-		// Update logged in header info from cookie
-		function InitializeScreennameHeader() {
-		    var username=getCookie("jrnych_screenname");
-		    if (username!="") {
-		        $("#logged_status").html('<p id="logged-in">' + username + ' - <a onclick="javascript:ee_logout();" class="logout">Log Out</a></p>');
-		    }else{
-				$("#logged_status").html('<a class="user-login" href="#login-register-box">Login</a>');
-			    $(window).load(function(){
-			        $('#loggedout').modal({
-						backdrop: 'static',
-						keyboard: true
-			        });
-			    });
-		    }
-		}
-		
-		function InitializeLoginClickHandlers() {
-			$(".logout").click(function(){
-				$.ajax({
-				  	url: "/index.php?ACT=16",
-				  	complete: function(){
-				  		window.location.reload(true);
-					}
-				});
-				return false;
-			});
-
-			$(".login_form").submit(function() {
-				var values = $(this).serialize();
-				$.ajax({
-					url: '/index.php?ACT=15',
-					type: 'POST',
-					data: values,
-					success: function(data) {	
-						var pos = data.indexOf("<title>Error");
-						var titlePos = data.indexOf("<title>");
-						$('.modal-body').html("You are currently being logged in.");
-						window.location.reload(true);
-					}
-				});
-					
-				return false;
-			});
-		}
-	</script>
-	
-	<style type="text/css">
-		body {margin: 0 20px!important; width:2000px; overflow-x: scroll;}
-		#loggedout {background-color:rgb(49, 49, 49);}
-	</style>
 </head>
 
 <body>
-	{!--}	
-		<section>
-			<div class="container">
-				<?php 
-					 $firstUrl = date('Y-m-d', strtotime(date('Y-m-d')." Sunday this week"));
-				?>
-				
-				{exp:channel:entries channel="planning_week" show_expired="yes" show_future_entries="yes" limit="1" dynamic="yes" url_title="2014-02-09"}
-						<?php
-							$date = new DateTime('{title}');
-							$newtitle = $date->format('F jS, Y');
-						?>
-						<h2>
-							Week of <?php echo $newtitle ?>
-							<div class="pull-right">
-								{exp:channel:prev_entry channel="planning_week"}
-									<a href="/planning/{prev_entry->title}">
-										<i class="fa fa-chevron-left"></i>
-									</a>
-								{/exp:channel:prev_entry}
-								
-								{exp:channel:next_entry channel="planning_week"}
-									<a href="/planning/{next_entry->title}">
-										<i class="fa fa-chevron-right"></i>
-									</a>
-								{/exp:channel:next_entry}
-							</div>
-						</h2>
-							
-						{embed="planning/item" itemtitle="Worship Guide" urltitle="{url_title}" itemname="worshipguide"}
-						{embed="planning/item" itemtitle="Video Announcements" urltitle="{url_title}" itemname="videoann"}
-						{embed="planning/item" itemtitle="Insert" urltitle="{url_title}" itemname="insert"}
-						{embed="planning/item" itemtitle="Email" urltitle="{url_title}" itemname="email"}
-						{embed="planning/item" itemtitle="Social Media" urltitle="{url_title}" itemname="socialmedia"}
-						{embed="planning/item" itemtitle="Blog" urltitle="{url_title}" itemname="blog"}
-						{embed="planning/item" itemtitle="Experience Video" urltitle="{url_title}" itemname="experiencevideo"}
-						{embed="planning/item" itemtitle="Notes for Pastor Clark" urltitle="{url_title}" itemname="pastor"}
-
-				{/exp:channel:entries}
-				
-				<div class="clearfix"></div>
-			</div>
-		</section>
-	{--}
 	<section>
 		<h2>Communications Planning</h2>
 		<div id="logged_status" style="display:none"></div>
@@ -192,14 +78,14 @@
 							<th>Owner</th>
 							<th>Event Contact</th>
 							<th class="col-sm-4">Blurb</th>
-							<th>Detailed Event Info</th>
-							<th>Marketing Plan</th>
+							<th class="col-sm-3">Detailed Event Info</th>
+							<th class="col-sm-2">Marketing Plan</th>
 						</tr>
 					</thead>
 					<tbody class="planning-items">
 						{exp:channel:entries channel="Planning" show_future_entries="yes" orderby="{planning-event_date format='%Y-%m-%d'}" sort="asc" dynamic="no"}
 							{if planning-approved == "Yes" OR logged_in_member_id == author_id OR member_group == "1" OR member_group == "7"}
-								<tr data-toggle="modal" {if logged_in_member_id == author_id OR member_group=="1" OR member_group=="7"}data-target="#edit{entry_id}"{/if} style="{if planning-approved != 'Yes'}background-color:rgb(244, 225, 209){/if}">
+								<tr id="{entry_id}" data-toggle="modal" {if logged_in_member_id == author_id OR member_group=="1" OR member_group=="7"}data-target="#edit"{/if} style="{if planning-approved != 'Yes'}background-color:rgb(244, 225, 209){/if}">
 									<td>
 										{title}
 									</td>
@@ -234,7 +120,13 @@
 								</tr>
 							{/if}
 								
-							{if logged_in_member_id == author_id OR member_group=="1" OR member_group=="7"}{embed="planning/edit" editid="{entry_id}"}{/if}
+							{if logged_in_member_id == author_id OR member_group=="1" OR member_group=="7"}
+								<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content"></div>
+									</div>
+								</div>
+							{/if}
 						{/exp:channel:entries}
 					</tbody>
 				</table>
@@ -243,52 +135,6 @@
 	</section>
 	
 	{embed="planning/add"}
-	
-	<div class="modal fade" id="loggedout" tabindex="-1" role="dialog" aria-hidden="true">
-			<div id="accordion" class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Login</h4>
-					</div>
-					<div id="normallogin" class="panel-collapse collapse in" data-parent="#accordion">
-						{exp:member:login_form form_class="login_form" return="<?php echo $_SERVER['HTTP_REFERER']; ?>"}
-							<div class="modal-body">
-								<div id="normallogin" class="collapse in">
-									<label>Username</label><br>
-									<input type="text" name="username" value="" maxlength="40" size="40" class="form-control">
-									<br>
-									<label>Password</label><br>
-									<input type="password" name="password" value="" maxlength="40" size="40" class="form-control">
-									<br>
-									<p data-toggle="collapse" data-target="#forgotpass">
-									  Forgot your password?
-									</p>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<input type="submit" name-"submit" class="btn btn-primary" value="Submit">
-							</div>
-						{/exp:member:login_form}
-					</div>
-					<div id="forgotpass" class="panel-collapse collapse" data-parent="#accordion">
-						<form id="forgot_password_form" method="post" action="http://journeychurch.tv/">
-							<div class="modal-body">
-								<div class="hiddenFields">
-									<input type="hidden" name="XID" value="bd77593c46c41e84e3687c57bd38e6be76ec691e">
-									<input type="hidden" name="ACT" value="17">
-									<input type="hidden" name="FROM" value="">
-									<input type="hidden" name="site_id" value="1">
-								</div>
-								<label>Email Address</label>
-								<p><input type="text" name="email" value="" maxlength="40" size="40" class="form-control"></p>
-							</div>
-							<div class="modal-footer">
-								<input type="submit" name-"submit" class="btn btn-primary" value="Submit">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-	</div>
+	{embed="planning/login"}
 </body>
 </html>

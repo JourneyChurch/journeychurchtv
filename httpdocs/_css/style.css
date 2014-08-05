@@ -106,6 +106,12 @@ button.registration {
 	padding: 20px;
 	font-size: 14px;
 }
+button.full {
+	width: 80%;
+	font-size: 16px;
+	margin: 0 auto;
+	margin-left: 10%;
+}
 button.large {
 	width: 100%;
 	padding: 20px 0;
@@ -180,6 +186,7 @@ div.capty-caption a {
 }
 
 .countdown {
+	min-height: 20px;
 	background-color: #006f7c;
 	padding: 5px 0;
 	text-align: center;
@@ -187,9 +194,9 @@ div.capty-caption a {
 	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B'; font-weight: 400; font-style: normal;
 	font-size: 14px;
 	color: #b7b6b1;
-	-moz-box-shadow: 0px 1px 5px #020202;
-	-webkit-box-shadow: 0px 1px 5px #020202;
-	box-shadow: 0px 1px 5px #020202;
+	/*	-moz-box-shadow: 0px 1px 5px #020202;
+	/*	-webkit-box-shadow: 0px 1px 5px #020202;
+	/*	box-shadow: 0px 1px 5px #020202; */
 }
 .countdown span {
 	color: #FFFFFF;
@@ -198,6 +205,21 @@ div.capty-caption a {
 
 .nav-main {
 	display: none;
+}
+
+@media print {
+	#navigation {
+		display: none!important;
+	}
+	#sidr {
+		display: none!important;
+	}
+	#mobile-top {
+		display: none!important;
+	}
+	#footer {
+		display: none!important;
+	}
 }
 
 .admin-bar {
@@ -523,6 +545,35 @@ ul.side-nav {
 	color: #ffffff;
 }
 
+	/* Connections Team */
+	.connections_container {
+		margin: 40px auto;
+	}
+	.connections-logo {
+		color:#989d00;
+		font-size:36px;
+		line-height:36px
+	}
+	.connections-imgs {
+		margin: 60px auto;
+	}
+		.connections-imgs img {
+			margin: auto 10px;
+		}
+		.connections-imgs img:first-child {
+			margin-left: 0;
+		}
+		.connections-imgs img:last-child {
+			margin-right: 0;
+		}
+	.connections-social {
+		margin: 40px auto;
+	}
+		.connections-social button {
+			text-align: center;
+			padding: 10px 5px;
+		}
+
 /* Groups */
 .groups-logo {
 	margin-bottom: 30px;
@@ -562,6 +613,20 @@ ul.side-nav {
 
 .groups-individual li {
 	list-style-position:inside;
+}
+
+/* Latest */
+#latest {
+	margin: 20px auto 40px;
+}
+	#latest h2 {
+		color: #707170;
+		font-size: 36px;
+		padding-top: 65px;
+		text-transform: uppercase;
+	}
+.latest-ind {
+	margin: 20px auto;
 }
 
 /* Locations */
@@ -1056,8 +1121,34 @@ h2.pastorclark span {
 		text-transform: uppercase;
 	}
 	
-	
-	
+
+/* Search */
+input.gsc-search-button {
+	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
+	font-weight: 300!important;
+	text-transform: uppercase;
+	font-style: normal!important;
+}	
+.cse input.gsc-input, input.gsc-input {
+	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
+	font-weight: 300!important;
+	font-style: normal!important;
+}
+.gsc-control-cse .gsc-table-result {
+	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
+}
+.gsc-result .gs-title {
+	font-family: 'aleoregular',Georgia,serif!important;
+	color: #7f3e19!important;
+	padding-bottom: 5px;
+}
+.cse .gsc-webResult.gsc-result, .gsc-webResult.gsc-result, .gsc-imageResult-classic, .gsc-imageResult-column {
+	margin-bottom: 15px;
+}
+.cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page, .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+	text-shadow: none!important;
+}
+
 /* Footer */
 #footer {
 	background-image: url(/_img/bg-texture.jpg);
@@ -1067,7 +1158,7 @@ h2.pastorclark span {
 	float: left;
 }
 #footer ul {
-	margin-top: 16px;
+	margin-top: 22px;
 }
 #footer ul > li {
 	float: left;
