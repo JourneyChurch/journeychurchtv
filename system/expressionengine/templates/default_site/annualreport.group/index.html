@@ -751,17 +751,17 @@
 				<h4>92%<span> Increase</span></h4>
 				<div class="increases">
 					<div class="increase-wrapper clearfix">
-						<div class="increase-2012">
+						<div class="increase-fall-2012 increase-2012">
 							<p>2012</p>
 						</div>
-						<div class="increase-side">134</div>
+						<div class="increase-fall-side-2012 increase-side">0</div>
 					</div>
 					<div class="increase-wrapper clearfix">
-						<div class="increase-2013">
+						<div class="increase-fall-2013 increase-2013">
 							<p>2013</p>
 							<div class="clear"></div>
 						</div>
-						<div class="increase-side">257</div>
+						<div class="increase-fall-side-2013 increase-side">0</div>
 					</div>
 				</div>
 			</div>
@@ -771,17 +771,17 @@
 				<h4>12%<span> Increase</span></h4>
 				<div class="increases">
 					<div class="increase-wrapper clearfix">
-						<div class="increase-2012" style="width:46%">
+						<div class="increase-spring-2012 increase-2012">
 							<p>2012</p>
 						</div>
-						<div class="increase-side">178</div>
+						<div class="increase-spring-side-2012 increase-side">0</div>
 					</div>
 					<div class="increase-wrapper clearfix">
-						<div class="increase-2013" style="width:50%">
+						<div class="increase-spring-2013 increase-2013">
 							<p>2013</p>
 							<div class="clear"></div>
 						</div>
-						<div class="increase-side">200</div>
+						<div class="increase-spring-side-2013 increase-side">0</div>
 					</div>
 				</div>
 			</div>
@@ -791,17 +791,17 @@
 				<h4>40%<span> Increase</span></h4>
 				<div class="increases">
 					<div class="increase-wrapper clearfix">
-						<div class="increase-2012" style="width:40%">
+						<div class="increase-total-2012 increase-2012">
 							<p>2012</p>
 						</div>
-						<div class="increase-side">10</div>
+						<div class="increase-total-side-2012 increase-side">0</div>
 					</div>
 					<div class="increase-wrapper clearfix">
-						<div class="increase-2013">
+						<div class="increase-total-2013 increase-2013">
 							<p>2013</p>
 							<div class="clear"></div>
 						</div>
-						<div class="increase-side">14</div>
+						<div class="increase-total-side-2013 increase-side">0</div>
 					</div>
 				</div>
 			</div>
@@ -876,11 +876,11 @@
 			
 			<div class="grid_3">
 				<h3>% of Budget to Outreach</h3>
-				<h2>23%</h2>
+				<h2 class="outreach-given-nbr">0%</h2>
 			</div>
-			<div class="grid_6">
+			<div class="outreach-given grid_6">
 				<h3>Given to Local Outreach</h3>
-				<h2>1,149,604.11</h2>
+				<h2><span class="outreach-given-act">0</span>.11</h2>
 			</div>
 			<div class="grid_3">
 				<h3>Given to International Outreach</h3>
@@ -930,14 +930,7 @@
 		</div>
 		
 		<div class="boxed_content container clearfix">
-			<div class="grid_6">
-				<h5>2013-2014</h5>
-			</div>
-			<div class="grid_6">
-				<h5>2012-2013</h5>
-			</div>
-			<div class="clear"></div>
-			<div class="grid_12" style="text-align:center;margin-top:40px">
+			<div class="grid_12" style="text-align:center;">
 				<img src="/_img/annualreport/finances-breakdown.png">
 			</div>
 		</div>
@@ -946,6 +939,7 @@
 			<div class="grid_6">
 				<h3>Capital Improvements</h3>
 				<h2>65,825.99</h2>
+				<br id="mobile-only">
 			</div>
 			<div class="grid_6">
 				<h3>Projected Expenses</h3>
@@ -1176,7 +1170,7 @@
 			/* Creative */
 			$('#creative').appear();
 			$(document.body).on('appear', '#creative', function(e, $affected) {
-				$('.creative-special').slideDown( "slow" ).delay(1000);
+				$('.creative-special').delay(500).slideDown( "slow" );
 			});
 			
 			/* Interns */
@@ -1187,6 +1181,82 @@
 				  {
 				    number: 59,
 				    numberStep: comma_separator_number_step
+				  },
+    			  3000
+				);
+			});
+			
+			/* Loveworks */
+			$('#loveworks .increases').appear();
+			$(document.body).on('appear', '#loveworks .increases', function(e, $affected) {
+				$(".increase-fall-2012").animate({ width: "20%" }, 3000);
+				$(".increase-fall-2013").animate({ width: "70%" }, 3000);
+				$(".increase-spring-2012").animate({ width: "46%" }, 3000);
+				$(".increase-spring-2013").animate({ width: "50%" }, 3000);
+				$(".increase-total-2012").animate({ width: "40%" }, 3000);
+				$(".increase-total-2013").animate({ width: "12%" }, 3000);
+				
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.increase-fall-side-2012').animateNumber(
+				  {
+				    number: 134,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+				$('.increase-fall-side-2013').animateNumber(
+				  {
+				    number: 257,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+				$('.increase-spring-side-2012').animateNumber(
+				  {
+				    number: 178,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+				$('.increase-spring-side-2013').animateNumber(
+				  {
+				    number: 200,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+				$('.increase-total-side-2012').animateNumber(
+				  {
+				    number: 10,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+				$('.increase-total-side-2013').animateNumber(
+				  {
+				    number: 14,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+			});
+			
+			/* Outreach */
+			$('#outreach .outreach-given').appear();
+			$(document.body).on('appear', '#outreach .outreach-given', function(e, $affected) {
+				var percent_number_step = $.animateNumber.numberStepFactories.append(' %')
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.outreach-given-nbr').animateNumber(
+				  {
+				    number: 23,
+				    numberStep: percent_number_step
+				  },
+				  3000
+				);
+				$('.outreach-given-act').animateNumber(
+				  {
+				    number: 1149604,
+					numberStep: comma_separator_number_step
 				  },
     			  3000
 				);
