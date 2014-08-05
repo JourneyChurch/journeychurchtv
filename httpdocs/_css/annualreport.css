@@ -414,7 +414,7 @@ nav {
 	
 	@media print {
 		.baptisms h2 {
-			border-bottom: 2px solid #000;
+			border-bottom: 2px solid #000!important;
 		}
 		.totalcommit img {
 			-webkit-filter: grayscale(100%);
@@ -701,11 +701,6 @@ nav {
 		}
 		
 	@media only screen and (max-width: 767px) {
-		#ministry56 .ministry_logo img {
-			-webkit-filter: grayscale(100%);
-			-moz-filter: grayscale(100%);
-			filter: grayscale(100%);
-		}
 		#ministry56 .ministry56-launch {
 			width: 100%;
 			display: block;
@@ -726,6 +721,11 @@ nav {
 	}
 	
 	@media print {
+		#ministry56 .ministry_logo img {
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
+		}
 		#ministry56 .ministry56-launch {
 			border: 1px solid #000;
 		}
