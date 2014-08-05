@@ -421,7 +421,7 @@ nav {
 			-moz-filter: grayscale(100%);
 			filter: grayscale(100%);
 		}
-		.bacommit-icons {
+		.bacommit-icons, .bapcommit-baptisms {
 			display: none;
 		}
 		.baptisms img {
