@@ -178,7 +178,9 @@ h6 {
 p {
 	text-align: justify;
 }
-	
+#print-only {
+	display: none;
+}
 	/* Mobile Version */
 	@media only screen and (max-width: 767px) {
 		h1 {
@@ -198,6 +200,9 @@ p {
 	
 	/* Print Version */
 	@media print {
+		#print-only {
+			display: block;
+		}
 		@page {
 			margin: 2cm;
 		}
@@ -218,9 +223,6 @@ p {
 			filter: url(inverse.svg#negative);
 			-webkit-filter: invert(100%);
 			filter: invert(100%);
-			-webkit-filter: grayscale(100%);
-			-moz-filter: grayscale(100%);
-			filter: grayscale(100%);
 		}
 		.videoWrapper {
 			display: none;
@@ -411,10 +413,18 @@ nav {
 	}
 	
 	@media print {
-		.totalcommit img, .bacommit-icons {
-			filter: url(inverse.svg#negative);
-			-webkit-filter: invert(100%);
-			filter: invert(100%);
+		.baptisms h2 {
+			border-bottom: 2px solid #000;
+		}
+		.totalcommit img {
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
+		}
+		.bacommit-icons {
+			display: none;
+		}
+		.baptisms img {
 			-webkit-filter: grayscale(100%);
 			-moz-filter: grayscale(100%);
 			filter: grayscale(100%);
@@ -691,6 +701,11 @@ nav {
 		}
 		
 	@media only screen and (max-width: 767px) {
+		#ministry56 .ministry_logo img {
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
+		}
 		#ministry56 .ministry56-launch {
 			width: 100%;
 			display: block;
@@ -999,14 +1014,19 @@ nav {
 		}
 		#interns img {
 			margin: 20px 0;
-			-webkit-filter: grayscale(100%);
-			-moz-filter: grayscale(100%);
-			filter: grayscale(100%);
 		}
 		#interns .interns_rock {
 			font-size: 160px;
 			line-height: 180px;
 			margin-bottom: 40px;
+		}
+	}
+	
+	@media print {
+		#interns img {
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
 		}
 	}
 	
