@@ -1,3 +1,17 @@
+{!--
+	
+- Check out print styles
+	-break pages by sections
+	
+- Is it Kid's Create Day, Kids Create Day, Kid Create Day, JourneyKIDS Create Day?
+- Do we want links to Spectacular, Easter, etc?
+
+- Baptism Photo
+
+- Life Change (instead of commitment)
+	
+--}
+
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -38,6 +52,7 @@
 </head>
 <body>
 	{!-- Side Navigation --}
+	{!--}
 	<nav>
 		<ul>
 			<li><a href="#letter"><span>Letter</span> <i class="fa fa-square"></i></a></li>
@@ -45,6 +60,7 @@
 			<li><a href="#bapcommit"><span>Commitments/Baptisms</span> <i class="fa fa-square"></i></a></li>
 		</ul>
 	</nav>
+	{--}
 	
 	{!-- Cover --}
 	<div id="layerslider-container">
@@ -87,12 +103,12 @@
 	{!-- Baptisms & Commitments --}
 	<section id="bapcommit">
 		<div class="container clearfix">
-			<h1>Commitments to Christ &amp; Baptisms</h1>
-			<div class="totalcommit" class="push_1">
+			<h1>Commitments to Christ<br id="full-only"> &amp; Baptisms</h1>
+			<div class="totalcommit">
 				<img src="/_img/annualreport/bapcommit-totalcommit.png">
 			</div>
 
-			<div class="grid_4 push_1">
+			<div class="grid_4">
 				<h3>Commitments to Christ<br>at Christmas Spectacular</h3>
 				<h2>232</h2>
 			</div>
@@ -107,7 +123,7 @@
 				<h2>257</h2>
 			</div>
 			<div class="clear"></div>
-			<div class="grid_4 push_1">
+			<div class="grid_4">
 				<h3><br id="full-only">Icon Key</h3>
 				<img src="/_img/annualreport/bapcommit-icons.png"/>
 			</div>
@@ -132,9 +148,9 @@
 				<h1>Attendance</h1>
 			</div>
 				
-			<div class="grid_6 push_1">
+			<div class="avgattenders grid_6 push_1">
 				<h3>Average Weekly Attendance</h3>
-				<h2>3,771<span>People</span></h2>
+				<h2><span class="avgweekly">0</span><span class="avgweekly-ppl">People</span></h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>Participating in Staring Point</h3>
@@ -179,13 +195,13 @@
 		
 		<div class="container clearfix">
 			<div class="grid_4">
-				<img src="/_img/annualreport/placeholder-video.png">
+				&nbsp; {!-- Video --}
 			</div>
 			<div class="grid_4">
-				<img src="/_img/annualreport/placeholder-video.png">
+				&nbsp; {!-- Video --}
 			</div>
 			<div class="grid_4">
-				<img src="/_img/annualreport/placeholder-video.png">
+				&nbsp; {!-- Video --}
 			</div>
 		</div>
 	</section>
@@ -196,13 +212,13 @@
 			<div class="grid_12">
 				<h1>Serving</h1>
 			</div>
-			<div class="grid_6 push_1">
+			<div class="srvtactive grid_6">
 				<h3>Active Servant Leaders</h3>
-				<h2>1,724 <span>People</span></h2>
+				<h2><span class="srvtldrs">0</span><span class="srvtldrs-ppl"> &nbsp;People</span></h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>Active Weekly Servant Leaders</h3>
-				<h2>164 <span>People</span></h2>
+				<h2>164<span> &nbsp;People</span></h2>
 			</div>
 		</div>
 		<div class="boxed_content container clearfix">
@@ -282,14 +298,14 @@
 					<div class="increase-groups">
 						<p>GROUPS</p>
 					</div>
-					<div class="increase-side">19%</div>
+					<div class="increase-groups-perc increase-side">0%</div>
 				</div>
 				<div class="increase-wrapper clearfix">
 					<div class="clear"></div>
 					<div class="increase-adultgroups">
 						<p>ADULT GROUPS</p>
 					</div>
-					<div class="increase-side">7%</div>
+					<div class="increase-adultgroups-perc increase-side">0%</div>
 				</div>
 			</div>
 			<div class="grid_4">
@@ -350,9 +366,9 @@
 			
 			<div class="clear"></div>
 			
-			<div class="grid_6 push_1">
+			<div class="jkids-avgatt grid_6 push_1">
 				<h3>Average Weekly Attendance</h3>
-				<h2>805</h2>
+				<h2 class="jkids-avgatt-nbr">0</h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>LAUNCH Groups</h3>
@@ -383,7 +399,7 @@
 			<div class="grid_7 push_1">
 				<h3>VBX Servant Leaders</h3>
 				<h2 style="float:left">200</h2>
-				<img src="/_img/annualreport/placeholder-video.png" align="right" style="margin-top:20px">
+				&nbsp; {!-- Video --}
 			</div>
 		</div>
 	</section>
@@ -397,9 +413,9 @@
 			
 			<div class="clear"></div>
 			
-			<div class="grid_6 push_1">
+			<div class="ministry56-avgatt grid_6 push_1">
 				<h3>Average Weekly Attendance</h3>
-				<h2>47</h2>
+				<h2 class="ministry56-avgatt-nbr">0</h2>
 			</div>
 			<div class="grid_6 push_1">
 				<h3>LAUNCH Groups</h3>
@@ -447,9 +463,9 @@
 			
 			<div class="clear"></div>
 			
-			<div class="grid_6 push_1">
+			<div class="sj-avgatt grid_6 push_1">
 				<h3><br id="full-only">Average Weekly Attendance</h3>
-				<h2>197</h2>
+				<h2 class="sj-avgatt-nbr">0</h2>
 			</div>
 			<div class="grid_3">
 				<h3><br id="full-only">Life Groups</h3>
@@ -518,14 +534,14 @@
 					<div class="increase-2013">
 						<p>2013</p>
 					</div>
-					<div class="increase-side">646</div>
+					<div class="increase-2014-perc increase-side">0</div>
 				</div>
 				<div class="increase-wrapper clearfix">
 					<div class="clear"></div>
 					<div class="increase-2014">
 						<p>2014</p>
 					</div>
-					<div class="increase-side">775</div>
+					<div class="increase-2013-perc increase-side">0</div>
 				</div>
 			</div>
 			<div class="grid_3">
@@ -535,7 +551,16 @@
 			
 			<div class="clear"></div>
 			
-			<img src="/_img/annualreport/college-themissions.png" style="margin-bottom: 40px">
+			<img id="full-only" class="college-themissions" src="/_img/annualreport/college-themissions.png">
+			<div id="mobile-only" class="college-themissions-mobile">
+				<div class="container">
+					<h3>Students on Mission Trips</h3>
+					<h2>79</h2>
+					<br>
+					<h3>Places Served</h3>
+					<h2>2<span> Nicaraguia and Haiti</span></h2>
+				</div>
+			</div>
 			
 			<div class="clear"></div>
 			
@@ -592,23 +617,23 @@
 	
 	{!-- Creative Journey --}
 	<section id="creative">
-		<div class="container clearfix">
+		<div class="creative-special container clearfix">
 			<div class="grid_12 ministry_logo">
 				<img src="/_img/annualreport/creative-logo.png">
 			</div>
 			
 			<div class="clear"></div>
 			
-			<div class="grid_3">
+			<div class="grid_5">
 				<h3>Artists to Attend Creative Journey Fall Event</h3>
 				<h2>88</h2>
 			</div>
 			<div class="grid_3">
-				<h3><br id="full-only">Worship Experiences Led</h3>
+				<h3>Worship Experiences Led</h3>
 				<h2>417</h2>
 			</div>
 			<div class="grid_4">
-				<h3><br id="full-only">Journey Business Leadership Breakfasts</h3>
+				<h3>Journey Business Leadership Breakfasts</h3>
 				<h2>4</h2>
 				<div class="jbl-speakers">
 					<h3>JBL Speakers</h3>
@@ -627,7 +652,7 @@
 				<h2>330</h2>
 			</div>
 			<div class="grid_8">
-				<h3>Attended M<span>e</span>3:20</h3>
+				<h3>Attended M<span>e</span>3.20</h3>
 				<h2>67</h2>
 				<div class="details">
 					<p>Me3.20 was e3:20, Inc.’s first event: a mini-retreat for students in 7th-12th grades, hosted by Pastor Clark and his family. Students met for an extended afternoon to learn about the meaning of Ephesians 3:20 and several other topics like faith, family, focus, friends, future, finances, etiquette, and self-esteem, to help prepare them for an incredible school year.</p>
@@ -636,7 +661,22 @@
 			
 			<div class="clear"></div>
 			
-			<img src="/_img/annualreport/creative-album.png" style="margin: 40px auto">
+			<img id="full-only" class="creative-album" src="/_img/annualreport/creative-album.png">
+			
+			<div id="mobile-only" class="creative-album-mobile">
+				<h3>Simply Christmas Album</h3>
+				<h4>Albums Sold</h4>
+				<h2>1,142</h2>
+				<br>
+				<h4>Hours in Recording Studio</h4>
+				<h2>74</h2>
+				<br>
+				<h4>Cups of Coffee Consumed</h4>
+				<h2>147</h2>
+				<br>
+				<h4>Guitar Strings &amp; Drum Sticks Broken</h4>
+				<h2>34</h2>
+			</div>
 			
 			<div class="clear"></div>
 			
@@ -667,11 +707,9 @@
 			
 			<div class="clear"></div>
 			
-			<div class="grid_5">
+			<div class="interns-amt grid_5">
 				<h3>Total # of Interns</h3>
-				<h2 class="interns_rock">59</h2>
-				
-				<br>
+				<h2 class="interns_rock">0</h2>
 				
 				<div class="interns-details">
 					<div>
@@ -1002,11 +1040,12 @@
 	<script src="/_js/modernizr-2.6.2.min.js"></script>
 	<script src="/_js/modernizr.custom.js"></script>
 	<script src="/_js/jquery.appear.js"></script>
+	<script src="/_js/jquery.animateNumber.js"></script>
 	<script src="/_js/scripts.js"></script>
 	
 	<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 	
-	{!-- Do cool stuff --}
+	{!-- Do cool stuff (https://github.com/morr/jquery.appear)--}
 	<script type="text/javascript">
 		$(function() {
 			var $appeared = $('#appeared');
@@ -1015,22 +1054,148 @@
 			/* Images */
 			$('#images').appear();
 			$(document.body).on('appear', '#images', function(e, $affected) {
-			  $('.images-allimgs').fadeIn(1000);
+				$('.images-allimgs').fadeIn(1000);
 			});
 			$(document.body).on('disappear', '#images', function(e, $affected) {
 				  
 			});
 			
-			/* Baptism */
-			$('#bapcommit').appear();
-			$(document.body).on('appear', '#bapcommit', function(e, $affected) {
-			  $("#bapcommit h1").animate({ color: "#fff" }, 1000);
+			/* Attendance */
+			$('#attendance .avgattenders').appear();
+			$(document.body).on('appear', '#attendance .avgattenders', function(e, $affected) {
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.avgweekly').animateNumber(
+				  {
+				    number: 3771,
+				    numberStep: comma_separator_number_step
+				  },
+    			  4300
+				);
+				$('.avgweekly-ppl').delay(4350).fadeIn();
+			});
+			
+			/* Serving */
+			$('#serving .srvtactive').appear();
+			$(document.body).on('appear', '#serving .srvtactive', function(e, $affected) {
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.srvtldrs').animateNumber(
+				  {
+				    number: 1724,
+				    numberStep: comma_separator_number_step
+				  },
+    			  3000
+				);
+				$('.srvtldrs-ppl').delay(3100).fadeIn();
+			});
+			
+			/* Life Groups */
+			$('#lifegroups .increases').appear();
+			$(document.body).on('appear', '#lifegroups .increases', function(e, $affected) {
+				$(".increase-groups").animate({ width: "62%" }, 3000);
+				$(".increase-adultgroups").animate({ width: "39%" }, 3000);
+				
+				var percent_number_step = $.animateNumber.numberStepFactories.append(' %')
+				$('.increase-groups-perc').animateNumber(
+				  {
+				    number: 19,
+				    numberStep: percent_number_step
+				  },
+				  3000
+				);
+				$('.increase-adultgroups-perc').animateNumber(
+				  {
+				    number: 7,
+				    numberStep: percent_number_step
+				  },
+				  3000
+				);
+			});
+			
+			/* JourneyKIDS */
+			$('#jkids .jkids-avgatt').appear();
+			$(document.body).on('appear', '#jkids .jkids-avgatt', function(e, $affected) {
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.jkids-avgatt-nbr').animateNumber(
+				  {
+				    number: 805,
+				    numberStep: comma_separator_number_step
+				  },
+    			  3000
+				);
+			});
+			
+			/* 56 Ministry */
+			$('#ministry56 .ministry56-avgatt').appear();
+			$(document.body).on('appear', '#ministry56 .ministry56-avgatt', function(e, $affected) {
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.ministry56-avgatt-nbr').animateNumber(
+				  {
+				    number: 47,
+				    numberStep: comma_separator_number_step
+				  },
+    			  3000
+				);
+			});
+			
+			/* Student Journey */
+			$('#studentjourney .sj-avgatt').appear();
+			$(document.body).on('appear', '#studentjourney .sj-avgatt', function(e, $affected) {
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.sj-avgatt-nbr').animateNumber(
+				  {
+				    number: 197,
+				    numberStep: comma_separator_number_step
+				  },
+    			  3000
+				);
+			});
+			
+			/* College */
+			$('#college .increases').appear();
+			$(document.body).on('appear', '#college .increases', function(e, $affected) {
+				$(".increase-2013").animate({ width: "55%" }, 3000);
+				$(".increase-2014").animate({ width: "70%" }, 3000);
+				
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.increase-2013-perc').animateNumber(
+				  {
+				    number: 646,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+				$('.increase-2014-perc').animateNumber(
+				  {
+				    number: 775,
+					numberStep: comma_separator_number_step
+				  },
+				  3000
+				);
+			});
+			
+			/* Creative */
+			$('#creative').appear();
+			$(document.body).on('appear', '#creative', function(e, $affected) {
+				$('.creative-special').slideDown( "slow" ).delay(1000);
+			});
+			
+			/* Interns */
+			$('#interns .interns-amt').appear();
+			$(document.body).on('appear', '#interns .interns-amt', function(e, $affected) {
+				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+				$('.interns_rock').animateNumber(
+				  {
+				    number: 59,
+				    numberStep: comma_separator_number_step
+				  },
+    			  3000
+				);
 			});
 			
 			/* Accomplishments */
 			$('#accomplishments').appear();
 			$(document.body).on('appear', '#accomplishments', function(e, $affected) {
-			  $('.acc-all').fadeIn(1000);
+				$('.acc-all').fadeIn(1000);
 			});
 		});
 	</script>

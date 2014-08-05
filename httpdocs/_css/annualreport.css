@@ -178,6 +178,18 @@ h6 {
 p {
 	text-align: justify;
 }
+	@media only screen and (max-width: 767px) {
+		h1 {
+			font-size: 48px;
+		}
+		h2 {
+			font-size: 100px;
+			line-height: 140px;
+		}
+		h3 {
+			font-size: 25px;
+		}
+	}
 .boxed_content {
 	padding: 20px 10px;
 	color: #fff;
@@ -261,6 +273,7 @@ nav {
 
 /* Images */
 #images {
+	background: #000;
 	width:100%;
 	height:1024px;
 }
@@ -282,8 +295,6 @@ nav {
 }
 	#bapcommit h1 {
 		margin-bottom: 60px;
-		color: #000;
-		transition: opacity 500 ease-in-out;
 	}
 
 	#bapcommit .totalcommit {
@@ -313,6 +324,12 @@ nav {
 	#bapcommit .baptism-videos {
 		margin: 50px auto;
 	}
+	
+	@media only screen and (max-width: 767px) {
+		#bapcommit .baptisms h2 {
+			font-size: 35px;
+		}
+	}
 
 /* Attendance */
 #attendance {
@@ -326,7 +343,12 @@ nav {
 			line-height: 18px;
 			text-transform: uppercase;
 		}
-	
+	#attendance .avgweekly {
+		font-size: 170px;
+	}
+	#attendance .avgweekly-ppl {
+		display: none;
+	}
 	#attendance .attendance_details {
 		border-top: 2px solid #fff;
 		margin-bottom: 20px;
@@ -353,11 +375,28 @@ nav {
 		#attendance .tag p {
 			font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
 			font-size: 20px;
+			line-height: 24px;
 			font-weight: 400;
 			font-style: italic;
 			text-transform: initial;
 		}
 
+	
+	@media only screen and (max-width: 767px) {
+		#attendance .avgweekly {
+			font-size: 100px;
+			line-height: 140px;
+		}
+		#attendance .attendance_details {
+			display: block;
+		}
+		#attendance .att_block {
+			display: block;
+			width: 100%!important;
+			border-right: none;
+			border-bottom: 2px solid #fff;
+		}
+	}
 
 /* Serving */
 #serving {
@@ -369,6 +408,12 @@ nav {
 	padding-bottom: 100px;
 }
 
+	#serving .srvtldrs {
+		font-size: 170px;
+	}
+	#serving .srvtldrs-ppl {
+		display: none;
+	}
 	#serving .boxed_content {
 		background-color: #A6DBDE;
 		color: #231F20;
@@ -380,6 +425,12 @@ nav {
 		
 	#serving .serving-vid {
 		margin-top: 50px;
+	}
+
+	@media only screen and (max-width: 767px) {
+		#serving .srvtldrs {
+			font-size: 100px;
+		}
 	}
 
 
@@ -422,10 +473,10 @@ nav {
 		padding-left: 20px;
 	}
 	.increase-groups {
-		width: 62%;
+		width: 15%;
 	}
 	.increase-adultgroups {
-		width: 39%;
+		width: 31%;
 	}
 	
 	#lifegroups .groupleaders {
@@ -435,6 +486,22 @@ nav {
 	#lifegroups .lifegroups-vid {
 		margin-top: 50px;
 	}
+	
+	@media only screen and (max-width: 767px) {
+		#lifegroups .increases {
+			margin-bottom: 40px;
+		}
+		.increase-groups {
+			width: 20%;
+		}
+		.increase-adultgroups {
+			width: 35%;
+		}
+		#lifegroups .groupleaders {
+			padding: 5px;
+		}
+	}
+	
 	
 /* JKIDS */
 #jkids {
@@ -501,6 +568,26 @@ nav {
 			color: #fff;
 			border-bottom: 2px solid #fff;
 		}
+		
+	@media only screen and (max-width: 767px) {
+		#ministry56 .ministry56-launch {
+			width: 100%;
+			display: block;
+			float: left;
+			padding: 0;
+			margin: 20px 0 40px;
+		}
+		#ministry56 .ministry56-launch p {
+			padding: 10px;
+		}
+		#ministry56 .boxed_content {
+			width: 100%;
+			margin: 0 0 40px;
+		}
+		#ministry56 .boxed_content p {
+			padding-right: 20px;
+		}
+	}
 
 		
 /* Student Journey */
@@ -560,10 +647,10 @@ nav {
 			margin: 0;
 		}
 		#college .increase-2013 {
-			width: 55%;
+			width: 8%;
 		}
 		#college .increase-2014 {
-			width: 70%;
+			width: 8%;
 		}
 	
 	#college .boxed_content {
@@ -578,6 +665,27 @@ nav {
 		margin-top: 30px;
 	}
 	
+	#college .college-themissions {
+		margin-bottom: 40px;
+	}
+	
+	@media only screen and (max-width: 767px) {
+		#college .increases {
+			margin-bottom: 40px;
+		}
+		#college .college-themissions-mobile {
+			background: #fff;
+			padding: 30px 0 10px;
+		}
+		#college .college-themissions-mobile h2 {
+			color: #007A89;
+			line-height: 100px;
+		}
+		#college .college-themissions-mobile h3 {
+			color: #007A89;
+		}
+	}
+	
 
 /* Equip & Pastoral Care */
 #equip {
@@ -590,6 +698,7 @@ nav {
 	
 /* Creative Journey */
 #creative {
+	background: #000;
 	background: url(/_img/annualreport/creative.jpg) no-repeat center center fixed;  
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
@@ -597,6 +706,9 @@ nav {
 	background-size: cover;
 	padding-bottom: 100px;
 }
+	#creative .creative-special {
+		display: none;
+	}
 	#creative h2 {
 		float: left;
 	}
@@ -619,6 +731,7 @@ nav {
 	}
 		#creative .jbl-speakers h2 {
 			font-size: 17px;
+			line-height: 30px;
 			display: block;
 			clear: both;
 		}
@@ -638,6 +751,46 @@ nav {
 			font-size: 12px;
 			color: #231F20;
 		}
+		
+	#creative .creative-album {
+		margin: 40px auto;
+	}
+	
+	@media only screen and (max-width: 767px) {
+		#creative .jbl-speakers {
+			width: 100%;
+			clear: both;
+			margin-bottom: 40px;
+		}
+		#creative .details {
+			width: 100%;
+			padding: 0;
+			clear: both;
+			margin-bottom: 40px;
+		}
+		#creative .details p {
+			padding: 10px;
+		}
+		#creative .creative-album-mobile {
+			background: #fff;
+			padding: 10px;
+			margin-bottom: 40px;
+		}
+		#creative .creative-album-mobile h2 {
+			color: #000;
+			float: inherit;
+		}
+		#creative .creative-album-mobile h3 {
+			color: #000;
+			border-bottom: 2px solid #000;
+			margin-bottom: 30px;
+		}
+		#creative .creative-album-mobile h4 {
+			color: #000;
+			border-bottom: 1px solid #000;
+		}
+	}
+	
 
 /* Interns */
 #interns {
@@ -664,11 +817,26 @@ nav {
 		font-size: 380px;
 		line-height: 380px;
 	}
+	
 	@media only screen and (min-width: 768px) {
 		#interns img {
 			margin: 45px auto 40px;
 		}
 	}
+	@media only screen and (max-width: 767px) {
+		#interns .interns-details {
+			margin-bottom: 40px;
+		}
+		#interns img {
+			margin: 20px 0;
+		}
+		#interns .interns_rock {
+			font-size: 160px;
+			line-height: 180px;
+			margin-bottom: 40px;
+		}
+	}
+	
 	
 /* Loveworks */
 #loveworks {
