@@ -52,15 +52,33 @@
 </head>
 <body>
 	{!-- Side Navigation --}
-	{!--}
-	<nav>
-		<ul>
-			<li><a href="#letter"><span>Letter</span> <i class="fa fa-square"></i></a></li>
-			<li><a href="#images"><span>Images</span> <i class="fa fa-square"></i></a></li>
-			<li><a href="#bapcommit"><span>Commitments/Baptisms</span> <i class="fa fa-square"></i></a></li>
-		</ul>
-	</nav>
-	{--}
+	<div id="sidebar">
+    	<div id="nav-anchor"></div>
+    	<div id="navicon"><i class="fa fa-bars"></i></div>
+        <nav id="navigation">
+            <ul>
+                <li><a href="#letter">Letter From Pastor Clark</a></li>
+                <li><a href="#images">Images</a></li>
+                <li><a href="#bapcommit">Baptisms & Commitments</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#serving">Serving</a></li>
+                <li><a href="#lifegroups">Life Groups</a></li>
+                <li><a href="#jkids">JourneyKIDS</a></li>
+                <li><a href="#ministry56">56 Ministry</a></li>
+                <li><a href="#studentjourney">Student Journey</a></li>
+                <li><a href="#college">College Journey</a></li>
+                <li><a href="#equip">Equip & Pastoral Care</a></li>
+                <li><a href="#creative">Creative Journey</a></li>
+                <li><a href="#interns">Interns</a></li>
+                <li><a href="#loveworks">Loveworks</a></li>
+                <li><a href="#outreach">Outreach</a></li>
+                <li><a href="#finances">Finances</a></li>
+                <li><a href="#seeds">Seeds</a></li>
+                <li><a href="#accomplishments">Accomplishments</a></li>
+                <li><a href="#giving">Giving</a></li>
+            </ul>
+        </nav>
+	</div><!-- /sidebar -->
 	
 	{!-- Cover --}
 	<section id="cover">
@@ -1285,5 +1303,96 @@
 		});
 	</script>
 	<script src="/_js/toucheffects.js"></script>
+
+	{!-- Do cool nav stuff --}
+	<script type="text/javascript" src="/_js/jquery.nav.js"></script>
+	<script type="text/javascript" src="/_js/jquery.scrollto.js"></script>
+	<script type="text/javascript" src="/_js/stickydiv.js"></script>
+
+
+	{!-- Nav slideOut --}
+	<script type="text/javascript">
+	var i = 0;
+	$("#navicon").click(function () {
+		$("#navigation").toggle("slide", { direction: "right" }, 1000);
+		if(i == 0) {
+			$("#navicon").animate({ marginRight: "+=200px"}, 1000);
+			i = 1;
+		} else {
+			$("#navicon").animate({ marginRight: "-=200px"}, 1000);
+			i = 0;
+		}
+	});
+    </script>
+
+	<script type="text/javascript">       
+    $(document).ready(function(){
+        
+        /** 
+         * This part does the "fixed navigation after scroll" functionality
+         * We use the jQuery function scroll() to recalculate our variables as the 
+         * page is scrolled/
+         */
+        $(window).scroll(function(){
+            var window_top = $(window).scrollTop() + 12; // the "12" should equal the margin-top value for nav.stick
+            var div_top = $('#nav-anchor').offset().top;
+                if (window_top > div_top) {
+                    $('nav').addClass('stick');
+                } else {
+                    $('nav').removeClass('stick');
+                }
+        });
+        
+        
+        /**
+         * This part causes smooth scrolling using scrollto.js
+         * We target all a tags inside the nav, and apply the scrollto.js to it.
+         */
+        $("nav a").click(function(evn){
+            evn.preventDefault();
+            $('html,body').scrollTo(this.hash, this.hash); 
+        });
+        
+        
+        
+        /**
+         * This part handles the highlighting functionality.
+         * We use the scroll functionality again, some array creation and 
+         * manipulation, class adding and class removing, and conditional testing
+         */
+        var aChildren = $("nav li").children(); // find the a children of the list items
+        var aArray = []; // create the empty aArray
+        for (var i=0; i < aChildren.length; i++) {    
+            var aChild = aChildren[i];
+            var ahref = $(aChild).attr('href');
+            aArray.push(ahref);
+        } // this for loop fills the aArray with attribute href values
+        
+        $(window).scroll(function(){
+            var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
+            var windowHeight = $(window).height(); // get the height of the window
+            var docHeight = $(document).height();
+            
+            for (var i=0; i < aArray.length; i++) {
+                var theID = aArray[i];
+                var divPos = $(theID).offset().top; // get the offset of the div from the top of page
+                var divHeight = $(theID).height(); // get the height of the div in question
+                if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+                    $("a[href='" + theID + "']").addClass("nav-active");
+                } else {
+                    $("a[href='" + theID + "']").removeClass("nav-active");
+                }
+            }
+            
+            if(windowPos + windowHeight == docHeight) {
+                if (!$("nav li:last-child a").hasClass("nav-active")) {
+                    var navActiveCurrent = $(".nav-active").attr("href");
+                    $("a[href='" + navActiveCurrent + "']").removeClass("nav-active");
+                    $("nav li:last-child a").addClass("nav-active");
+                }
+            }
+        });
+    });
+	</script>
 </body>
 </html>

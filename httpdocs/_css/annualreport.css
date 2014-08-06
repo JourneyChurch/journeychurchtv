@@ -259,30 +259,63 @@ p {
 	}
 	
 /* Navigation */
-nav {
+#sidebar {
+	width:200px;
 	position: fixed;
-	top: 10px;
-	right: 10px;
-	z-index: 9999999;
+	z-index:100;
+	right: 0;
 }
-	nav ul {
-		text-align: right;
-	}
-	nav li {
-		font-size: 22px;
-		text-transform: uppercase;
-		color: #fff;
-		margin: 10px 0;
-	}
-	nav li a {
-		color: #fff;
-	}
-	nav li span {
-		display: none;
-	}
-	nav li i {
-		padding-left: 10px;
-	}
+
+nav {
+    width:200px;
+    background-color:rgba(0,0,0,0.8);
+    padding: 20px;
+    z-index:99999999;
+    display: none;
+}
+
+nav.stick {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    margin-top:12px;
+}
+
+
+nav ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+nav li {
+}
+
+nav li a {
+	font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+    color:white;
+    font-weight:300;
+    font-size:12px;
+    text-decoration:none;
+    padding:1px 0px 2px 0px;
+}
+
+nav li a:hover, a.nav-active {
+	text-decoration:none!important;
+	padding-left:9px;
+	margin-left:-12px;
+	border-left:3px solid #007A89; 
+	color:#007A89; 
+}
+
+#navicon {
+	position:fixed;
+	right:15px;
+	top:5px;
+	font-size:40px;
+	z-index:200;
+	color:white;  
+}
 
 /* Cover */
 #cover .print-cover {
