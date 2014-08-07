@@ -733,6 +733,10 @@ nav li a:hover, a.nav-active {
 			border-bottom: 2px solid #fff;
 		}
 		
+	#ministry56 .videoWrapper {
+		margin-top: 60px;
+	}
+		
 	@media only screen and (max-width: 767px) {
 		#ministry56 .ministry56-launch {
 			width: 100%;

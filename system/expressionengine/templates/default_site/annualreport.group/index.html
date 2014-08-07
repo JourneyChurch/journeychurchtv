@@ -48,6 +48,7 @@
 	
 	{!-- Make videos playable --}
 	<script type="text/javascript" src="/_js/jwplayer.js"></script>
+	<script type="text/javascript" src="/_js/jwplayer.html5.js"></script>
 	<script type="text/javascript">jwplayer.key="kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";</script>
 </head>
 <body>
@@ -464,7 +465,32 @@
 			<div class="clear"></div>
 			
 			<div class="grid_4 push_1">
-				&nbsp; {!-- VIDEO --}
+				<div class="videoWrapper" style="max-width:650px!important">
+					<div id="vidMinistry56">
+						<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/FFsy6rwS7So" frameborder="0"></iframe>
+					</div>
+				</div>
+	    	
+				<script type="text/javascript">
+				jwplayer("vidMinistry56").setup({            
+					'autostart': 'false',
+					'height': '360px',
+					'width': '100%',
+					'menu': 'false',
+					'aspectratio': '16:9',
+					'file': 'http://www.youtube.com/watch?v=FFsy6rwS7So?hd=1',
+					'image': 'http://i1.ytimg.com/vi/FFsy6rwS7So/maxresdefault.jpg',
+					'abouttext': 'JourneyChurch.tv Media',
+					'aboutlink': 'http://journeychurch.tv/media',
+					'plugins': {
+						'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+					},    
+					'modes': [{
+						'type':'flash',
+						'src': '/_js/jwplayer.flash.swf'
+					}]
+				});
+				</script>
 			</div>
 			<div class="grid_4">
 				<h3>56 Salvations</h3>
@@ -593,7 +619,32 @@
 			
 			<div class="container clearfix">
 				<div class="grid_3">
-					&nbsp; {!-- Video --}
+					<div class="videoWrapper" style="max-width:650px!important">
+						<div id="vidCollege1">
+							<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/FFsy6rwS7So" frameborder="0"></iframe>
+						</div>
+					</div>
+	    	
+					<script type="text/javascript">
+					jwplayer("vidCollege1").setup({            
+						'autostart': 'false',
+						'height': '360px',
+						'width': '100%',
+						'menu': 'false',
+						'aspectratio': '16:9',
+						'file': 'http://www.youtube.com/watch?v=FFsy6rwS7So?hd=1',
+						'image': 'http://i1.ytimg.com/vi/FFsy6rwS7So/maxresdefault.jpg',
+						'abouttext': 'JourneyChurch.tv Media',
+						'aboutlink': 'http://journeychurch.tv/media',
+						'plugins': {
+							'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
+						},    
+						'modes': [{
+							'type':'flash',
+							'src': '/_js/jwplayer.flash.swf'
+						}]
+					});
+					</script>
 				</div>
 				<div class="grid_3">
 					&nbsp; {!-- Video --}
