@@ -25,9 +25,7 @@ There are 2 pieces that can turn on the experience. This has been set in /_compo
 			success: function(data) {
 				$('.countdown').slideDown(1000);
 				if (data.indexOf("true") != -1) {
-		          	$(".notlive").hide();
-		          	$(".live").fadeIn('fast');
-					$('.countdown').delay(2000).animate({backgroundColor:"#7f3e19"}, 'slow');
+		          	return goLive();
 				}
 				else {
 		          	$(".live").hide();

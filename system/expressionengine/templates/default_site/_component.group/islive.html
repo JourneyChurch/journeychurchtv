@@ -9,7 +9,6 @@
     loadCountdown = function(data){
       var seconds_till;
       if (data.response.item.isLive) {
-		$("#system").hide();
         $("#live").show();
       } else {
         // Parse ISO 8601 date string
@@ -37,7 +36,6 @@
             goLive();
             return clearInterval(intervalId);
           } else {
-          	$("system").show();
 			$("#live").hide();
           }
         }, 1000);
@@ -76,5 +74,4 @@
 true
 {if:else}
 <div id="live" style="display:none">true</div>
-<div id="system" style="display:none">false</div>
 {/if}
