@@ -33,7 +33,7 @@
 						</div>
 						<div class="clear"></div>
 					</div>
-				{if segment_1 != "calendar"}</div>{/if}
+				</div>
 			</div>
 			<div id="nav-about-c" class="nav-sub">
 				<div class="container">
@@ -54,15 +54,6 @@
 					</div>
 				</div>
 			</div>
-			{!--}
-			<div id="nav-locations-c" class="nav-sub">
-				<div class="container">
-					<div class="grid_12">
-						<h2>Locations</h2>
-					</div>
-				</div>
-			</div>
-			{--}
 			<div id="nav-connected-c" class="nav-sub">
 				<div class="container">
 					<div class="grid_12">
@@ -92,62 +83,6 @@
 					</div>
 				</div>
 			</div>
-			{!--}
-			<div id="nav-media-c" class="nav-sub">
-				<div class="container">
-					<div class="grid_12">
-						<h2>Media</h2>
-					</div>
-					<div class="grid_6">
-						<h3>Last weekend's experience:</h2>
-						{exp:channel:entries channel="Media" category="9" limit="1" sort="desc" orderby="media-date" dynamic="off"}
-							<a href="/media/{url_title}">
-								{media-series}<img src="{media-series:series-img:med}">{/media-series}<br><br>
-								<h3>{title}</h3>
-							</a>
-						{/exp:channel:entries}
-					</div>
-					<div class="grid_6">
-						<p><a href="/media">All Media</a></p>
-						<div class="clear"></div>
-						<p><a href="/stories">Stories</a></p>
-					</div>
-				</div>
-			</div>
-			{--}
-			{!--}
-			<div id="nav-calendar-c" class="nav-sub">
-				<div class="container">
-					<div class="grid_12">
-						<h2>Calendar</h2>
-					</div>
-					<div class="grid_6">
-						<h3>Upcoming Events:</h3>
-						{exp:calendar:events category="1" dynamic="off"}
-							{title}
-						{/exp:calendar:events}
-					</div>
-				</div>
-			</div>
-			<div id="nav-give-c" class="nav-sub">
-				<div class="container">
-					<div class="grid_12">
-						<h2>Give</h2>
-						<p>Giving information and some helpful links</p>
-					</div>
-				</div>
-			</div>
-			{--}
-			{!-- Oops. Search isn't quite ready yet. }
-			<div id="nav-search-c" class="nav-sub">
-				<div class="container">
-					<div class="grid_12">
-						<h2>Search</h2>
-						<p>Search stuff</p>
-					</div>
-				</div>
-			</div>
-			{--}
 		</div> 
 		
 		{!-- Full Screen JS --}
