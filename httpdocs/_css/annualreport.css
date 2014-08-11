@@ -357,9 +357,6 @@ nav li a:hover, a.nav-active {
 	}
 	#letter .familyphoto {
 		margin-top: 40px;
-		-webkit-filter: grayscale(100%);
-		-moz-filter: grayscale(100%);
-		filter: grayscale(100%);
 	}
 	
 	
@@ -373,6 +370,12 @@ nav li a:hover, a.nav-active {
 			filter: url(inverse.svg#negative);
 			-webkit-filter: invert(100%);
 			filter: invert(100%);
+		}
+		#letter .familyphoto {
+			margin-top: 40px;
+			-webkit-filter: grayscale(100%);
+			-moz-filter: grayscale(100%);
+			filter: grayscale(100%);
 		}
 	}
 	
@@ -406,10 +409,6 @@ nav li a:hover, a.nav-active {
 	background-size: cover;
 	background-color:black;
 }
-	#bapcommit h1 {
-		margin-bottom: 60px;
-		font-size: 40px;
-	}
 
 	#bapcommit .totalcommit {
 		text-align: center;
