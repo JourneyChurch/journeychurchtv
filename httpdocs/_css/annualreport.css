@@ -415,6 +415,7 @@ nav li a:hover, a.nav-active {
 	  -o-background-size: cover;
 	background-size: cover;
 	background-color:black;
+	padding-bottom: 100px;
 }
 
 	#bapcommit .totalcommit {
@@ -441,7 +442,7 @@ nav li a:hover, a.nav-active {
 	#bapcommit .baptisms img {
 		width: 100%;
 	}
-	#bapcommit .baptism-videos {
+	#bapcommit .bapcommit-vid {
 		margin: 50px auto;
 	}
 	
@@ -473,8 +474,11 @@ nav li a:hover, a.nav-active {
 
 /* Attendance */
 #attendance {
-	background-color: #AAAD00;
-	color: #fff;
+	background: url(/_img/annualreport/attendance.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
 	padding-bottom: 100px;
 }
 		#attendance p {
@@ -501,12 +505,17 @@ nav li a:hover, a.nav-active {
 			vertical-align: top;
 			width: 24%;
 			float: left;
+			color: #fff;
 		}
 		#attendance .attendance_details .att_block > div {
 			padding: 0 20px;
 			display: block;
 		}
-		#attendance .attendance_details .att_block.omega{
+		#attendance .attendance_details .att_block p {
+			font-size: 20px;
+			line-height: 25px;
+		}
+		#attendance .attendance_details .att_block.omega {
 			border-right: none;
 		}
 	#attendance .tag {
@@ -519,6 +528,7 @@ nav li a:hover, a.nav-active {
 			font-weight: 400;
 			font-style: italic;
 			text-transform: initial;
+			color: #fff;
 		}
 
 	
@@ -670,6 +680,9 @@ nav li a:hover, a.nav-active {
 		.increase-adultgroups {
 			width: 39%;
 		}
+		#lifegroups .groupleaders {
+			padding: 0;
+		}
 	}
 	
 	
@@ -740,7 +753,7 @@ nav li a:hover, a.nav-active {
 		}
 		
 	#ministry56 .videoWrapper {
-		margin-top: 60px;
+		margin-top: 0px;
 	}
 		
 	@media only screen and (max-width: 767px) {
@@ -797,15 +810,35 @@ nav li a:hover, a.nav-active {
 			border-bottom: 2px solid #231F20;
 		}
 		
-	#studentjourney .sj-locations {
+	#studentjourney .sj-locations h2 {
+		float: left;
+	}
+	#studentjourney .sj-locations img {
 		margin-top: 60px;
+		float: right;
+	}
+	
+	@media only screen and (max-width: 767px) {
+		#studentjourney .sj-locations h2 {
+			width: 100%;
+			font-size: 140px;
+			text-align: center;
+		}
+		#studentjourney .sj-locations img {
+			margin-top: 0;
+			margin-bottom: 40px;
+			clear: both;
+		}
 	}
 	
 	@media print {
-		#studentjourney .sj-locations {
+		#studentjourney .sj-locations img {
 			filter: url(inverse.svg#negative);
 			-webkit-filter: invert(100%);
 			filter: invert(100%);
+		}
+		#studentjourney .sj-locations h2 {
+			color: #000!important;
 		}
 	}
 	
@@ -865,6 +898,10 @@ nav li a:hover, a.nav-active {
 		margin-bottom: 40px;
 	}
 	
+	#college .videoWrapper {
+		margin: 20px 0;
+	}
+	
 	@media only screen and (max-width: 767px) {
 		#college .increases {
 			margin-bottom: 40px;
@@ -909,7 +946,11 @@ nav li a:hover, a.nav-active {
 
 /* Equip & Pastoral Care */
 #equip {
-	background: #9C542A;  
+	background: url(/_img/annualreport/equip.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
 	padding-bottom: 100px;
 }
 	#equip h1 {
@@ -1013,10 +1054,8 @@ nav li a:hover, a.nav-active {
 		#creative .details {
 			border: 1px solid #000;
 		}
-		#creative .creative-album {
-			filter: url(inverse.svg#negative);
-			-webkit-filter: invert(100%);
-			filter: invert(100%);
+		#creative .creative-album-full {
+			display: none;
 		}
 	}
 	
@@ -1049,6 +1088,10 @@ nav li a:hover, a.nav-active {
 	
 	#interns img {
 		margin: 45px auto 40px;
+	}
+	
+	#interns .videoWrapper {
+		margin: 40px 0;
 	}
 
 	@media only screen and (max-width: 767px) {
@@ -1252,7 +1295,10 @@ nav li a:hover, a.nav-active {
 	#outreach h3 {
 		color: #AAAD00;
 		border-bottom: 2px solid #AAAD00;
-		font-size: 16px;
+		font-size: 18px;
+	}
+	#outreach p {
+		color: #AAAD00;
 	}
 	#outreach .totalgiven {
 		text-align: center;
@@ -1266,7 +1312,7 @@ nav li a:hover, a.nav-active {
 	}
 	
 	@media print {
-		.totalgiven img {
+		#outreach .totalgiven img {
 			filter: url(inverse.svg#negative);
 			-webkit-filter: invert(100%);
 			filter: invert(100%);
@@ -1274,8 +1320,11 @@ nav li a:hover, a.nav-active {
 			-moz-filter: grayscale(100%);
 			filter: grayscale(100%);
 		}
-		.seeds-about {
+		#outreach .seeds-about {
 			margin-left: 0;
+		}
+		#outreach h2 {
+			font-size: 95px;
 		}
 	}
 		
@@ -1355,7 +1404,7 @@ nav li a:hover, a.nav-active {
 		}
 		
 	#seeds .outstanding {
-		margin-top: 39px;
+		margin-top: 22px;
 	}
 
 	@media only screen and (max-width: 767px) {
@@ -1387,6 +1436,36 @@ nav li a:hover, a.nav-active {
 		}
 	}
 	
+	
+/* NEW Accomplishments */
+#accomp {
+	background: url(/_img/annualreport/accomp.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
+	font-size: 35px;
+	line-height: 38px;
+	color: #fff;
+	font-family: 'Gotham Cond SSm A', 'Gotham Cond SSm B';
+	font-weight: 500;
+	font-style: normal;
+	letter-spacing: 1px;
+	padding-bottom: 100px;
+}
+	#accomp .graybg {
+		background: rgba(0, 0, 0, .5);
+		padding: 20px 0;
+	}
+	#accomp .greenbg {
+		background: rgba(170, 173, 0, .6);
+		padding: 20px 0;
+	}
+	#accomp .orangebg {
+		background: rgba(156, 84, 42, .8);
+		padding: 20px 0;
+	}
+	
 
 /* Giving */
 #giving {
@@ -1413,6 +1492,9 @@ nav li a:hover, a.nav-active {
 	}
 	#giving ul > ul {
 		padding-left: 20px;
+	}
+	#giving .videoWrapper {
+		margin: 40px 0;
 	}
 	#giving .givebtn {
 		text-align: center;
