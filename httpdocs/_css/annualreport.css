@@ -317,6 +317,13 @@ nav li a:hover, a.nav-active {
 	color:white;  
 }
 
+@media print {
+	#sidebar {
+		display: none;
+		visibility: hidden;
+	}
+}
+
 /* Cover */
 #cover .print-cover {
 	display: none;
@@ -1133,9 +1140,34 @@ nav li a:hover, a.nav-active {
 	#loveworks .boxed_content {
 		margin-top: 40px;
 	}
+		#loveworks .boxed_content .schoolsimpacted {
+			margin: 0 10px 20px;
+			width: auto;
+		}
 		#loveworks .boxed_content h4 {
-			font-size: 112px;
-			line-height: 114px;
+			font-size: 140px;
+			line-height: 140px;
+			padding-top: 20px;
+		}
+		#loveworks .boxed_content .schooldistricts h5 {
+			font-size: 35px;
+			line-height: 35px;
+			padding-bottom: 20px;
+			margin-bottom: 30px;
+		}
+		#loveworks .boxed_content .schooldistricts h4 {
+			float: left;
+			font-size: 140px;
+			line-height: 140px;
+			padding-top: 0;
+		}
+		#loveworks .boxed_content .schooldistricts h6 {
+			float: left;
+			font-size: 25px;
+			line-height: 35px;
+			margin-top: 10px;
+			padding-left: 10px;
+			font-weight: 300;
 		}
 		#loveworks .boxed_content .grid_3 {
 			padding: 20px 0;
