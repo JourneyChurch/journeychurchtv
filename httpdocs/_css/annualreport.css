@@ -1201,7 +1201,7 @@ nav li a:hover, a.nav-active {
 		#loveworks .boxed_content .schooldistricts h4 {
 			float: left;
 			font-size: 140px;
-			line-height: 140px;
+			line-height: 130px;
 			padding-top: 0;
 		}
 		#loveworks .boxed_content .schooldistricts h6 {
@@ -1453,17 +1453,20 @@ nav li a:hover, a.nav-active {
 	letter-spacing: 1px;
 	padding-bottom: 100px;
 }
+	#accomp > div {
+		padding: 20px 0;
+	}
 	#accomp .graybg {
 		background: rgba(0, 0, 0, .5);
-		padding: 20px 0;
 	}
 	#accomp .greenbg {
 		background: rgba(170, 173, 0, .6);
-		padding: 20px 0;
 	}
 	#accomp .orangebg {
 		background: rgba(156, 84, 42, .8);
-		padding: 20px 0;
+	}
+	#accomp .bluebg {
+		background: rgba(0, 122, 137, .8);
 	}
 	
 
