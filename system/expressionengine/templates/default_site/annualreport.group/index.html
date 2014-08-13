@@ -692,14 +692,14 @@
 				<h3>Attendance Increase</h3>
 				<h2>18%</h2>
 				<div class="increase-wrapper clearfix">
-					<div class="increase-2013">
+					<div class="increase-2013 college-increase-2013">
 						<p>2013</p>
 					</div>
 					<div class="increase-2013-perc increase-side">646</div>
 				</div>
 				<div class="increase-wrapper clearfix">
 					<div class="clear"></div>
-					<div class="increase-2014">
+					<div class="increase-2014 college-increase-2014">
 						<p>2014</p>
 					</div>
 					<div class="increase-2014-perc increase-side">775</div>
@@ -1490,6 +1490,28 @@
 			var $appeared = $('#appeared');
 			var $disappeared = $('#disappeared');
 			
+			// Reset all the zeros to 0
+			$('#images').appear();
+			$(document.body).on('appear', '#images', function(e, $affected) {
+				$('.avgweekly').html('0');
+				$('.srvtldrs').html('0');
+				$('.increase-groups-perc').html('0');
+				$('.increase-adultgroups-perc').html('0');
+				$('.jkids-avgatt-nbr').html('0');
+				$('.ministry56-avgatt-nbr').html('0');
+				$('.sj-avgatt-nbr').html('0');
+				$('.increase-2013-perc').html('0');
+				$('.increase-2014-perc').html('0');
+				$('.interns_rock').html('0');
+				$('.increase-fall-side-2012').html('0');
+				$('.increase-fall-side-2013').html('0');
+				$('.increase-spring-side-2012').html('0');
+				$('.increase-spring-side-2013').html('0');
+				$('.increase-total-side-2012').html('0');
+				$('.increase-total-side-2012').html('0');
+				$('.outreach-given-act').html('0');
+			});
+			
 			// Images
 			$('#images').appear();
 			$(document.body).on('appear', '#images', function(e, $affected) {
@@ -1592,8 +1614,8 @@
 			// College
 			$('#college .increases').appear();
 			$(document.body).on('appear', '#college .increases', function(e, $affected) {
-				$(".increase-2013").animate({ width: "55%" }, 3000);
-				$(".increase-2014").animate({ width: "70%" }, 3000);
+				$(".college-increase-2013").animate({ width: "55%" }, 3000);
+				$(".college-increase-2014").animate({ width: "70%" }, 3000);
 				
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
 				$('.increase-2013-perc').animateNumber(
@@ -1628,10 +1650,10 @@
 			// Loveworks
 			$('#loveworks .increases').appear();
 			$(document.body).on('appear', '#loveworks .increases', function(e, $affected) {
-				$(".increase-fall-2012").animate({ width: "20%" }, 3000);
-				$(".increase-fall-2013").animate({ width: "70%" }, 3000);
-				$(".increase-spring-2012").animate({ width: "46%" }, 3000);
-				$(".increase-spring-2013").animate({ width: "50%" }, 3000);
+				$(".increase-fall-2012").animate({ width: "16%" }, 3000);
+				$(".increase-fall-2013").animate({ width: "75%" }, 3000);
+				$(".increase-spring-2012").animate({ width: "48%" }, 3000);
+				$(".increase-spring-2013").animate({ width: "60%" }, 3000);
 				$(".increase-total-2012").animate({ width: "18%" }, 3000);
 				$(".increase-total-2013").animate({ width: "40%" }, 3000);
 				
