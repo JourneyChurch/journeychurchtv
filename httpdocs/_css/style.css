@@ -560,7 +560,7 @@ ul.side-nav {
 	.page-classes .class p {
 		color: #fff;
 	}
-	.page-classes a {
+	.page-classes a.enroll-btn {
 		position: absolute;
 		bottom: 20px;
 		right: 20px;
@@ -569,7 +569,7 @@ ul.side-nav {
 		background-color: #fff;
 		color: #000;
 		border: none;
-		margin: 20px 0 0;
+		margin: 0;
 	}
 	
 	
