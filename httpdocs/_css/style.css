@@ -560,6 +560,12 @@ ul.side-nav {
 	.page-classes .class p {
 		color: #fff;
 	}
+	.page-classes a {
+		color: #fff;
+	}
+	.page-classes a:after {
+		content: "<i class='fa fa-chevron-right'></i>";
+	}
 	.page-classes a.enroll-btn {
 		position: absolute;
 		bottom: 20px;
