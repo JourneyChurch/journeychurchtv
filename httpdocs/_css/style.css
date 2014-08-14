@@ -564,7 +564,7 @@ ul.side-nav {
 		color: #fff;
 	}
 	.page-classes a:after {
-		content: "\f054";
+		content: " \f054";
 		display: inline;
 		font-family: FontAwesome;
 		font-size: 14px;
