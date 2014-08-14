@@ -1469,6 +1469,16 @@ nav li a:hover, a.nav-active {
 		background: rgba(0, 122, 137, .8);
 	}
 	
+	@media print {
+		#accomp {
+			font-size: 28px;
+			line-height: 34px;
+		}
+		#accomp > div {
+			padding: 0;
+		}
+	}
+	
 
 /* Giving */
 #giving {
@@ -1499,9 +1509,16 @@ nav li a:hover, a.nav-active {
 	#giving .videoWrapper {
 		margin: 40px 0;
 	}
+	#giving .giving-contact p {
+		font-size: 24px;
+	}
+		#giving .giving-contact a {
+			color: #fff;
+		}
 	#giving .givebtn {
 		text-align: center;
 		width: 100%;
+		margin-top: 60px;
 	}
 		#giving .givebtn a {
 			font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
@@ -1516,4 +1533,29 @@ nav li a:hover, a.nav-active {
 			display: none;
 			visibility: hidden;
 		}
+	}
+	
+/* Closing */
+#closing {
+	background: url(/_img/annualreport/closing.jpg) no-repeat center center fixed;  
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	background-size: cover;
+	height: 809px;
+}
+	#closing .pull-right {
+		margin-top: 440px;
+	}
+	#closing img {
+		float: left;
+		margin-right: 20px;
+	}
+	#closing p {
+		font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+		font-weight: 500;
+		color: #9d9d9d;
+		font-size: 10px;
+		float: left;
+		padding-top: 2px;
 	}

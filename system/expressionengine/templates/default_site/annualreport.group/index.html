@@ -1139,11 +1139,11 @@
 				<h3>% of Budget to Outreach</h3>
 				<h2>23%</h2>
 			</div>
-			<div class="outreach-given grid_6">
+			<div class="outreach-given grid_5">
 				<h3>Given to Local Outreach</h3>
 				<h2><span class="outreach-given-act">895,537</span>.06</h2>
 			</div>
-			<div class="grid_3">
+			<div class="grid_4">
 				<h3>Given to International Outreach</h3>
 				<h2>507,313.53</h2>
 			</div>
@@ -1444,6 +1444,14 @@
 					</div>
 				</div>
 				
+				<div class="giving-contact">
+					<h3>Have questions about giving?</h3>
+					<p>
+						<i class="fa fa-envelope-o"></i> <a href="mailto:connect@JourneyChurch.tv">connect@JourneyChurch.tv</a>
+						<span class="pull-right"><i class="fa fa-phone"></i> 405.217.8700</span>
+					</p>
+				</div>
+				
 				<div class="givebtn">
 					<a href="/give">Give Online <span class="fa fa-chevron-right"></span></a>
 				</div>
@@ -1472,6 +1480,16 @@
 		</div>
 	</section>
 	
+	<section id="closing">
+		<div class="container">
+			<div class="pull-right">
+				<img src="/_img/annualreport/closing-logo.png">
+				<p>&copy; 2014 JourneyChurch.tv. All Rights Reserved
+				<br>PO Box 722764 | Norman, OK 73070 | 405.217.8700 | connect@JourneyChurch.tv</p>
+			</div>
+		</div>
+	</seciton>
+	
 	
 	{!-- Do the magic --}
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -1491,26 +1509,26 @@
 			var $disappeared = $('#disappeared');
 			
 			// Reset all the zeros to 0
-			$('#images').appear();
-			$(document.body).on('appear', '#images', function(e, $affected) {
-				$('.avgweekly').html('0');
-				$('.srvtldrs').html('0');
-				$('.increase-groups-perc').html('0');
-				$('.increase-adultgroups-perc').html('0');
-				$('.jkids-avgatt-nbr').html('0');
-				$('.ministry56-avgatt-nbr').html('0');
-				$('.sj-avgatt-nbr').html('0');
-				$('.increase-2013-perc').html('0');
-				$('.increase-2014-perc').html('0');
-				$('.interns_rock').html('0');
-				$('.increase-fall-side-2012').html('0');
-				$('.increase-fall-side-2013').html('0');
-				$('.increase-spring-side-2012').html('0');
-				$('.increase-spring-side-2013').html('0');
-				$('.increase-total-side-2012').html('0');
-				$('.increase-total-side-2012').html('0');
-				$('.outreach-given-act').html('0');
-			});
+			//	$('#images').appear();
+			//	$(document.body).on('appear', '#images', function(e, $affected) {
+			//		$('.avgweekly').html('0');
+			//		$('.srvtldrs').html('0');
+			//		$('.increase-groups-perc').html('0');
+			//		$('.increase-adultgroups-perc').html('0');
+			//		$('.jkids-avgatt-nbr').html('0');
+			//		$('.ministry56-avgatt-nbr').html('0');
+			//		$('.sj-avgatt-nbr').html('0');
+			//		$('.increase-2013-perc').html('0');
+			//		$('.increase-2014-perc').html('0');
+			//		$('.interns_rock').html('0');
+			//		$('.increase-fall-side-2012').html('0');
+			//		$('.increase-fall-side-2013').html('0');
+			//		$('.increase-spring-side-2012').html('0');
+			//		$('.increase-spring-side-2013').html('0');
+			//		$('.increase-total-side-2012').html('0');
+			//		$('.increase-total-side-2012').html('0');
+			//		$('.outreach-given-act').html('0');
+			//	});
 			
 			// Images
 			$('#images').appear();
@@ -1715,6 +1733,7 @@
 				);
 			});
 			
+			// Accomplishments
 			
 		});
 	</script>
