@@ -520,8 +520,26 @@ ul.side-nav {
 		min-height: 300px;
 		margin: 10px;
 	}
+	
+		.page-classes .blue {
+			background-color: #006f7c;
+		}
+		.page-classes .pink {
+			background-color: #9F1E5C;
+		}
+		.page-classes .green {
+			background-color: #989d00;
+		}
+		.page-classes .orange {
+			background-color: #B74E26;
+		}
+		.page-classes .purple {
+			background-color: #852679;
+		}
 	.page-classes .class-inner {
 		padding: 20px;
+		min-height: 300px;
+		position: relative;
 	}
 	.page-classes .class-header {
 		margin-bottom: 20px;
@@ -542,21 +560,18 @@ ul.side-nav {
 	.page-classes .class p {
 		color: #fff;
 	}
-	.page-classes .blue {
-		background-color: #006f7c;
+	.page-classes a {
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
 	}
-	.page-classes .pink {
-		background-color: #9F1E5C;
+	.page-classes button {
+		background-color: #fff;
+		color: #000;
+		border: none;
+		margin: 20px 0 0;
 	}
-	.page-classes .green {
-		background-color: #989d00;
-	}
-	.page-classes .orange {
-		background-color: #B74E26;
-	}
-	.page-classes .purple {
-		background-color: #852679;
-	}
+	
 	
 /* Connect */
 .connect-logo {
