@@ -40,14 +40,14 @@
 			</div>
 			<div class="grid_8">
 				<div class="connect-entry">
-					<h3><a href="/groups">Life Groups</a></h3>
-					<p>Through Life Groups, we connect in honest relationships with others by sharing, supporting, and encouraging one another in our pursuits of becoming fully-devoted followers of Christ. Life Groups kick off three times a year--spring, summer &amp; fall--with a new groups catalog, <a href="/groups">online registration</a>, and a 10 Minute Party.</p>
-					<div class="clear"></div>
-				</div>
-				<div class="connect-entry">
-					{exp:channel:entries channel="Connect" orderby="title" sort="asc" limit="1"}
-						<h3><a href="/{url_title}">{title}</a></h3>
+					{exp:channel:entries channel="Connect" orderby="title" sort="asc" limit="2"}
+							{if "{categories}{category_id}{/categories}" != "62"}
+								<h3><a href="/{url_title}">{title}</a></h3>
+							{if:else}
+								<h3><a href="{exp:remove_html}{connect-body}{/exp:remove_html}">{title}</a></h3>
+							{/if}
 						<p>{connect-desc}</p>
+						<br>
 						<div class="clear"></div>
 					{/exp:channel:entries}
 				</div>
@@ -59,7 +59,11 @@
 			<div class="grid_8">
 				{exp:channel:entries channel="Connect" orderby="title" sort="asc" offset="1"}
 					<div class="connect-entry">
-						<h3><a href="/connect/{url_title}">{title}</a></h3>
+						{if "{categories}{category_id}{/categories}" != "62"}
+							<h3><a href="/{url_title}">{title}</a></h3>
+						{if:else}
+							<h3><a href="{exp:remove_html}{connect-body}{/exp:remove_html}">{title}</a></h3>
+						{/if}
 						<p>{connect-desc}</p>
 						<div class="clear"></div>
 					</div>
