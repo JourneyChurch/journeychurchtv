@@ -78,7 +78,7 @@ Email creativejobs@JourneyChurch.tv -->
 						</p>
 					</div>
 					<div class="grid_4">
-						{exp:channel:entries channel="Connect" orderby="title" sort="asc"}
+						{exp:channel:entries channel="Connect" orderby="title" sort="asc" dynamic="no"}
 							{if "{categories}{category_id}{/categories}" != "62"}
 								<p><a href="/connect/{url_title}">{title}</a></p>
 							{if:else}
