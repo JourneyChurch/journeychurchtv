@@ -367,6 +367,20 @@ ul.side-nav {
 	}
 	
 /* About */
+	.about-ourhouse {
+		padding: 0;
+	}
+	.about-ourhouse img {
+		float: left;
+	}
+	.about-ourhouse h2 {
+		font-weight: 900;
+		color: #fff;
+		font-size: 32px;
+		float: left;
+		padding-top: 50px;
+	}
+	
 	#accordion h3:focus { outline: 0; }
 	#accordion, #accordion2 {
 		cursor: pointer;
@@ -886,7 +900,7 @@ h2.pastorclark span {
 		color: #7f3e19;
 		padding-bottom: 5px;
 }
-.blog-entry blockquote {
+.blog-entry blockquote, blockquote {
 	font-family: 'aleoregular',Georgia,serif;
 	text-align: center;
 	font-size: 22px;
@@ -894,7 +908,7 @@ h2.pastorclark span {
 	border-top: 2px solid #b2b4b1;
 	border-bottom: 2px solid #b2b4b1;
 }
-.blog-entry blockquote p {
+.blog-entry blockquote p, blockquote p {
 	padding: 20px;
 }
 
