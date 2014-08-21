@@ -83,7 +83,7 @@
 						</tr>
 					</thead>
 					<tbody class="planning-items">
-						{exp:channel:entries channel="Planning" show_future_entries="yes" orderby="{planning-event_date format='%Y-%m-%d'}" sort="asc" dynamic="no"}
+						{exp:channel:entries channel="Planning" show_future_entries="yes" orderby="planning-event_date" sort="asc" dynamic="no"}
 							{if planning-approved == "Yes" OR logged_in_member_id == author_id OR member_group == "1" OR member_group == "7"}
 								<tr id="{entry_id}" data-toggle="modal" {if logged_in_member_id == author_id OR member_group=="1" OR member_group=="7"}data-target="#edit"{/if} style="{if planning-approved != 'Yes'}background-color:rgb(244, 225, 209){/if}">
 									<td>
@@ -135,6 +135,6 @@
 	</section>
 	
 	{embed="planning/add"}
-	{embed="planning/login"}
+	{embed="_component/login"}
 </body>
 </html>
