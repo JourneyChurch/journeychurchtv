@@ -1,13 +1,20 @@
-{!--
-Hey, developer!
-I'm really sorry this page is so funky. Here's how it works:
-There are 2 pieces that can turn on the experience. This has been set in /_component/islive - in this file it first checks to see if the EE snippet "islive" has been set to true. If it has, then it displayed the live message. If not, it checks the countdown to see if it's 0 - if it is it sets the status to true, but if not, it will set it false.
---}
 <style type="text/css">
-  .countdown {display:none;}
   #churchonline_counter {display: none;}
   #churchonline_counter .live {display: none;}
+  .mobile-liveservice {display: none;}
 </style>
+
+<div class="countdown">
+	<div class="container">
+		<div id="churchonline_counter">
+			<div class="live"><a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a></div>
+			<div class="notlive">
+			  {!--}<span id="eventTitle" style="color:#b7b6b1!important"></span>{--}Our next online experience begins in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span> <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -16,21 +23,18 @@ There are 2 pieces that can turn on the experience. This has been set in /_compo
 
 	function StartServiceLiveCheck() {
 		UpdateServiceLiveCheck();
-		setTimeout("StartServiceLiveCheck()", 60000);
+		setTimeout("StartServiceLiveCheck()", 5000);
 	}
 
 	function UpdateServiceLiveCheck() {
 		$.ajax({
 			url: "/_component/islive",
 			success: function(data) {
-				$('.countdown').slideDown(1000);
 				if (data.indexOf("true") != -1) {
-		          	return goLive();
-				}
-				else {
-		          	$(".live").hide();
-		          	$(".notlive").fadeIn('fast');
-					$('.countdown').animate({backgroundColor:"#006f7c"}, 'slow');
+		          	$(".notlive").hide();
+		          	$(".live").fadeIn('fast');
+					$('.countdown').delay(2000).animate({backgroundColor:"#7f3e19"}, 'slow');
+					$(".mobile-liveservice").show();
 				}
 			}
 		});
@@ -38,21 +42,10 @@ There are 2 pieces that can turn on the experience. This has been set in /_compo
           	$(".notlive").hide();
           	$(".live").fadeIn('fast');
 			$('.countdown').delay(2000).animate({backgroundColor:"#7f3e19"}, 'slow');
+			$(".mobile-liveservice").show();
 		};
 	}
 </script>
-
-<div class="countdown">
-	<div class="container">
-		<div id="churchonline_counter">
-			<div class="live"><a href="http://live.journeychurch.tv" style="color:#FFF!important">Join our live worship experience</a></div>
-			<div class="notlive">
-			  Our next online experience begins in: <span style="color:#FFF"><span class="daysAll"><span class="days"></span></span> <span class="hoursAll"><span class="hours"></span></span> <span class="minutes"></span> <span class="seconds" style="min-width:28px!important"></span> </span>
-			</div>
-		</div>
-	</div>
-	<div class="clear"></div>
-</div>
 
 <script type="text/javascript">
     //<![CDATA[

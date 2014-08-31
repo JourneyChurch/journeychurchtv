@@ -367,6 +367,10 @@ ul.side-nav {
 		}
 	}
 
+/* Top Bar */
+	@media only screen and (min-width: 768px) {
+		.mobile-liveservice {display: none!important;}
+	}
 /* Home */
 	.noevents {
 		display: none;
