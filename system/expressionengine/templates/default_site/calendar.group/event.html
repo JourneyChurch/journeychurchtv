@@ -18,6 +18,7 @@
 	{redirect="calendar/index"}
 {if:else}
 	<div id="event"></div>
+	<div class="register-button"></div>
 	{exp:channel:entries channel="events" url_title="{segment_3}"}
 		<div class="container">
 			<div class="grid_12">
@@ -26,4 +27,73 @@
 		</div>
 	{/exp:channel:entries}
 {/if}
-{embed="_includes/event_footer"}
+	<script src="/_scripts/acs/handlebars-v2.0.0.js"></script>
+	<script src="/_scripts/acs/moment.min.js"></script>
+	
+	<script id="event-template" type="text/x-handlebars-template">
+		<div class="title-bar">
+			<div class="container">
+				<div class="grid_12">
+					<h2>{{EventName}}</h2>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="container clearfix">
+			<div class="grid_12">
+				<div class="entry fancy-page">
+					<h2>Summary</h2>
+					{{#if StartTime}}<p><i class="fa fa-clock-o med-icon"></i> {{formatDate StartTime EndTime}}</p>{{/if}}
+					{{#if Location}}<p><i class="fa fa-map-marker med-icon"></i> {{Location}}</p>{{/if}}
+					<br>
+					
+					
+					{{#if Description}}
+					<h2>Details</h2>				
+					{{{Description}}}
+					{{/if}}					
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</script>
+	
+	<script type="text/javascript">	
+	Handlebars.registerHelper('formatDate', function(starttime, endtime) {
+		// If start and end time are on same day
+		if (moment(starttime).format('MDYYYY') == moment(endtime).format('MDYYYY')) {
+			// If starts at 12am, is an all day event
+			if (moment(starttime).format('Hm') == '00') {
+				return moment(starttime).format('MMMM Do YYYY') + " - All Day";
+			}
+			else {
+				return moment(starttime).format('dddd, MMMM Do, YYYY [from] h:mm A [-] ') + moment(endtime).format('h:mm A');
+			}
+		}
+		
+		// Multi-day event, show both start and end dates and times
+		return moment(starttime).format('dddd, MMMM Do, YYYY [from] h:mm A [-] ') + moment(endtime).zone("-01:00").format('dddd, MMMM Do, YYYY h:mm A');
+	});
+	
+	var source   = $("#event-template").html();
+	var template = Handlebars.compile(source);	
+
+	$.ajax({
+		type: "GET",
+		url: "/_scripts/acs/get_event_detail.php",
+		data: { eventid: "{segment_3}", {if segment_4}starttime: "{segment_4}",{/if} {if segment_5}endtime: "{segment_5}"{/if} },
+		success: function (data) {
+			
+			$("#event").html(template($.parseJSON(data)));
+		}
+	});
+	</script>
+	
+	{embed="_includes/footer-content"}
+
+	{!-- Mobile Nav --}
+	<script src="/_js/sidr.js"></script>
+	
+	{!-- Retina Friendly --}
+	<script type="text/javascript" src="/_js/retina.js"></script>

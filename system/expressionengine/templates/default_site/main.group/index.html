@@ -144,8 +144,8 @@
 						  
 						// Replace calendar content from ACS
 						$.ajax({
-							url: "/?ACT=36&id=74b25c3d-20ea-432f-90ba-a22000d547f8",
-							data: {start: moment().weekday(-1).format("X"), stop: moment().weekday(7).format("X"), limit: '100'},
+							url: "/_scripts/acs/get_week_events.php",
+							data: {start: moment().weekday(-1).format("L"), stop: moment().weekday(7).format("L")},
 							dataType: "text",
 							success: function(data) {
 								var json = $.parseJSON(data);
@@ -232,4 +232,5 @@
 	});		
 </script>	
 <script src="/_js/toucheffects.js"></script>
+
 {embed="_includes/footer"}
