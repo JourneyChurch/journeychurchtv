@@ -27,39 +27,37 @@
 		</div>
 	{/exp:channel:entries}
 {/if}
-	<script src="/_scripts/acs/handlebars-v2.0.0.js"></script>
-	<script src="/_scripts/acs/moment.min.js"></script>
-	
-	<script id="event-template" type="text/x-handlebars-template">
-		<div class="title-bar">
-			<div class="container">
-				<div class="grid_12">
-					<h2>{{EventName}}</h2>
-				</div>
+<script src="/_scripts/acs/handlebars-v2.0.0.js"></script>
+<script src="/_scripts/acs/moment.min.js"></script>
+
+<script id="event-template" type="text/x-handlebars-template">
+	<div class="title-bar">
+		<div class="container">
+			<div class="grid_12">
+				<h2>{{EventName}}</h2>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="grid_12">
+			<div class="entry fancy-page">
+				<h2>Summary</h2>
+				{{#if StartTime}}<p><i class="fa fa-clock-o med-icon"></i> {{formatDate StartTime EndTime}}</p>{{/if}}
+				{{#if Location}}<p><i class="fa fa-map-marker med-icon"></i> {{Location}}</p>{{/if}}
+				<br>
+				
+				{{#if Description}}
+				<h2>Details</h2>
+				{{{Description}}}
+				{{/if}}
 				<div class="clear"></div>
 			</div>
 		</div>
-		<div class="container clearfix">
-			<div class="grid_12">
-				<div class="entry fancy-page">
-					<h2>Summary</h2>
-					{{#if StartTime}}<p><i class="fa fa-clock-o med-icon"></i> {{formatDate StartTime EndTime}}</p>{{/if}}
-					{{#if Location}}<p><i class="fa fa-map-marker med-icon"></i> {{Location}}</p>{{/if}}
-					<br>
-					
-					
-					{{#if Description}}
-					<h2>Details</h2>				
-					{{{Description}}}
-					{{/if}}					
-					
-					<div class="clear"></div>
-				</div>
-			</div>
-		</div>
-	</script>
-	
-	<script type="text/javascript">	
+	</div>
+</script>
+
+<script type="text/javascript">	
 	Handlebars.registerHelper('formatDate', function(starttime, endtime) {
 		// If start and end time are on same day
 		if (moment(starttime).format('MDYYYY') == moment(endtime).format('MDYYYY')) {
@@ -78,7 +76,7 @@
 	
 	var source   = $("#event-template").html();
 	var template = Handlebars.compile(source);	
-
+	
 	$.ajax({
 		type: "GET",
 		url: "/_scripts/acs/get_event_detail.php",
@@ -88,12 +86,44 @@
 			$("#event").html(template($.parseJSON(data)));
 		}
 	});
-	</script>
-	
-	{embed="_includes/footer-content"}
+</script>
 
-	{!-- Mobile Nav --}
-	<script src="/_js/sidr.js"></script>
-	
-	{!-- Retina Friendly --}
-	<script type="text/javascript" src="/_js/retina.js"></script>
+{embed="_includes/footer-content"}
+
+<script type="text/javascript">
+var _sf_async_config={uid:49423,domain:"journeychurch.tv",useCanonical:true};
+(function(){
+  function loadChartbeat() {
+    window._sf_endpt=(new Date()).getTime();
+    var e = document.createElement('script');
+    e.setAttribute('language', 'javascript');
+    e.setAttribute('type', 'text/javascript');
+    e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+    document.body.appendChild(e);
+  }
+  var oldonload = window.onload;
+  window.onload = (typeof window.onload != 'function') ?
+     loadChartbeat : function() { oldonload(); loadChartbeat(); };
+})();
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23134458-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+{!-- Mobile Nav --}
+<script src="/_js/sidr.js"></script>
+
+<script src="/_js/scripts.js"></script>
+</body>
+</html>

@@ -42,6 +42,7 @@
 	</script>
 
 	<script type="text/javascript">
+	var findtheCal = "74b25c3d-20ea-432f-90ba-a22000d547f8";
 	$(function() {
 		var cal = $( '#calendar' ).calendar( {
 			onDayClick : function( $el, $contentEl, dateProperties ) {
@@ -52,7 +53,7 @@
 
 			},
 			url : '{exp:acs_bridge:json fetch="events_list"}',
-			calId: '74b25c3d-20ea-432f-90ba-a22000d547f8',
+			calId: findtheCal,
 			linkTemplate: '/calendar/event',
 			startIn: 0
 		});
@@ -62,6 +63,8 @@
 		
 		$month = $( '#custom-month' ).html( cal.getMonthName() ),
 		$year = $( '#custom-year' ).html( cal.getYear() );
+		
+		checkSpecialMonths();
 
 		$( '#custom-next' ).on( 'click', function() {
 			cal.gotoNextMonth( updateMonthYear );
