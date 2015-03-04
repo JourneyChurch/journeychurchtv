@@ -938,8 +938,7 @@ h2.pastorclark span {
 
 /* Easter 2014 */
 .easter_top {
-	border-top: #231f20 15px solid;
-	border-bottom: #231f20 15px solid;
+	background: #000;
 }
 .easter14 #layerslider h2 {
 	width: 966px;
@@ -976,6 +975,7 @@ h2.pastorclark span {
 		display: block;
 		height: 100%;
 		border-bottom: #231f20 15px solid;
+		padding-bottom: 20px;
 	}
 	.easter_2 a {
 		color: #bae3dd;
@@ -1076,7 +1076,7 @@ h2.pastorclark span {
 	.easter_5-container {
 		background-image: url(/_img/easter/easter_5.png);
 		display: block;
-		height: 100%;
+		/*height: 100%;*/
 		padding: 50px 0;
 	}
 	.easter_5 p {
