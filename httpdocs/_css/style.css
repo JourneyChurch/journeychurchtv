@@ -1077,9 +1077,18 @@ h2.pastorclark span {
 	width: 100%;
 }
 	.easter_5-container {
+		border-bottom: #231f20 15px solid;
+		background: url(/_img/easter/easter_5.png);
 		display: block;
 		/*height: 100%;*/
 		padding: 50px 0;
+	}
+
+	@media (max-width: 767px) {
+		.easter_5-container {
+			border-bottom: none;
+			border-top: #231f20 15px solid;
+		}
 	}
 	.easter_5 p {
 		color: #fff;
