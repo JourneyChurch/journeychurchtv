@@ -938,9 +938,9 @@ h2.pastorclark span {
 
 /* Easter 2014 */
 .easter_top {
-	background: #000;
+	background: url(/_img/easter/easter-bg_top15.jpg);
 }
-.easter14 #layerslider h2 {
+.easter15 #layerslider h2 {
 	width: 966px;
 	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
 	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
@@ -952,7 +952,7 @@ h2.pastorclark span {
 	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
 	padding-top: 50px;
 }
-.easter14 #layerslider h3 {
+.easter15 #layerslider h3 {
 	width: 966px;
 	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
 	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
@@ -964,6 +964,12 @@ h2.pastorclark span {
 	text-shadow: rgba(0,0,0,.3) 0px 5px 20px;
 	padding-top: 200px;
 	padding-left: 10px;
+}
+.easter_times {
+	background-image: url(/_img/easter/easter-times15.jpg);
+	background-size: 100% auto;
+	height: auto;
+	padding-top: 28%;
 }
 .easter_2 {
 	height: auto;
@@ -992,10 +998,8 @@ h2.pastorclark span {
 	display: block;
 }
 	.easter_1-container {
-		background-image: url(/_img/easter/Easter-bg.png);
 		display: block;
 		height: 100%;
-		border-bottom: #231f20 15px solid;
 	}
 	.easter_1 p {
 		padding: 40px;
@@ -1028,39 +1032,33 @@ h2.pastorclark span {
 		background-image: none!important;
 	}
 .easter_3 {
-	height: 350px;
 	width: 50%;
 	float: left;
 	display: block;
 }
 	.easter_3-container {
-		background-image: url(/_img/easter/easter_3.png);
 		display: block;
-		height: 100%;
-		border-top: #231f20 15px solid;
-		border-right: #231f20 15px solid;
-		border-bottom: #231f20 15px solid;
 	}
 	.easter_3-container .easter_smalldeets h2 {
-		text-align: right;
+		text-align: left;
 	}
 	.easter_3-times p {
-		float: right;
+		float: left;
+	}
+	.easter_3-mobile {
+		background: url(/_img/easter/easter_mobile-sat15.jpg);
 	}
 .easter_4 {
-	height: 350px;
 	width: 50%;
-	float: right;
+	float: left;
 }
 	.easter_4-container {
-		background-image: url(/_img/easter/easter_4.png);
 		display: block;
-		height: 100%;
-		border-top: #231f20 15px solid;
-		border-bottom: #231f20 15px solid;
 	}
-	.easter_4 span.fa-clock-o {
-		min-height: 200px;
+	@media (min-width: 768px) {
+		.easter_4 span.fa-clock-o {
+			min-height: 200px;
+		}
 	}
 	.easter_4 .suntimes {
 		float: left;
@@ -1069,12 +1067,16 @@ h2.pastorclark span {
 		float:left;
 		padding-left:25px
 	}
+	.easter_4-mobile {
+		background: url(/_img/easter/easter_mobile-sun15.jpg);
+		background-position: right;
+		height: 290px;
+	}
 .easter_5 {
 	height: auto;
 	width: 100%;
 }
 	.easter_5-container {
-		background-image: url(/_img/easter/easter_5.png);
 		display: block;
 		/*height: 100%;*/
 		padding: 50px 0;
@@ -1105,19 +1107,23 @@ h2.pastorclark span {
 .easter_3 h2, .easter_4 h2 {
 	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
 	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
-	font-size: 68px;
-	line-height: 70px;
+	font-size: 48px;
+	line-height: 50px;
 	letter-spacing: 5px;
 	color: #fff;
 	text-align: left;
-	text-shadow: #5A5A5A 0px 1px 10px;
 	padding-bottom: 15px;
+}
+.easter_3 h2, .easter_3 p {
+	text-shadow: #4b0f01 0px 1px 10px;
+}
+.easter_4 h2, .easter_4 p {
+	text-shadow: #031a5b 0px 1px 10px;
 }
 .easter_3 p, .easter_4 p {
 	color: #fff;
 	font-size: 28px;
 	font-weight: 500;
-	text-shadow: #5A5A5A 0px 1px 10px;
 }
 .easter_3 span.fa-clock-o, .easter_4 span.fa-clock-o {
 	text-align: left!important;
@@ -1184,9 +1190,6 @@ h2.pastorclark span {
 		font-size: 48px;
 		line-height: 50px;
 	}
-	.easter_4 span.fa-clock-o {
-		min-height: 200px!important;
-	}
 	.easter_5-container {
 		padding: 20px 0;
 	}
@@ -1203,11 +1206,11 @@ h2.pastorclark span {
 .easter_smalldeets {
 	margin: 40px;
 }
-.easter14 h3 sup {
+.easter15 h3 sup {
 	font-size: 10px;
 	text-transform: none;
 }
-.easter14 span.fa-clock-o, .easter14 span.fa-map-marker  {
+.easter15 span.fa-clock-o, .easter15 span.fa-map-marker  {
 	font-size: 62px;
 	color: #fff;
 	float: left;
@@ -1218,10 +1221,10 @@ h2.pastorclark span {
 }
 
 /* Good Friday */
-	.easter14 .goodfriday p {
+	.easter15 .goodfriday p {
 		color: #fff;
 	}
-	.easter14 .goodfriday h3 {
+	.easter15 .goodfriday h3 {
 		color: #f4f2ba;
 		text-transform: uppercase;
 	}
