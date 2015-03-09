@@ -1048,8 +1048,10 @@ h2.pastorclark span {
 	.easter_3-mobile {
 		background: url(/_img/easter/easter_mobile-sat15.jpg);
 	}
-	.easter_3 .easter_smalldeets {
-		padding-left: 120px;
+	@media (min-width: 768px) {
+		.easter_3 .easter_smalldeets {
+			padding-left: 120px;
+		}
 	}
 .easter_4 {
 	width: 50%;
@@ -1075,8 +1077,10 @@ h2.pastorclark span {
 		background-position: right;
 		height: 290px;
 	}
-	.easter_4 .easter_smalldeets {
-		padding-left: 100px;
+	@media (min-width: 768px) {
+		.easter_4 .easter_smalldeets {
+			padding-left: 100px;
+		}
 	}
 .easter_5 {
 	height: auto;
@@ -1084,7 +1088,7 @@ h2.pastorclark span {
 }
 	.easter_5-container {
 		border-top: #231f20 15px solid;
-		background: url(/_img/easter/easter_5.png);
+		background: url(/_img/easter/easter_5.jpg);
 		display: block;
 		/*height: 100%;*/
 		padding: 50px 0;
