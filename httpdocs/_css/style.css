@@ -1115,6 +1115,37 @@ h2.pastorclark span {
 		padding: 0 10px;
 		text-align: center;
 	}
+	
+.easter_6 {
+	height: auto;
+	width: 100%;
+}
+	.easter_6-container {
+		border-top: #231f20 15px solid;
+		background: url(/_img/easter/easter_6.jpg);
+		display: block;
+		/*height: 100%;*/
+		padding: 50px 0;
+	}
+	.easter_6 h2 {
+		color: #fff;
+		text-shadow: #031a5b 0px 1px 10px;
+	}
+	.easter_6 p {
+		color: #fff;
+		font-size: 20px;
+		text-shadow: #031a5b 0px 1px 10px;
+	}
+	.easter_6 button {
+		background-color: #fff;
+		color: #006f7c;
+		margin-left: 0;
+	}
+	.easter_6 button:hover {
+		background-color: #006f7c;
+		color: #fff;
+		margin-left: 0;
+	}
 
 .easter_3 h2, .easter_4 h2 {
 	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;

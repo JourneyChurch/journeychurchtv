@@ -21,6 +21,12 @@
 
 	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher: "12217aef-f07e-464d-8757-03bfdb881858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+	
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+	<style>
+	  #map { width:100%; height:400px;}
+	</style>
 {embed="_includes/header-closer" bar="no"}
 
 <div class="easter15 clearfix">
@@ -62,18 +68,19 @@
 						<div id='map'></div>
 						<script>
 						var map = L.mapbox.map('map', 'journeychurchtv.hi81h4l9')
-						    .setView([35.4653638,-97.517964], 17);
+						    .setView([35.4653638,-97.517964], 16);
 						</script>
 					</div>
 					<br>
 					<p id="full-only" style="padding:10px">
-						JourneyChurch.tv invites all of the Oklahoma City area to join us as we experience Good Friday in the Park at the Myriad Botanical Gardens. Bring your friends, family, blankets and lawn chairs for a time of community at 5:30 PM, followed by an incredible time of worship and remembrance at 7:00 PM. This outdoor event is the perfect opportunity to invite the entire city to experience Jesus’ sacrificial love and forgiveness.<br><br>
+						JourneyChurch.tv invites you to join us for Good Friday in the Park at the Myriad Botanical Gardens. Bring your friends, family, blankets and lawn chairs at 5:30 PM for food trucks, Kids Create World, Dream Tree, and community with live worship and a life-changing message at 7:00 PM. This outdoor experience is like no other in the OKC metro! Reserved parking is available in parking lots 323 and 324. Access from S. Hudson Ave.<br>
+						#GoodFridayOKC<br><br>
 						{!--}Limited, reserved parking is available in <a href='#2' class='goodfriday-modal-bump'>lot 320 located at 240 W Reno and lot 322 located at 350 W Reno</a>. Please place your Good Friday in the Park invite card on your dashboard to access the reserved parking lots. Additional public parking is available in downtown around the gardens.<br><br>{--}
-						<small>*In case of inclement weather, Good Friday in the Park will take place at JourneyChurch Norman Campus Auditorium, 3801 Journey Parkway, Norman. Please watch this website and our social media channels for updates or call 405-217-8700.</small>
+						<small>*In case of inclement weather, Good Friday in the Park will take place at JourneyChurch.tv auditorium, 3801 Journey Parkway, Norman. Please watch this website and our social media channels for updates or call 405-217-8700.</small>
 					</p>
 					<p id="mobile-only" style="padding:10px">
 						{!--}Limited, reserved parking is available in lot 320 located at 240 W Reno and lot 322 located at 350 W Reno. Please place your Good Friday in the Park invite card in your dash to access the reserved parking lots. Additional public parking is available in downtown around the gardens.<br><br>{--}
-						<small>*In case of inclement weather, Good Friday in the Park will take place at JourneyChurch Norman Campus Auditorium, 3801 Journey Parkway, Norman. Please watch this website and our social media channels for updates or call 405-217-8700.</small>
+						<small>*In case of inclement weather, Good Friday in the Park will take place at JourneyChurch.tv auditorium, 3801 Journey Parkway, Norman. Please watch this website and our social media channels for updates or call 405-217-8700.</small>
 					</p>
 					<br>
 					<div class="clear"></div>
@@ -84,7 +91,7 @@
 		<div class="easter_times">
 			<div class="easter_3">
 				<div class="easter_3-container">
-					<div class="easter_smalldeets">
+					<div class="easter_smalldeets" style="float:right;margin-right: 210px">
 						<h2>Saturday<br>April 4</h2>
 						<div class="easter_3-timesght">
 							<span class="fa fa-clock-o" style="float: left"></span>
@@ -138,6 +145,18 @@
 				</div>
 			</div>
 		</div>
+		<div class="easter_6">
+			<div class="easter_6-container">
+				<div class="container clearfix">
+					<h2>Help us make Easter Weekend at success!</h2>
+					<p>
+						Simply choose a serving opportunity, day, and time from the list. We will contact you with details. 
+					</p>
+					<br><br>
+					<a href="http://www.signupgenius.com/go/10C094AACA62AA5FA7-easter" target="_blank"><button>Serving Opportunities</button></a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div id="mobile-only">
@@ -162,16 +181,11 @@
 					</div>
 					<div class="clear"></div>
 					<div id="goodfriday-modal">
-						<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
-						<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
-    	        	
-						<style>
-						  #map { width:100%; height:340px;}
-						</style>
 						<div id='map'></div>
-						<script>
+						<script type="text/javascript">
+						L.mapbox.accessToken = 'pk.eyJ1Ijoiam91cm5leWNodXJjaHR2IiwiYSI6InJFMHhJTFEifQ.KiZxr95r3lEoXpMouCmt8A';
 						var map = L.mapbox.map('map', 'journeychurchtv.hi81h4l9')
-						    .setView([35.4653638,-97.517964], 17);
+						    .setView([35.4653638,-97.517964], 9);
 						</script>
 					</div>
 					<br>
