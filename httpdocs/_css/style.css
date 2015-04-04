@@ -678,6 +678,18 @@ ul.side-nav {
 			text-align: center;
 			padding: 10px 5px;
 		}
+		
+	/* Freedom */
+	@media only screen and (min-width: 768px) {
+		.kairos {
+			width: 50%;
+		}
+		.equip_classes {
+			width: 60%;
+			margin-top: 30px;
+			margin-bottom: 40px;
+		}
+	}
 
 /* Groups */
 .groups-logo {
