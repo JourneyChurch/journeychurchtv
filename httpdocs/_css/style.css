@@ -895,6 +895,8 @@ h2.pastorclark span {
 }
 .team-entry p {
 	font-size: 12px;
+	text-decoration: none;
+	color: #000;
 }
 .marg-b-40 {
 	margin-bottom: 40px;
