@@ -23,16 +23,15 @@
 		</div>
 	</div>
 	<div class="clear marg-b-40">&nbsp;</div>
-	
+	{!--}
 	<h2 class="grid_12">Demographic Pastors</h2>
 	<div class="grid_12">
 		<p class="marg-b-40">We have pastors available that fit your season of life. <a href="https://journeydreamteam.wufoo.com/forms/how-can-we-help/" target="_blank"><strong>Contact us if you have any questions.</strong></a></p>
 	</div>
+	{--}
 	
 	<div class="grid_12">
-		{exp:channel:categories channel="Team" style="linear"}
-		    <h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none">{category_name}</h3>
-			{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="{category_id}"}
+			{exp:channel:entries channel="team" sort="asc" orderby="team-sort"}
 				{!--}{team-shrt-bio}{--}
 				<div class="grid_6 alpha">
 					<div class="team-entry">
@@ -45,7 +44,6 @@
 				</div>
 			{/exp:channel:entries}
 			<div class="clear marg-b-40">&nbsp;</div>
-		{/exp:channel:categories}
 	</div>
 </div>
 {if:else}
