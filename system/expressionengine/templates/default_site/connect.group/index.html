@@ -33,16 +33,14 @@
 			<div class="grid_4 side-verse">
 				<div>
 					<h2>Psalm 92:12-13</h2>
-					<p>The righteous will flourish like a
-				palm tree, they will grow like a cedar of Lebanon; planted in the house of the Lord, they will flourish in the
-				courts of our God.</p>
+					<p>The righteous will flourish like a palm tree, they will grow like a cedar of Lebanon; planted in the house of the Lord, they will flourish in the courts of our God.</p>
 				</div>
 			</div>
 			<div class="grid_8">
 				<div class="connect-entry">
 					{exp:channel:entries channel="Connect" orderby="title" sort="asc" limit="2"}
 							{if "{categories}{category_id}{/categories}" != "62"}
-								<h3><a href="/{url_title}">{title}</a></h3>
+								<h3><a href="/connect/{url_title}">{title}</a></h3>
 							{if:else}
 								<h3><a href="{exp:remove_html}{connect-body}{/exp:remove_html}">{title}</a></h3>
 							{/if}
@@ -60,7 +58,7 @@
 				{exp:channel:entries channel="Connect" orderby="title" sort="asc" offset="2"}
 					<div class="connect-entry">
 						{if "{categories}{category_id}{/categories}" != "62"}
-							<h3><a href="/{url_title}">{title}</a></h3>
+							<h3><a href="/connect/{url_title}">{title}</a></h3>
 						{if:else}
 							<h3><a href="{exp:remove_html}{connect-body}{/exp:remove_html}">{title}</a></h3>
 						{/if}
