@@ -945,6 +945,11 @@ h2.pastorclark span {
 		padding-left: 20px
 	}
 }
+@media (max-width: 768px) {
+	.devos-side-nav {
+		margin-top: 40px !important;
+	}
+}
 
 .mobile-nav {
 	font-size: 16px;

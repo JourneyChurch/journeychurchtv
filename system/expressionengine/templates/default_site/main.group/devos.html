@@ -14,8 +14,9 @@
 		<div class="grid_8">
 			{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
 				<h2 style="padding-bottom:0"><a href="/devos/{url_title}">{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Today's Devotional{if:else}Daily Devotional{/if} - {entry_date format="%F %j"}</a></h2>
+				<br>
 				<h3 style="font-size:18px">{title} {if devos-author}by {devos-author}{/if}</h3>
-				<p>
+				<p style="margin-top:10px">
 					{exp:word_limit total="120"}
 						{devos-body}
 					{/exp:word_limit}
@@ -26,7 +27,7 @@
 			<div class="clear"></div>
 		</div>
 		<div class="grid_4">
-			<ul class="side-nav">
+			<ul class="side-nav devos-side-nav">
 				<h3 class="sub-title blue">Resources</h3>
 				<li><a href="/groups"><i class="fa fa-group"></i>  Join a Life Group</a></li>
 				<li><a href="/media"><i class="fa fa-youtube-play"></i> Watch media</a></li>
