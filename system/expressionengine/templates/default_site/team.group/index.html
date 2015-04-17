@@ -23,12 +23,6 @@
 		</div>
 	</div>
 	<div class="clear marg-b-40">&nbsp;</div>
-	{!--}
-	<h2 class="grid_12">Demographic Pastors</h2>
-	<div class="grid_12">
-		<p class="marg-b-40">We have pastors available that fit your season of life. <a href="https://journeydreamteam.wufoo.com/forms/how-can-we-help/" target="_blank"><strong>Contact us if you have any questions.</strong></a></p>
-	</div>
-	{--}
 	
 	<div class="grid_12">
 		<div id="God" class="grid_12">
@@ -38,19 +32,52 @@
 				<div class="clear"></div>
 			</div>
 		</div>
-		{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="73"}
-			{!--}{team-shrt-bio}{--}
+		{exp:channel:categories channel="Team" style="linear" show="not 75"}
+			{if "{parent_id}" != 0}
+				{if category_url_title != "office-of-the-founding-senior-pastor"}
+					<h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none;margin-top:20px">{category_name}</h3>
+				{/if}
+				{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="{category_id}"}
+					<div class="grid_6 alpha">
+						<div class="team-entry">
+							{if team-photo}
+								<a href="/team/{url_title}"><img src="{team-photo}" style="float:left;max-width:100px;margin-right:10px"></a>
+							{/if}
+							<h3>
+								<a href="/team/{url_title}">{title}</a>
+								<span style="display:block">{team-title}</span>
+							</h3>
+							{if team-bio}
+								<p>
+									{exp:word_limit total="20"}{team-bio}{/exp:word_limit} <a href="/team/{url_title}">Read More</a>
+								</p>
+							{/if}
+							<p style="margin-top:10px">
+								<span class="fa fa-envelope-o"> Email:</span> <a href="mailto:{team-email}">{team-email}</a>
+								{if team-fb}<br><span class="fa fa-facebook"></span> <a href="http://www.facebook.com/{team-fb}" target="_blank">{team-fb}</a>{/if}
+								{if team-twitter}{if team-fb} | {if:else}<br>{/if}<span class="fa fa-twitter"></span> <a href="http://twitter.com/{team-twitter}" target="_blank">@{team-twitter}</a>{/if}
+								{if team-instagram} | <span class="fa fa-instagram"></span> <a href="http://www.instagram.com/{team-instagram}" target="_blank">{team-instagram}</a>{/if}
+							</p>
+							<div class="clear"></div>
+						</div>
+					</div>
+					{switch="|<div class='clear'></div>"}
+				{/exp:channel:entries}
+				<div class="clear"></div>
+			{/if}
+		{/exp:channel:categories}
+		
+			{!--}
 			<div class="grid_6 alpha">
 				<div class="team-entry">
 					<a href="/team/{url_title}"><img src="{team-photo}" style="float:left;max-width:100px;margin-right:10px"></a>
-					<h3><a href="/team/{url_title}">{title}</a> {!--}<span>{team-title}</span>{--}</h3>
+					<h3><a href="/team/{url_title}">{title}</a> <span>{team-title}</span></h3>
 					{if team-bio}<p>{exp:word_limit total="33"}{team-bio}{/exp:word_limit} <a href="/team/{url_title}">Read More</a></p>{/if}
 					<p style="margin-top:10px"><span class="fa fa-envelope-o"> Email:</span> <a href="mailto:{team-email}">{team-email}</a>{if team-fb}<br><span class="fa fa-facebook"></span> <a href="http://www.facebook.com/{team-fb}" target="_blank">{team-fb}</a>{/if}{if team-twitter}<br><span class="fa fa-twitter"></span> <a href="http://twitter.com/{team-twitter}" target="_blank">@{team-twitter}</a>{/if}{if team-instagram}<br><span class="fa fa-instagram"></span> <a href="http://www.instagram.com/{team-instagram}" target="_blank">{team-instagram}</a>{/if}</p>
 					<div class="clear"></div>
 				</div>
 			</div>
-			{switch="|<div class='clear'></div>"}
-		{/exp:channel:entries}
+			{switch="|<div class='clear'></div>"}{--}
 		<div class="clear marg-b-40">&nbsp;</div>
 	</div>
 </div>
