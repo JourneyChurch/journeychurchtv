@@ -933,6 +933,18 @@ h2.pastorclark span {
 	border-bottom: 1px solid #006f7c;
 	padding-bottom: 20px;
 }
+@media only screen and (max-width: 767px) {
+	#devos-bar .grid_12 {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+	#devos-bar strong {
+		display: block;
+	}
+	#devos-bar .fa {
+		display: none;
+	}
+}
 .devos-bar-info {
 	float:left;
 	padding-top:5px
