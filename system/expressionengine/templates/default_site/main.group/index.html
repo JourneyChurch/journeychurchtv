@@ -20,21 +20,21 @@
 	</div>
 </div>
 
-<div id="devos-bar">
-	{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
-		<a href="/devos/{url_title}">
-			<div class="container">
-				<div class="grid_12">
-					<div class="devos-bar-info"><strong>{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Read Today's Daily Devotional{if:else}Daily Devotional{/if} |</strong> {entry_date format="%F %j"} - {title} {if devos-author}by {devos-author}{/if}</div>
-					<i class="fa fa-chevron-right pull-right"></i>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</a>
-	{/exp:channel:entries}
-</div>
-
 <div id="full-only">
+	<div id="devos-bar">
+		{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
+			<a href="/devos/{url_title}">
+				<div class="container">
+					<div class="grid_12">
+						<div class="devos-bar-info"><strong>{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Read Today's Daily Devotional{if:else}Daily Devotional{/if} |</strong> {entry_date format="%F %j"} - {title} {if devos-author}by {devos-author}{/if}</div>
+						<i class="fa fa-chevron-right pull-right"></i>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</a>
+		{/exp:channel:entries}
+	</div>
+	
 	<div class="container clearfix boxes">
 		<ul class="cs-style-2">
 			<li class="grid_4">
@@ -102,6 +102,13 @@
 			</div>
 		</a>
 		
+		<a href="/calendar">
+			<div class="grid_12 mobile_boxes box4">
+				<strong>What's Happening?</strong><br>
+				View the Calendar
+			</div>
+		</a>
+		
 		{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
 		<a href="/media/{url_title}">
 			<div class="grid_12 mobile_boxes box3">
@@ -111,12 +118,14 @@
 		</a>
 		{/exp:channel:entries}
 		
-		<a href="/calendar">
-			<div class="grid_12 mobile_boxes box4">
-				<strong>What's Happening?</strong><br>
-				View the Calendar
+		{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
+		<a href="/devos/{url_title}">
+			<div class="grid_12 mobile_boxes box5">
+				<strong>Daily Devotional</strong> - {entry_date format="%F %j"}:</strong><br>
+				{title} {if devos-author}by {devos-author}{/if}
 			</div>
 		</a>
+		{/exp:channel:entries}
 	</div>
 </div>
 
