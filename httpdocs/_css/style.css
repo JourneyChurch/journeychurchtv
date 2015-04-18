@@ -346,7 +346,7 @@ ul.side-nav {
 		padding: 0;
 	}
 	.latest-entry {
-		padding: 5px 0;
+		padding: 5px;
 	}
 	.latest h2 {
 		background-color: #006f7c;
@@ -921,6 +921,22 @@ h2.pastorclark span {
 	}
 }
 
+#devos-bar {
+	background-color: #b2b4b1;
+	margin-bottom: 20px;
+	padding: 10px 0;
+	color: #fff;
+}
+#devos-bar a {
+	color: #fff;
+}
+#devos-bar .fa {
+	font-size: 28px;
+}
+.devos-bar-info {
+	float:left;
+	padding-top:5px
+}
 #devos h2, h2 a {
 		font-family: 'aleoregular',Georgia,serif;
 		font-weight: normal;
