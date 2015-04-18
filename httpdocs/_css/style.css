@@ -924,10 +924,14 @@ h2.pastorclark span {
 
 #devos-bar {
 	margin-bottom: 20px;
-	padding: 10px 0;
+	padding: 20px 0 10px;
 }
 #devos-bar .fa {
 	font-size: 28px;
+}
+#devos-bar .grid_12 {
+	border-bottom: 1px solid #006f7c;
+	padding-bottom: 20px;
 }
 .devos-bar-info {
 	float:left;
