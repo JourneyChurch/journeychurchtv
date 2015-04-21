@@ -35,7 +35,7 @@
 		{exp:channel:categories channel="Team" style="linear" show="not 75"}
 			{if "{parent_id}" != 0}
 				{if category_url_title != "office-of-the-founding-senior-pastor"}
-					<h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none;margin-top:20px">{category_name}</h3>
+					{if category_description}<a href="{category_description}">{/if}<h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none;margin-top:20px">{category_name} <i class="fa fa-chevron-right pull-right"></i></h3>{if category_description}</a>{/if}
 				{/if}
 				{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="{category_id}"}
 					<div class="grid_6 alpha">
@@ -84,7 +84,7 @@
 		<div class="grid_12">
 			{exp:channel:categories channel="Team" style="linear" show="not 73"}
 				{if "{parent_id}" != 0}
-					<h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none;margin-top:20px">{category_name}</h3>
+					{if category_description}<a href="{category_description}">{/if}<h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none;margin-top:20px">{category_name}</h3>{if category_description}</a>{/if}
 					{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="{category_id}"}
 						<div class="grid_6 alpha">
 							<div class="team-entry">
@@ -113,18 +113,6 @@
 					<div class="clear"></div>
 				{/if}
 			{/exp:channel:categories}
-		
-				{!--}
-				<div class="grid_6 alpha">
-					<div class="team-entry">
-						<a href="/team/{url_title}"><img src="{team-photo}" style="float:left;max-width:100px;margin-right:10px"></a>
-						<h3><a href="/team/{url_title}">{title}</a> <span>{team-title}</span></h3>
-						{if team-bio}<p>{exp:word_limit total="33"}{team-bio}{/exp:word_limit} <a href="/team/{url_title}">Read More</a></p>{/if}
-						<p style="margin-top:10px"><span class="fa fa-envelope-o"> Email:</span> <a href="mailto:{team-email}">{team-email}</a>{if team-fb}<br><span class="fa fa-facebook"></span> <a href="http://www.facebook.com/{team-fb}" target="_blank">{team-fb}</a>{/if}{if team-twitter}<br><span class="fa fa-twitter"></span> <a href="http://twitter.com/{team-twitter}" target="_blank">@{team-twitter}</a>{/if}{if team-instagram}<br><span class="fa fa-instagram"></span> <a href="http://www.instagram.com/{team-instagram}" target="_blank">{team-instagram}</a>{/if}</p>
-						<div class="clear"></div>
-					</div>
-				</div>
-				{switch="|<div class='clear'></div>"}{--}
 			<div class="clear marg-b-40">&nbsp;</div>
 		</div>
 	</div>
