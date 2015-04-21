@@ -357,6 +357,9 @@ ul.side-nav {
 	}
 	
 	@media only screen and (max-width: 767px) {
+		#layerslider-container {
+			margin-bottom: 10px;
+		}
 		.mobile_boxes {
 			text-transform: uppercase;
 			color: #fff;
