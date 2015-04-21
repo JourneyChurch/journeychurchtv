@@ -299,6 +299,7 @@ ul.side-nav {
 }
 
 .mobile-liveservice {
+	display: none;
 	background-color: #006f7c;
 	padding: 10px 0;
 	font-size: 16px;
