@@ -90,7 +90,7 @@ button {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
-  
+
   cursor: pointer;
 }
 button a {
@@ -341,7 +341,7 @@ ul.side-nav {
 	.happening h2 a:hover {
 		text-decoration: none!important;
 	}
-	
+
 	.happening h3 {
 		padding: 0;
 	}
@@ -354,7 +354,7 @@ ul.side-nav {
 	.latest p {
 		font-size: 14px;
 	}
-	
+
 	@media only screen and (max-width: 767px) {
 		.mobile_boxes {
 			text-transform: uppercase;
@@ -375,7 +375,7 @@ ul.side-nav {
 	.noevents {
 		display: none;
 	}
-	
+
 /* About */
 	.aboutus a {
 		font-weight: 500;
@@ -393,7 +393,7 @@ ul.side-nav {
 		float: left;
 		padding-top: 50px;
 	}
-	
+
 	#accordion h3:focus { outline: 0; }
 	#accordion, #accordion2 {
 		cursor: pointer;
@@ -420,7 +420,7 @@ ul.side-nav {
 	.ui-accordion-content {
 		padding: 20px 0;
 	}
-	
+
 	.side-locations h3 {
 		margin-top: 10px;
 	}
@@ -440,12 +440,12 @@ ul.side-nav {
 	.slide-locations i {
 		padding-right: 10px;
 	}
-	
+
 	.locations-separator {
 		padding: 10px;
 		border-bottom: 1px solid #b2b4b1;
 	}
-	
+
 /* Blogs */
 	.blogs-featured {
 		background-color: #E6E6E6!important;
@@ -464,7 +464,7 @@ ul.side-nav {
 			padding-top: 10px;
 			padding-bottom: 0;
 		}
-		
+
 	.blog-entry {
 		padding: 20px 0;
 		border-bottom: 1px solid #b2b4b1;
@@ -513,7 +513,7 @@ ul.side-nav {
 	.blog-details {
 		margin-top: 10px;
 	}
-	
+
 	.blog-title {
 		margin-top: 20px;
 	}
@@ -528,14 +528,14 @@ ul.side-nav {
 			font-size: 12px;
 			padding-bottom: 0;
 		}
-		
+
 /* Calendar */
-	
+
 	/* Events */
 	.entry .body {
 		padding-top: 20px;
 	}
-	
+
 /* Classes */
 	.page-classes .classes-logo {
 		background: url("/_img/equip-classes.png");
@@ -547,7 +547,7 @@ ul.side-nav {
 		min-height: 300px;
 		margin: 10px;
 	}
-	
+
 		.page-classes .blue {
 			background-color: #006f7c;
 		}
@@ -612,8 +612,8 @@ ul.side-nav {
 		border: none;
 		margin: 0;
 	}
-	
-	
+
+
 /* Connect */
 .connect-logo {
 	margin-top: 10px;
@@ -678,6 +678,18 @@ ul.side-nav {
 			text-align: center;
 			padding: 10px 5px;
 		}
+
+	/* Freedom */
+	@media only screen and (min-width: 768px) {
+		.kairos {
+			width: 50%;
+		}
+		.equip_classes {
+			width: 60%;
+			margin-top: 30px;
+			margin-bottom: 40px;
+		}
+	}
 
 /* Groups */
 .groups-logo {
@@ -752,7 +764,7 @@ ul.side-nav {
 }
 
 .location-details {
-	
+
 }
 .location-details i {
 	font-size: 18px;
@@ -786,10 +798,17 @@ ul.side-nav {
 	background-color: #b2b4b1;
 	min-height: 174px;
 }
+.media-viewall-small {
+	min-height: 127.313px;
+	height: 127.313px;
+}
 .media-viewall h2 {
 	color: #fff;
 	text-align: center;
 	line-height: 165px;
+}
+.media-viewall-small h2 {
+	line-height: 135px;
 }
 .media-viewall a:hover, .media-viewall a:focus, .media-viewall a:active, .media-viewall a:visited {
 	text-decoration: none!important;
@@ -830,7 +849,7 @@ ul.side-nav {
 	   -webkit-transition: opacity .25s ease-in-out;
 }
 .series-sub a:hover, .series img:hover {
-	color: #222 !important; 
+	color: #222 !important;
 	text-decoration: none!important;
 	opacity:0.6;
 	filter:alpha(opacity=60); /* For IE8 and earlier */
@@ -1102,6 +1121,37 @@ h2.pastorclark span {
 		text-align: center;
 	}
 
+.easter_6 {
+	height: auto;
+	width: 100%;
+}
+	.easter_6-container {
+		border-top: #231f20 15px solid;
+		background: url(/_img/easter/easter_6.jpg);
+		display: block;
+		/*height: 100%;*/
+		padding: 50px 0;
+	}
+	.easter_6 h2 {
+		color: #fff;
+		text-shadow: #031a5b 0px 1px 10px;
+	}
+	.easter_6 p {
+		color: #fff;
+		font-size: 20px;
+		text-shadow: #031a5b 0px 1px 10px;
+	}
+	.easter_6 button {
+		background-color: #fff;
+		color: #006f7c;
+		margin-left: 0;
+	}
+	.easter_6 button:hover {
+		background-color: #006f7c;
+		color: #fff;
+		margin-left: 0;
+	}
+
 .easter_3 h2, .easter_4 h2 {
 	font-family: 'SocialGothic', Helvetica, Arial, Sans-Serif;
 	-moz-font-feature-settings:'aalt=0,liga=0,locl=0,ordn=0,salt=0,ss01=0';
@@ -1225,7 +1275,7 @@ h2.pastorclark span {
 		color: #f4f2ba;
 		text-transform: uppercase;
 	}
-	
+
 
 /* Search */
 input.gsc-search-button {
@@ -1233,7 +1283,7 @@ input.gsc-search-button {
 	font-weight: 300!important;
 	text-transform: uppercase;
 	font-style: normal!important;
-}	
+}
 .cse input.gsc-input, input.gsc-input {
 	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
 	font-weight: 300!important;
@@ -1367,5 +1417,116 @@ h4.easterfont {
 	}
 	.subnav li:after {
 		content: "";
+	}
+}
+
+#household .household-title {
+	background-color: #b2b4b1;
+	box-shadow: 0px 5px 15px #2A2A2A;
+	margin-bottom: 0;
+	position: relative;
+	z-index: 999;
+}
+#household .household-title h2 {
+	text-transform: none;
+	color: #231f20;
+	font-weight: 500;
+}
+#household .household-title span {
+	font-size: 32px;
+	letter-spacing: -4px;
+	font-weight: 400;
+	color: #fff;
+	display: inline;
+}
+#household .household-title span > span {
+	color: #727372;
+}
+#household .household-body {
+	background-color: #414141;
+}
+#household .section {
+	padding: 20px 0;
+}
+#household .section:first-child {
+	padding-top: 40px;
+}
+#household .section:last-child {
+	box-shadow: none;
+	padding-bottom: 60px;
+}
+#household .section h2 {
+	color: #989d00;
+	font-size: 36px;
+	font-weight: 500;
+	text-transform: none;
+	letter-spacing: -4px;
+}
+#household .section p {
+	color: #fff;
+}
+#household .section a {
+	color: #989d00;
+	text-decoration: underline;
+}
+#household .divider {
+	margin: 20px 0;
+	box-shadow: 0px 10px 12px #323232;
+}
+#household .mobilead {
+	background: #fff;
+	padding: 40px 0;
+	cursor: pointer;
+}
+#household .mobilead h2 {
+	color: #414141;
+	font-size: 36px;
+	font-weight: 500;
+	text-transform: none;
+	letter-spacing: -4px;
+}
+
+#household .webad {
+	background: #fff;
+	padding: 40px 0;
+	cursor: pointer;
+}
+#household .webad h2 {
+	color: #414141;
+	font-size: 36px;
+	font-weight: 500;
+	text-transform: none;
+	letter-spacing: -4px;
+}
+
+
+#household .mobileapp .household-body {
+	background-color: #989d00;
+}
+#household .mobileapp .section h2 {
+	color: #414141;
+}
+#household .mobileapp .section a {
+	color: #414141;
+	text-decoration: underline;
+}
+#household .mobileapp .divider {
+	box-shadow: 0px 10px 12px #676B00;
+}
+
+@media (max-width: 767px) {
+	#household .mobileapp {
+		display: block;
+	}
+	#household .webapp {
+		display: none;
+	}
+}
+@media (min-width: 768px) {
+	#household .mobileapp {
+		display: none;
+	}
+	#household .webapp {
+		display: block;
 	}
 }
