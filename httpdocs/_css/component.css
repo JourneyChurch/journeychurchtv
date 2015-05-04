@@ -199,8 +199,13 @@
 		display: block;
 	}
 	@media only screen and (min-width: 768px) {
-		.box1, .box2, .box3 {
+		.box1, .box2, .box3, .box4, .box5 {
 			min-height: 40px;
+		}
+	}
+	@media only screen and (max-width: 767px) {
+		.box1 {
+			margin-top: 20px;
 		}
 	}
 	.box1 {
@@ -214,6 +219,9 @@
 	}
 	.box4 {
 		background-color: #b2b4b1;
+	}
+	.box5 {
+		background-color: #6B6B6B;
 	}
 	
 	

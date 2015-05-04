@@ -1,9 +1,7 @@
 {embed="_includes/header" title="Calendar"}
 
-<link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/dialog.css" />
-<link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/calendar.css" />
-<link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/custom_1.css" />
-<link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/styles.css" />
+<link type="text/css" rel="stylesheet" href="/_js/acs/calendar.css" />
+<link type="text/css" rel="stylesheet" href="/_js/acs/custom_1.css" />
 
 <div class="container clearfix">
 	<div class="grid_12 custom-calendar-full">
@@ -117,4 +115,97 @@ are revving up for a HUGE month to kick-off 2014. We offer many opportunities fo
 	<div class="clear"></div>
 </div>
 
-{embed="_includes/cal_footer"}
+<script type="text/javascript" src="/_js/acs/jquery.calendario.js"></script>
+<script type="text/javascript">	
+	$(function() {
+		var cal = $( '#calendar' ).calendario( {
+			onDayClick : function( $el, $contentEl, dateProperties ) {
+				for( var key in dateProperties ) {
+					console.log( key + ' = ' + dateProperties[ key ] );
+				}
+			},
+			displayWeekAbbr : true,
+			startIn : 0			
+		});
+		
+		$month = $( '#custom-month' ).html( cal.getMonthName() );
+		$year = $( '#custom-year' ).html( cal.getYear() );
+		
+		// Set the title window to current month name
+		window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
+
+		UpdateCalendar();
+
+		$( '#custom-next' ).on( 'click', function() {
+			cal.gotoNextMonth( updateMonthYear );
+			checkSpecialMonths();
+		});
+		$( '#custom-prev' ).on( 'click', function() {
+			cal.gotoPreviousMonth( updateMonthYear );
+			checkSpecialMonths();
+		});
+		$( '#custom-current' ).on( 'click', function() {
+			cal.gotoNow( updateMonthYear );
+		});
+		
+		function checkSpecialMonths() {
+			if (cal.getMonthName() == "January" && cal.getYear() == "2014") {
+	   			$('.custom-calendar-full h2').hide();
+				$('.custom-month').hide();
+				$('.custom-year').hide();
+				$('.custom-calendar-GiantJanuary').show();
+				$('head').append('<link rel="stylesheet" type="text/css" href="/_css/giantJanuary.css">');
+			} else if (cal.getMonthName() == "June" && cal.getYear() == "2014" || cal.getMonthName() == "July" && cal.getYear() == "2014" || cal.getMonthName() == "August" && cal.getYear() == "2014") {
+	   			$('.custom-calendar-full h2').hide();
+				$('.custom-year').hide();
+				$('.custom-calendar-OneSweetSummer').show();
+				$('head').append('<link rel="stylesheet" type="text/css" href="/_css/onesweetsummer.css">');
+			} else {
+	   			$('.custom-calendar-full h2').show();
+				$('.custom-month').show();
+				$('.custom-year').show();
+				$('.custom-calendar-GiantJanuary').hide();
+				$('.custom-calendar-OneSweetSummer').hide();
+				$('link[rel=stylesheet][href~="/_css/giantJanuary.css"]').remove();
+				$('link[rel=stylesheet][href~="/_css/onesweetsummer.css"]').remove();
+			}
+			
+			if (cal.getMonthName() == "June" && cal.getYear() == "2014") {
+				$(".custom-month").css("color", "#f05032");
+				$(".fc-day_holder").css("backgroundColor", "#f05032");
+				$("span.fc-date").css("color", "#f05032");
+				$(".OneSweetSummer-body h2").css("color", "#f05032");
+			} else if (cal.getMonthName() == "July" && cal.getYear() == "2014") {
+				$(".custom-month").css("color", "#f48024");
+				$(".fc-day_holder").css("backgroundColor", "#f48024");
+				$("span.fc-date").css("color", "#f48024");
+				$(".OneSweetSummer-body h2").css("color", "#f48024");
+			} else if (cal.getMonthName() == "August" && cal.getYear() == "2014") {
+				$(".custom-month").css("color", "#eeb111");
+				$(".fc-day_holder").css("backgroundColor", "#eeb111");
+				$("span.fc-date").css("color", "#eeb111");
+				$(".OneSweetSummer-body h2").css("color", "#eeb111");
+			} else {
+				$(".custom-month").css("color", "rgba(0, 0, 0, 0.6)")
+			}
+		}
+
+		function updateMonthYear() {				
+			$month.html( cal.getMonthName() );
+			$year.html( cal.getYear() );
+			// Update the window title to current month name
+			window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
+			
+			UpdateCalendar();
+		}
+		
+		function UpdateCalendar() {
+			$.getJSON("/_scripts/acs/get_events.php", {month: cal.getMonthName(), year: cal.getYear()}, function(data) {			
+				cal.setData(data);
+				
+			});
+		}
+	});
+</script>
+
+{embed="_includes/footer"}
