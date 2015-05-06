@@ -8,7 +8,17 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 <div id="layerslider-container">
-	
+	<div id="layerslider" style="width:100%;height:250px;background-color:#006f7c">
+			<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
+				<div class="ls-s3 si" style="slidedirection : top; slideoutdirection : bottom; durationin : 1000; durationout : 1000; easingin : easeInOutQuint; easingout : easeInOutQuint; delayin:1000; delayout:0;">
+					<h2 style="margin-top:60px;color:#fff;width:100%;text-align:center;font-size:36px">Due to inclement weather conditions,<br>Awakening has been cancelled this evening.</h2>
+				</div>
+			</div>
+	</div>
+</div>
+{!--}
+<div id="layerslider-container">
+
 	<div id="layerslider" style="width:100%;height:450px;">
 		{exp:channel:entries channel="Slides"}
 			<div class="ls-layer" style="slidedirection: top; slidedelay: 10000; delayout: 1000;">
@@ -19,6 +29,7 @@
 		{/exp:channel:entries}
 	</div>
 </div>
+{--}
 
 <div id="full-only">
 	<div id="devos-bar">
@@ -34,7 +45,7 @@
 			</a>
 		{/exp:channel:entries}
 	</div>
-	
+
 	<div class="container clearfix boxes">
 		<ul class="cs-style-2">
 			<li class="grid_4">
@@ -94,21 +105,21 @@
 				Learn more about us
 			</div>
 		</a>
-		
+
 		<a href="/locations">
 			<div class="grid_12 mobile_boxes box2">
 				<strong>Locations &amp; Times</strong><br>
 				Where We Gather
 			</div>
 		</a>
-		
+
 		<a href="/calendar">
 			<div class="grid_12 mobile_boxes box4">
 				<strong>What's Happening?</strong><br>
 				View the Calendar
 			</div>
 		</a>
-		
+
 		{exp:channel:entries channel="Media" limit="1" category="9" sort="desc" orderby="media-date" show_future_entries="no"}
 		<a href="/media/{url_title}">
 			<div class="grid_12 mobile_boxes box3">
@@ -117,7 +128,7 @@
 			</div>
 		</a>
 		{/exp:channel:entries}
-		
+
 		{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
 		<a href="/devos/{url_title}">
 			<div class="grid_12 mobile_boxes box5">
@@ -159,12 +170,12 @@
 						$('i.thursDate').replaceWith(moment().weekday(4).format("D"));
 						$('i.friDate').replaceWith(moment().weekday(5).format("D"));
 						$('i.satDate').replaceWith(moment().weekday(6).format("D"));
-			    		
+
 						// Set correct box day
 						var d = new Date();
 			    		var n = d.getDay();
 			    		$( "#cal-week" ).tabs({ active: n });
-						  
+
 						// Replace calendar content from ACS
 						$.ajax({
 							url: "/_scripts/acs/get_week_events.php",
@@ -252,8 +263,8 @@
 			showCircleTimer: false,
 			touchnav: true
 		});
-	});		
-</script>	
+	});
+</script>
 <script src="/_js/toucheffects.js"></script>
 
 {embed="_includes/footer"}
