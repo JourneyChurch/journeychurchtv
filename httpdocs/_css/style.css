@@ -1561,12 +1561,18 @@ h4.easterfont {
 	box-shadow: 0px 10px 12px #676B00;
 }
 
+#emergency_alert {
+	margin-top:60px;color:#fff;width:100%;text-align:center;font-size:36px
+}
 @media (max-width: 767px) {
 	#household .mobileapp {
 		display: block;
 	}
 	#household .webapp {
 		display: none;
+	}
+	#emergency_alert {
+		font-size:16px;margin-top:0;padding-top:15px;
 	}
 }
 @media (min-width: 768px) {
