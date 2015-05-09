@@ -1,8 +1,3 @@
-/*
-Responsive 996px grid system ~ Style CSS.
-Copyright 2013, Josh Cope
-*/
-
 /* Site Colors
 Green:	#989d00
 Blue:	#006f7c
@@ -90,7 +85,7 @@ button {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
-  
+
   cursor: pointer;
 }
 button a {
@@ -342,7 +337,7 @@ ul.side-nav {
 	.happening h2 a:hover {
 		text-decoration: none!important;
 	}
-	
+
 	.happening h3 {
 		padding: 0;
 	}
@@ -356,7 +351,7 @@ ul.side-nav {
 	.latest p {
 		font-size: 14px;
 	}
-	
+
 	@media only screen and (max-width: 767px) {
 		#layerslider-container {
 			margin-bottom: 10px;
@@ -380,7 +375,7 @@ ul.side-nav {
 	.noevents {
 		display: none;
 	}
-	
+
 /* About */
 	.aboutus a {
 		font-weight: 500;
@@ -398,7 +393,7 @@ ul.side-nav {
 		float: left;
 		padding-top: 50px;
 	}
-	
+
 	#accordion h3:focus { outline: 0; }
 	#accordion, #accordion2 {
 		cursor: pointer;
@@ -425,7 +420,7 @@ ul.side-nav {
 	.ui-accordion-content {
 		padding: 20px 0;
 	}
-	
+
 	.side-locations h3 {
 		margin-top: 10px;
 	}
@@ -445,12 +440,12 @@ ul.side-nav {
 	.slide-locations i {
 		padding-right: 10px;
 	}
-	
+
 	.locations-separator {
 		padding: 10px;
 		border-bottom: 1px solid #b2b4b1;
 	}
-	
+
 /* Blogs */
 	.blogs-featured {
 		background-color: #E6E6E6!important;
@@ -469,7 +464,7 @@ ul.side-nav {
 			padding-top: 10px;
 			padding-bottom: 0;
 		}
-		
+
 	.blog-entry {
 		padding: 20px 0;
 		border-bottom: 1px solid #b2b4b1;
@@ -518,7 +513,7 @@ ul.side-nav {
 	.blog-details {
 		margin-top: 10px;
 	}
-	
+
 	.blog-title {
 		margin-top: 20px;
 	}
@@ -533,14 +528,14 @@ ul.side-nav {
 			font-size: 12px;
 			padding-bottom: 0;
 		}
-		
+
 /* Calendar */
-	
+
 	/* Events */
 	.entry .body {
 		padding-top: 20px;
 	}
-	
+
 /* Classes */
 	.page-classes .classes-logo {
 		background: url("/_img/equip-classes.png");
@@ -552,7 +547,7 @@ ul.side-nav {
 		min-height: 300px;
 		margin: 10px;
 	}
-	
+
 		.page-classes .blue {
 			background-color: #006f7c;
 		}
@@ -617,8 +612,8 @@ ul.side-nav {
 		border: none;
 		margin: 0;
 	}
-	
-	
+
+
 /* Connect */
 .connect-logo {
 	margin-top: 10px;
@@ -683,7 +678,7 @@ ul.side-nav {
 			text-align: center;
 			padding: 10px 5px;
 		}
-		
+
 	/* Freedom */
 	@media only screen and (min-width: 768px) {
 		.kairos {
@@ -769,7 +764,7 @@ ul.side-nav {
 }
 
 .location-details {
-	
+
 }
 .location-details i {
 	font-size: 18px;
@@ -847,7 +842,7 @@ ul.side-nav {
 	   -webkit-transition: opacity .25s ease-in-out;
 }
 .series-sub a:hover, .series img:hover {
-	color: #222 !important; 
+	color: #222 !important;
 	text-decoration: none!important;
 	opacity:0.6;
 	filter:alpha(opacity=60); /* For IE8 and earlier */
@@ -1166,7 +1161,7 @@ h2.pastorclark span {
 		padding: 0 10px;
 		text-align: center;
 	}
-	
+
 .easter_6 {
 	height: auto;
 	width: 100%;
@@ -1322,7 +1317,7 @@ h2.pastorclark span {
 		color: #f4f2ba;
 		text-transform: uppercase;
 	}
-	
+
 
 /* Search */
 input.gsc-search-button {
@@ -1330,7 +1325,7 @@ input.gsc-search-button {
 	font-weight: 300!important;
 	text-transform: uppercase;
 	font-style: normal!important;
-}	
+}
 .cse input.gsc-input, input.gsc-input {
 	font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B' !important;
 	font-weight: 300!important;
