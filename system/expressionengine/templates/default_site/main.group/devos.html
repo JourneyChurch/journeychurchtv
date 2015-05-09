@@ -13,14 +13,13 @@
 	<div class="container clearfix" style="margin-top:50px">
 		<div class="grid_8">
 			{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
-				<h2 style="padding-bottom:0"><a href="/devos/{url_title}">{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Today's Devotional{if:else}Daily Devotional{/if} - {entry_date format="%F %j"}</a></h2>
-				<br>
+				<h2 style="padding-top:0"><a href="/devos/{url_title}">{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Today's Devotional{if:else}Daily Devotional{/if} - {entry_date format="%F %j"}</a></h2>
 				<h3 style="font-size:18px">{title} {if devos-author}by {devos-author}{/if}</h3>
-				<p style="margin-top:10px">
-					{exp:word_limit total="120"}
-						{devos-body}
-					{/exp:word_limit}
-					<br><br>
+				{exp:word_limit total="120"}
+					{devos-body}
+				{/exp:word_limit}
+				<br><br>
+				<p>
 					<a href="/devos/{url_title}" class="continueon"><strong>Continue Reading &nbsp;<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></strong></a>
 				</p>
 			{/exp:channel:entries}
@@ -50,17 +49,17 @@
 				>
 				            <input type="hidden" name="serializedData" value="eNpVj01PwzAMhv+Lz0Vr1279uE0CjSE4IU6MQ5q4racsqeqECU3777hsSHDz89ivrLdoy8KoWhXFKk3bLluvdKnSrFLl2uSVqs9AvJ18HPkVLepA3m2s9Sc00EAKCagrXW+geYdlXpRVCR8JdITWzC4TYOpdHB9RGZwkKkmOWiNzF+1fS/zgVGvRPHlyL7JXPd5eHf4ZEeFrnKeljE4db1JHDv640969TVbUEMLY7Bf7hexOZMIgTroKDUj9EATzfEaSiEBHE4e7H0ggMk47qVrndVYl0M8tn4kldP4t2sA9fnqGy+UbrKpmxQ==">
 
-            
+
 				    <label class="ez-lb" for="PhoneNumber">Phone Number</label><br>
 				    <input id="PhoneNumber" style="width:100%" class="ez-text" name="PhoneNumber" type="tel"
 				               value=""
 				               required="required" placeholder="(e.g. 2223334444 no dots)"
 				               pattern="^[2-9][0-9]{9}$" />
-							   
+
 
 					<button class="ez-button" type="submit" style="margin-left:0">Join Now</button>
 				</form>
-				
+
 				<small>Msg &amp; data rates may apply.<br>To unsubscribe, text STOP to 25827.</small>
 			</ul>
 		</div>
@@ -72,20 +71,15 @@
 		{if no_results}{redirect="devos"}{/if}
 		{embed="_includes/header" bar="{if segment_2==''}yes{if:else}no{/if}" title="{title} - Daily Devotionals"}
 		<link rel="alternate" type="application/rss+xml" title="{title} - JourneyChurch.tv" href="http://journeychurch.tv/blogs/feed"><script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher: "12217aef-f07e-464d-8757-03bfdb881858", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-		
-		<style type="text/css">
-			p {padding: 5px 0;}
-			h2 {color:#7f3e19}
-		</style>
-		
-		<div class="container clearfix">
+
+		<div id="devos" class="container clearfix">
 			<div class="grid_12">
 				<?php
 					$today = "{entry_date format='%F %j'}";
 					$backward = date($today,strtotime("-1 days"));
 				?>
 				{embed="_component/devos-nav" url="{segment_2}"}
-				
+
 				<div class="blog-title">
 					<h3>{if {entry_date format='%Y'} >= "1999"}{entry_date format="%F %j, %Y"}{/if}</h3>
 					<h2>{title}</h2>
@@ -98,7 +92,7 @@
 						<h4><a href="{devos-mp3}" target="_blank"><i class="fa fa-volume-up"></i></a> <a href="{devos-mp3}" target="_blank"><strong>LISTEN</strong></a></h4>
 					{/if}
 				</div>
-				
+
 				<div class="blog-entry">
 					{devos-body}
 					{if devo-prayer}
@@ -107,7 +101,7 @@
 						{devo-prayer}
 					{/if}
 				</div>
-				
+
 				<div class="blog-details">
 					<div class="blog-comments pull-right">
 						<span class='st_fblike_hcount' displayText='Facebook Like'></span>
@@ -115,7 +109,7 @@
 						<span class='st_twitter_hcount' displayText='Tweet'></span>
 					</div>
 				</div>
-				
+
 				<a href="/devos" id="full-only"><strong><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i> &nbsp; Main Devos Page</strong></a>
 			</div>
 			<div id="mobile-only" class="mobile-nav">
