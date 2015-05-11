@@ -85,14 +85,14 @@
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
-	-webkit-box-shadow: 
-        0px 1px 1px 0px rgba(0,0,0,0.3), 
+	-webkit-box-shadow:
+        0px 1px 1px 0px rgba(0,0,0,0.3),
         0px 1px 0px 1px rgba(0,0,0,0.5);
-	-moz-box-shadow: 
-        0px 1px 1px 0px rgba(0,0,0,0.3), 
+	-moz-box-shadow:
+        0px 1px 1px 0px rgba(0,0,0,0.3),
         0px 1px 0px 1px rgba(0,0,0,0.5);
-	box-shadow: 
-        0px 1px 1px 0px rgba(0,0,0,0.3), 
+	box-shadow:
+        0px 1px 1px 0px rgba(0,0,0,0.3),
         0px 1px 0px 1px rgba(0,0,0,0.5);
 	-webkit-transition: background 0.2s ease;
     -moz-transition: background 0.2s ease;
@@ -114,13 +114,13 @@
     -o-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
-	-webkit-box-reflect: 
+	-webkit-box-reflect:
         below 0px -webkit-gradient(
-            linear, 
-            left top, 
-            left bottom, 
-            from(transparent), 
-            color-stop(50%, transparent), 
+            linear,
+            left top,
+            left bottom,
+            from(transparent),
+            color-stop(50%, transparent),
             to(rgba(0,0,0,0.3))
             );
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -149,7 +149,7 @@
 		margin: 0;
 		position: relative;
 	}
-	
+
 	.boxes figure div.slide_content {
 		max-width: 100%;
 		display: block;
@@ -162,7 +162,7 @@
 		margin-top: 12px;
 		margin-right: 5px;
 	}
-	
+
 	.boxes figcaption {
 		position: absolute;
 		top: 0;
@@ -171,9 +171,9 @@
 		background-repeat: repeat;
 	}
 	.boxes figcaption p {
-		font-size:13px;
+		font-size: 13px;
 	}
-	
+
 	.boxes ul, .boxes menu {
 		-webkit-margin-before: 0;
 		-webkit-margin-after: 0;
@@ -185,7 +185,7 @@
 		-moz-margin-start: 0;
 		-moz-margin-end: 0;
 		-moz-padding-start: 0;
-		
+
 	}
 	.boxes a {text-decoration: none!important; color:#FFF;}
 	.boxes a:hover {text-decoration: none!important;}
@@ -223,8 +223,8 @@
 	.box5 {
 		background-color: #6B6B6B;
 	}
-	
-	
+
+
 /*// Individual Caption Styles //*/
 
 /* Caption Style 1 */
@@ -275,21 +275,21 @@
 .no-touch .cs-style-2 figure:hover div.slide_content,
 .cs-style-2 figure.cs-hover div.slide_content {
 	/*Change height of box lift */
-	-webkit-transform: translateY(-40px);
-	-moz-transform: translateY(-40px);
-	-ms-transform: translateY(-40px);
-	transform: translateY(-40px);
+	-webkit-transform: translateY(-30px);
+	-moz-transform: translateY(-30px);
+	-ms-transform: translateY(-30px);
+	transform: translateY(-30px);
 	-webkit-backface-visibility: hidden;
 }
 
 .cs-style-2 figcaption {
-	height: 40px;
+	height: 30px;
 	width: 100%;
 	top: auto;
 	bottom: 0;
 }
 .cs-style-2 figcaption p {
-	padding-top: 10px;
+	line-height: 30px;
 }
 
 /* Caption Style 3 */
@@ -1632,19 +1632,19 @@
 }
 
 @-webkit-keyframes fillToRight {
-	to { 
+	to {
 		width: 100%;
 	}
 }
 
 @-moz-keyframes fillToRight {
-	to { 
+	to {
 		width: 100%;
 	}
 }
 
 @keyframes fillToRight {
-	to { 
+	to {
 		width: 100%;
 	}
 }
@@ -1679,19 +1679,19 @@
 }
 
 @-webkit-keyframes emptyBottom {
-	to { 
+	to {
 		height: 100%;
 	}
 }
 
 @-moz-keyframes emptyBottom {
-	to { 
+	to {
 		height: 100%;
 	}
 }
 
 @keyframes emptyBottom {
-	to { 
+	to {
 		height: 100%;
 	}
 }
@@ -1721,10 +1721,10 @@
 	-webkit-animation: scaleFade 0.5s forwards;
 	-moz-animation: scaleFade 0.5s forwards;
 	animation: scaleFade 0.5s forwards;
-} 
+}
 
 @-webkit-keyframes scaleFade {
-	50% { 
+	50% {
 		opacity: 1;
 		-webkit-transform: scale(1);
 	}
@@ -1735,7 +1735,7 @@
 }
 
 @-moz-keyframes scaleFade {
-	50% { 
+	50% {
 		opacity: 1;
 		-moz-transform: scale(1);
 	}
@@ -1746,7 +1746,7 @@
 }
 
 @keyframes scaleFade {
-	50% { 
+	50% {
 		opacity: 1;
 		transform: scale(1);
 	}
@@ -1789,24 +1789,24 @@
 	-webkit-animation: dropDown 0.3s forwards;
 	-moz-animation: dropDown 0.3s forwards;
 	animation: dropDown 0.3s forwards;
-} 
+}
 
 @-webkit-keyframes dropDown {
-	to { 
+	to {
 		opacity: 1;
 		-webkit-transform: scale(1);
 	}
 }
 
 @-moz-keyframes dropDown {
-	to { 
+	to {
 		opacity: 1;
 		-moz-transform: scale(1);
 	}
 }
 
 @keyframes dropDown {
-	to { 
+	to {
 		opacity: 1;
 		transform: scale(1);
 	}
@@ -1839,36 +1839,36 @@
 	-webkit-animation: dropDownFade 0.5s forwards;
 	-moz-animation: dropDownFade 0.5s forwards;
 	animation: dropDownFade 0.5s forwards;
-} 
+}
 
 @-webkit-keyframes dropDownFade {
-	50% { 
+	50% {
 		opacity: 1;
 		-webkit-transform: scale(1);
 	}
-	100% { 
+	100% {
 		opacity: 0;
 		-webkit-transform: scale(1.5);
 	}
 }
 
 @-moz-keyframes dropDownFade {
-	50% { 
+	50% {
 		opacity: 1;
 		-moz-transform: scale(1);
 	}
-	100% { 
+	100% {
 		opacity: 0;
 		-moz-transform: scale(1.5);
 	}
 }
 
 @keyframes dropDownFade {
-	50% { 
+	50% {
 		opacity: 1;
 		transform: scale(1);
 	}
-	100% { 
+	100% {
 		opacity: 0;
 		transform: scale(1.5);
 	}
@@ -1923,7 +1923,7 @@
 		-webkit-transform: translateY(50%);
 		opacity: 0;
 	}
-	100% { 
+	100% {
 		opacity: 1;
 		-webkit-transform: translateY(0);
 	}
@@ -1934,7 +1934,7 @@
 		-moz-transform: translateY(50%);
 		opacity: 0;
 	}
-	100% { 
+	100% {
 		opacity: 1;
 		-moz-transform: translateY(0);
 	}
@@ -1945,7 +1945,7 @@
 		transform: translateY(50%);
 		opacity: 0;
 	}
-	100% { 
+	100% {
 		opacity: 1;
 		transform: translateY(0);
 	}
@@ -1992,7 +1992,7 @@
 		-webkit-transform: scale(0);
 		opacity: 0;
 	}
-	100% { 
+	100% {
 		opacity: 1;
 		-webkit-transform: scale(1);
 	}
@@ -2003,7 +2003,7 @@
 		-moz-transform: scale(0);
 		opacity: 0;
 	}
-	100% { 
+	100% {
 		opacity: 1;
 		-moz-transform: scale(1);
 	}
@@ -2014,7 +2014,7 @@
 		transform: scale(0);
 		opacity: 0;
 	}
-	100% { 
+	100% {
 		opacity: 1;
 		transform: scale(1);
 	}
@@ -2025,7 +2025,7 @@
 	position: relative;
 	max-width: 320px;
 	margin: 60px auto 0;
-} 
+}
 
 .trash-effect .icon-file {
 	font-size: 30px;
@@ -2110,7 +2110,7 @@
 	50% {
 		-webkit-transform: rotate(-35deg);
 	}
-	100% { 
+	100% {
 		-webkit-transform: rotate(0deg);
 	}
 }
@@ -2119,7 +2119,7 @@
 	50% {
 		-moz-transform: rotate(-35deg);
 	}
-	100% { 
+	100% {
 		-moz-transform: rotate(0deg);
 	}
 }
@@ -2128,7 +2128,7 @@
 	50% {
 		transform: rotate(-35deg);
 	}
-	100% { 
+	100% {
 		transform: rotate(0deg);
 	}
 }
@@ -2384,4 +2384,3 @@
 	transform-origin: 50% 0%;
 	transform: rotateX(90deg) translateY(-100%);
 }
-
