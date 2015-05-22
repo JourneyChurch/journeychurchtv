@@ -1,13 +1,5 @@
 </head>
-<!-- We're looking for a developer!
-It looks like you might qualify. You'd be perfect if you:
-	have 2+ years experience building websites
-	know what ExpressionEngine is and how it operates
-	are proficient in HTML, CSS, Javascript, PHP
-	have knowledge of Git and know how to navigate Route 53
-	love Jesus and want to serve the Church in Central Oklahoma
 
-Email creativejobs [at] JourneyChurch.tv -->
 <body>
 	<div id="wrapper">
 		{!-- Full Page Top --}
@@ -19,7 +11,7 @@ Email creativejobs [at] JourneyChurch.tv -->
 				{if:else}
 					<div id="countdown_contain"></div>
 				{/if}
-				
+
 				{if embed:bar == 'yes'}
 					<div class="bar-enabled">
 				{if:elseif segment_1 == "calendar"}
@@ -60,7 +52,7 @@ Email creativejobs [at] JourneyChurch.tv -->
 						<p><a href="/team/">Our Team</a></p>
 						<p><a href="/team/pastors/">Demographic Pastors</a></p>
 						<p><a href="/new">New to JourneyChurch?</a></p>
-						
+
 					</div>
 				</div>
 			</div>
@@ -71,7 +63,7 @@ Email creativejobs [at] JourneyChurch.tv -->
 					</div>
 					<div class="grid_8">
 						<p>JourneyChurch is a community filled with opportunity to get involved and connect with others. We'd love to help you get connected in a big way! We have created many different and unique connection opportunities, but the best way to engage in community quickly is to do these three things:<br><br>
-							
+
 							<strong>1. &nbsp;Attend a worship experience each weekend.</strong><br>
 							<strong>2. Join a small group</strong><br>
 							<strong>3. Sign up to serve</strong>
@@ -88,10 +80,10 @@ Email creativejobs [at] JourneyChurch.tv -->
 					</div>
 				</div>
 			</div>
-		</div> 
-		
+		</div>
+
 		{!-- Full Screen JS --}
-    	<script type="text/javascript">			
+    	<script type="text/javascript">
 			// Countdown
 			$(document).ready(function() {
 				$.ajax({
@@ -100,19 +92,19 @@ Email creativejobs [at] JourneyChurch.tv -->
 						$("#countdown_contain").html(data);
 					}
 				});
-				
+
 				// // Navigation
-				
+
 				var id = ""; // Subnav to show
 
 				// Listen to all movement within nav items to update subnav
-				$('.nav-main li').click(function() {						
+				$('.nav-main li').click(function() {
 					// Find all sub nav items that isn't 1 opening
 					id = $(this).attr('id');
-					// Set the subnav to show regardless of whether animation in progress	
+					// Set the subnav to show regardless of whether animation in progress
 					var visible_subnav = ".nav-sub:not('#" + id + "-c'):visible";
-																	
-					// If animation in progress don't change things 
+
+					// If animation in progress don't change things
 					if (!$(visible_subnav).is(":animated")) {
 						// If no subnav being shown
 						if ($(visible_subnav).length == 0) {
@@ -126,15 +118,15 @@ Email creativejobs [at] JourneyChurch.tv -->
 						}
 					}
 				});
-				
+
 				$('#navigation').mouseleave(function() {
 					$(".nav-sub:not('#" + $(this).attr('id') + "-c'):visible").slideUp(200);
 				});
-				
-				
+
+
 			});
     	</script>
-		
+
 		{!-- Mobile Top --}
 		<div id="mobile">
 			<div id="mobile-top">
@@ -163,7 +155,7 @@ Email creativejobs [at] JourneyChurch.tv -->
 		</div>
 
 		<div class="clear"></div>
-		
+
 		{if !embed:bar}
 			<div class="bar-empty">
 		{/if}
