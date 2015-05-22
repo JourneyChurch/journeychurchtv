@@ -1,8 +1,3 @@
-/*
-Responsive 996px grid system ~ Style CSS.
-Copyright 2013, Josh Cope
-*/
-
 /* Site Colors
 Green:	#989d00
 Blue:	#006f7c
@@ -683,7 +678,7 @@ ul.side-nav {
 			text-align: center;
 			padding: 10px 5px;
 		}
-		
+
 	/* Freedom */
 	@media only screen and (min-width: 768px) {
 		.kairos {
@@ -978,6 +973,22 @@ h2.pastorclark span {
 		color: #7f3e19;
 		padding-bottom: 5px;
 }
+#devos blockquote {
+	margin: 30px 0;
+}
+#devos h2 {
+	color:#7f3e19;
+	padding: 10px 0;
+}
+#devos .blog-title h2 {
+	padding-bottom: 0;
+}
+#devos p {
+	padding: 5px 0;
+}
+#devos .blog-entry {
+	padding-top: 0;
+}
 .blog-entry blockquote, blockquote {
 	font-family: 'aleoregular',Georgia,serif;
 	text-align: center;
@@ -1185,7 +1196,7 @@ h2.pastorclark span {
 		padding: 0 10px;
 		text-align: center;
 	}
-	
+
 .easter_6 {
 	height: auto;
 	width: 100%;
@@ -1611,12 +1622,18 @@ h4.easterfont {
 	box-shadow: 0px 10px 12px #676B00;
 }
 
+#emergency_alert {
+	margin-top:60px;color:#fff;width:100%;text-align:center;font-size:36px
+}
 @media (max-width: 767px) {
 	#household .mobileapp {
 		display: block;
 	}
 	#household .webapp {
 		display: none;
+	}
+	#emergency_alert {
+		font-size:16px;margin-top:0;padding-top:15px;
 	}
 }
 @media (min-width: 768px) {
@@ -1626,4 +1643,4 @@ h4.easterfont {
 	#household .webapp {
 		display: block;
 	}
-	
+}
