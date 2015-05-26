@@ -1,0 +1,181 @@
+/*
+  Colors: Green - #989d00
+*/
+@font-face {
+  font-family: 'arvil_sans';
+  src: url('/_font/arvil_sans-webfont.eot'); /* IE9 Compat Modes */
+  src: url('/_font/arvil_sans-webfont?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/arvil_sans-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/arvil_sans-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/arvil_sans-webfont#svgFontName') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family: 'bravoRG';
+  src: url('/_font/aleo-light-webfont.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'aleolight';
+  src: url('/_font/aleo-light-webfont.eot');
+  src: url('/_font/aleo-light-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/_font/aleo-light-webfont.woff') format('woff'),
+       url('/_font/aleo-light-webfont.ttf') format('truetype'),
+       url('/_font/aleo-light-webfont.svg#aleolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'aleoregular';
+    src: url('/_font/aleo-regular-webfont.eot');
+    src: url('/_font/aleo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/_font/aleo-regular-webfont.woff') format('woff'),
+         url('/_font/aleo-regular-webfont.ttf') format('truetype'),
+         url('/_font/aleo-regular-webfont.svg#aleoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'aleobold';
+    src: url('/_font/aleo-bold-webfont.eot');
+    src: url('/_font/aleo-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/_font/aleo-bold-webfont.woff') format('woff'),
+         url('/_font/aleo-bold-webfont.ttf') format('truetype'),
+         url('/_font/aleo-bold-webfont.svg#aleobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'SocialGothic';
+	src: url('/_font/social-gothic.eot');
+	src: url('/_font/social-gothic.eot?#iefix') format('embedded-opentype'),
+	     url('/_font/social-gothic.woff') format('woff'),
+	     url('/_font/social-gothic.ttf') format('truetype'),
+	     url('/_font/social-gothic.svg#ywftsvg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+html {
+  background: #ffffff url('/_img/roadtrip/ROAD.jpg') no-repeat fixed right bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.separator {
+  height:100px;
+}
+
+#header h1 {
+  font-family:'arvil_sans';
+  color:white;
+  font-size:6em;
+  font-weight:100;
+  text-align:center;
+}
+
+.month h1 {
+  font-family:'arvil_sans';
+  color:white;
+  font-size:6em;
+  font-weight:100;
+}
+
+.events {
+  background-color:rgba(255, 255, 255, 1);
+  padding:15px 15px;
+}
+
+.events ul {
+  list-style-type:none;
+}
+
+.events ul li {
+  font-family:'bravoRG';
+  color:#989d00;
+  font-size:1.35em;
+  font-weight:100;
+  padding:10px 0;
+  padding-left:17px;
+}
+
+.events ul li a {
+  text-decoration:none;
+  color:#989d00;
+}
+
+.events ul li a h2 {
+  color:#989d00;
+}
+
+.events ul li:hover {
+  background-color:#989d00;
+}
+
+.events ul li:hover a {
+  color:white;
+}
+
+.events ul li:hover a h3 {
+  color:white;
+}
+
+.events ul li h3 {
+  font-family:'arvil_sans';
+  color:black;
+  display:inline;
+}
+
+#young_adult_pic {
+  width:95%;
+  height:200px;
+  margin:30px auto 0 auto;
+  background-image:url('/_img/YAE_photo.jpg');
+  background-size:cover;
+}
+
+#weekly_events h1 {
+  display:inline-block;
+  width:400px;
+  margin-left:-130px;
+  margin-bottom:50px;
+}
+
+#weekly_events .month {
+  margin-top:70px;
+}
+
+#may .events {
+  height:300px;
+}
+
+#may .month h1, #july .month h1 {
+  transform:rotate(-90deg);
+}
+
+#may .events, #july .events{
+  text-align:left;
+  padding-left:17px;
+  border-left:4px solid #989d00;
+}
+
+#june .month h1, #august .month h1 {
+  transform:rotate(90deg);
+}
+
+#june .events, #august .events{
+  text-align:left;
+  padding-left:17px;
+  border-right:4px solid #989d00;
+  border-left:none;
+}
