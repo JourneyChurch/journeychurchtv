@@ -36,7 +36,7 @@ are revving up for a HUGE month to kick-off 2014. We offer many opportunities fo
 			<div class="clear"></div>
 		</div>
 	</div>
-	
+
 	<div class="clear"></div>
 </div>
 <div class="fc-calendar-fullscreen">
@@ -116,7 +116,7 @@ are revving up for a HUGE month to kick-off 2014. We offer many opportunities fo
 </div>
 
 <script type="text/javascript" src="/_js/acs/jquery.calendario.js"></script>
-<script type="text/javascript">	
+<script type="text/javascript">
 	$(function() {
 		var cal = $( '#calendar' ).calendario( {
 			onDayClick : function( $el, $contentEl, dateProperties ) {
@@ -125,12 +125,12 @@ are revving up for a HUGE month to kick-off 2014. We offer many opportunities fo
 				}
 			},
 			displayWeekAbbr : true,
-			startIn : 0			
+			startIn : 0
 		});
-		
+
 		$month = $( '#custom-month' ).html( cal.getMonthName() );
 		$year = $( '#custom-year' ).html( cal.getYear() );
-		
+
 		// Set the title window to current month name
 		window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
 
@@ -147,7 +147,7 @@ are revving up for a HUGE month to kick-off 2014. We offer many opportunities fo
 		$( '#custom-current' ).on( 'click', function() {
 			cal.gotoNow( updateMonthYear );
 		});
-		
+
 		function checkSpecialMonths() {
 			if (cal.getMonthName() == "January" && cal.getYear() == "2014") {
 	   			$('.custom-calendar-full h2').hide();
@@ -169,7 +169,7 @@ are revving up for a HUGE month to kick-off 2014. We offer many opportunities fo
 				$('link[rel=stylesheet][href~="/_css/giantJanuary.css"]').remove();
 				$('link[rel=stylesheet][href~="/_css/onesweetsummer.css"]').remove();
 			}
-			
+
 			if (cal.getMonthName() == "June" && cal.getYear() == "2014") {
 				$(".custom-month").css("color", "#f05032");
 				$(".fc-day_holder").css("backgroundColor", "#f05032");
@@ -190,19 +190,19 @@ are revving up for a HUGE month to kick-off 2014. We offer many opportunities fo
 			}
 		}
 
-		function updateMonthYear() {				
+		function updateMonthYear() {
 			$month.html( cal.getMonthName() );
 			$year.html( cal.getYear() );
 			// Update the window title to current month name
 			window.parent.document.title = cal.getMonthName() + " - JourneyChurch.tv";
-			
+
 			UpdateCalendar();
 		}
-		
+
 		function UpdateCalendar() {
-			$.getJSON("/_scripts/acs/get_events.php", {month: cal.getMonthName(), year: cal.getYear()}, function(data) {			
+			$.getJSON("/_scripts/acs/get_events.php", {month: cal.getMonthName(), year: cal.getYear()}, function(data) {
 				cal.setData(data);
-				
+
 			});
 		}
 	});
