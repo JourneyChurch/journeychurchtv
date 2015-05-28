@@ -408,8 +408,8 @@ button {
   }
 
   #explain h1 {
-    padding:0 20px;
-    width:90%;
+    padding:0 25px;
+    font-size:2.75em;
   }
 
   .blast h1 {
