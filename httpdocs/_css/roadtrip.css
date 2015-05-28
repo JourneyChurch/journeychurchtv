@@ -398,8 +398,8 @@ button {
 
 /* Mobile */
 @media screen and (max-width:767px) {
-  #html {
-    background-size:100% auto !important;
+  html {
+    background-size:4500px 5526px;
   }
 
   #header {
