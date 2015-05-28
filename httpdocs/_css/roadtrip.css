@@ -72,7 +72,7 @@
 
 /* Background */
 html {
-  background: #ffffff url('/_img/roadtrip/ROAD.jpg') no-repeat fixed right bottom;
+  background: #ffffff url('/_img/roadtrip/ROAD_optimized.jpg') no-repeat fixed right bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -271,6 +271,10 @@ html {
   font-weight:normal;
 }
 
+.events ul li a:active {
+  text-decoration:underline;
+}
+
 /*
 #young_adult_pic {
   width:95%;
@@ -315,6 +319,82 @@ html {
   border-left:4px solid #989d00;
 }
 
+/* Footer */
+#footer {
+  background-image: url(/_img/bg-texture.jpg);
+  background-repeat: repeat;
+}
+
+button {
+  margin: 10px;
+  padding: 8px 15px;
+  background: #006f7c;
+  border: 1px solid #006f7c;
+  border-radius: 1px;
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size:12px;
+}
+
+#footer button {
+  float: left;
+  display: inline-block;
+  transition: background 0.3s ease-out;
+}
+
+#footer button:hover {
+  background-color:#7f3e19;
+  transition:all 0.3s ease-out;
+}
+
+#footer ul {
+  margin-top: 22px;
+}
+#footer ul > li {
+  float: left;
+  list-style: none;
+  color: #FFF;
+  padding: 0 10px;
+}
+#footer ul > li a {
+  color: #fff;
+  font-size: 14px;
+}
+#footer .rights {
+  color: #FFFFFF;
+  border-top: 1px solid #b2b4b1;
+  font-size: 10px;
+  padding: 10px 0;
+}
+#footer .footer-social {
+  text-align: right;
+}
+#footer .footer-social i {
+  font-size: 24px;
+  padding: 0 5px;
+}
+#footer .footer-social a, #footer .footer-social a:hover, #footer .footer-social a:active {
+  color: #fff;
+  text-decoration: none!important;
+}
+
+#footer a {
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+  font-weight: 300;
+  font-style: normal;
+  height: 100%;
+  color: #fff;
+  text-decoration: none!important;
+}
+
+#footer a:hover {
+  text-decoration: underline !important;
+}
 
 /* Mobile */
 @media screen and (max-width:767px) {
@@ -342,10 +422,34 @@ html {
   }
 
   #blast_1:hover, #blast_5:hover, #blast_9:hover {
-    background-color:#989d00;
+    background-color:#989d00 !important;
   }
 
   #blast_1:hover h1:first-child, #blast_5:hover h1:first-child, #blast_9:hover h1:first-child {
+    display:block;
+  }
+
+  #blast_2:hover, #blast_6:hover, #blast_10:hover {
+    background-color:#006f7c !important;
+  }
+
+  #blast_2:hover h1:first-child, #blast_6:hover h1:first-child, #blast_10:hover h1:first-child {
+    display:block;
+  }
+
+  #blast_3:hover, #blast_7:hover {
+    background-image:url('/_img/bg-texture.jpg');
+  }
+
+  #blast_3:hover h1:first-child, #blast_7:hover h1:first-child {
+    display:block;
+  }
+
+  #blast_4:hover, #blast_8:hover {
+    background-color:#7f3e19 !important;
+  }
+
+  #blast_4:hover h1:first-child, #blast_8:hover h1:first-child {
     display:block;
   }
 
@@ -368,6 +472,7 @@ html {
   #weekly_events h1 {
     margin-left:auto !important;
     margin-bottom:0 !important;
+    margin-top:0;
     width:100% !important;
   }
 
