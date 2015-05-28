@@ -1,5 +1,8 @@
 /*
   Colors: Green - #989d00
+          Blue - #006f7c
+          Grey Texture: background-image:url('/_img/bg-texture.jpg');
+          Rust - #7f3e19;
 */
 @font-face {
   font-family: 'arvil_sans';
@@ -14,7 +17,7 @@
 
 @font-face {
   font-family: 'bravoRG';
-  src: url('/_font/aleo-light-webfont.otf');
+  src: url('/_font/BravoRG.otf');
   font-weight: normal;
   font-style: normal;
 }
@@ -104,6 +107,19 @@ html {
   margin-bottom:0;
 }
 
+#explain {
+  background-color:white;
+}
+
+#explain h1 {
+  color:#989d00;
+  font-family:'bravoRG';
+  font-size:3em;
+  font-weight:100;
+  padding:0 35px;
+  line-height:1em;
+}
+
 #ten_ways h2 {
   font-family:'arvil_sans';
   color:white;
@@ -113,7 +129,7 @@ html {
 }
 
 .blast {
-  height:180px;
+  height:170px;
   background-color:#989d00;
 }
 
@@ -123,6 +139,7 @@ html {
   color:white;
   font-size:4em;
   font-weight:100;
+  line-height:1em;
 }
 
 .blast h1:nth-child(2) {
@@ -130,7 +147,7 @@ html {
 }
 
 .blast:hover {
-  background-color:white;
+  background-color:white !important;
 }
 
 .blast:hover h1:first-child {
@@ -140,6 +157,44 @@ html {
 .blast:hover h1:nth-child(2) {
   display:block;
   color:#989d00;
+}
+
+#blast_2 h1:nth-child(2), #blast_3 h1:nth-child(2), #blast_5 h1:nth-child(2), #blast_9 h1:nth-child(2), #blast_10 h1:nth-child(2) {
+  margin-top:20px;
+}
+
+#blast_6 h1:nth-child(2) {
+  margin-top:2px;
+  font-size:3.5em;
+}
+
+#blast_2, #blast_6, #blast_10 {
+  background-color:#006f7c;
+}
+
+#blast_2 h1:nth-child(2), #blast_6 h1:nth-child(2), #blast_10 h1:nth-child(2) {
+  color:#006f7c;
+}
+
+#blast_3, #blast_7 {
+  background-image:url('/_img/bg-texture.jpg');
+}
+
+#blast_3 h1:nth-child(2), #blast_7 h1:nth-child(2) {
+  color:grey;
+}
+
+#blast_3:hover, #blast_7:hover {
+  background-color:white;
+  background-image:none;
+}
+
+#blast_4, #blast_8 {
+  background-color:#7f3e19;
+}
+
+#blast_4 h1:nth-child(2), #blast_8 h1:nth-child(2) {
+  color:#7f3e19;
 }
 
 #schedule h2 {
@@ -167,7 +222,7 @@ html {
 }
 
 .events ul li {
-  font-family:'bravoRG';
+  font-family:'aleolight';
   color:#989d00;
   font-size:1.35em;
   font-weight:100;
@@ -225,11 +280,13 @@ html {
   margin-top:70px;
 }
 
+/*
 #may .events {
   height:300px;
 }
+*/
 
-#may .month h1, #july .month h1 {
+.month h1 {
   transform:rotate(-90deg);
   -ms-transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
@@ -237,23 +294,8 @@ html {
   -o-transform: rotate(-90deg);
 }
 
-#may .events, #july .events{
+.events {
   text-align:left;
   padding-left:17px;
   border-left:4px solid #989d00;
-}
-
-#june .month h1, #august .month h1 {
-  transform:rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-}
-
-#june .events, #august .events{
-  text-align:left;
-  padding-left:17px;
-  border-right:4px solid #989d00;
-  border-left:none;
 }
