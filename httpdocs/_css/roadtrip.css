@@ -355,6 +355,10 @@ html {
 
   .month h1 {
     transform:none;
+    -ms-transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
     display:block;
     text-align:center;
     margin-bottom:0;
