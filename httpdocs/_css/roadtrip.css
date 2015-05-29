@@ -133,7 +133,8 @@ html {
 
 #explain a {
   color:#006f7c;
-  word-wrap:break-word;
+  width:90%;
+  word-wrap:break-word !important;
 }
 
 
