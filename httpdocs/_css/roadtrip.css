@@ -411,6 +411,10 @@ button {
 
 /* Tablet */
 @media screen and (max-width:1024px) {
+  html {
+    background-position:left center !important;
+  }
+
   .blast h1 {
     font-size:2.5em !important;
     line-height:0.8em !important;
