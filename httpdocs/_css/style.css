@@ -691,6 +691,18 @@ ul.side-nav {
 		}
 	}
 
+	/* Freedom */
+	@media only screen and (min-width: 768px) {
+		.kairos {
+			width: 50%;
+		}
+		.equip_classes {
+			width: 60%;
+			margin-top: 30px;
+			margin-bottom: 40px;
+		}
+	}
+
 /* Groups */
 .groups-logo {
 	margin-bottom: 30px;
@@ -798,10 +810,17 @@ ul.side-nav {
 	background-color: #b2b4b1;
 	min-height: 174px;
 }
+.media-viewall-small {
+	min-height: 127.313px;
+	height: 127.313px;
+}
 .media-viewall h2 {
 	color: #fff;
 	text-align: center;
 	line-height: 165px;
+}
+.media-viewall-small h2 {
+	line-height: 135px;
 }
 .media-viewall a:hover, .media-viewall a:focus, .media-viewall a:active, .media-viewall a:visited {
 	text-decoration: none!important;
@@ -1176,6 +1195,37 @@ h2.pastorclark span {
 		color: #fff;
 		padding: 0 10px;
 		text-align: center;
+	}
+
+.easter_6 {
+	height: auto;
+	width: 100%;
+}
+	.easter_6-container {
+		border-top: #231f20 15px solid;
+		background: url(/_img/easter/easter_6.jpg);
+		display: block;
+		/*height: 100%;*/
+		padding: 50px 0;
+	}
+	.easter_6 h2 {
+		color: #fff;
+		text-shadow: #031a5b 0px 1px 10px;
+	}
+	.easter_6 p {
+		color: #fff;
+		font-size: 20px;
+		text-shadow: #031a5b 0px 1px 10px;
+	}
+	.easter_6 button {
+		background-color: #fff;
+		color: #006f7c;
+		margin-left: 0;
+	}
+	.easter_6 button:hover {
+		background-color: #006f7c;
+		color: #fff;
+		margin-left: 0;
 	}
 
 .easter_6 {
