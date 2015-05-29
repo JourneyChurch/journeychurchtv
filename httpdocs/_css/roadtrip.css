@@ -76,6 +76,7 @@ html {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  -ms-background-size:cover;
   background-size: cover;
 }
 
@@ -398,10 +399,6 @@ button {
 
 /* Mobile */
 @media screen and (max-width:767px) {
-  html {
-    background-position:left center;
-  }
-
   #header {
     border:none;
     margin-bottom:60px;
