@@ -542,7 +542,7 @@ button {
     display:block !important;
   }
 
-  #footer .footer-social a[href]:after {
+  #footer .footer-social a[href]:after, #explain a[href]:after {
     content: " (" attr(href) ")" !important;
   }
 }
