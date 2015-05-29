@@ -92,6 +92,7 @@ html {
 
 
 /* Header */
+
 #header {
   border:4px solid white;
 }
@@ -397,24 +398,21 @@ button {
   text-decoration: underline !important;
 }
 
-/* Mobile */
-@media screen and (max-width:767px) {
+/* Tablet */
+@media screen and (max-width:1280px) {
   html {
-    background-position:center bottom;
+    background-image:none;
+    background-color:grey;
   }
 
-  #header {
-    border:none;
-    margin-bottom:60px;
+  #header_wrapper {
+    background-color:#989d00;
+    height:975px;
   }
 
-  .separator, .blast_separator {
-    display:none;
-  }
-
-  #explain h1 {
-    padding:0 25px;
-    font-size:2.5em;
+  #schedule_wrapper {
+    background-color:#006f7c;
+    margin-top:50px;
   }
 
   .blast h1 {
@@ -462,6 +460,28 @@ button {
   #blast_4:hover h1:first-child, #blast_8:hover h1:first-child {
     display:block;
   }
+}
+
+/* Mobile */
+@media screen and (max-width:767px) {
+  #header_wrapper {
+    height:auto;
+    padding-bottom:100px;
+  }
+
+  #header {
+    border:none;
+    margin-bottom:60px;
+  }
+
+  .separator, .blast_separator {
+    display:none;
+  }
+
+  #explain h1 {
+    padding:0 25px;
+    font-size:2.5em;
+  }
 
   #schedule h2 {
     margin-bottom:0;
@@ -501,5 +521,9 @@ button {
 
   .events ul li {
     padding-right:15px;
+  }
+
+  #footer {
+    margin:0 !important;
   }
 }
