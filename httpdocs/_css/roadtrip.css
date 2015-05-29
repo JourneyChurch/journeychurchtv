@@ -2,7 +2,7 @@
   Colors: Green - #989d00
           Blue - #006f7c
           Grey Texture: background-image:url('/_img/bg-texture.jpg');
-          Rust - #7f3e19;
+          Brown - #592B12;
 */
 
 
@@ -140,7 +140,7 @@ html {
 
 /* Ten Ways To Have A Blast */
 #ten_ways h2 {
-  font-family:'arvil_sans';
+  font-family:'arvil_sans', arial;
   color:white;
   font-size:5em;
   font-weight:100;
@@ -154,7 +154,7 @@ html {
 
 .blast h1 {
   text-align:center;
-  font-family:'arvil_sans';
+  font-family:'arvil_sans', arial;
   color:white;
   font-size:4em;
   font-weight:100;
@@ -209,7 +209,7 @@ html {
 }
 
 #blast_4, #blast_8 {
-  background-color:#7f3e19;
+  background-color:#592B12;
 }
 
 #blast_4 h1:nth-child(2), #blast_8 h1:nth-child(2) {
@@ -219,7 +219,7 @@ html {
 
 /* Upcoming Events */
 #schedule h2 {
-  font-family:'arvil_sans';
+  font-family:'arvil_sans', arial;
   color:white;
   font-size:5em;
   font-weight:100;
@@ -227,7 +227,7 @@ html {
 }
 
 .month h1 {
-  font-family:'arvil_sans';
+  font-family:'arvil_sans', arial;
   color:white;
   font-size:6em;
   font-weight:100;
@@ -243,7 +243,7 @@ html {
 }
 
 .events ul li {
-  font-family:'aleolight';
+  font-family:'aleolight', arial;
   color:#989d00;
   font-size:1.35em;
   font-weight:100;
@@ -273,7 +273,7 @@ html {
 }
 
 .events ul li h3 {
-  font-family:'arvil_sans';
+  font-family:'arvil_sans', arial;
   color:black;
   display:inline;
   font-weight:normal;
@@ -460,7 +460,7 @@ button {
   }
 
   #blast_4:hover, #blast_8:hover {
-    background-color:#7f3e19 !important;
+    background-color:#592B12 !important;
   }
 
   #blast_4:hover h1:first-child, #blast_8:hover h1:first-child {
