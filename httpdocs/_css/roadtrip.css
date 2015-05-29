@@ -410,23 +410,7 @@ button {
 }
 
 /* Tablet */
-@media screen and (max-width:1280px) {
-  /*
-  html {
-    background-image:none;
-    background-color:grey;
-  }
-
-  #header_wrapper {
-    background-color:#989d00;
-    height:975px;
-  }
-
-  #schedule_wrapper {
-    background-color:#006f7c;
-    margin-top:50px;
-  }
-
+@media screen and (max-width:1024px) {
   .blast h1 {
     font-size:2.5em !important;
     line-height:0.8em !important;
@@ -472,7 +456,6 @@ button {
   #blast_4:hover h1:first-child, #blast_8:hover h1:first-child {
     display:block;
   }
-  */
 }
 
 /* Mobile */
