@@ -129,7 +129,13 @@ html {
   padding:0 35px;
   line-height:1em;
   text-transform:uppercase;
-  width:95%;
+}
+
+#explain a {
+  font-size:1em;
+  color:#006f7c;
+  text-align:center;
+  margin:0 auto;
 }
 
 
