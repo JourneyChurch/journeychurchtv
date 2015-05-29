@@ -475,6 +475,67 @@ button {
 
 /* Mobile */
 @media screen and (max-width:767px) {
+  html {
+    background-image:none;
+    background-color:grey;
+  }
+
+  #header_wrapper {
+    background-color:#989d00;
+    height:975px;
+  }
+
+  #schedule_wrapper {
+    background-color:#006f7c;
+    margin-top:50px;
+  }
+
+  .blast h1 {
+    font-size:2.5em !important;
+    line-height:0.8em !important;
+  }
+
+  .blast h1:first-child {
+    margin-top:30px;
+  }
+
+  .blast h1:nth-child(2) {
+    display:block;
+    color:white !important;
+  }
+
+  #blast_1:hover, #blast_5:hover, #blast_9:hover {
+    background-color:#989d00 !important;
+  }
+
+  #blast_1:hover h1:first-child, #blast_5:hover h1:first-child, #blast_9:hover h1:first-child {
+    display:block;
+  }
+
+  #blast_2:hover, #blast_6:hover, #blast_10:hover {
+    background-color:#006f7c !important;
+  }
+
+  #blast_2:hover h1:first-child, #blast_6:hover h1:first-child, #blast_10:hover h1:first-child {
+    display:block;
+  }
+
+  #blast_3:hover, #blast_7:hover {
+    background-image:url('/_img/bg-texture.jpg');
+  }
+
+  #blast_3:hover h1:first-child, #blast_7:hover h1:first-child {
+    display:block;
+  }
+
+  #blast_4:hover, #blast_8:hover {
+    background-color:#592B12 !important;
+  }
+
+  #blast_4:hover h1:first-child, #blast_8:hover h1:first-child {
+    display:block;
+  }
+
   #header_wrapper {
     height:auto;
     padding-bottom:100px;
