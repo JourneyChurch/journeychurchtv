@@ -222,10 +222,6 @@ html {
   color:#989d00;
 }
 
-.events ul li a h2 {
-  color:#989d00;
-}
-
 .events ul li:hover {
   background-color:#989d00;
 }
@@ -249,18 +245,13 @@ html {
   text-decoration:underline;
 }
 
-/*
-#young_adult_pic {
-  width:95%;
-  height:200px;
-  margin:30px auto 0 auto;
-  background-image:url('/_img/YAE_photo_optimized.jpg');
-  background-size:cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.events ul li a ul li, .events ul li a ul li h3 {
+  font-size:1em;
 }
-*/
+
+.events ul li:hover a ul li, .events ul li:hover a ul li h3 {
+  color:white;
+}
 
 #weekly_events h1 {
   display:inline-block;
@@ -272,12 +263,6 @@ html {
 #weekly_events .month {
   margin-top:70px;
 }
-
-/*
-#may .events {
-  height:300px;
-}
-*/
 
 .month h1 {
   transform:rotate(-90deg);
