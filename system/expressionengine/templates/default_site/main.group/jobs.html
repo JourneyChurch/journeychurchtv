@@ -10,9 +10,11 @@
 </div>
 
 <div class="container clearfix">
-	<div class="grid_12 fancy-page">
-		{exp:channel:entries channel="Pages" url_title="jobs" limit="1"}
-			{page-body}
+	<div class="grid_12">
+		{exp:channel:entries channel="Jobs"}
+			<h2 style="color:#006f7c">{title} ({job_hours})</h2>
+			{job_body}
+			Interested? Submit your reel and résumé to <a href="mailto:creative@journeychurch.tv">creative@journeychurch.tv</a>.
 		{/exp:channel:entries}
 	</div>
 </div>
