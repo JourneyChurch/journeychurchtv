@@ -429,6 +429,10 @@ button {
     border:none;
   }
 
+  #header h2 {
+    font-size:4em;
+  }
+
   .separator, .blast_separator {
     display:none;
   }
