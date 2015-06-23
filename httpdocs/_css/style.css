@@ -882,6 +882,10 @@ ul.side-nav {
 	min-height: 300px;
 }
 
+.stories img {
+	margin-bottom:10px;
+}
+
 /* Opportunities */
 #ACSopps h3 {
 	font-weight: 700;

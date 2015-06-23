@@ -95,21 +95,39 @@
 		<div class="clear"></div>
 
 		<hr>
-		<div class="grid_12">
+		<div class="grid_6">
 			<h2>Lifestream</h2>
-		</div>
-		
-		{exp:channel:entries channel="series" category="37" sort="desc" orderby="series-end" dynamic="no" limit="5"}
-			<div class="grid_4 series">
-				<a href="/study/{url_title}">
-					{if series-img}<img src="{series-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+			{exp:channel:entries channel="series" category="37" sort="desc" orderby="series-end" dynamic="no" limit="5"}
+				<div class="grid_3 series alpha">
+					<a href="/study/{url_title}">
+						{if series-img}<img src="{series-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
+					</a>
+				</div>
+			{/exp:channel:entries}
+			<div class="grid_3 series media-viewall media-viewall-small alpha">
+				<a href="/study/lifestream">
+					<h2>View All <i class="fa fa-chevron-right"></i></h2>
 				</a>
 			</div>
-		{/exp:channel:entries}
-		<div class="grid_4 series media-viewall">
-			<a href="/study/lifestream">
-				<h2>View All <i class="fa fa-chevron-right"></i></h2>
-			</a>
+		</div>
+		<div class="grid_6">
+			<h2>Stories</h2>
+			{exp:channel:entries channel="media" category="4" sort="desc" orderby="date" dynamic="no" limit="5"}
+				<div class="grid_3 series alpha">
+					<a href="/media/{url_title}">
+						{if media-img}
+							<img src="{media-img:med}" alt="{title}">
+						{if:else}
+							<img src="/_img/media/_med/BROKEN.png" alt="{title}">
+						{/if}
+					</a>
+				</div>
+			{/exp:channel:entries}
+			<div class="grid_3 series media-viewall media-viewall-small alpha">
+				<a href="/stories">
+					<h2>View All <i class="fa fa-chevron-right"></i></h2>
+				</a>
+			</div>
 		</div>
 
 		<div class="clear"></div>
