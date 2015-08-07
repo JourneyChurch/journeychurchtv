@@ -369,7 +369,8 @@ button {
 	}
 
 	.the {
-		font-size:200px !important;
+		font-size:180px !important;
+    width:100% !important;
 	}
 
 	.block {
