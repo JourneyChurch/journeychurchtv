@@ -45,6 +45,7 @@
 .title {
 	background-color:#fdd15b;
 	padding:0 0 20px 0;
+  overflow:hidden !important;
 }
 
 .title h1 {
