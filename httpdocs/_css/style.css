@@ -1642,9 +1642,9 @@ h4.easterfont {
 }
 @media (min-width: 768px) {
 	#household .mobileapp {
-		display: none;
+		display: block;
 	}
 	#household .webapp {
-		display: block;
+		display: none;
 	}
 }
