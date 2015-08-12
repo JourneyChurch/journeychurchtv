@@ -1,0 +1,365 @@
+/*
+  Fonts:
+  Brain Flower Regular
+  Grad Regular
+  Felt Tip Senior Regular
+*/
+
+@font-face {
+  font-family: 'BrainFlower';
+  src: url('/_font/BrainFlower.eot'); /* IE9 Compat Modes */
+  src: url('/_font/BrainFlower.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/BrainFlower.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/BrainFlower.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/BrainFlower.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'FeltTipSenior';
+  src: url('/_font/FeltTipSenior.eot'); /* IE9 Compat Modes */
+  src: url('/_font/FeltTipSenior.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/FeltTipSenior.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/FeltTipSenior.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/FeltTipSenior.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Grad';
+  src: url('/_font/Grad.eot'); /* IE9 Compat Modes */
+  src: url('/_font/Grad.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/Grad.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/Grad.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/Grad.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+html {
+  background: url(/_img/father-son-background.jpg) no-repeat left bottom fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+section {
+  margin:70px 0;
+  min-height:200px;
+  height:auto;
+}
+
+.wrapper {
+  display:none;
+}
+
+h1 {
+  text-transform:uppercase;
+  text-align:center;
+}
+
+h2 {
+  text-align:center;
+}
+
+h3 {
+  text-transform:uppercase;
+  text-align:center;
+}
+
+h4 {
+  text-align:center;
+}
+
+#title {
+  margin-top:0;
+}
+
+#title h1 {
+  font-family:"FeltTipSenior", Arial;
+  font-size:170px;
+  line-height:100px;
+  margin-top:-10px;
+}
+
+#title h2 {
+  font-family:"FeltTipSenior", Arial;
+  font-size:155px;
+  margin-top:-100px;
+}
+
+#title h3 {
+  font-family:"Grad", Arial;
+  font-size:30px;
+}
+
+#title h4 {
+  font-family:"Grad", Arial;
+  font-size:25px;
+  margin-top:-180px;
+}
+
+.at {
+  margin-top:-165px;
+}
+
+.at h3 {
+  font-size:50px !important;
+}
+
+.line {
+  height:2px;
+  background-color:black;
+  position:relative;
+  top:-85px;
+}
+
+#event h1 {
+  margin-bottom:0;
+  font-family:"BrainFlower", Arial;
+  font-size:120px;
+}
+
+#event h2 {
+  line-height:70px;
+  margin:0;
+  text-transform:uppercase;
+  font-family:"BrainFlower", Arial;
+  font-size:90px;
+}
+
+#event h3 {
+  font-family:"BrainFlower", Arial;
+  font-size:50px;
+}
+
+#event h4 {
+  font-family:"Grad", Arial;
+  font-size:30px;
+}
+
+#details h3 {
+  font-size:35px;
+  text-align:left;
+  margin:0;
+  padding-bottom:10px;
+  text-decoration:underline;
+  font-family:"Grad", Arial;
+  letter-spacing:7px;
+}
+
+#details p {
+  text-transform:uppercase;
+  margin:0;
+  font-family:"BrainFlower", Arial;
+  font-size:46px;
+  font-weight:bold;
+}
+
+#details ul {
+  list-style-type:none;
+}
+
+#details ul li {
+  padding:11px 0;
+  text-transform:uppercase;
+  font-family:"BrainFlower", Arial;
+  font-size:60px;
+  font-weight:bold;
+}
+
+#details ul li:first-child {
+  padding-top:0px;
+}
+
+#activities {
+  text-transform:uppercase;
+}
+
+#activities h2 {
+  font-family:"BrainFlower", Arial;
+  font-size:90px;
+}
+
+#register h3 {
+  border:4px solid black;
+  padding:10px 0;
+  transition:background-color 0.3s ease-in, color 0.3s ease-in;
+  font-family:"FeltTipSenior", Arial;
+  font-size:50px;
+}
+
+#register h3:hover {
+  background-color:white;
+  color:black;
+}
+
+#register a, #register a:visited, #register a:hover , #register a:active {
+  text-decoration:none;
+}
+
+#register a, #register a:visited, #register a:active {
+  color:black;
+}
+
+#register a:hover {
+  color:white;
+}
+/* Footer */
+
+#footer {
+  background-image: url(/_img/bg-texture.jpg);
+  background-repeat: repeat;
+}
+
+#footer p {
+	font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', arial;
+}
+
+button {
+  margin: 10px;
+  padding: 8px 15px;
+  background: #006f7c;
+  border: 1px solid #006f7c;
+  border-radius: 1px;
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', arial;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size:12px;
+}
+
+#footer button {
+  float: left;
+  display: inline-block;
+  transition: background 0.3s ease-out;
+  -o-transition: background 0.3s ease-out;
+	-moz-transition: background 0.3s ease-out;
+	-webkit-transition: background 0.3s ease-out;
+}
+
+#footer button:hover {
+  background-color:#7f3e19;
+  -o-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+  -webkit-transition: background 0.3s ease-out;
+  transition:all 0.3s ease-out;
+}
+
+#footer ul {
+  margin-top: 22px;
+}
+#footer ul > li {
+  float: left;
+  list-style: none;
+  color: #FFF;
+  padding: 0 10px;
+}
+#footer ul > li a {
+  color: #fff;
+  font-size: 14px;
+  font-weight:300 !important;
+}
+#footer .rights {
+  color: #FFFFFF;
+  border-top: 1px solid #b2b4b1;
+  font-size: 10px;
+  padding: 10px 0;
+}
+#footer .footer-social {
+  text-align: right;
+}
+#footer .footer-social i {
+  font-size: 24px;
+  padding: 0 5px;
+}
+#footer .footer-social a, #footer .footer-social a:hover, #footer .footer-social a:active {
+  color: #fff;
+  text-decoration: none!important;
+}
+
+#footer a {
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', arial;
+  font-weight: 300;
+  font-style: normal;
+  height: 100%;
+  color: #fff;
+  text-decoration: none!important;
+}
+
+#footer a:hover {
+  text-decoration: underline !important;
+}
+
+#footer p {
+  font-weight:300 !important;
+}
+
+@media screen and (max-width:767px) {
+
+  #title h1 {
+    font-size:90px;
+    line-height:70px;
+  }
+
+  #title h2 {
+    font-size:70px;
+    line-height:70px;
+    margin-top:0;
+  }
+
+  .at {
+
+  }
+
+  .at h3 {
+    font-size:35px !important;
+    margin:0 !important;
+  }
+
+  #title h4 {
+    margin-top:40px !important;
+  }
+
+  .line {
+    display:none !important;
+  }
+
+  #event h1 {
+    font-size:90px;
+    line-height:90px;
+  }
+
+  #event h2 {
+    font-size:70px;
+    line-height:70px;
+  }
+
+  #details h3 {
+    letter-spacing:normal;
+  }
+
+  #register h3, #register h3:hover {
+    background-color:white;
+    color:black;
+  }
+
+  #footer {
+    margin:0 !important;
+		height:auto !important;
+  }
+}
+
+@media print {
+  #footer ul, #footer button, #footer a, #footer #full-only {
+		display:none !important;
+	}
+
+	#footer .footer-social, #footer .footer-social a {
+		display:block !important;
+	}
+
+	#footer .footer-social a[href]:after, #explain a[href]:after {
+		content: " (" attr(href) ")" !important;
+	}
+}
