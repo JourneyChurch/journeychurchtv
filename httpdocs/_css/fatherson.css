@@ -296,9 +296,16 @@ button {
 }
 
 @media screen and (max-width:767px) {
+  html {
+    background: url(/_img/father-son-background-mobile.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
   #title h1 {
-    font-size:90px;
+    font-size:80px;
     line-height:70px;
   }
 
@@ -337,6 +344,7 @@ button {
 
   #details h3 {
     letter-spacing:normal;
+    font-size:30px;
   }
 
   #register h3, #register h3:hover {
