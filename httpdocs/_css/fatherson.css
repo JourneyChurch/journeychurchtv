@@ -296,6 +296,9 @@ button {
 }
 
 @media screen and (max-width:767px) {
+  .wrapper {
+    display:block;
+  }
 
   #title h1 {
     font-size:80px;
