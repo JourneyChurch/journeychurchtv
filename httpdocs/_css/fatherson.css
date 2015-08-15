@@ -295,10 +295,13 @@ button {
   font-weight:300 !important;
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:1024px) {
   .wrapper {
     display:block;
   }
+}
+
+@media screen and (max-width:767px) {
 
   #title h1 {
     font-size:80px;
