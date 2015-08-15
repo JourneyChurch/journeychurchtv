@@ -296,6 +296,14 @@ button {
 }
 
 @media screen and (max-width:1024px) {
+  html {
+    background: url(/_img/lake.jpg) no-repeat top center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
   .wrapper {
     display:block;
   }
