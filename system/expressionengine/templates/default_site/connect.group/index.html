@@ -29,7 +29,7 @@
 			<div class="grid_12">
 				<h2>JourneyChurch is a community filled with opportunity to get involved and connect with others. We'd love to help you get connected in a big way! We have created many different and unique connection opportunities:</h2><br>
 			</div>
-			
+
 			<div class="grid_4 side-verse">
 				<div>
 					<h2>Psalm 92:12-13</h2>
@@ -49,11 +49,11 @@
 						<div class="clear"></div>
 					{/exp:channel:entries}
 				</div>
-				
+
 			</div>
-			
+
 			<div class="clear"></div>
-			
+
 			<div class="grid_8">
 				{exp:channel:entries channel="Connect" orderby="title" sort="asc" offset="2"}
 					<div class="connect-entry">
@@ -101,16 +101,16 @@
 		<div class="container clearfix marg-b-40">
 			{connect-grids}
 				<div class="grid_6 fancy-page">
-					{connect-grids:connect_lefthalf}
+					<div class="grid-left">{connect-grids:connect_lefthalf}</div>
 				</div>
 				<div class="grid_6 fancy-page">
-					{connect-grids:connect_righthalf}
+					<div class="grid-right">{connect-grids:connect_righthalf}</div>
 				</div>
 			{/connect-grids}
 		</div>
-		
+
 		{embed="_component/connect-cats" title="{title}" catid="{if segment_2=='college-journey'}83{/if}"}
-		
+
 		<div class="container clearfix">
 			<div class="grid_12 fancy-page">
 			{connect-bodybtm}

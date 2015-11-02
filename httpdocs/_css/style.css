@@ -263,6 +263,9 @@ div.capty-caption a {
 	font-family: 'aleoregular',Georgia,serif;
 	text-transform: none;
 }
+.grid-left p, .grid-right p{
+	margin-bottom:50px;
+}
 ul.side-nav {
 	-webkit-margin-before: 0;
 	-webkit-margin-after: 0;
