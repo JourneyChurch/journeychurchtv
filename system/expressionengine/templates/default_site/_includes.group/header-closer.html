@@ -6,11 +6,11 @@
 		<div id="navigation">
 			<div class="top">
 				{!-- Site announcement/alerts take priority over countdown --}
-				{if site-alert != ""}
+				{!--}{if site-alert != ""}
 					{embed="_component/alert"}
-				{if:else}
+				{if:else}{--}
 					<div id="countdown_contain"></div>
-				{/if}
+				{!--}{/if}{--}
 
 				{if embed:bar == 'yes'}
 					<div class="bar-enabled">
