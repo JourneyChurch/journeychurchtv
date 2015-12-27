@@ -378,6 +378,12 @@ ul.side-nav {
   text-align:center;
 }
 
+#page-alert a {
+	color:white;
+	text-align:center;
+	text-decoration:underline;
+}
+
 /* Top Bar */
 	@media only screen and (min-width: 768px) {
 		.mobile-liveservice {display: none!important;}
