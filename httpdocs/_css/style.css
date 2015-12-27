@@ -378,10 +378,15 @@ ul.side-nav {
   text-align:center;
 }
 
+#page-alert h2 {
+	margin-bottom:15px;
+}
+
 #page-alert a {
-	color:white;
+	color:white !important;
 	text-align:center;
 	text-decoration:underline;
+	font-size:24px;
 }
 
 /* Top Bar */
