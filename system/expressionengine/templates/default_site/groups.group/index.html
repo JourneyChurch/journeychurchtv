@@ -1,16 +1,45 @@
-{embed="_includes/header" title="{if segment_2}{exp:channel:entries channel='Groups' dynamic='yes'}{title}{/exp:channel:entries}{if:else}Life Groups{/if}"}
+{embed="_includes/header" title="Journey Groups"}
 
-<div class="container clearfix">
-	<div class="grid_3">
-		{embed="_component/sidebar-groups"}
+<div id="groups-header">
+	<div class="container">
+		<div class="grid_3">
+			<img src="/_img/journeygroups-logo.png"/>
+		</div>
+
+		<div class="grid_8">
+			<h1>Journey<span>Groups</span></h1>
+		</div>
+
+		<div class="grid_4">
+			<a href="https://secure.accessacs.com/access/mydashboard/sgavailablegroups.aspx"><h3>Find A Group</h3></a>
+		</div>
+		<div class="grid_4">
+			<a href="https://journeydreamteam.wufoo.com/forms/pv0k5hs1d765z0/"><h3>Lead A Group</h3></a>
+		</div>
 	</div>
-	<div class="grid_9">
-		{exp:channel:entries channel="Pages" url_title="groups" dynamic="no"}
-			<div class="fancy-page">
-				{page-body}
-			</div>
-		{/exp:channel:entries}
+
+	<div class="clear"></div>
+</div>
+
+<div id="groups-content">
+	<div class="container">
+		<div class="grid_12 question">
+			<h1>What is a Journey Group?</h1>
+			<p>A journey group is a journey group.</p>
+		</div>
+
+		<div class="grid_12 question">
+			<h1>What is a Journey Group?</h1>
+			<p>A journey group is a journey group.</p>
+		</div>
+
+		<div class="grid_12 question">
+			<h1>What is a Journey Group?</h1>
+			<p>A journey group is a journey group.</p>
+		</div>
 	</div>
+
+	<div class="clear"></div>
 </div>
 
 {embed="_includes/footer"}

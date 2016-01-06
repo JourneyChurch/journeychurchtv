@@ -3,6 +3,7 @@ Green:	#989d00
 Blue:	#006f7c
 Rust:	#7f3e19
 Gray:	#b2b4b1
+Dark Gray: #717271
 */
 
 /* We're gonna use this for placeholder text */
@@ -232,7 +233,6 @@ div.capty-caption a {
 	padding-bottom: 20px;
 }
 .fancy-page h2 {
-	font-family: 'aleoregular',Georgia,serif;
 	color: #006f7c;
 	font-size: 28px;
 	text-transform: none;
@@ -764,6 +764,75 @@ ul.side-nav {
 
 .groups-individual li {
 	list-style-position:inside;
+}
+
+#groups-header {
+	margin-top:-20px;
+	background-color:#717271;
+	padding:15px 0;
+}
+
+#groups-header h1 {
+	color:white;
+	font-size:35px;
+	text-align:center;
+	margin-top:40px;
+	margin-bottom:25px;
+}
+
+#groups-header h1 span {
+	font-weight:200;
+}
+
+#groups-header h3 {
+	text-align:center;
+	color:white;
+	border:2px solid white;
+	padding:7px 0;
+	border-radius:25px;
+	font-size:18px;
+	-moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+#groups-header a:hover h3 {
+	background-color:white;
+	color:#b2b4b1;
+	-moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+#groups-header a, #groups-header a:hover {
+	text-decoration:none !important;
+}
+
+#groups-content {
+	background: url(/_img/smallgroups.jpg) no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	padding:100px 0;
+}
+
+#groups-content h1 {
+	text-align:center;
+	color:white;
+	text-transform:none;
+}
+
+#groups-content p {
+	text-align:center;
+	color:white;
+	font-size:18px;
+}
+
+#groups-content .question {
+	padding:20px 0;
 }
 
 /* Latest */

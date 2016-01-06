@@ -1,7 +1,7 @@
 
 	#mobile, #sidr, #mobile-top {display:none;}
 	#mobile-only {display:none;}
-	
+
 	/* Full Size Top */
 	.journeylogo {
 		background-image: url(/_img/logo.png);
@@ -20,16 +20,9 @@
 		-moz-padding-start: 52px;
 		 -webkit-padding-start: 52px;
 	}
-	
+
 	.bar-enabled {
 		position: relative;
-		-moz-box-shadow: 0px 1px 5px #020202;
-		-webkit-box-shadow: 0px 1px 5px #020202;
-		box-shadow: 0px 1px 5px #020202;
-	}
-	.bar-disabled {
-		box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.075), 
-		0px 1px 5px #020202;
 	}
 	.bar-empty {
 		margin-top: 20px;
@@ -109,9 +102,9 @@
 		margin: 0;
 		font-weight: 300;
 	}
-	
+
 	.media-thumbs {
-		
+
 	}
 
 	/* Title Bar */
@@ -128,13 +121,13 @@
 	.title-bar span {
 		font-size: 20px;
 	}
-	
+
 	.about-alt {
 		background-color: #006f7c;
 	}
-	
-	
-	
+
+
+
 	/* SLIDES */
 	.slides-container {
 		max-width: 1400px;
@@ -243,8 +236,8 @@
     #slides a:active {
       color: #7f3e19;
     }
-	
-	
+
+
 	/* Home Small Calendar */
 	#cal-week ul {
 		background-color: #fff;
@@ -275,7 +268,7 @@
 	#cal-week li a, #cal-week li a:hover {
 		text-decoration: none!important;
 	}
-	
+
 	/* Groups */
 	.groups-filter {
 		margin-bottom: 15px;
