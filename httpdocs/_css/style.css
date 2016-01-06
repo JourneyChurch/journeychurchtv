@@ -232,7 +232,6 @@ div.capty-caption a {
 	padding-bottom: 20px;
 }
 .fancy-page h2 {
-	font-family: 'aleoregular',Georgia,serif;
 	color: #006f7c;
 	font-size: 28px;
 	text-transform: none;
@@ -260,7 +259,6 @@ div.capty-caption a {
 	color: #006f7c;
 }
 .fancy-body {
-	font-family: 'aleoregular',Georgia,serif;
 	text-transform: none;
 }
 .grid-left p, .grid-right p{
