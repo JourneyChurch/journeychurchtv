@@ -4,7 +4,7 @@
 	#full-only {display:none;}
 	#mobile {position:fixed;width:100%;z-index:9999;}
 	.mobile-spacer {height:65px;}
-	
+
 	.ei-title{
 		position: absolute;
 		right: 0px;
@@ -28,7 +28,7 @@
 		font-size: 30px;
 		line-height: 40px;
 	}
-	
+
 	.title-bar {
 		margin-bottom: 10px;
 		border-bottom: 1px solid #b2b4b1;
@@ -43,19 +43,19 @@
 		color: #000;
 		display: block;
 	}
-	
+
 	.nav-main {
 		display: none;
 	}
-	
+
 	ul.side-nav {
 		margin: 20px 0;
 	}
-	
+
 	.fancy-page h2 {
 		font-size: 22px;
 	}
-	
+
 	/* Home */
 	.mobile_boxes {
 		height: 50px;
@@ -65,7 +65,7 @@
 		margin-top: 5px;
 		padding: 0 10px;
 	}
-	
+
 	/* Groups */
 	.groups-filter {
 		margin-bottom: 10px;
@@ -81,12 +81,12 @@
 	.groups-filter ul li:first-child {
 		padding-left: 0;
 	}
-	
+
 	/* Locations */
 	.location-details {
 		margin: 10px 0;
 	}
-	
+
 	/* Media */
 	.media-title {
 		background-color: #989d00;
@@ -115,6 +115,6 @@
 	}
 	#footer, #wrapper:after {
 	  /* .push must be the same height as footer */
-	  margin-top: 20px;
+		margin-top:20px;
 	  height: 150px;
 	}

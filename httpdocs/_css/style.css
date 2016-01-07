@@ -3,6 +3,10 @@ Green:	#989d00
 Blue:	#006f7c
 Rust:	#7f3e19
 Gray:	#b2b4b1
+Dark Gray: #717271
+Pink: #9F1E5C
+Orange: #B74E26
+Purple: #852679
 */
 
 /* We're gonna use this for placeholder text */
@@ -154,7 +158,7 @@ div.capty-caption a {
 #wrapper {
 	min-height: 100%;
 	/* equal to footer height + footer margin-top */
-	margin-bottom: -131px;
+	margin-bottom: -150px;
 }
 #wrapper:after {
   content: "";
@@ -162,7 +166,7 @@ div.capty-caption a {
 }
 #footer, #wrapper:after {
   /* .push must be the same height as footer */
-  margin-top: 20px;
+	margin-top:20px;
   height: 150px;
 }
 #footer a {
@@ -965,15 +969,34 @@ h2.pastorclark span {
 }
 
 #devos-bar {
-	margin-bottom: 20px;
-	padding: 20px 0 10px;
+	margin-bottom: 30px;
+	background-color:#717271;
+}
+#devos-bar a {
+	color:white;
+	display:inline-block;
+	padding:20px 10px;
+	-moz-transition: opacity 0.2s ease-in;
+	-o-transition: opacity 0.2s ease-in;
+	-webkit-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+}
+#devos-bar a:first-child{
+	float:left;
+}
+#devos-bar a:nth-child(2) {
+	float:right;
+}
+#devos-bar a:hover, #devos-bar a:active {
+	opacity:0.7;
+	text-decoration:none !important;
+	-moz-transition: opacity 0.2s ease-in;
+	-o-transition: opacity 0.2s ease-in;
+	-webkit-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
 }
 #devos-bar .fa {
 	font-size: 28px;
-}
-#devos-bar .grid_12 {
-	border-bottom: 1px solid #006f7c;
-	padding-bottom: 20px;
 }
 @media only screen and (max-width: 767px) {
 	#devos-bar .grid_12 {
@@ -986,10 +1009,6 @@ h2.pastorclark span {
 	#devos-bar .fa {
 		display: none;
 	}
-}
-.devos-bar-info {
-	float:left;
-	padding-top:5px
 }
 #devos h2, h2 a {
 		font-family: 'aleoregular',Georgia,serif;
