@@ -5,7 +5,7 @@
       #map { height: 300px }
     </style>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&sensor=true"></script>
-    
+
 <div class="title-bar" style="margin:0">
 	<div class="container">
 		<div class="grid_12">
@@ -19,14 +19,15 @@
 
 <div class="container clearfix">
 	<div class="extra-margin">
-		{exp:channel:entries channel="location" sort="asc"}	
+		{exp:channel:entries channel="location" sort="asc"}
 			<div class="grid_6 location-details">
 				<h2>{title}</h2>
 				{!--}<h3>Campus Pastor: {location-pastor:title}</h3>{--}
-				<p><i class="fa fa-clock-o"></i> {location-times}</p> 
+				<p><i class="fa fa-clock-o"></i> {location-times}</p>
 				<p><i class="fa fa-map-marker"></i> {location-address}<br><a href="http://maps.google.com/?q={location-address}" target="_blank">(get directions)</a></p>
 				<p><i class="fa fa-phone"></i> {location-phone}</p>
-				<p><i class="fa fa-envelope-o"></i> {location-email}</p>
+				<p>Email: </i> {location-email}</p>
+        <p>Mailing Address: </i> {location-mail}</p>
 			</div>
 		{/exp:channel:entries}
 		<div class="clear"></div>
@@ -61,7 +62,7 @@
       var marker, i;
       var markers = new Array();
 
-      for (i = 0; i < locations.length; i++) {  
+      for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
           map: map
