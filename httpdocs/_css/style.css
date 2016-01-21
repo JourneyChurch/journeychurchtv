@@ -728,44 +728,91 @@ ul.side-nav {
 	}
 
 /* Groups */
-.groups-logo {
-	margin-bottom: 30px;
-}
-.groups-date {
-	padding-bottom: 5px;
-}
-
-.entry img {
-	padding-right: 10px;
-	padding-bottom: 10px;
-}
-.med-icon {
-	font-size: 16px;
+#groups-header {
+	margin-top:-20px;
+	background-color:#717271;
+	background: url(/_img/smallgroups.jpg) no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	padding-top:60px;
+	padding-bottom:100px;
 }
 
-.group-entry {
-	padding: 10px 0;
-	border-bottom: 1px solid #b2b4b1;
+#groups-header h1 {
+	color:white;
+	font-size:35px;
+	text-align:center;
+	margin-top:20px;
 }
 
-.group-entry h3 {
-	font-size: 18px;
-	font-weight: 500;
-	width: 100%;
-}
-.getDetails {
-	float: right;
-}
-.getDetails button {
-	margin-top: 0;
+#groups-header h1 span {
+	font-weight:200;
 }
 
-.group-entry .groups-date {
-	font-weight: 400;
+#groups-header h3, #groups-classes h3 {
+	text-align:center;
+	color:white;
+	border:2px solid white;
+	padding:7px 0;
+	border-radius:25px;
+	font-size:18px;
+	-moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
 }
 
-.groups-individual li {
-	list-style-position:inside;
+#groups-header a:hover h3, #groups-header a:active h3, #groups-classes a:hover h3, #groups-classes a:active h3 {
+	background-color:white;
+	color:#b2b4b1;
+	-moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+	-webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+#groups-header a, #groups-header a:hover, #groups-classes a, #groups-classes a:hover {
+	text-decoration:none !important;
+}
+
+#groups-header .group-button {
+	margin-top:50px;
+}
+
+#groups-faq {
+	background-color:#717271;
+	padding:100px 0;
+	position:relative;
+	margin-top:-40px;
+	top:40px;
+}
+
+#groups-faq h1 {
+	text-align:center;
+	color:white;
+	text-transform:none;
+	margin-bottom:15px;
+}
+
+#groups-faq p {
+	text-align:center;
+	color:#b2b4b1;
+	font-size:16px;
+}
+
+#groups-faq a {
+	color:white;
+}
+
+#groups-faq .question {
+	padding:40px 0;
+}
+
+#groups-classes {
+	color:white;
+	margin-top:70px;
 }
 
 /* Latest */
