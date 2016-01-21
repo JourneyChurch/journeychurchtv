@@ -79,6 +79,10 @@
 		padding:30px 0 !important;
 	}
 
+	#groups-classes h3 {
+		font-size:14px !important;
+	}
+
 	/* Locations */
 	.location-details {
 		margin: 10px 0;
