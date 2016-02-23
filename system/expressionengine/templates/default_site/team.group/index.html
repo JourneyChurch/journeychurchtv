@@ -34,9 +34,8 @@
 		</div>
 		{exp:channel:categories channel="Team" style="linear" show="not 75"}
 			{if "{parent_id}" != 0}
-				{if category_url_title != "office-of-the-founding-senior-pastor"}
-					{if category_description}<a href="{category_description}">{/if}<h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none;margin-top:20px">{category_name} <i class="fa fa-chevron-right pull-right"></i></h3>{if category_description}</a>{/if}
-				{/if}
+				{if category_description}<a href="{category_description}">{/if}<h3 style="border-bottom:1px solid #222;font-size:18px;text-transform:none;margin-top:20px">{category_name} <i class="fa fa-chevron-right pull-right"></i></h3>{if category_description}</a>{/if}
+				
 				{exp:channel:entries channel="team" sort="asc" orderby="team-sort" category="{category_id}"}
 					<div class="grid_6 alpha">
 						<div class="team-entry">
