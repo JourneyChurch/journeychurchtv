@@ -175,7 +175,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .quote h1 {
-  padding-left:20px;
   -moz-transition:0.2s ease-in transform;
   -o-transition:0.2s ease-in transform;
   -webkit-transition:0.2s ease-in transform;
@@ -276,7 +275,7 @@ a:link, a:visited, a:hover, a:active {
   transition:0.3s ease-in color;
 }
 
-#social ul li a:hover, #social ul li a:active {
+#social ul li a:hover, #social ul li a:active, #social ul li a:focus {
   font-size:26px;
   color:#67a3ca;
   -moz-transition:0.3s ease-in color;
