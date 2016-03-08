@@ -1,0 +1,364 @@
+/*
+  Colors:
+  Light Blue: #67a3ca
+  Dark Blue: #10203d
+  Purple: #4d265f
+*/
+
+body {
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
+  font-weight: 300;
+  line-height:30px;
+}
+
+h1 {
+  color:#464646;
+}
+
+p {
+  color:#686868;
+  font-size:16px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration:none;
+}
+
+.fade, .inverse-fade:hover, .inverse-fade:active {
+  opacity:1;
+  -moz-transition:0.3s ease-in opacity;
+  -o-transition:0.3s ease-in opacity;
+  -webkit-transition:0.3s ease-in opacity;
+  transition:0.3s ease-in opacity;
+}
+
+.fade:hover, .fade:active, .inverse-fade {
+  opacity:0.7;
+  -moz-transition:0.3s ease-in opacity;
+  -o-transition:0.3s ease-in opacity;
+  -webkit-transition:0.3s ease-in opacity;
+  transition:0.3s ease-in opacity;
+}
+
+.pad {
+  padding:15px;
+}
+
+.light {
+  font-weight:200;
+}
+
+.bg-img {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color:black;
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.blue {
+  color:#67a3ca;
+}
+
+#cover {
+  background-image: url("/_img/good-friday-cover.jpg");
+}
+
+.about-box {
+  padding:0 0 90px 0;
+}
+
+.about-box h1 {
+  -moz-transition:0.3s ease-in color;
+  -o-transition:0.3s ease-in color;
+  -webkit-transition:0.3s ease-in color;
+  transition:0.3s ease-in color;
+  margin-bottom:20px;
+}
+
+.triangle {
+  display:none;
+}
+
+.triangle {
+  height:25px;
+  width:50px;
+  background-image: url("/_img/good-friday-cover.jpg");
+  display:inline-block;
+  background-color:#464646;
+  margin-bottom:45px;
+  opacity:0;
+}
+
+.triangle span:first-child {
+  width:0;
+  height:0;
+  border-bottom:25px solid white;
+  border-right:25px solid transparent;
+  display:inline-block;
+  float:left;
+}
+
+.triangle span:last-child {
+  width:0;
+  height:0;
+  border-bottom:25px solid white;
+  border-left:25px solid transparent;
+  float:right;
+}
+
+.active h1 {
+  color:#67a3ca;
+  -moz-transition:0.3s ease-in color;
+  -o-transition:0.3s ease-in color;
+  -webkit-transition:0.3s ease-in color;
+  transition:0.3s ease-in color;
+}
+
+.active .triangle {
+  opacity:1;
+}
+
+#maps {
+  padding:100px 0;
+  background-color:#4d265f;
+  background-image: url("/_img/good-friday-directions.jpg");
+}
+
+.map h1 {
+  color:white;
+}
+
+.map h1 .glyphicon {
+  -moz-transition:0.2s ease-in transform;
+  -o-transition:0.2s ease-in transform;
+  -webkit-transition:0.2s ease-in transform;
+  transition:0.2s ease-in transform;
+}
+
+.map a:hover .glyphicon, .map a:active .glyphicon {
+  transform:translateY(-5px);
+  -moz-transition:0.2s ease-in transform;
+  -o-transition:0.2s ease-in transform;
+  -webkit-transition:0.2s ease-in transform;
+  transition:0.2s ease-in transform;
+}
+
+#best-of {
+  background-color:#67a3ca;
+  background-image:url("/_img/goodfriday-quotes.png");
+  background-attachment:scroll;
+  background-size:contain;
+  background-position:center right;
+  padding:150px 0;
+}
+
+#best-of h1 {
+  color:white;
+  font-size:40px;
+}
+
+.quote {
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.quote:first-child {
+  margin-top:0;
+}
+
+.quote:last-child {
+  margin-bottom:0;
+}
+
+.quote h1 {
+  padding-left:20px;
+  -moz-transition:0.2s ease-in transform;
+  -o-transition:0.2s ease-in transform;
+  -webkit-transition:0.2s ease-in transform;
+  transition:0.2s ease-in transform;
+}
+
+.quote:hover h1 {
+  -moz-transform:translateX(-20px);
+  -o-transform:translateX(-20px);
+  -ms-transform:translateX(-20px);
+  -webkit-transform:translateX(-20px);
+  transform:translateX(-20px);
+  -moz-transition:0.2s ease-in transform;
+  -o-transition:0.2s ease-in transform;
+  -webkit-transition:0.2s ease-in transform;
+  transition:0.2s ease-in transform;
+}
+
+.quote-mark {
+  color:#10203d;
+}
+
+#invite span {
+  color:white;
+  -moz-transition:0.3s ease-in color;
+  -o-transition:0.3s ease-in color;
+  -webkit-transition:0.3s ease-in color;
+  transition:0.3s ease-in color;
+}
+
+#invite .active {
+  opacity:1;
+  -moz-transition:0.3s ease-in opacity;
+  -o-transition:0.3s ease-in opacity;
+  -webkit-transition:0.3s ease-in opacity;
+  transition:0.3s ease-in opacity;
+}
+
+#invite .active span {
+  color:#67a3ca;
+  -moz-transition:0.3s ease-in color;
+  -o-transition:0.3s ease-in color;
+  -webkit-transition:0.3s ease-in color;
+  transition:0.3s ease-in color;
+}
+
+.invite {
+  -moz-transition:0.3s ease-in opacity;
+  -o-transition:0.3s ease-in opacity;
+  -webkit-transition:0.3s ease-in opacity;
+  transition:0.3s ease-in opacity;
+}
+
+#tag {
+  background-image: url("/_img/good-friday-tag.jpg");
+  background-attachment:scroll;
+  opacity:0.9;
+  height:400px;
+}
+
+#tag h1 {
+  color:white;
+}
+
+#tag .inner {
+  position:relative;
+  top:50%;
+  transform:translateY(-40%);
+}
+
+#social {
+  background-image: url("/_img/good-friday-social.jpg");
+  background-attachment:scroll;
+  opacity:0.9;
+  height:400px;
+}
+
+#social .inner {
+  position:relative;
+  top:50%;
+  transform:translateY(-60%);
+}
+
+#social h1 {
+  color:white;
+}
+
+#social ul {
+  padding:0;
+}
+
+#social ul li a {
+  font-size:26px;
+  color:white;
+  -moz-transition:0.3s ease-in color;
+  -o-transition:0.3s ease-in color;
+  -webkit-transition:0.3s ease-in color;
+  transition:0.3s ease-in color;
+}
+
+#social ul li a:hover, #social ul li a:active {
+  font-size:26px;
+  color:#67a3ca;
+  -moz-transition:0.3s ease-in color;
+  -o-transition:0.3s ease-in color;
+  -webkit-transition:0.3s ease-in color;
+  transition:0.3s ease-in color;
+}
+
+#easter {
+  padding:40px 0;
+  background-color:#F7F7F7;
+}
+
+#footer {
+  padding:40px 0;
+}
+
+#footer p {
+  font-size:12px;
+  margin-top:10px;
+  color:#B0B0B0;
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media screen and (max-width: 1199px) {
+  .bg-img {
+    background-attachment:scroll;
+  }
+
+  #about {
+    padding:80px 0;
+  }
+
+  .about-box {
+    padding:0;
+    margin:20px 0;
+  }
+
+  .about-box h1 {
+    color:#67a3ca;
+  }
+
+  .triangle {
+    display:none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .map {
+    margin-top:50px;
+    margin-bottom:50px;
+  }
+
+  #invite span {
+    color:#67a3ca;
+  }
+
+  #tag {
+    opacity:1;
+    margin-top:-20px;
+  }
+
+  #social {
+    opacity:1;
+    margin-top:-20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #best-of {
+    background-image:none;
+    text-align:center;
+  }
+
+  #best-of h1 {
+    font-size:30px;
+  }
+
+  .quote:hover h1 {
+    -moz-transform:none;
+    -o-transform:none;
+    -ms-transform:none;
+    -webkit-transform:none;
+  }
+}
