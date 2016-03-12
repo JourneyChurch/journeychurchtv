@@ -2,7 +2,7 @@
   Pink: #c6579a
   Blue: #6ad1e3
   Green: #a4d65e
-  Black: #101820
+  Black: #0C0C0C
 */
 
 @font-face {
@@ -16,7 +16,7 @@
 }
 
 body {
-  background-color:black !important;
+  background-color:#0C0C0C !important;
   font-family:'GeosansLight', Arial;
   color:white;
   font-weight:200;
@@ -319,10 +319,10 @@ section:first-child {
 
 /* Medium devices (desktops, 992px and up) */
 @media screen and (max-width: 1199px) {
+  body {
+    background-attachment:scroll;
+  }
 
-}
-
-@media screen and (max-width: 991px) {
   section {
     opacity:1 !important;
   }
@@ -361,6 +361,10 @@ section:first-child {
   #social i {
     opacity:1;
   }
+}
+
+@media screen and (max-width: 991px) {
+
 }
 
 @media screen and (max-width: 767px) {
