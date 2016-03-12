@@ -81,6 +81,10 @@ section:first-child {
   transform:translateY(-50%);
 }
 
+#cover {
+  overflow:hidden !important;
+}
+
 #cover .inner {
   position:relative;
   top:45%;
@@ -349,6 +353,7 @@ section:first-child {
 
   #arrow {
     top:30%;
+    opacity:1 !important;
   }
 
   #what-is:hover {
@@ -403,6 +408,10 @@ section:first-child {
 }
 
 @media screen and (max-width: 767px) {
+  #cover {
+    background-image:none;
+  }
+
   .about {
     margin-top:40px;
     margin-bottom:40px;
