@@ -81,10 +81,6 @@ section:first-child {
   transform:translateY(-50%);
 }
 
-#cover {
-  overflow:hidden !important;
-}
-
 #cover .inner {
   position:relative;
   top:45%;
@@ -329,7 +325,7 @@ section:first-child {
   color:#6ad1e3;
 }
 
-/* Medium devices (desktops, 992px and up) */
+/* Medium devices (desktops, 992px and up) (Tablet Wide) */
 @media screen and (max-width: 1199px) {
   body {
     background-attachment:scroll;
@@ -352,7 +348,6 @@ section:first-child {
   }
 
   #arrow {
-    top:30%;
     opacity:1 !important;
   }
 
