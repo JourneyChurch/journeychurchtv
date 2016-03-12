@@ -62,13 +62,14 @@
           </div>
         </div>
       </div>
+      <div id="arrow"><i class="fa fa-angle-down"></i></div>
     </section>
 
     <section id="what-is">
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
-            <h2>The party of the year celebrating the event of the ages!</h2>
+            <h2>The <span>party</span> of the year celebrating the event of the ages!</h2>
           </div>
         </div>
       </div>
@@ -185,6 +186,12 @@
             $('#finished').fadeTo(1500, 1);
           }
         , 2500);
+
+        setTimeout(
+          function() {
+            $('#arrow').fadeTo(1500, 1);
+          }
+        , 3250);
 
         var scrollTop = 0;
 

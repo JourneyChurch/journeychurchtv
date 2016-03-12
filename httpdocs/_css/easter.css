@@ -73,7 +73,7 @@ section:first-child {
 #cover-mobile {
   display:none;
   position:relative;
-  top:45%;
+  top:50%;
   -webkit-transform:translateY(-50%);
   -ms-transform:translateY(-50%);
   -o-transform:translateY(-50%);
@@ -137,20 +137,31 @@ section:first-child {
   opacity:0;
 }
 
-#what-is {
+#arrow {
+  position:relative;
+  top:25%;
   opacity:0;
-  -webkit-transition:0.25s ease-in color;
-  -moz-transition:0.25s ease-in color;
-  -o-transition:0.25s ease-in color;
-  transition:0.25s ease-in color;
 }
 
-#what-is:hover {
+#arrow i {
+  position:relative;
+  font-size:50px;
+  -webkit-animation:bounce 1s infinite;
+}
+
+@-webkit-keyframes bounce {
+  0%       { bottom:5px; }
+  25%, 75% { bottom:15px; }
+  50%      { bottom:20px; }
+  100%     {bottom:0;}
+}
+
+#what-is {
+  opacity:0;
+}
+
+#what-is h2 span {
   color:#c6579a;
-  -webkit-transition:0.25s ease-in color;
-  -moz-transition:0.25s ease-in color;
-  -o-transition:0.25s ease-in color;
-  transition:0.25s ease-in color;
 }
 
 #about {
@@ -239,12 +250,9 @@ section:first-child {
 }
 
 #involve i {
+  color:#c6579a;
   font-size:35px;
   margin-bottom:15px;
-  -webkit-transition:0.25s ease-in color;
-  -moz-transition:0.25s ease-in color;
-  -o-transition:0.25s ease-in color;
-  transition:0.25s ease-in color;
 }
 
 #involve a:hover strong {
@@ -335,6 +343,37 @@ section:first-child {
     display:block;
   }
 
+  #cover {
+    background: url("/_img/Easter-Background-2.png") no-repeat top right scroll;
+  }
+
+  #arrow {
+    top:30%;
+  }
+
+  #what-is:hover {
+    color:white;
+  }
+
+  .about:nth-child(2) h3 strong {
+    border-color:white !important;
+    color:#6ad1e3;
+  }
+
+  .about:nth-child(2) p {
+    color:#6ad1e3;
+  }
+
+  .about:first-child h3 strong, .about:last-child h3 strong {
+    border-color:#6ad1e3 !important;
+    color:white;
+  }
+
+  .about:first-child p, .about:last-child p {
+    border-color:#6ad1e3 !important;
+    color:white;
+  }
+
   #cover .inner {
     display:none;
   }
@@ -342,10 +381,6 @@ section:first-child {
   #teaser h2 strong {
     border-color:white;
     color:#a4d65e;
-  }
-
-  #involve i {
-    color:#c6579a;
   }
 
   #involve strong {
