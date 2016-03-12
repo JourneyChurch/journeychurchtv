@@ -1,0 +1,383 @@
+/* Colors
+  Pink: #c6579a
+  Blue: #6ad1e3
+  Green: #a4d65e
+  Black: #101820
+*/
+
+@font-face {
+  font-family: 'GeosansLight';
+  src: url('/_font/GeosansLight/GeosansLight.eot'); /* IE9 Compat Modes */
+  src: url('/_font/GeosansLight/GeosansLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/GeosansLight/GeosansLight.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/_font/GeosansLight/GeosansLight.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/GeosansLight/GeosansLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/GeosansLight/GeosansLight.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+body {
+  background-color:black !important;
+  font-family:'GeosansLight', Arial;
+  color:white;
+  font-weight:200;
+  background: url("/_img/Easter-Background.jpg") no-repeat bottom center fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+a:hover, a:active, a:focus {
+  text-decoration:none;
+}
+
+h1 {
+  font-size:60px;
+  letter-spacing:35px;
+  text-transform:uppercase;
+}
+
+h2 {
+  font-size:50px;
+  text-transform:uppercase;
+}
+
+h3 {
+  font-size:30px;
+}
+
+p {
+  font-size:20px;
+}
+
+section {
+  padding:80px 0;
+  text-align:center;
+  -webkit-transition:0.25s ease-in background-color;
+  -moz-transition:0.25s ease-in background-color;
+  -o-transition:0.25s ease-in background-color;
+  transition:0.25s ease-in background-color;
+}
+
+section:hover {
+  -webkit-transition:0.25s ease-in background-color;
+  -moz-transition:0.25s ease-in background-color;
+  -o-transition:0.25s ease-in background-color;
+  transition:0.25s ease-in background-color;
+}
+
+section:first-child {
+  padding:0;
+}
+
+#cover-mobile {
+  display:none;
+  position:relative;
+  top:45%;
+  -webkit-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
+
+#cover .inner {
+  position:relative;
+  top:45%;
+  -webkit-transform:translateY(-50%);
+  -ms-transform:translateY(-50%);
+  -o-transform:translateY(-50%);
+  -moz-transform:translateY(-50%);
+  transform:translateY(-50%);
+}
+
+#cover .cover-border {
+  height:3px;
+  background-color:transparent;
+  -webkit-transition:0.25s ease-in background-color;
+  -moz-transition:0.25s ease-in background-color;
+  -o-transition:0.25s ease-in background-color;
+  transition:0.25s ease-in background-color;
+}
+
+#cover .active .cover-border {
+  background-color:#6ad1e3;
+  -webkit-transition:0.25s ease-in background-color;
+  -moz-transition:0.25s ease-in background-color;
+  -o-transition:0.25s ease-in background-color;
+  transition:0.25s ease-in background-color;
+}
+
+#cover .cover-border:first-child {
+  margin-bottom:30px;
+}
+
+#cover .cover-border:last-child {
+  margin-top:30px;
+}
+
+#cover .letter {
+  font-size:75px;
+  color:white;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#cover .active .letter {
+  color:#6ad1e3;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#cover .line {
+  opacity:0;
+}
+
+#what-is {
+  opacity:0;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#what-is:hover {
+  color:#c6579a;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#about {
+  opacity:0;
+}
+
+#about h3 strong {
+  border-bottom:1px solid #6ad1e3;
+  -webkit-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -moz-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -o-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  transition:0.25s ease-in border-color, 0.25s ease-in color;
+}
+
+.about:hover h3 strong {
+  border-color:white !important;
+  color:#6ad1e3;
+  -webkit-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -moz-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -o-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  transition:0.25s ease-in border-color, 0.25s ease-in color;
+}
+
+.about:hover p {
+  color:#6ad1e3;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#filler {
+  opacity:0;
+}
+
+.filler:first-child {
+  background: url("/_img/Easter-2.jpg") no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:300px;
+}
+
+.filler:nth-child(2) {
+  background: url("/_img/Easter-1.jpg") no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:300px;
+}
+
+.filler:last-child {
+  background: url("/_img/Easter-3.jpg") no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:300px;
+}
+
+#teaser {
+  opacity:0;
+}
+
+#teaser h2 strong {
+  border-bottom:1px solid #a4d65e;
+  -webkit-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -moz-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -o-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  transition:0.25s ease-in border-color, 0.25s ease-in color;
+}
+
+#teaser:hover h2 strong {
+  border-color:white;
+  color:#a4d65e;
+  -webkit-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -moz-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -o-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  transition:0.25s ease-in border-color, 0.25s ease-in color;
+}
+
+#involve {
+  opacity:0;
+}
+
+#involve i {
+  font-size:35px;
+  margin-bottom:15px;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#involve a:hover strong {
+  border-color:#c6579a;
+  -webkit-transition:0.25s ease-in border-color;
+  -moz-transition:0.25s ease-in border-color;
+  -o-transition:0.25s ease-in border-color;
+  transition:0.25s ease-in border-color;
+}
+
+#involve a:hover i {
+  color:#c6579a;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#invite:hover i {
+  color:#c6579a;
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
+#download {
+  color:white;
+}
+
+#download strong {
+  border-bottom:1px solid white;
+  -webkit-transition:0.25s ease-in border-color;
+  -moz-transition:0.25s ease-in border-color;
+  -o-transition:0.25s ease-in border-color;
+  transition:0.25s ease-in border-color;
+}
+
+#social {
+  opacity:0;
+  padding-bottom:240px;
+}
+
+#social a {
+  color:white;
+}
+
+#social i {
+  font-size:30px;
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:40px;
+  color:#6ad1e3;
+  opacity:0.7;
+  -webkit-transition:0.25s ease-in opacity;
+  -moz-transition:0.25s ease-in opacity;
+  -o-transition:0.25s ease-in opacity;
+  transition:0.25s ease-in opacity;
+}
+
+#social i:hover {
+  opacity:1;
+  -webkit-transition:0.25s ease-in opacity;
+  -moz-transition:0.25s ease-in opacity;
+  -o-transition:0.25s ease-in opacity;
+  transition:0.25s ease-in opacity;
+}
+
+#social span {
+  color:#6ad1e3;
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media screen and (max-width: 1199px) {
+
+}
+
+@media screen and (max-width: 991px) {
+  section {
+    opacity:1 !important;
+  }
+
+  h2 {
+    font-size:40px;
+  }
+
+  #cover-mobile {
+    display:block;
+  }
+
+  #cover .inner {
+    display:none;
+  }
+
+  #teaser h2 strong {
+    border-color:white;
+    color:#a4d65e;
+  }
+
+  #involve i {
+    color:#c6579a;
+  }
+
+  #involve strong {
+    border-color:#c6579a;
+  }
+
+  #social h1 {
+    font-size:50px;
+    letter-spacing:normal;
+    text-transform:lowercase;
+  }
+
+  #social i {
+    opacity:1;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about {
+    margin-top:40px;
+    margin-bottom:40px;
+  }
+
+  .about:first-child {
+    margin-top:0;
+  }
+
+  .about:last-child {
+    margin-bottom:0;
+  }
+
+  #download {
+    margin-top:40px;
+  }
+}
