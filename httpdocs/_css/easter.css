@@ -191,6 +191,13 @@ section:first-child {
   transition:0.25s ease-in border-color, 0.25s ease-in color;
 }
 
+.about p {
+  -webkit-transition:0.25s ease-in color;
+  -moz-transition:0.25s ease-in color;
+  -o-transition:0.25s ease-in color;
+  transition:0.25s ease-in color;
+}
+
 .about:hover p {
   color:#6ad1e3;
   -webkit-transition:0.25s ease-in color;
