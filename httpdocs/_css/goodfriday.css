@@ -195,6 +195,7 @@ a:link, a:visited, a:hover, a:active {
 
 .quote-mark {
   color:#10203d;
+  opacity:0.4;
 }
 
 #invite span {
