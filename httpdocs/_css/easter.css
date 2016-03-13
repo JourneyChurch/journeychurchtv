@@ -66,29 +66,8 @@ section:hover {
   transition:0.25s ease-in background-color;
 }
 
-section:first-child {
-  padding:0;
-}
-
 #cover-mobile {
   display:none;
-  position:relative;
-  top:50%;
-  -webkit-transform:translateY(-50%);
-  -ms-transform:translateY(-50%);
-  -o-transform:translateY(-50%);
-  -moz-transform:translateY(-50%);
-  transform:translateY(-50%);
-}
-
-#cover .inner {
-  position:relative;
-  top:50%;
-  -webkit-transform:translateY(-50%);
-  -ms-transform:translateY(-50%);
-  -o-transform:translateY(-50%);
-  -moz-transform:translateY(-50%);
-  transform:translateY(-50%);
 }
 
 #cover .cover-border {
@@ -138,15 +117,8 @@ section:first-child {
 }
 
 #arrow {
-  position:absolute;
-  top:85%;
-  left:50%;
   opacity:0;
-  -webkit-transform:translateX(-50%);
-  -ms-transform:translateX(-50%);
-  -o-transform:translateX(-50%);
-  -moz-transform:translateX(-50%);
-  transform:translateX(-50%);
+  margin-top:50px;
 }
 
 #arrow i {
@@ -352,16 +324,16 @@ section:first-child {
     font-size:40px;
   }
 
+  #cover {
+    background: url("/_img/Easter-Background-2.png") no-repeat top right scroll;
+  }
+
   #cover-mobile {
     display:block;
     width:350px;
   }
 
-  #cover {
-    background: url("/_img/Easter-Background-2.png") no-repeat top right scroll;
-  }
-
-  #cover .inner {
+  #cover-desktop {
     display:none;
   }
 
@@ -457,7 +429,7 @@ section:first-child {
     display:block;
   }
 
-  #cover .inner {
+  #cover-desktop {
     display:none;
   }
 

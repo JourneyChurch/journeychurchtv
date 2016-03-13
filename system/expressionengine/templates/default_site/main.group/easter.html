@@ -27,9 +27,9 @@
   </head>
   <body>
     <section id="cover" class="text-center">
-      <img id="cover-mobile" src="/_img/It-Is-Finished-Text.png" class="img-responsive center-block"/>
       <div class="inner">
-        <div class="container">
+        <img id="cover-mobile" src="/_img/It-Is-Finished-Text.png" class="img-responsive center-block"/>
+        <div id="cover-desktop" class="container">
           <div class="row">
             <div class="col-sm-4 col-sm-offset-4 cover-border"></div>
 
@@ -61,8 +61,9 @@
             <div class="col-sm-4 col-sm-offset-4 cover-border"></div>
           </div>
         </div>
+
+        <div id="arrow"><i class="fa fa-angle-down"></i></div>
       </div>
-      <div id="arrow"><i class="fa fa-angle-down"></i></div>
     </section>
 
     <section id="what-is">
@@ -160,75 +161,86 @@
       $(document).ready(function() {
         var width = $(window).width();
         var height = $(window).height();
+        var innerHeight = $('#cover .inner').height();
 
-        $('#cover').height(height);
+        if ((height - 100) > innerHeight) {
+          var padding = (height-innerHeight)/2;
 
-        $('#cover .letter').hover(function() {
-          $('#cover .inner').addClass('active');
-        }, function() {
-          $('#cover .inner').removeClass('active');
-        });
+          $('#cover').css({
+            'padding-top' : padding + 'px',
+            'padding-bottom' : padding + 'px'
+          });
+        }
 
-        setTimeout(
-          function() {
-            $('#it').fadeTo(1500, 1);
-          }
-        , 1000);
+        if (width >= 1200) {
 
-        setTimeout(
-          function() {
-            $('#is').fadeTo(1500, 1);
-          }
-        , 1750);
+          $('#cover .letter').hover(function() {
+            $('#cover-desktop').addClass('active');
+          }, function() {
+            $('#cover-desktop').removeClass('active');
+          });
 
-        setTimeout(
-          function() {
-            $('#finished').fadeTo(1500, 1);
-          }
-        , 2500);
+          setTimeout(
+            function() {
+              $('#it').fadeTo(1500, 1);
+            }
+          , 1000);
 
-        setTimeout(
-          function() {
-            $('#arrow').fadeTo(1500, 1);
-          }
-        , 3250);
+          setTimeout(
+            function() {
+              $('#is').fadeTo(1500, 1);
+            }
+          , 1750);
 
-        var scrollTop = 0;
+          setTimeout(
+            function() {
+              $('#finished').fadeTo(1500, 1);
+            }
+          , 2500);
 
-        var whatis = $('#what-is').offset().top;
-        var about = $('#about').offset().top;
-        var filler = $('#filler').offset().top;
-        var teaser = $('#teaser').offset().top;
-        var involve = $('#involve').offset().top;
-        var social = $('#social').offset().top;
+          setTimeout(
+            function() {
+              $('#arrow').fadeTo(1500, 1);
+            }
+          , 3250);
 
-        $(document).scroll(function() {
-          scrollTop = $(document).scrollTop();
+          var scrollTop = 0;
 
-          if (scrollTop >= whatis - (height)/2) {
-            $('#what-is').fadeTo(1500, 1);
-          }
+          var whatis = $('#what-is').offset().top;
+          var about = $('#about').offset().top;
+          var filler = $('#filler').offset().top;
+          var teaser = $('#teaser').offset().top;
+          var involve = $('#involve').offset().top;
+          var social = $('#social').offset().top;
 
-          if (scrollTop >= about - (height)/2) {
-            $('#about').fadeTo(1500, 1);
-          }
+          $(document).scroll(function() {
+            scrollTop = $(document).scrollTop();
 
-          if (scrollTop >= filler - (height)/2) {
-            $('#filler').fadeTo(1500, 1);
-          }
+            if (scrollTop >= whatis - (height)/2) {
+              $('#what-is').fadeTo(1500, 1);
+            }
 
-          if (scrollTop >= teaser - (height)/2) {
-            $('#teaser').fadeTo(1500, 1);
-          }
+            if (scrollTop >= about - (height)/2) {
+              $('#about').fadeTo(1500, 1);
+            }
 
-          if (scrollTop >= involve - (height)/2) {
-            $('#involve').fadeTo(1500, 1);
-          }
+            if (scrollTop >= filler - (height)/2) {
+              $('#filler').fadeTo(1500, 1);
+            }
 
-          if (scrollTop >= social - (height)/2) {
-            $('#social').fadeTo(1500, 1);
-          }
-        });
+            if (scrollTop >= teaser - (height)/2) {
+              $('#teaser').fadeTo(1500, 1);
+            }
+
+            if (scrollTop >= involve - (height)/2) {
+              $('#involve').fadeTo(1500, 1);
+            }
+
+            if (scrollTop >= social - (height)/2) {
+              $('#social').fadeTo(1500, 1);
+            }
+          });
+        }
       });
     </script>
   </body>
