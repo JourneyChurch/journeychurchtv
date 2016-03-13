@@ -67,11 +67,6 @@ a:link, a:visited, a:hover, a:active {
   background-image: url("/_img/good-friday-cover.jpg");
 }
 
-#print-title {
-  display:none;
-  text-align:center;
-}
-
 .about-box {
   padding:0 0 90px 0;
 }
@@ -370,10 +365,6 @@ a:link, a:visited, a:hover, a:active {
 @media print {
   #cover img {
     display:none;
-  }
-
-  #print-title {
-    display:block;
   }
 
   section {
