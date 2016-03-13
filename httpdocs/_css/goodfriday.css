@@ -67,6 +67,11 @@ a:link, a:visited, a:hover, a:active {
   background-image: url("/_img/good-friday-cover.jpg");
 }
 
+#print-title {
+  display:none;
+  text-align:center;
+}
+
 .about-box {
   padding:0 0 90px 0;
 }
@@ -359,5 +364,32 @@ a:link, a:visited, a:hover, a:active {
     -o-transform:none;
     -ms-transform:none;
     -webkit-transform:none;
+  }
+}
+
+@media print {
+  #cover img {
+    display:none;
+  }
+
+  #print-title {
+    display:block;
+  }
+
+  section {
+    padding:0 !important;
+  }
+
+  .about-box {
+    padding:0 !important;
+  }
+
+  .col-sm-4, .col-sm-6, .col-sm-10, .col-sm-12 {
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  #easter, #easter h3 {
+    display:none !important;
   }
 }

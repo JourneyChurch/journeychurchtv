@@ -83,7 +83,7 @@ section:first-child {
 
 #cover .inner {
   position:relative;
-  top:45%;
+  top:50%;
   -webkit-transform:translateY(-50%);
   -ms-transform:translateY(-50%);
   -o-transform:translateY(-50%);
@@ -347,6 +347,10 @@ section:first-child {
     background: url("/_img/Easter-Background-2.png") no-repeat top right scroll;
   }
 
+  #cover .inner {
+    display:none;
+  }
+
   #arrow {
     opacity:1 !important;
   }
@@ -372,10 +376,6 @@ section:first-child {
   .about:first-child p, .about:last-child p {
     border-color:#6ad1e3 !important;
     color:white;
-  }
-
-  #cover .inner {
-    display:none;
   }
 
   #teaser h2 strong {
@@ -422,5 +422,36 @@ section:first-child {
 
   #download {
     margin-top:40px;
+  }
+}
+
+@media print {
+  h1, h2, h3, p {
+    color:black;
+  }
+
+  section {
+    padding:20px 0;
+    opacity:1 !important;
+  }
+
+  .col-sm-4, .col-sm-6, .col-sm-12 {
+    display:block;
+  }
+
+  #cover .inner {
+    display:none;
+  }
+
+  #cover-mobile {
+    display:block;
+  }
+
+  #filler {
+    display:none;
+  }
+
+  #arrow {
+    display:none;
   }
 }
