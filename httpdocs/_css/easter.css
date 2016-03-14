@@ -33,17 +33,31 @@ a:hover, a:active, a:focus {
 
 h1 {
   font-size:60px;
-  letter-spacing:35px;
+  letter-spacing:15px;
+  line-height:70px;
   text-transform:uppercase;
 }
 
 h2 {
   font-size:50px;
+  letter-spacing:15px;
+  line-height:60px;
   text-transform:uppercase;
 }
 
 h3 {
   font-size:30px;
+  text-transform:uppercase;
+}
+
+h3 span {
+  letter-spacing:10px;
+}
+
+h4 {
+  text-transform:uppercase;
+  letter-spacing:10px;
+  line-height:30px;
 }
 
 p {
@@ -264,7 +278,12 @@ section:hover {
   transition:0.25s ease-in color;
 }
 
-#download {
+#involve p {
+  padding-left:30px;
+  padding-right:30px;
+}
+
+#download a {
   color:white;
 }
 
@@ -278,7 +297,6 @@ section:hover {
 
 #social {
   opacity:0;
-  padding-bottom:240px;
 }
 
 #social a {
@@ -310,6 +328,56 @@ section:hover {
   color:#6ad1e3;
 }
 
+#footer {
+  opacity:0;
+}
+
+#footer a {
+  color:white;
+  border-bottom:1px solid #a4d65e;
+  -webkit-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -moz-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -o-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  transition:0.25s ease-in border-color, 0.25s ease-in color;
+}
+
+#footer a:hover {
+  border-color:white;
+  color:#a4d65e;
+  -webkit-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -moz-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  -o-transition:0.25s ease-in border-color, 0.25s ease-in color;
+  transition:0.25s ease-in border-color, 0.25s ease-in color;
+}
+
+#promo-mobile {
+  background-image:none !important;
+}
+
+#promo-mobile section {
+  padding:0;
+}
+
+#promo-mobile .promo {
+  margin-top:100px;
+  margin-bottom:100px;
+}
+
+#promo-mobile .promo img {
+  border:1px solid rgba(255, 255, 255, 0.2);
+}
+
+#promo-mobile h4 span {
+  color:#c6579a;
+}
+
+#promo-mobile .promo-border {
+  border:1px solid #c6579a;
+  margin-top:25px;
+  margin-bottom:25px;
+  width:200px;
+}
+
 /* Medium devices (desktops, 992px and up) (Tablet Wide) */
 @media screen and (max-width: 1199px) {
   body {
@@ -321,7 +389,7 @@ section:hover {
   }
 
   h2 {
-    font-size:40px;
+    font-size:35px;
   }
 
   #cover {

@@ -8,6 +8,7 @@
 
   	<meta name="description" content="JourneyChurch.tv Good Friday 2016">
   	<meta name="author" content="JourneyChurch.tv">
+    <meta name="keywords" content="Journey Church, JourneyChurch.tv, Good Friday, Myriad Gardens, Easter, OKC, Norman, Moore, 2016">
   	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -26,6 +27,8 @@
   	<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'>
   </head>
   <body>
+
+    {!-- Cover --}
     <section id="cover" class="bg-img">
       <div class="container">
         <div class="inner">
@@ -38,6 +41,7 @@
       </div>
     </section>
 
+    {!-- What, When , Where --}
     <section id="about">
       <div class="container">
         <div class="row">
@@ -68,6 +72,7 @@
       </div>
     </section>
 
+    {!-- Directions/Event Map --}
     <section id="maps" class="bg-img">
       <div class="container">
         <div class="row">
@@ -86,6 +91,7 @@
       </div>
     </section>
 
+    {!-- Quotes --}
     <section id="best-of" class="bg-img">
       <div class="container">
         <div class="row">
@@ -120,6 +126,7 @@
       </div>
     </section>
 
+    {!-- Invitation/Social with pics}
     <section id="invite">
       <div class="container-fluid">
         <div class="row">
@@ -143,6 +150,7 @@
       </div>
     </section>
 
+    {!-- Easter Promo --}
     <section id="easter">
       <div class="container">
         <div class="row">
@@ -153,6 +161,7 @@
       </div>
     </section>
 
+    {!-- Footer --}
     <section id="footer">
       <div class="container">
         <div class="row">
@@ -172,7 +181,10 @@ PO Box 722764 | Norman, OK 73070 | 405.217.8700 | <a href="mailto:connect@journe
       $(document).ready(function() {
         var width = $(window).width();
 
+        {!-- If Destop --}
         if (width >= 1200) {
+
+          {!-- What, When, Where hover effects --}
           $('.about-box:first-child').addClass('active');
 
           $('.about-box:first-child').mouseover(function() {
@@ -190,6 +202,7 @@ PO Box 722764 | Norman, OK 73070 | 405.217.8700 | <a href="mailto:connect@journe
             $(this).addClass('active');
           });
 
+          {!-- Hover effects social backgrounds --}
           $('#tag').mouseover(function() {
             $('.invite').removeClass('active');
             $(this).addClass('active');
