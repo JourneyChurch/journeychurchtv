@@ -278,11 +278,6 @@ section:hover {
   transition:0.25s ease-in color;
 }
 
-#involve p {
-  padding-left:30px;
-  padding-right:30px;
-}
-
 #download a {
   color:white;
 }
