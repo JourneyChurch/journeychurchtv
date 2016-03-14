@@ -388,10 +388,6 @@ section:hover {
     opacity:1 !important;
   }
 
-  h2 {
-    font-size:35px;
-  }
-
   #cover {
     background: url("/_img/Easter-Background-2.png") no-repeat top right scroll;
   }
@@ -450,6 +446,11 @@ section:hover {
   #social i {
     opacity:1;
   }
+
+  #footer a {
+    border-color:white;
+    color:#a4d65e;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -457,6 +458,10 @@ section:hover {
 }
 
 @media screen and (max-width: 767px) {
+  h2 {
+    font-size:30px;
+  }
+
   #cover {
     background-image:none;
   }
