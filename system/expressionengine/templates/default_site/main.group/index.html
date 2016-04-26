@@ -23,14 +23,16 @@
 <div class="clear"></div>
 
 {if site-alert != " "}
-<div id="page-alert">
-	<div class="container">
-		<div class="grid_12">
-			<h2>{site-alert}</h2>
+	{if {current_time format="%Y%m%d"} == "20160426"}
+	<div id="page-alert">
+		<div class="container">
+			<div class="grid_12">
+				<h2>{site-alert}</h2>
+			</div>
 		</div>
+		<div class="clear"></div>
 	</div>
-	<div class="clear"></div>
-</div>
+	{/if}
 {/if}
 
 <div id="full-only">
