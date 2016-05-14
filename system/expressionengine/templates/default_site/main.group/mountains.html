@@ -20,6 +20,11 @@
 
 		{!-- Font Icons --}
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+		{!-- Javascript/Jquery --}
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
 	</head>
 	<body>
     <div class="banner bg-img">
@@ -37,6 +42,17 @@
 				<div class="scroll-down"><i class="fa fa-angle-down"></i></div>
 			</div>
     </div>
+
+		<script>
+			$(document).ready(function() {
+				var windowHeight = $(window).height();
+				$(".banner").height(windowHeight);
+
+				TweenMax.to($(".banner .inner img"), 1.5, {marginTop:"0px", ease: Expo.easeOut, delay:1});
+				TweenMax.to($(".banner .inner img"), 2, {opacity:1, delay:1});
+				TweenMax.to($(".scroll-down"), 1.5, {opacity:1, delay:2});
+			});
+		</script>
 
 		<div id="promo" class="bg-img">
 			<div class="container">
@@ -116,20 +132,8 @@
 			</div>
 		</footer>
 
-    {!-- Javascript/Jquery --}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-
     <script>
       $(document).ready(function() {
-				var windowHeight = $(window).height();
-				$(".banner").height(windowHeight);
-
-				TweenMax.to($(".banner .inner img"), 1.5, {marginTop:"0px", ease: Expo.easeOut, delay:1});
-				TweenMax.to($(".banner .inner img"), 2, {opacity:1, delay:1});
-				TweenMax.to($(".scroll-down"), 1.5, {opacity:1, delay:2});
-
         $(window).resize(function() {
 					windowHeight = $(window).height();
 					$(".banner").height(windowHeight);
