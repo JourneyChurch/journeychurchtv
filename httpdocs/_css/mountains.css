@@ -267,6 +267,11 @@ footer a:hover, footer a:focus {
     margin-top:130px;
   }
 
+  #promo {
+    padding-top:60px;
+    padding-bottom:60px;
+  }
+
   .quote .quote-img {
     opacity:1;
   }
