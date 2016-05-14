@@ -126,6 +126,10 @@
 				var windowHeight = $(window).height();
 				$(".banner").height(windowHeight);
 
+				TweenMax.to($(".banner .inner img"), 1.5, {marginTop:"0px", ease: Expo.easeOut, delay:1});
+				TweenMax.to($(".banner .inner img"), 2, {opacity:1, delay:1});
+				TweenMax.to($(".scroll-down"), 1.5, {opacity:1, delay:2});
+
         $(window).resize(function() {
 					windowHeight = $(window).height();
 					$(".banner").height(windowHeight);
@@ -143,12 +147,6 @@
 					$(this).removeClass('hover')
 				});
       });
-    </script>
-
-		<script>
-			TweenMax.to($(".banner .inner img"), 1.5, {marginTop:"0px", ease: Expo.easeOut, delay:1});
-			TweenMax.to($(".banner .inner img"), 2, {opacity:1, delay:1});
-			TweenMax.to($(".scroll-down"), 2, {opacity:1, delay:2});
 		</script>
 	</body>
 </html>
