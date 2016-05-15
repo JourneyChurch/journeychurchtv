@@ -292,6 +292,10 @@ footer a:hover, footer a:focus {
     margin-top:20px;
   }
 
+  #google-play img {
+    margin-left:-10px;
+  }
+
   .quote-caption h2 {
     margin-top:35px;
   }
