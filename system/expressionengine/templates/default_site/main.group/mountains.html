@@ -42,21 +42,33 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5">
-						<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/263881623&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+						<div class="vid-responsive">
+							<iframe src="https://www.youtube.com/embed/6hdvzTSKcgY" frameborder="0" allowfullscreen></iframe>
+						</div>
 					</div>
 
 					<div class="col-md-6 col-md-offset-1">
 						<h3>Let's Move</h3><br>
 						<p>"Mountains" marks a new chapter for Creative Journey Worship. Birthed from the maturing of our worship culture and the shaping of our sound, we are more than excited to pursue writing a full length original album that captures the heart of Journey Church.</p><br>
 						<a href="https://www.kickstarter.com/projects/1291122242/mountains-0" target="_blank"><button class="btn btn-default">Fund Us On Kickstarter</button></a><br><br>
-						<a id="itunes" href="http://itunes.apple.com/album/id1111405660?ls=1&app=itunes" target="_blank"><img src="/_img/Get_it_on_iTunes_Badge_US_1114.svg" class="img-responsive"/></a>
-						<a id="google-play" href='https://play.google.com/store/music/album/Creative_Journey_Be_Still?id=Bvugmym4lzjcm2mvqqcwqb3s57e&hl=en&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' class="img-responsive"/></a>
 					</div>
 				</div>
+			</div>
+		</div>
 
+		<div id="music">
+			<div class="container">
 				<div class="row">
-					<div class="col-md-3 col-sm-offset-3">
-
+					<div class="col-md-4 col-md-offset-1">
+						<div id="soundcloud">
+							<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/263881623&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-md-offset-1">
+						<br><br>
+						<a href="http://itunes.apple.com/album/id1111405660?ls=1&app=itunes" target="_blank"><button class="btn btn-default">Get it on iTunes</button></a><br><br>
+						<a href='https://play.google.com/store/music/album/Creative_Journey_Be_Still?id=Bvugmym4lzjcm2mvqqcwqb3s57e&hl=en&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><button class="btn btn-default">Get it on Google Play</button></a>
 					</div>
 				</div>
 			</div>
@@ -144,10 +156,10 @@
 					});
 				});
 
-				$("#promo button").on("touchstart", function() {
+				$("#promo button, #music button").on("touchstart", function() {
 					$(this).addClass('hover');
 				}).on("touchmove", function() {
-					$(this).removeClass('hover')
+					$(this).removeClass('hover');
 				});
 
 				TweenMax.to($(".banner .inner img"), 1.5, {marginTop:"0px", ease: Expo.easeOut, delay:1});
