@@ -419,26 +419,26 @@ ul.side-nav {
 	}
 
 	#accordion h3:focus { outline: 0; }
-	#accordion, #accordion2 {
+	#accordion, #accordion2, #accorion3 {
 		cursor: pointer;
 	}
-	#accordion h3, #accordion2 h3 {
+	#accordion h3, #accordion2 h3, #accordion3 h3 {
 		background-color: #EEE;
 		padding: 10px;
 		border-bottom: 1px solid #b2b4b1;
 	}
-	#accordion .icon-plus-sign, #accordion2 .icon-plus-sign {
+	#accordion .icon-plus-sign, #accordion2 .icon-plus-sign, #accordion3 .icon-plus-sign {
 		color: #b2b4b1;
 		float: right;
 		font-size: 18px;
 	}
-	#accordion .accordion-title, #accordion2 .accordion-title {
+	#accordion .accordion-title, #accordion2 .accordion-title, #accordion3 .accordion-title {
 		font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B';
 		font-weight: 400;
 		font-size: 16px;
 		padding-right: 10px;
 	}
-	#accordion2 {
+	#accordion2, #accordion3 {
 		margin-top: 20px;
 	}
 	.ui-accordion-content {
