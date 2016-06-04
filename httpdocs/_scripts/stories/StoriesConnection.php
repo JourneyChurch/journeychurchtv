@@ -1,7 +1,7 @@
 <?php
   class StoriesConnection {
-    private $DB_NAME = "stories";
-    private $DB_USER = "storiesadmin";
+    private $DB_NAME = "stories_";
+    private $DB_USER = "stories-admin";
     private $DB_PASS = "%M79dl2g";
     private $DB_HOST = "localhost";
     private $con;
