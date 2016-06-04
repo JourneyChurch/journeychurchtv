@@ -1,0 +1,352 @@
+@font-face {
+  font-family: 'AmericanTypewriter';
+  src: url('/_font/AmericanTypewriter/AmericanTypewriter.eot'); /* IE9 Compat Modes */
+  src: url('/_font/AmericanTypewriter/AmericanTypewriter.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/AmericanTypewriter/AmericanTypewriter.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/AmericanTypewriter/AmericanTypewriter.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/AmericanTypewriter/AmericanTypewriter.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+* {
+  font-family:'AmericanTypewriter', Arial;
+  color:black;
+}
+
+body {
+
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin:0;
+}
+
+h1 {
+  font-size:100px;
+  letter-spacing:15px;
+}
+
+h2 {
+  font-size:50px;
+  letter-spacing:10px;
+}
+
+h3 {
+  font-size:25px;
+  letter-spacing:16px;
+}
+
+p {
+  font-size:18px;
+  line-height:30px;
+  font-weight:200;
+  letter-spacing:1px;
+}
+
+ul {
+  list-style-type:none;
+}
+
+a:hover {
+  text-decoration:none;
+}
+
+header {
+  display:none;
+  position:fixed;
+  z-index:100000;
+  width:100%;
+  text-align:center;
+  background-color:rgba(70, 70, 70, 0.95);
+  font-size:14px;
+  padding:10px 0;
+}
+
+section {
+  padding:50px 0;
+  display:table;
+  width:100%;
+}
+
+section .inner {
+  display:table-cell;
+  vertical-align:middle;
+}
+
+input, textarea {
+  border:none;
+  padding:13px 15px;
+  font-size:30px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-top:15px;
+  width:100%;
+  background-color:rgba(255, 255, 255, 0);
+  letter-spacing:1px;
+}
+
+textarea {
+  width:100%;
+  resize:none;
+}
+
+input[type=password] {
+    -webkit-box-sizing : border-box;‌​
+    -moz-box-sizing : border-box;
+    box-sizing : border-box;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+   color:black;
+   opacity:0.3;
+   -moz-transition: 0.25s ease-in opacity;
+   -o-transition: 0.25s ease-in opacity;
+   -webkit-transition: 0.25s ease-in opacity;
+   transition: 0.25s ease-in opacity;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+   color:black;
+   opacity:0.3;
+   -moz-transition: 0.25s ease-in opacity;
+   -o-transition: 0.25s ease-in opacity;
+   -webkit-transition: 0.25s ease-in opacity;
+   transition: 0.25s ease-in opacity;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color:black;
+  opacity:0.3;
+  -moz-transition: 0.25s ease-in opacity;
+  -o-transition: 0.25s ease-in opacity;
+  -webkit-transition: 0.25s ease-in opacity;
+  transition: 0.25s ease-in opacity;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color:black;
+  opacity:0.3;
+  -moz-transition: 0.25s ease-in opacity;
+  -o-transition: 0.25s ease-in opacity;
+  -webkit-transition: 0.25s ease-in opacity;
+  transition: 0.25s ease-in opacity;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+   opacity:1;
+   -moz-transition: 0.25s ease-in opacity;
+   -o-transition: 0.25s ease-in opacity;
+   -webkit-transition: 0.25s ease-in opacity;
+   transition: 0.25s ease-in opacity;
+}
+
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder {
+   opacity:1;
+   -moz-transition: 0.25s ease-in opacity;
+   -o-transition: 0.25s ease-in opacity;
+   -webkit-transition: 0.25s ease-in opacity;
+   transition: 0.25s ease-in opacity;
+}
+
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+   opacity:1;
+   -moz-transition: 0.25s ease-in opacity;
+   -o-transition: 0.25s ease-in opacity;
+   -webkit-transition: 0.25s ease-in opacity;
+   transition: 0.25s ease-in opacity;
+}
+
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
+   opacity:1;
+   -moz-transition: 0.25s ease-in opacity;
+   -o-transition: 0.25s ease-in opacity;
+   -webkit-transition: 0.25s ease-in opacity;
+   transition: 0.25s ease-in opacity;
+}
+
+label {
+  font-size:30px;
+  display:inline-block;
+  font-weight:200;
+  letter-spacing:1px;
+}
+
+nav {
+  position:fixed;
+  z-index:1000;
+  right:20px;
+  bottom:0;
+  font-size:40px;
+}
+
+nav .arrow-up {
+  margin-bottom:-10px;
+}
+
+nav .arrow:hover {
+  cursor:pointer;
+}
+
+.light {
+  font-weight:200;
+}
+
+.bg-img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.btn {
+  border-radius:4px;
+}
+
+.btn:hover {
+  color:white;
+}
+
+.btn:active {
+   box-shadow:none;
+}
+
+.btn:focus {
+  color:white;
+}
+
+.btn-default {
+  background-color:white;
+  text-shadow:none;
+  background-image:none;
+  border:none;
+  color:black;
+  padding:11px 12px 11px 17px;
+  font-size:22px;
+  letter-spacing:7px;
+  font-weight:200;
+  text-transform:uppercase;
+  -moz-transition: 0.25s ease-in opacity;
+  -o-transition: 0.25s ease-in opacity;
+  -webkit-transition: 0.25s ease-in opacity;
+  transition: 0.25s ease-in opacity;
+}
+
+.btn-default:hover, .btn-default:active, .btn-default:focus {
+  color:black;
+  background-color:white !important;
+  opacity:0.85;
+  -moz-transition: 0.25s ease-in opacity;
+  -o-transition: 0.25s ease-in opacity;
+  -webkit-transition: 0.25s ease-in opacity;
+  transition: 0.25s ease-in opacity;
+}
+
+.btn-block {
+  font-size:25px;
+  letter-spacing:13px;
+  padding:13px;
+}
+
+.vid-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.vid-responsive iframe, .vid-responsive object, .vid-responsive embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#name-error:before, #story-error:before, #email-error:before, #find-error:before {
+  content: '\A\A';
+  white-space:pre;
+}
+
+#cover {
+  background-image:url("/_img/stories/Cover-4.2.png");
+}
+
+#vid, #intro, #name, #beginning, #persevered, #growth, #thanks, #email, #share, #submit {
+  background-image:url("/_img/stories/paper-texture.jpg");
+}
+
+#cover h1 {
+  margin-bottom:20px;
+}
+
+#submit {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:table;
+}
+
+#submit .inner {
+  display:table-cell;
+  vertical-align:middle;
+}
+
+/*#cover h3 span {
+  border-bottom:2px solid black;
+  width:125px;
+  display:inline-block;
+  height:20px;
+}*/
+
+/* md (Small Desktop) */
+@media screen and (max-width: 1199px) {
+
+}
+
+/* sm (Tablet) */
+@media screen and (max-width: 991px) {
+  h1 {
+    font-size:50px;
+    letter-spacing:10px;
+  }
+
+  h2 {
+    font-size:40px;
+  }
+
+  h3 {
+    font-size:25px;
+    margin-top:20px;
+  }
+
+  label, input, textarea {
+    font-size:20px;
+  }
+
+  .btn-block {
+    font-size:14px;
+  }
+
+  .btn-block {
+    letter-spacing:5px;
+  }
+}
+
+/* xs (Mobile) */
+@media screen and (max-width: 767px) {
+  input {
+    width:100%;
+  }
+}
