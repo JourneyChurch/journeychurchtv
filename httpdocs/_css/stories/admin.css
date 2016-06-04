@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'AmericanTypewriter';
+  src: url('/_font/AmericanTypewriter/AmericanTypewriter.eot'); /* IE9 Compat Modes */
+  src: url('/_font/AmericanTypewriter/AmericanTypewriter.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/AmericanTypewriter/AmericanTypewriter.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/AmericanTypewriter/AmericanTypewriter.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/AmericanTypewriter/AmericanTypewriter.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 * {
   font-family:'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B', Arial;
 }
@@ -91,6 +100,15 @@ select {
   outline-offset:0px;
 }
 
+.bg-img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .pad {
   padding:20px;
 }
@@ -104,10 +122,17 @@ select {
 }
 
 #admin-login {
+  position:absolute;
+  height:100%;
+  width:100%;
+  display:table;
+  background-image:url("/_img/stories/paper-texture.jpg")
+}
+
+#admin-login .inner {
+  display:table-cell;
+  vertical-align:middle;
   text-align:center;
-  margin-top:5%;
-  padding-top:30px;
-  padding-bottom:30px;
 }
 
 #admin-login h1 {
@@ -115,8 +140,8 @@ select {
   text-transform:uppercase;
   font-weight:200;
   letter-spacing:5px;
-  color:#B0B0B0;
   margin-top:30px;
+  font-family:"AmericanTypewriter"
 }
 
 #admin-header {
