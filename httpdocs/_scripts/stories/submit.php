@@ -1,10 +1,3 @@
-<?php
-  require_once("StoriesConnection.php");
-
-  $connection = new StoriesConnection();
-  $connection->submit($_POST["name"], $_POST["beginning"], $_POST["persevered"], $_POST["growth"], $_POST["email"]);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -29,6 +22,13 @@
 		<link rel="stylesheet" href="/_css/font-awesome.css" type='text/css'>
 	</head>
 	<body>
+    <?php
+      require_once("StoriesConnection.php");
+
+      $connection = new StoriesConnection();
+      $connection->submit($_POST["name"], $_POST["beginning"], $_POST["persevered"], $_POST["growth"], $_POST["email"]);
+    ?>
+
     <section id="submit" class="bg-img text-center">
       <div class="inner">
         <div class="container">
