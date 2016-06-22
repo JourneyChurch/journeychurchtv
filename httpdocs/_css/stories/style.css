@@ -20,21 +20,6 @@ h1, h2, h3, h4, h5, h6, p, ul {
   margin:0;
 }
 
-h1 {
-  font-size:100px;
-  letter-spacing:15px;
-}
-
-h2 {
-  font-size:50px;
-  letter-spacing:10px;
-}
-
-h3 {
-  font-size:25px;
-  letter-spacing:16px;
-}
-
 p {
   font-size:18px;
   line-height:30px;
@@ -278,7 +263,7 @@ nav .arrow:hover {
 }
 
 #cover {
-  background-image:url("/_img/stories/Cover-4.2.png");
+  background-image:url("/_img/stories/desk.png");
 }
 
 #vid, #intro, #name, #beginning, #persevered, #growth, #thanks, #email, #share, #submit {
@@ -286,7 +271,15 @@ nav .arrow:hover {
 }
 
 #cover h1 {
-  margin-bottom:20px;
+  font-size:55px;
+  color:white;
+  letter-spacing:40px;
+}
+
+#cover h3 {
+  color:white;
+  letter-spacing:10px;
+  font-weight:100;
 }
 
 #submit {

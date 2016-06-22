@@ -19,13 +19,13 @@
     public function submit($name, $beginning, $persevered, $growth, $email) {
       $this->connect();
 
-      if (!empty($email)) {
+      if (isset($email)) {
         $this->sql .= "INSERT INTO `stories-posts` (Name, Beginning, Persevered, Growth, Email) VALUES ('$name', '$beginning', '$persevered', '$growth', '$email')";
 
         mysqli_query($this->con, $this->sql);
-
-        mysqli_close($this->con);
       }
+
+      mysqli_close($this->con);
     }
 
     public function getStories($categories, $status, $startDate, $endDate) {
