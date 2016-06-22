@@ -310,20 +310,6 @@ nav .arrow:hover {
 
 /* sm (Tablet) */
 @media screen and (max-width: 991px) {
-  h1 {
-    font-size:50px;
-    letter-spacing:10px;
-  }
-
-  h2 {
-    font-size:40px;
-  }
-
-  h3 {
-    font-size:25px;
-    margin-top:20px;
-  }
-
   label, input, textarea {
     font-size:20px;
   }
@@ -341,5 +327,15 @@ nav .arrow:hover {
 @media screen and (max-width: 767px) {
   input {
     width:100%;
+  }
+
+  #cover h1 {
+    font-size:30px;
+    letter-spacing:30px;
+  }
+
+  #cover h3 {
+    font-size:20px;
+    letter-spacing:7px;
   }
 }
