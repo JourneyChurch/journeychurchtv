@@ -32,7 +32,7 @@ $(document).ready(function() {
   // Validate entries
   var validator = $("#stories-form").validate();
 
-  $("#stories-form").submit(function() {
+  $("#stories-form").submit(function(event) {
     if (!$("#stories-form").valid()) {
       var invalids = validator.numberOfInvalids();
 
@@ -45,6 +45,8 @@ $(document).ready(function() {
           $("#invalid").fadeOut();
         }
       , 8000);
+
+      event.preventDefault();
     }
   });
 
