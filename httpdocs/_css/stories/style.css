@@ -262,6 +262,7 @@ nav .arrow:hover {
   padding:10px 0;
   z-index:1000;
   text-align:center;
+  margin-bottom:20px;
 }
 
 #name-error:before, #story-error:before, #email-error:before, #find-error:before {
