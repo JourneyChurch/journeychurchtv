@@ -346,4 +346,8 @@ nav .arrow:hover {
     font-size:20px;
     letter-spacing:7px;
   }
+
+  #intro p {
+    font-size:14px;
+  }
 }
