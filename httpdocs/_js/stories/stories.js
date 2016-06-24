@@ -32,6 +32,17 @@ $(document).ready(function() {
   // Validate entries
   $("#stories-form").validate();
 
+  $("#stories-form").submit(function() {
+    if (!$("#stories-form").valid()) {
+      $("#invalid").fadeIn();
+
+      setTimeout(
+        function() {
+          $("#invalid").fadeOut();
+        }
+      , 8000);
+    }
+  });
 
   var sections = $("section");
   var sectionScrollTops = [];
