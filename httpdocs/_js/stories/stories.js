@@ -30,10 +30,14 @@ $(document).ready(function() {
   });
 
   // Validate entries
-  $("#stories-form").validate();
+  var validator = $("#stories-form").validate();
 
   $("#stories-form").submit(function() {
     if (!$("#stories-form").valid()) {
+      var invalids = validator.numberOfInvalids();
+
+      $("#invalid").html("<h3>Oops... " + invalids + " of your fields are invalid.<br><br>Please review and resubmit your entry.</h3>");
+
       $("#invalid").fadeIn();
 
       setTimeout(
