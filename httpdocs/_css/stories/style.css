@@ -258,19 +258,10 @@ nav .arrow:hover {
 }
 
 #invalid {
-  width:100%;
-  position:fixed;
   display:none;
-  background-color:rgba(70, 70, 70, 0.95);
   padding:10px 0;
   z-index:1000;
   text-align:center;
-  top:0px !important;
-}
-
-#invalid p {
-  color:white;
-  font-size:14px;
 }
 
 #name-error:before, #story-error:before, #email-error:before, #find-error:before {
