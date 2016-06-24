@@ -93,11 +93,12 @@ $(document).ready(function() {
   // Adjust heights of sections and scroll tops on resize
   $(window).resize(function() {
     windowHeight = $(window).height();
-    setScrollTops();
 
     $("section").css({
       "min-height" : windowHeight,
       "height" : windowHeight
     });
+
+    setScrollTops();
   });
 });
