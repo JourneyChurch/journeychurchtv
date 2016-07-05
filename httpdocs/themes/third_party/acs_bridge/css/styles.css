@@ -1,5 +1,0 @@
-#acs_data {float: left; width: 100%;}
-#acs_data span.button {float: left; margin: 0 6px 10px 0;}
-#acs_data span.button a {display: block; background: #d0d9e1; color: #5f6c74; font-size: 12px; padding: 5px 9px; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
-#acs_data span.button a:hover {text-decoration: none; background: #e11842; color: white;}
-#loader {display: none; min-height: 100px; height: 100%; width: 100%; text-align: center;}

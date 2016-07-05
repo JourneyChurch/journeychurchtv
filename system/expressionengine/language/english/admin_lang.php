@@ -169,6 +169,9 @@ $lang = array(
 'enable_extensions' =>
 "Enable Extensions?",
 
+'extensions_disabled_manage' =>
+"Extensions must <a href='%s'>be enabled</a> to manage installed extensions.",
+
 'disable_extension' =>
 "Disable?",
 
@@ -308,11 +311,23 @@ $lang = array(
 "enable_throttling_explanation" =>
 "This feature generates a 404 header and message if a request to your site is made in which the template group does not exist in the URL. It is intended primarily to keep search engine crawlers from repeatedly requesting nonexistent pages.",
 
+"caching_driver" =>
+"Caching Driver",
+
+"caching_driver_failover" =>
+"Cannot connect to %s, using %s driver instead",
+
+"caching_driver_file_fail" =>
+"Cannot use %s driver, check cache path permissions",
+
+"disable_caching" =>
+"Disable Caching",
+
 "max_caches" =>
 "Maximum Number of Cachable URIs",
 
 "max_caches_explanation" =>
-"If you cache your pages or your database, this preference limits the total number of cache instances in order to prevent your cache files from taking up too much disk space.  150 is a good number for a small site.  If you have a large site and disk space is not an issue you can set it higher (over 300).  We have an internal limit of 1000 regardless of your preference.",
+"If you cache your pages or database, this limits the number of cache instances. We recommend 150 for small sites and 300 for large sites. The allowed maximum is 1000.",
 
 "standby_recount" =>
 "Recounting... please stand by...",
@@ -450,6 +465,9 @@ $lang = array(
 'pm_cfg' =>
 "Private Messaging Preferences",
 
+'prv_msg_enabled' =>
+'Enable private messaging between members?',
+
 'prv_msg_storage_limit' =>
 "Maximum Number of Private Messages a user can store",
 
@@ -458,6 +476,9 @@ $lang = array(
 
 'prv_msg_max_chars' =>
 "Maximum Number of characters to allow in Private Messages",
+
+'prv_msg_allow_attachments' =>
+'Allow attachments in private messages?',
 
 "prv_msg_max_attachments" =>
 "Maximum Number of Attachments per Private Message",
@@ -834,8 +855,17 @@ $lang = array(
 "debug_cfg" =>
 "Debugging Preferences",
 
+"software_registration" =>
+"Software Registration",
+
+"license_contact" =>
+"License Holder Contact Email",
+
 "license_number" =>
 "License Number",
+
+'invalid_license_number' =>
+'The license number provided is not a valid license number.',
 
 "word_separator" =>
 "Word Separator for URL Titles",
@@ -939,10 +969,10 @@ $lang = array(
 "group_assignment_defaults_to_two" =>
 "If you require account activation, members will be set to this once they are activated",
 
-"user_session_type" =>
-"User Session Type",
+"website_session_type" =>
+"Website Session Type",
 
-"admin_session_type" =>
+"cp_session_type" =>
 "Control Panel Session Type",
 
 "security_cfg" =>
@@ -963,17 +993,11 @@ $lang = array(
 "s_session" =>
 "Session ID only",
 
-"secure_forms" =>
-"Process form data in Secure Mode?",
-
 "deny_duplicate_data" =>
 "Deny Duplicate Data?",
 
 "deny_duplicate_data_explanation" =>
 "This option prevents data submitted by users (comments, etc.) from being received if it is an exact duplicate of data that already exists.",
-
-"secure_forms_explanation" =>
-"Prevents automated spamming and multiple accidental submissions.",
 
 "allow_multi_logins" =>
 "Allow multiple log-ins from a single account?",
@@ -1022,6 +1046,12 @@ $lang = array(
 
 "dictionary_explanation" =>
 "The name of the file containing your word list",
+
+'license_contact_explanation' =>
+'The contact email address for the owner of this software license.',
+
+'license_number_explanation' =>
+'You can find and manage your software licenses on the EllisLab.com <a href="https://store.ellislab.com/manage">Manage Purchases</a> page,',
 
 "image_path" =>
 "Path to Images Directory",
@@ -1095,6 +1125,12 @@ $lang = array(
 "use_newrelic_explanation" =>
 'When enabled, New Relic will add <a href="https://newrelic.com/docs/features/real-user-monitoring" rel="external">Real User Monitoring JavaScript</a> to all of your web pages.',
 
+"newrelic_app_name" =>
+"New Relic Application Name",
+
+"newrelic_app_name_explanation" =>
+"Changes the name of the application that appears in the New Relic dashboard for this installation of ExpressionEngine.",
+
 "gzip_output" =>
 "Enable GZIP Output?",
 
@@ -1116,14 +1152,20 @@ $lang = array(
 "localization_cfg" =>
 "Localization Settings",
 
+"date_format" =>
+"Default Date Formatting",
+
 "time_format" =>
 "Default Time Formatting",
 
-"united_states" =>
-"United States",
+"24_hour" =>
+"24-hour",
 
-"european" =>
-"European",
+"12_hour" =>
+"12-hour with AM/PM",
+
+"include_seconds" =>
+"Include Seconds in the Default Time Format",
 
 "default_site_timezone" =>
 "Site Timezone",
@@ -1199,6 +1241,9 @@ $lang = array(
 
 "smtp_port" =>
 "SMTP Server Port",
+
+'empty_stmp_fields' =>
+'The %s field is required for SMTP.',
 
 "smtp_username" =>
 "SMTP Username",
@@ -1721,6 +1766,9 @@ $lang = array(
 
 'illegal_characters' =>
 'The name you submitted may only contain alpha-numeric characters, underscores, and dashes',
+
+'invalid_xss_check' =>
+'The data you submitted did not pass our security check. If you did not intend to submit this form, please <a href="%s">click here</a> and no settings will be changed.',
 
 'developer_logs' =>
 'You have %d unviewed items in the <a href="%s">Developer Log</a>.',

@@ -6,7 +6,7 @@
  *
  * @package		CodeIgniter
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2008 - 2015, EllisLab, Inc.
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -46,29 +46,10 @@ if ( ! function_exists('force_download'))
 			return FALSE;
 		}
 
-		// Try to determine if the filename includes a file extension.
-		// We need it in order to set the MIME type
-		if (FALSE === strpos($filename, '.'))
-		{
-			return FALSE;
-		}
+		ee()->load->library('mime_type');
+		$mime = ee()->mime_type->ofBuffer($data);
 
-		// Grab the file extension
-		$x = explode('.', $filename);
-		$extension = end($x);
-
-		// Load the mime types
-		@include(APPPATH.'config/mimes.php');
-
-		// Set a default mime if we can't find it
-		if ( ! isset($mimes[$extension]))
-		{
-			$mime = 'application/octet-stream';
-		}
-		else
-		{
-			$mime = (is_array($mimes[$extension])) ? $mimes[$extension][0] : $mimes[$extension];
-		}
+		$len = (function_exists('mb_strlen')) ? mb_strlen($data, '8bit') : strlen($data);
 
 		// Generate the server headers
 		if (strpos($_SERVER['HTTP_USER_AGENT'], "MSIE") !== FALSE)
@@ -79,7 +60,7 @@ if ( ! function_exists('force_download'))
 			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 			header("Content-Transfer-Encoding: binary");
 			header('Pragma: public');
-			header("Content-Length: ".strlen($data));
+			header("Content-Length: ".$len);
 		}
 		else
 		{
@@ -88,7 +69,7 @@ if ( ! function_exists('force_download'))
 			header("Content-Transfer-Encoding: binary");
 			header('Expires: 0');
 			header('Pragma: no-cache');
-			header("Content-Length: ".strlen($data));
+			header("Content-Length: ".$len);
 		}
 
 		exit($data);

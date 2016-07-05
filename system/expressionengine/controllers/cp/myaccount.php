@@ -4,7 +4,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -344,9 +344,7 @@ class MyAccount extends CP_Controller {
 				}
 			}
 
-			$resrow = $result->result_array();
-
-			$resrow = $resrow[0]; // @confirrm: end of a long, long, long stretch of work, but not sure why its returning into index 0...
+			$resrow = $result->row_array();
 
 			$vars['custom_profile_fields'] = array();
 
@@ -825,83 +823,91 @@ class MyAccount extends CP_Controller {
 	/**
 	  *	 HTML buttons
 	  */
-	function html_buttons()
+	public function html_buttons()
 	{
-		// Is the user authorized to access the publish page? And does the user have
-		// at least one channel assigned? If not, show the no access message
-		if ( ! $this->cp->allowed_group('can_access_publish', 'can_edit_html_buttons'))
+		// Is the user authorized to access the publish page? And does the user
+		// have at least one channel assigned? If not, show the no access
+		// message
+		if ( ! ee()->cp->allowed_group('can_access_publish', 'can_edit_html_buttons'))
 		{
 			show_error(lang('unauthorized_access'));
 		}
 
-		$this->load->library('table');
-		$this->lang->loadfile('admin');
-		$this->lang->loadfile('admin_content');
+		ee()->load->library('table');
+		ee()->load->library('form_validation');
+		ee()->lang->loadfile('admin');
+		ee()->lang->loadfile('admin_content');
+		ee()->load->model('admin_model');
 
-		$this->load->model('admin_model');
+		ee()->form_validation->set_error_delimiters('<b class="notice">', '</b>');
 
 		$vars['cp_page_title'] = lang('html_buttons');
 		$vars['form_hidden'] = array(
-								'button_submit'	=>	TRUE,
-								'id'			=>	$this->id);
+			'button_submit' =>	TRUE,
+			'id'            =>	$this->id
+		);
 
 		$vars = array_merge($this->_account_menu_setup(), $vars);
 
-		$this->cp->add_js_script(array('file' => 'cp/account_html_buttons'));
+		ee()->cp->add_js_script(array('file' => 'cp/account_html_buttons'));
 
-		$this->cp->add_to_head('<style type="text/css">.cp_button{display:none;}</style>');
+		ee()->cp->add_to_head('<style type="text/css">.cp_button{display:none;}</style>');
 
 		// load the systems's predefined buttons
 		include_once(APPPATH.'config/html_buttons.php');
 		$vars['predefined_buttons'] = $predefined_buttons;
 
 		// any predefined buttons?
-		$button = $this->input->get_post('button');
+		$button = ee()->input->get_post('button');
 
-		$html_buttons = $this->admin_model->get_html_buttons($this->id, FALSE); // don't include defaults on this request
+		// don't include defaults on this request
+		$html_buttons = ee()->admin_model->get_html_buttons($this->id, FALSE);
 		$button_count = $html_buttons->num_rows();
 
 		if ($button != '')
 		{
-			// If we're here it means a link was followed. Since this means the $_POST won't be included
-			// with existing "pre defined" buttons, we need to check of the user has any buttons yet, and
-			// include the defaults if they do not
+			// If we're here it means a link was followed. Since this means the
+			// $_POST won't be included with existing "pre defined" buttons, we
+			// need to check of the user has any buttons yet, and include the
+			// defaults if they do not
 
 			if ($button_count == 0)
 			{
-				$buttons = $this->admin_model->get_html_buttons();
+				$buttons = ee()->admin_model->get_html_buttons();
 
 				foreach ($buttons->result_array() as $data)
 				{
 					unset($data['id']); // unsetting from default id for insertion
 					$data['member_id'] = $this->id; // override member id from default to this user for insertion
-					$this->admin_model->update_html_buttons($this->id, array($data), FALSE);
+					ee()->admin_model->update_html_buttons($this->id, array($data), FALSE);
 				}
 			}
 
 			// all buttons also share these settings
 			$predefined_buttons[$button] = array(
-						'member_id'		=> $this->id,
-						'site_id'		=> $this->config->item('site_id'),
-						'tag_name'		=> stripslashes($predefined_buttons[$button]['tag_name']),
-						'tag_open'		=> stripslashes($predefined_buttons[$button]['tag_open']),
-						'tag_close'		=> stripslashes($predefined_buttons[$button]['tag_close']),
-						'accesskey'		=> stripslashes($predefined_buttons[$button]['accesskey']),
-						'tag_order'		=> $button_count++,
-						'tag_row'		=> 1,
-						'classname'		=> stripslashes($predefined_buttons[$button]['classname']),
-				);
+				'member_id' => $this->id,
+				'site_id'   => ee()->config->item('site_id'),
+				'tag_name'  => stripslashes($predefined_buttons[$button]['tag_name']),
+				'tag_open'  => stripslashes($predefined_buttons[$button]['tag_open']),
+				'tag_close' => stripslashes($predefined_buttons[$button]['tag_close']),
+				'accesskey' => stripslashes($predefined_buttons[$button]['accesskey']),
+				'tag_order' => $button_count++,
+				'tag_row'   => 1,
+				'classname' => stripslashes($predefined_buttons[$button]['classname']),
+			);
 
-			$this->admin_model->update_html_buttons($this->id, array($predefined_buttons[$button]), FALSE);
+			ee()->admin_model->update_html_buttons($this->id, array($predefined_buttons[$button]), FALSE);
 
-			$id = ($this->input->get('id')) ? AMP.'id='.$this->input->get('id') : '';
+			$id = (ee()->input->get('id')) ? AMP.'id='.ee()->input->get('id') : '';
 
 			// Redirect to remove the button name from the query string.  Reloading the page can lead to
 			// adding buttons you don't want, and that's just ugliness.
-			$this->session->set_flashdata('message_success', lang('html_buttons_updated'));
-			$this->functions->redirect(BASE.AMP.'C=myaccount'.AMP.'M=html_buttons'.$id);
+			ee()->session->set_flashdata('message_success', lang('html_buttons_updated'));
+			ee()->functions->redirect(BASE.AMP.'C=myaccount'.AMP.'M=html_buttons'.$id);
 		}
-		elseif (is_numeric($this->id) AND $this->id != 0 AND $this->input->post('button_submit') != '')
+		elseif (is_numeric($this->id)
+			&& $this->id != 0
+			&& ee()->input->post('button_submit') != '')
 		{
 			$data = array();
 			foreach ($_POST as $key => $val)
@@ -910,36 +916,63 @@ class MyAccount extends CP_Controller {
 				{
 					$n = substr($key, 9);
 
+					// Set validation for new row
+					ee()->form_validation->set_rules(
+						'tag_name_'.$n,
+						'',
+						($n != 1)
+							? 'required|trim|strip_tags|valid_xss_check|max_length[16]'
+							: 'trim|strip_tags|valid_xss_check|max_length[16]'
+					);
+					ee()->form_validation->set_rules(
+						'tag_open_'.$n,
+						'',
+						'trim|max_length[120]'
+					);
+					ee()->form_validation->set_rules(
+						'tag_close_'.$n,
+						'',
+						'trim|max_length[120]'
+					);
+					ee()->form_validation->set_rules(
+						'accesskey_'.$n,
+						'',
+						'trim|max_length[16]'
+					);
+
 					$data[] = array(
-									'member_id' => $this->id,
-									'tag_name'	=> $this->input->post('tag_name_'.$n),
-									'tag_open'	=> $this->input->post('tag_open_'.$n),
-									'tag_close' => $this->input->post('tag_close_'.$n),
-									'accesskey' => $this->input->post('accesskey_'.$n),
-									'tag_order' => ($this->input->post('tag_order_'.$n) != '') ? $this->input->post('tag_order_'.$n) : $button_count++,
-									'tag_row'	=> 1, // $_POST['tag_row_'.$n],
-									'site_id'	 => $this->config->item('site_id'),
-									'classname'	 => "btn_".str_replace(array(' ', '<', '>', '[', ']', ':', '-', '"', "'"), '', $this->input->post('tag_name_'.$n))
-									);
+						'member_id' => $this->id,
+						'tag_name'  => ee()->input->post('tag_name_'.$n),
+						'tag_open'  => ee()->input->post('tag_open_'.$n),
+						'tag_close' => ee()->input->post('tag_close_'.$n),
+						'accesskey' => ee()->input->post('accesskey_'.$n),
+						'tag_order' => (ee()->input->post('tag_order_'.$n) != '') ? ee()->input->post('tag_order_'.$n) : $button_count++,
+						'tag_row'   => 1, // $_POST['tag_row_'.$n],
+						'site_id'   => ee()->config->item('site_id'),
+						'classname' => "btn_".str_replace(array(' ', '<', '>', '[', ']', ':', '-', '"', "'"), '', ee()->input->post('tag_name_'.$n))
+					);
 				}
 			}
 
-			$this->admin_model->update_html_buttons($this->id, $data);
+			if (ee()->form_validation->run())
+			{
+				ee()->admin_model->update_html_buttons($this->id, $data);
+			}
 		}
 
-		$vars['html_buttons'] = $this->admin_model->get_html_buttons($this->id);
+		$vars['html_buttons'] = ee()->admin_model->get_html_buttons($this->id);
 		$button_count = $vars['html_buttons']->num_rows();
 
 		if ($button_count == 0)
 		{
 			// user doesn't have any, let's grab the default buttons (user 0 in html_buttons)
-			$vars['html_buttons'] = $this->admin_model->get_html_buttons(0);
+			$vars['html_buttons'] = ee()->admin_model->get_html_buttons(0);
 		}
 
 		$vars['member_id'] = $this->id;
 		$vars['i'] = 1;
 
-		$this->cp->render('account/html_buttons', $vars);
+		ee()->cp->render('account/html_buttons', $vars);
 	}
 
 	// --------------------------------------------------------------------
@@ -1061,24 +1094,9 @@ class MyAccount extends CP_Controller {
 		$vars['cp_page_title'] = lang('subscriptions');
 
 		$this->jquery->tablesorter('.mainTable', '{
-			headers: {3: {sorter: false}},
+			headers: {2: {sorter: false}},
 			widgets: ["zebra"]
 		}');
-
-		$this->javascript->output('
-			$(".toggle_all").toggle(
-				function(){
-					$("input.toggle").each(function() {
-						this.checked = true;
-					});
-				}, function (){
-					var checked_status = this.checked;
-					$("input.toggle").each(function() {
-						this.checked = false;
-					});
-				}
-			);
-		');
 
 		$vars = array_merge($this->_account_menu_setup(), $vars);
 
@@ -1194,37 +1212,47 @@ class MyAccount extends CP_Controller {
 
 		$vars['form_hidden']['id'] = $this->id;
 
-		$fields = array('timezone', 'language', 'time_format');
+		$fields = array('timezone', 'language', 'date_format', 'time_format', 'include_seconds');
 
 		// Fetch profile data
 		$query = $this->member_model->get_member_data($this->id, $fields);
 
+		$values = array();
 		foreach ($fields as $val)
 		{
-			$vars[$val] = $query->row($val);
+			$values[$val] = $query->row($val);
 		}
+		$values['default_site_timezone'] = $values['timezone']; // Key differentiation with the config
 
-		if ($vars['timezone'] == '')
+		// Fetch the admin config values in order to populate the form with
+		// the same options
+		$this->load->model('admin_model');
+		$config_fields = ee()->config->prep_view_vars('localization_cfg', $values);
+
+		// Cleaning up some design oddness: removing labels from the radios
+		foreach ($config_fields['fields'] as $field => &$data)
 		{
-			$vars['timezone'] = $this->config->item('default_site_timezone') ? $this->config->item('default_site_timezone') : 'UTC';
+			if ($data['type'] == 'r')
+			{
+				for ($i = 0; $i < count($data['value']); $i++)
+				{
+					$data['value'][$i]['id'] = '';
+				}
+			}
 		}
 
-		if ($vars['time_format'] == '')
-		{
-			$vars['time_format'] = ($this->config->item('time_format') && $this->config->item('time_format') != '') ? $this->config->item('time_format') : 'us';
-		}
+		// Cleanup the key differentiation
+		$vars['timezone'] = str_replace('default_site_timezone', 'timezone', $config_fields['fields']['default_site_timezone']['value']);
+		unset($config_fields['fields']['default_site_timezone']);
 
-		$vars['time_format_options']['us'] = lang('united_states');
-		$vars['time_format_options']['eu'] = lang('european');
+		$vars = array_merge($config_fields, $vars);
 
+		$vars['language'] = $values['language'];
 		if ($vars['language'] == '')
 		{
 			$vars['language'] = ($this->config->item('deft_lang') && $this->config->item('deft_lang') != '') ? $this->config->item('deft_lang') : 'english';
 		}
-
 		$vars['language_options'] = $this->language_model->language_pack_names();
-
-		$vars['timezone_menu'] = $this->localize->timezone_menu($vars['timezone'], 'timezones');
 
 		$this->cp->render('account/localization', $vars);
 	}
@@ -1249,8 +1277,10 @@ class MyAccount extends CP_Controller {
 		$this->load->model('site_model');
 
 		$data['language']	= $this->security->sanitize_filename($this->input->post('language'));
-		$data['timezone']	= $this->input->post('timezones');
+		$data['timezone']	= $this->input->post('timezone');
+		$data['date_format'] = $this->input->post('date_format');
 		$data['time_format'] = $this->input->post('time_format');
+		$data['include_seconds'] = $this->input->post('include_seconds');
 
 		if ( ! is_dir(APPPATH.'language/'.$data['language']))
 		{
@@ -1315,27 +1345,49 @@ class MyAccount extends CP_Controller {
 	  */
 	function update_signature()
 	{
-		$signature = $this->input->post('signature');
+		$signature = ee()->input->post('signature');
+		$remove = ee()->input->post('remove');
 
-		$maxlength = ($this->config->item('sig_maxlength') == 0) ? 10000 : $this->config->item('sig_maxlength');
+		// Get member_id for redirects
+		$params = array();
+		if ($id = ee()->input->get_post('id'))
+		{
+			$params['id'] = $id;
+		}
+
+		// Do we have what we need in $_POST?
+		if (empty($signature)
+			&& empty($remove)
+			&& (empty($_FILES) && ee()->config->item('sig_allow_img_upload') == 'y'))
+		{
+			return ee()->functions->redirect(
+				cp_url('myaccount/edit_signature', $params)
+			);
+		}
+
+		$maxlength = ($this->config->item('sig_maxlength') == 0)
+			? 10000
+			: $this->config->item('sig_maxlength');
 
 		if (strlen($signature) > $maxlength)
 		{
-			show_error(str_replace('%x', $maxlength, lang('sig_too_big')));
+			show_error(sprintf(lang('sig_too_big'), $maxlength));
 		}
 
-		$this->member_model->update_member($this->id, array('signature' => $signature));
+		$this->member_model->update_member(
+			$this->id,
+			array('signature' => $signature)
+		);
 
 		// Is there an image to upload or remove?
-		if ((isset($_FILES['userfile']) AND $_FILES['userfile']['name'] != '') OR isset($_POST['remove']))
+		if ((isset($_FILES['userfile']) && $_FILES['userfile']['name'] != '')
+			OR isset($_POST['remove']))
 		{
 			return $this->upload_signature_image();
 		}
 
-		$id = ($this->input->get_post('id')) ? AMP.'id='.$this->input->get_post('id') : '';
-
 		$this->session->set_flashdata('message_success', lang('signature_updated'));
-		$this->functions->redirect(BASE.AMP.'C=myaccount'.AMP.'M=edit_signature'.$id);
+		$this->functions->redirect(cp_url('myaccount/edit_signature', $params));
 	}
 
 	// --------------------------------------------------------------------
@@ -2066,6 +2118,7 @@ class MyAccount extends CP_Controller {
 
 		$link = str_replace(array('/', '--'), array('&', '='), $this->input->get('link', TRUE));
 		$linkt = base64_decode($this->input->get('linkt', TRUE));
+		$linkt = strip_tags($this->security->xss_clean($linkt));
 
 		if ($link == '')
 		{
@@ -2132,7 +2185,7 @@ class MyAccount extends CP_Controller {
 			if (strncmp($key, 'title_', 6) == 0 && $val != '')
 			{
 				// XSS clean the title
-				$_POST[$key] = $val = $this->security->xss_clean($val);
+				$_POST[$key] = $val = strip_tags($this->security->xss_clean($val));
 
 				$i = $_POST['order_'.substr($key, 6)];
 
@@ -2271,10 +2324,16 @@ class MyAccount extends CP_Controller {
 			$vars['step'] = 3;
 			$vars['bm_name'] = $this->input->post('bm_name');
 			$channel_id = $this->input->post('channel_id');
-			$field_id  = 'field_id_'.$this->input->post('field_id');
+			$field_id = 'field_id_'.$this->input->post('field_id');
 
-            $s = ($this->config->item('admin_session_type') != 'c') ? $this->session->userdata('session_id') : 0;
-			$path = $this->config->item('cp_url')."?S={$s}".AMP.'D=cp&C=content_publish&M=entry_form&Z=1&BK=1&channel_id='.$channel_id.'&';
+			$path = cp_url(
+				'content_publish/entry_form',
+				array(
+					'Z'          => 1,
+					'BK'         => 1,
+					'channel_id' => $channel_id
+				)
+			);
 
 			$type = (isset($_POST['safari'])) ? "window.getSelection()" : "document.selection?document.selection.createRange().text:document.getSelection()";
 
@@ -2333,19 +2392,6 @@ class MyAccount extends CP_Controller {
 		}');
 
 		$this->javascript->output('
-			$(".toggle_all").toggle(
-				function(){
-					$("input.toggle").each(function() {
-						this.checked = true;
-					});
-				}, function (){
-					var checked_status = this.checked;
-					$("input.toggle").each(function() {
-						this.checked = false;
-					});
-				}
-			);
-
 			$("#add_member").hide();
 
 			$(".cp_button").show();
@@ -2525,8 +2571,8 @@ class MyAccount extends CP_Controller {
 
 		// Check for a method_save get variable, if it doesn't exist, assume
 		// it's the method name with _save at the end (e.g. method_save)
-		$method_save	= ($this->input->get_post('method_save')) ?
-			strtolower($this->input->get_post('method_save')) :
+		$method_save	= ($this->input->get_post('method_save', TRUE)) ?
+			strtolower($this->input->get_post('method_save', TRUE)) :
 			$method.'_save';
 
 		$class_name = ucfirst($extension).'_ext';

@@ -4,7 +4,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -35,15 +35,15 @@ class Pages_mcp {
 	{
 		// Make a local reference to the ExpressionEngine super object
 		$this->EE =& get_instance();
-		
+
 		ee()->load->model('pages_model');
-		
+
 		$query = ee()->pages_model->fetch_configuration();
 
 
 		$default_channel = 0;
 
-		$this->homepage_display = 'not_nested';		
+		$this->homepage_display = 'not_nested';
 
 		if ($query->num_rows() > 0)
 		{
@@ -51,17 +51,17 @@ class Pages_mcp {
 			{
 				$$row['configuration_name'] = $row['configuration_value'];
 			}
-			
+
 			$this->homepage_display = $homepage_display;
 		}
 
         $new_page_location = '';
-        
+
 		if ($default_channel != 0)
 		{
 			$new_page_location = AMP.'M=entry_form'.AMP.'channel_id='.$default_channel;
-		}		
-		
+		}
+
 		ee()->cp->set_right_nav(array(
 				'create_page'			=> BASE.AMP.'C=content_publish'.$new_page_location,
 				'pages_configuration'	=> BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=pages'.AMP.'method=configuration'
@@ -75,30 +75,14 @@ class Pages_mcp {
 	  */
 	function index()
 	{
-	    ee()->load->model('pages_model');
-	    
-		$vars['cp_page_title'] = ee()->lang->line('pages_module_name');
+		ee()->load->model('pages_model');
+
+		ee()->view->cp_page_title = ee()->lang->line('pages_module_name');
 		$vars['new_page_location'] = '';
 
 		ee()->load->library('table');
 		ee()->load->library('javascript');
 		ee()->load->helper('form');
-
-		ee()->javascript->output(array(
-				'$(".toggle_all").toggle(
-					function(){
-						$("input.toggle").each(function() {
-							this.checked = true;
-						});
-					}, function (){
-						var checked_status = this.checked;
-						$("input.toggle").each(function() {
-							this.checked = false;
-						});
-					}
-				);'
-			)
-		);
 
 		ee()->javascript->compile();
 
@@ -181,17 +165,17 @@ class Pages_mcp {
 	function configuration()
 	{
 	    ee()->load->model('pages_model');
-	    
+
 		if ( ! ee()->cp->allowed_group('can_admin_channels'))
 		{
 			show_error(ee()->lang->line('unauthorized_access'));
-		}		
-        
+		}
+
         ee()->load->library('table');
 
-		$vars['cp_page_title'] = ee()->lang->line('pages_configuration');
+		ee()->view->cp_page_title = ee()->lang->line('pages_configuration');
 
-		ee()->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=pages', 
+		ee()->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=pages',
 		                              ee()->lang->line('pages_module_name'));
 
 		ee()->load->helper('form');
@@ -209,11 +193,11 @@ class Pages_mcp {
 									  array('type'			=> 'display_pulldown',
 									  		'label'			=> ee()->lang->line('pages_display_on_homepage'),
 									  		'value'			=> ''),
-									  
+
 									  'default_channel'		=>
 									   array('type' 		=> 'other',
 									   		 'label'		=> ee()->lang->line('default_for_page_creation'),
-									   		 'value'		=> '')								
+									   		 'value'		=> '')
 									);
 
 		foreach($wquery->result_array() as $row)
@@ -275,7 +259,7 @@ class Pages_mcp {
 	function save_configuration()
 	{
 	    ee()->load->model('pages_model');
-	    
+
 		$data = array();
 
 		foreach($_POST as $key => $value)
@@ -307,7 +291,7 @@ class Pages_mcp {
 	function delete_confirm()
 	{
 	    ee()->load->model('pages_model');
-	    
+
 		if ( ! ee()->input->post('toggle'))
 		{
 			return $this->index();
@@ -317,7 +301,7 @@ class Pages_mcp {
 
 		ee()->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=pages', ee()->lang->line('pages_module_name'));
 
-		$vars['cp_page_title'] = ee()->lang->line('pages_delete_confirm');
+		ee()->view->cp_page_title = ee()->lang->line('pages_delete_confirm');
 
 		foreach ($_POST['toggle'] as $key => $val)
 		{
@@ -337,7 +321,7 @@ class Pages_mcp {
 	function delete()
 	{
 	    ee()->load->model('pages_model');
-	    
+
 		if ( ! ee()->input->post('delete'))
 		{
 			return $this->index();
@@ -352,14 +336,14 @@ class Pages_mcp {
 
         // Delete Pages & give us the number deleted.
         $delete_pages = ee()->pages_model->delete_site_pages($ids);
-		
+
 		if ($delete_pages === FALSE)
 		{
 			return $this->index();
 		}
 		else
 		{
-    		$message = ($delete_pages > 1) ? 
+    		$message = ($delete_pages > 1) ?
     		                ee()->lang->line('pages_deleted') : ee()->lang->line('page_deleted');
 
     		ee()->session->set_flashdata('message_success', $message);

@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /email_images/
-Disallow: /downloads/
-Disallow: /_scripts/
-Disallow: /strap/

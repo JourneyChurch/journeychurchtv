@@ -4,7 +4,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -31,14 +31,14 @@ class Referrer_mcp {
 	{
 		// Make a local reference to the ExpressionEngine super object
 		$this->EE =& get_instance();
-		
+
 		$base_url = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=referrer';
-		
+
 		ee()->cp->set_right_nav(array(
                 'view_referrers'        => $base_url.AMP.'method=view',
                 'clear_referrers'       => $base_url.AMP.'method=clear',
                 'referrer_preferences'  => BASE.AMP.'C=admin_system'.AMP.'M=tracking_preferences'
-		    ));		
+		    ));
 	}
 
 	// --------------------------------------------------------------------
@@ -64,7 +64,7 @@ class Referrer_mcp {
 	  *  View Referrers
 	  */
 	function view()
-	{		
+	{
 		ee()->load->library('pagination');
 		ee()->load->library('javascript');
 		ee()->load->library('table');
@@ -78,21 +78,6 @@ class Referrer_mcp {
 			headers: {5: {sorter: false}},
 			widgets: ["zebra"]
 		}');
-
-		ee()->javascript->output(array(
-				'$(".toggle_all").toggle(
-					function(){
-						$("input.toggle").each(function() {
-							this.checked = true;
-						});
-					}, function (){
-						var checked_status = this.checked;
-						$("input.toggle").each(function() {
-							this.checked = false;
-						});
-					}
-				);')
-		);
 
 		ee()->cp->add_to_foot('<script type="text/javascript">function showHide(entryID, htmlObj, linkType) {
 
@@ -149,7 +134,7 @@ class Referrer_mcp {
 			}
 
 			$sql = "WHERE (".substr($search_sql, 0, -4).")";
-			
+
 			$vars['search']['value'] = 	sanitize_search_terms($search_str);
 		}
 		else
@@ -160,7 +145,7 @@ class Referrer_mcp {
 		$query = ee()->db->query("SELECT COUNT(*) AS count FROM exp_referrers ".$sql);
 
 		$vars['num_referrers'] = $query->row('count');
-		
+
 		if ($query->row('count')  == 0)
 		{
 			$vars['message'] = (isset($vars['search']['value'])) ? ee()->lang->line('referrer_no_results') : ee()->lang->line('no_referrers');
@@ -296,18 +281,18 @@ class Referrer_mcp {
 		{
 			$vars['damned'][] = $val;
 		}
-		
+
 		if (ee()->db->table_exists('exp_blacklisted') === TRUE)
 		{
 			$vars['add_ips'] = ee()->lang->line('add_and_blacklist_ips');
 			$vars['add_urls'] = ee()->lang->line('add_and_blacklist_urls');
-			$vars['add_agents'] = ee()->lang->line('add_and_blacklist_agents');						
+			$vars['add_agents'] = ee()->lang->line('add_and_blacklist_agents');
 		}
 		else
 		{
 			$vars['add_ips'] = ee()->lang->line('add_ips');
 			$vars['add_urls'] = ee()->lang->line('add_urls');
-			$vars['add_agents'] = ee()->lang->line('add_agents');				
+			$vars['add_agents'] = ee()->lang->line('add_agents');
 		}
 
 		ee()->javascript->compile();
@@ -395,7 +380,7 @@ class Referrer_mcp {
 				sort($new['url']);
 				sort($new['agent']);
 				sort($new['ip']);
-				
+
 				//  Put blacklist info back into database
 
 				ee()->db->truncate('blacklisted');
@@ -403,7 +388,7 @@ class Referrer_mcp {
 				foreach($new as $key => $value)
 				{
 					$blacklisted_value = implode('|',$value);
-					
+
 					$data = array(	'blacklisted_type' 	=> $key,
 									'blacklisted_value'	=> $blacklisted_value);
 
@@ -491,7 +476,7 @@ class Referrer_mcp {
 
 		$vars['cp_page_title'] = ee()->lang->line('clear_referrers');
 		$total = ee()->db->count_all('referrers');
-		
+
 		$vars['total'] = $total;
 
 		$save = ( ! isset($_POST['save'])) ? '' : $_POST['save'];

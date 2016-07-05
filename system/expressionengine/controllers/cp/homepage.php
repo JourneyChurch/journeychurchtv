@@ -4,7 +4,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -42,15 +42,28 @@ class Homepage extends CP_Controller {
 		// Notices only show for super admins
 		if ($this->session->userdata['group_id'] == 1)
 		{
+			// Show a notice if the cache folder is not writeable
+			if ( ! ee()->cache->file->is_supported())
+			{
+				$message[] = lang('unwritable_cache_folder');
+			}
+
+			// Show a notice if the config file is not writeable
+			if ( ! is_really_writable(ee()->config->config_path))
+			{
+				$message[] = lang('unwritable_config_file');
+			}
+
 			if ($this->config->item('new_version_check') == 'y')
 			{
 				$message[] = $this->_version_check();
 			}
 
 			// Check to see if the config file matches the Core version constant
-			if (str_replace('.', '', APP_VER) !== $this->config->item('app_version'))
+			$config_version = $this->config->item('app_version');
+
+			if (version_compare(APP_VER, $config_version, '!='))
 			{
-				$config_version = 	substr($this->config->item('app_version'), 0, 1).'.'.substr($this->config->item('app_version'), 1, 1).'.'.substr($this->config->item('app_version'), 2);
 				$message[] = sprintf(lang('version_mismatch'), $config_version, APP_VER);
 			}
 
@@ -58,7 +71,7 @@ class Homepage extends CP_Controller {
 		}
 
 		$vars = array(
-			'message'			=> implode($message, "\n\n"),
+			'message'			=> array_filter($message),
 			'instructions'		=> lang('select_channel_to_post_in'),
 			'show_page_option'	=> (isset($this->cp->installed_modules['pages'])) ? TRUE : FALSE,
 			'info_message_open'	=> ($this->input->cookie('home_msg_state') != 'closed' && $show_notice) ? TRUE : FALSE,
@@ -263,9 +276,8 @@ class Homepage extends CP_Controller {
 	{
 		$download_url = $this->cp->masked_url('https://store.ellislab.com/manage');
 
-		$this->load->helper('version_helper');
-
-		$version_file = get_version_info();
+		$this->load->library('el_pings');
+		$version_file = ee()->el_pings->get_version_info();
 
 		if ( ! $version_file)
 		{
@@ -281,7 +293,7 @@ class Homepage extends CP_Controller {
 		// Do we have a newer version out?
 		foreach ($version_file as $app_data)
 		{
-			if ($app_data[0] > APP_VER && $app_data[2] == 'high')
+			if (version_compare($app_data[0], APP_VER, '>') && $app_data[2] == 'high')
 			{
 				$new_release = TRUE;
 				$high_priority = TRUE;

@@ -4,7 +4,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -31,11 +31,35 @@ class Date_ft extends EE_Fieldtype {
 
 	var $has_array_data = FALSE;
 
+	/**
+	 * Parses the date input, first with the configured date format (as used
+	 * by the datepicker). If that fails it will try again with a fuzzier
+	 * conversion, which allows things like "2 weeks".
+	 *
+	 * @param	string	$date	A date string for parsing
+	 * @return	mixed	Will return a UNIX timestamp or FALSE
+	 */
+	private function _parse_date($date)
+	{
+		// First we try with the configured date format
+		$timestamp = ee()->localize->string_to_timestamp($date, TRUE, ee()->localize->get_date_format());
+
+		// If the date format didn't work, try something more fuzzy
+		if ($timestamp === FALSE)
+		{
+			$timestamp = ee()->localize->string_to_timestamp($date);
+		}
+
+		return $timestamp;
+	}
+
+	// --------------------------------------------------------------------
+
 	function save($data)
 	{
 		if ( ! is_numeric($data))
 		{
-			$data = ee()->localize->string_to_timestamp($data);
+			$data = $this->_parse_date($data);
 		}
 
 		if (empty($data))
@@ -52,10 +76,10 @@ class Date_ft extends EE_Fieldtype {
 	{
 		if ( ! is_numeric($data))
 		{
-			$data = ee()->localize->string_to_timestamp($data);
+			$data = $this->_parse_date($data);
 		}
 
-		if ($this->settings['localize'] !== TRUE)
+		if ( ! empty($data) && $this->settings['localize'] !== TRUE)
 		{
 			$data = array($data, ee()->session->userdata('timezone'));
 		}
@@ -75,10 +99,11 @@ class Date_ft extends EE_Fieldtype {
 	{
 		if ( ! is_numeric($data) && trim($data) && ! empty($data))
 		{
-			$data = ee()->localize->string_to_timestamp($data);
+			$data = $this->_parse_date($data);
 		}
 
-		if ($data === FALSE)
+		if ($data === FALSE
+			OR (is_numeric($data) && ($data > 2147483647 OR $data < -2147483647)))
 		{
 			return lang('invalid_date');
 		}
@@ -128,7 +153,11 @@ class Date_ft extends EE_Fieldtype {
 		}
 		else
 		{
-			if ( ! $field_data)
+			// primarily handles default expiration, comment expiration, etc.
+			// in this context 'offset' is unrelated to localization.
+			$offset = isset($this->settings['default_offset']) ? $this->settings['default_offset'] : 0;
+
+			if ( ! $field_data && ! $offset)
 			{
 				$field_data = $date;
 
@@ -144,6 +173,11 @@ class Date_ft extends EE_Fieldtype {
 					$localize = $this->settings['field_dt'];
 				}
 
+				if ( ! $field_data && $offset)
+				{
+					$field_data = $date + $offset;
+				}
+
 				// doing it in here so that if we don't have field_data
 				// the field doesn't get populated, but the calendar still
 				// shows the correct default.
@@ -156,13 +190,22 @@ class Date_ft extends EE_Fieldtype {
 			$date = $field_data;
 		}
 
-		$date_fmt = ee()->session->userdata('time_format');
-		$date_fmt = $date_fmt ? $date_fmt : ee()->config->item('time_format');
+		$date_js_globals = array(
+			'date_format'     => ee()->localize->datepicker_format(),
+			'time_format'     => ee()->session->userdata('time_format', ee()->config->item('time_format')),
+			'include_seconds' => ee()->session->userdata('include_seconds', ee()->config->item('include_seconds'))
+		);
 
-		ee()->javascript->set_global(array(
-			'date.format' => $date_fmt,
-			'date.include_seconds' => ee()->config->item('include_seconds')
-		));
+		if (REQ == 'CP')
+		{
+			ee()->javascript->set_global('date', $date_js_globals);
+		}
+		elseif ( ! ee()->session->cache(__CLASS__, 'date_js_loaded'))
+		{
+			// We only want to set the date global once
+			ee()->session->set_cache(__CLASS__, 'date_js_loaded', TRUE);
+			ee()->javascript->output('EE.date = '.json_encode($date_js_globals).';');
+		}
 
 		ee()->cp->add_js_script(array(
 			'ui' => 'datepicker',
@@ -176,32 +219,33 @@ class Date_ft extends EE_Fieldtype {
 			var jsCurrentUTC = d.getTimezoneOffset()*60;
 			var adjustedDefault = 1000*('.$date.'+jsCurrentUTC);
 
-			$("#'.$this->field_name.'").not(".grid_field_container #'.$this->field_name.'").datepicker({
+			$("[name='.$this->field_name.']").not(".grid_field_container [name='.$this->field_name.']").datepicker({
 				constrainInput: false,
-				dateFormat: $.datepicker.W3C + EE.date_obj_time,
+				dateFormat: EE.date.date_format + EE.date_obj_time,
 				defaultDate: new Date(adjustedDefault)
 			});
 		');
 
-		if ( ! ee()->session->cache(__CLASS__, 'grid_js_loaded'))
+		if ( ! ee()->session->cache(__CLASS__, 'grid_js_loaded')
+			&& $this->content_type() == 'grid')
 		{
 			ee()->javascript->output('
 
-			Grid.bind("date", "display", function(cell)
-			{
-				var d = new Date();
-				var jsCurrentUTC = d.getTimezoneOffset()*60;
-				var adjustedDefault = 1000*('.$date.'+jsCurrentUTC);
+				Grid.bind("date", "display", function(cell)
+				{
+					var d = new Date();
+					var jsCurrentUTC = d.getTimezoneOffset()*60;
+					var adjustedDefault = 1000*('.$date.'+jsCurrentUTC);
 
-				field = cell.find(".ee_datepicker");
-				field.removeAttr("id");
+					field = cell.find(".ee_datepicker");
+					field.removeAttr("id");
 
-				cell.find(".ee_datepicker").datepicker({
-					constrainInput: false,
-					dateFormat: $.datepicker.W3C + EE.date_obj_time,
-					defaultDate: new Date(adjustedDefault)
+					cell.find(".ee_datepicker").datepicker({
+						constrainInput: false,
+						dateFormat: EE.date.date_format + EE.date_obj_time,
+						defaultDate: new Date(adjustedDefault)
+					});
 				});
-			});
 
 			');
 
@@ -217,7 +261,6 @@ class Date_ft extends EE_Fieldtype {
 
 		$r = form_input(array(
 			'name'	=> $this->field_name,
-			'id'	=> $this->field_name,
 			'value'	=> $custom_date,
 			'class'	=> $input_class
 		));
@@ -239,7 +282,7 @@ class Date_ft extends EE_Fieldtype {
 				);
 
 				$r .= NBS.NBS.NBS.NBS;
-				$r .= form_dropdown($date_local, $localized_opts, $localized, 'dir="'.$text_direction.'" id="'.$date_local.'"');
+				$r .= form_dropdown($date_local, $localized_opts, $localized, 'dir="'.$text_direction.'"');
 			}
 		}
 
@@ -257,8 +300,26 @@ class Date_ft extends EE_Fieldtype {
 
 	function replace_tag($date, $params = array(), $tagdata = FALSE)
 	{
-		// if we're here, they're just using the date field without formatting, e.g. {custom_date}
-		return $date;
+		$localize = TRUE;
+		if (isset($this->row['field_dt_'.$this->name]) AND $this->row['field_dt_'.$this->name] != '')
+		{
+			$localize = $this->row['field_dt_'.$this->name];
+		}
+
+		return ee()->TMPL->process_date($date, $params, FALSE, $localize);
+	}
+
+	// --------------------------------------------------------------------
+
+	function replace_relative($date, $params = array(), $tagdata = FALSE)
+	{
+		$localize = TRUE;
+		if (isset($this->row['field_dt_'.$this->name]) AND $this->row['field_dt_'.$this->name] != '')
+		{
+			$localize = $this->row['field_dt_'.$this->name];
+		}
+
+		return ee()->TMPL->process_date($date, $params, TRUE, $localize);
 	}
 
 	// --------------------------------------------------------------------

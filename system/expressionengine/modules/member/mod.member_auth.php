@@ -5,7 +5,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -42,7 +42,7 @@ class Member_auth extends Member {
 
 		$login_form = $this->_load_element('login_form');
 
-		if (ee()->config->item('user_session_type') != 'c')
+		if (ee()->config->item('website_session_type') != 'c')
 		{
 			$login_form = $this->_deny_if('auto_login', $login_form);
 		}
@@ -121,8 +121,9 @@ class Member_auth extends Member {
 		$sites_array = explode('|', $sites);
 
 		// No username/password?  Bounce them...
-		$multi	  = (ee()->input->get('multi') && count($sites_array) > 0) ?
-						ee()->input->get('multi') : 0;
+		$multi = (ee()->input->get('multi') && count($sites_array) > 0)
+			? ee()->input->get('multi')
+			: FALSE;
 		$username = ee()->input->post('username');
 		$password = ee()->input->post('password');
 
@@ -172,11 +173,31 @@ class Member_auth extends Member {
 			$current_idx = array_search($current_search_url, $sites_array);
 		}
 
+		// Set login state
+		if ($multi)
+		{
+			$login_state = $multi;
+		}
+		else
+		{
+			$login_state = random_string('md5');
+			ee()->db->update(
+				'sessions',
+				array('login_state' => $login_state),
+				array('session_id' => ee()->session->userdata('session_id'))
+			);
+		}
+
 		// More sites?
 		if ($sites && ee()->config->item('allow_multi_logins') == 'y')
 		{
-			$this->_redirect_next_site($sites, $current_idx, $current_url);
+			$this->_redirect_next_site($sites, $current_idx, $current_url, $login_state);
 		}
+
+		// Clear out login_state
+		ee()->db->set('login_state', NULL)
+			->where('session_id', ee()->session->userdata('session_id'))
+			->update('sessions');
 
 		$this->$success($sites_array);
 	}
@@ -265,6 +286,8 @@ class Member_auth extends Member {
 		// Check user/pass minimum length
 		$this->_check_min_unpwd($sess, $username, $password);
 
+		$csrf_token = ee()->csrf->refresh_token();
+
 		// Start Session
 		// "Remember Me" is one year
 		if (isset($_POST['auto_login']))
@@ -287,12 +310,15 @@ class Member_auth extends Member {
 	/**
 	 * Do Multi-site authentication
 	 *
-	 * @param 	array 	array of sites
+	 * @param array $sites Array of site URLs to login to
+	 * @param string $login_state The hash identifying the member
 	 * @return 	object 	member auth object
 	 */
-	private function _do_multi_auth($sites, $session_id)
+	private function _do_multi_auth($sites, $login_state)
 	{
-		if ( ! $sites OR ee()->config->item('allow_multi_logins') == 'n')
+		if ( ! $sites
+			OR ee()->config->item('allow_multi_logins') == 'n'
+			OR empty($login_state))
 		{
 			return ee()->output->show_user_error('general', lang('not_authorized'));
 		}
@@ -303,14 +329,13 @@ class Member_auth extends Member {
 
 		// Grab session
 		$sess_q = ee()->db->get_where('sessions', array(
-			'session_id' => $session_id
+			'user_agent'  => substr(ee()->input->user_agent(), 0, 120),
+			'login_state' => $login_state
 		));
-
-
 
 		if ( ! $sess_q->num_rows())
 		{
-			return FALSE;
+			return ee()->output->show_user_error('general', lang('not_authorized'));
 		}
 
 		// Grab member
@@ -324,6 +349,7 @@ class Member_auth extends Member {
 		}
 
 		$incoming = new Auth_result($mem_q->row());
+		$csrf_token = ee()->csrf->refresh_token();
 
 		// this is silly - only works for the first site
 		if (isset($_POST['auto_login']))
@@ -332,7 +358,7 @@ class Member_auth extends Member {
 		}
 
 		// hook onto an existing session
-		$incoming->use_session_id($session_id);
+		$incoming->use_session_id($sess_q->row('session_id'));
 		$incoming->start_session();
 
 		$new_row = $sess_q->row_array();
@@ -347,10 +373,8 @@ class Member_auth extends Member {
 	 *
 	 * This function redirects to the next site for multi-site login based on
 	 * the array setup in config.php
-	 *
-	 *
 	 */
-	public function _redirect_next_site($sites, $current_idx, $current_url)
+	public function _redirect_next_site($sites, $current_idx, $current_url, $login_state)
 	{
 		$sites = explode('|', $sites);
 		$num_sites = count($sites);
@@ -384,11 +408,11 @@ class Member_auth extends Member {
 
 			// next site
 			$next_qs = array(
-				'ACT'	=> $action_id->row('action_id'),
-				'RET'	=> $return,
-				'cur'	=> $next_idx,
-				'orig'	=> $orig_idx,
-				'multi'	=> ee()->session->userdata('session_id'),
+				'ACT'          => $action_id->row('action_id'),
+				'RET'          => $return,
+				'cur'          => $next_idx,
+				'orig'         => $orig_idx,
+				'multi'        => $login_state,
 				'orig_site_id' => $orig_id,
 			);
 
@@ -535,6 +559,16 @@ class Member_auth extends Member {
 	 */
 	public function member_logout()
 	{
+		// Check CSRF Token
+		$token = FALSE;
+		if ( ! $token) $token = ee()->input->get('csrf_token');
+		if ( ! $token) $token = ee()->input->get('XID');
+
+		if ( ! bool_config_item('disable_csrf_protection') && $token != CSRF_TOKEN)
+		{
+			return ee()->output->show_user_error('general', array(lang('not_authorized')));
+		}
+
 		// Kill the session and cookies
 		ee()->db->where('site_id', ee()->config->item('site_id'));
 		ee()->db->where('ip_address', ee()->input->ip_address());
@@ -543,7 +577,9 @@ class Member_auth extends Member {
 
 		ee()->session->destroy();
 
-		ee()->functions->set_cookie('read_topics');
+		ee()->input->delete_cookie('read_topics');
+
+		$csrf_token = ee()->csrf->refresh_token();
 
 		/* -------------------------------------------
 		/* 'member_member_logout' hook.
@@ -627,6 +663,9 @@ class Member_auth extends Member {
 			$data['hidden_fields']['board_id'] = $this->board_id;
 		}
 
+		// keep this page out of the tracker so login/reset requests don't bounce back here
+		ee()->session->do_not_track();
+
 		$this->_set_page_title(lang('mbr_forgotten_password'));
 
 		return $this->_var_swap(
@@ -675,33 +714,6 @@ class Member_auth extends Member {
 			return ee()->output->show_user_error('submission', array(lang('invalid_email_address')));
 		}
 
-		$address = strip_tags($address);
-
-		$memberQuery = ee()->db->select('member_id, username, screen_name')
-			->where('email', $address)
-			->get('members');
-
-		if ($memberQuery->num_rows() == 0)
-		{
-			return ee()->output->show_user_error('submission', array(lang('no_email_found')));
-		}
-
-		$member_id = $memberQuery->row('member_id');
-		$username  = $memberQuery->row('username');
-		$name  = ($memberQuery->row('screen_name') == '') ? $memberQuery->row('username') : $memberQuery->row('screen_name');
-
-		// Kill old data from the reset_password field
-		$a_day_ago = time() - (60*60*24);
-		ee()->db->where('date <', $a_day_ago)
-			->or_where('member_id', $member_id)
-			->delete('reset_password');
-
-		// Create a new DB record with the temporary reset code
-		$rand = ee()->functions->random('alnum', 8);
-		$data = array('member_id' => $member_id, 'resetcode' => $rand, 'date' => time());
-		ee()->db->query(ee()->db->insert_string('exp_reset_password', $data));
-
-		// Build the email message
 		if (ee()->input->get_post('FROM') == 'forum')
 		{
 			if (ee()->input->get_post('board_id') !== FALSE &&
@@ -730,8 +742,53 @@ class Member_auth extends Member {
 
 		$forum_id = (ee()->input->get_post('FROM') == 'forum') ? '&r=f&board_id='.$board_id : '';
 
+		$address = strip_tags($address);
+
+		$memberQuery = ee()->db->select('member_id, username, screen_name')
+			->where('email', $address)
+			->get('members');
+
+		if ($memberQuery->num_rows() == 0)
+		{
+			// Build success message
+			$data = array(
+				'title' 	=> lang('mbr_passwd_email_sent'),
+				'heading'	=> lang('thank_you'),
+				'content'	=> lang('forgotten_email_sent'),
+				'link'		=> array($return, $site_name)
+			);
+
+			ee()->output->show_message($data);
+		}
+
+		$member_id = $memberQuery->row('member_id');
+		$username  = $memberQuery->row('username');
+		$name  = ($memberQuery->row('screen_name') == '') ? $memberQuery->row('username') : $memberQuery->row('screen_name');
+
+		// Kill old data from the reset_password field
+		$a_day_ago = time() - (60*60*24);
+		ee()->db->where('date <', $a_day_ago)
+			->delete('reset_password');
+
+		// Check flood control
+		$max_requests_in_a_day = 3;
+		$requests = ee()->db->where('member_id', $member_id)
+			->count_all_results('reset_password');
+
+		if ($requests >= $max_requests_in_a_day)
+		{
+			return ee()->output->show_user_error('submission', array(lang('password_reset_flood_lock')));
+		}
+
+		// Create a new DB record with the temporary reset code
+		$rand = ee()->functions->random('alnum', 8);
+		$data = array('member_id' => $member_id, 'resetcode' => $rand, 'date' => time());
+		ee()->db->query(ee()->db->insert_string('exp_reset_password', $data));
+
+		// Build the email message
 		$swap = array(
 			'name'		=> $name,
+			'username'    => $username,
 			'reset_url'	=> reduce_double_slashes(ee()->functions->fetch_site_index(0, 0) . '/' . ee()->config->item('profile_trigger') . '/reset_password?&id='.$rand.$forum_id),
 			'site_name'	=> $site_name,
 			'site_url'	=> $return
@@ -798,6 +855,18 @@ class Member_auth extends Member {
 		if ( ! ($resetcode = ee()->input->get_post('id')))
 		{
 			return ee()->output->show_user_error('submission', array(lang('mbr_no_reset_id')));
+		}
+
+		// Make sure the token is valid and belongs to a member.
+		$a_day_ago = time() - (60*60*24);
+		$member_id_query = ee()->db->select('member_id')
+			->where('resetcode', $resetcode)
+			->where('date >', $a_day_ago)
+			->get('reset_password');
+
+		if ($member_id_query->num_rows() === 0)
+		{
+			return ee()->output->show_user_error('submission', array(lang('mbr_id_not_found')));
 		}
 
 		// Check to see whether we're in the forum or not.
@@ -917,10 +986,11 @@ class Member_auth extends Member {
 
 		// If we can get their last URL from the tracker,
 		// then we'll use it.
-		if (isset(ee()->session->tracker[3]))
+		if (isset(ee()->session->tracker[2]))
 		{
+			$seg = (ee()->session->tracker[2] != 'index') ? ee()->session->tracker[2] : '';
 			$site_name = stripslashes(ee()->config->item('site_name'));
-			$return = reduce_double_slashes(ee()->functions->fetch_site_index() . '/' . ee()->session->tracker[3]);
+			$return = reduce_double_slashes(ee()->functions->fetch_site_index() . '/' . $seg);
 		}
 		// Otherwise, it's entirely possible they are clicking the e-mail link after
 		// their session has expired.  In that case, the only information we have
@@ -954,6 +1024,16 @@ class Member_auth extends Member {
 			'rate' => '5' // ...after 5 seconds.
 
 		);
+
+		/* -------------------------------------------
+		/* 'member_process_reset_password' hook.
+		/*  - Additional processing after user resets password
+		/*  - Added EE 2.9.3
+		*/
+			$data = ee()->extensions->call('member_process_reset_password', $data);
+			if (ee()->extensions->end_script === TRUE) return;
+		/*
+		/* -------------------------------------------*/
 
 		ee()->output->show_message($data);
 	}

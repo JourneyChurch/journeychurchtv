@@ -18,7 +18,7 @@
  *
  * @package		CodeIgniter
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2013, EllisLab, Inc. (http://ellislab.com/)
+ * @copyright	Copyright (c) 2008 - 2015, EllisLab, Inc. (http://ellislab.com/)
  * @license		http://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -677,7 +677,7 @@ class CI_Email {
 	{
 		if (preg_match('/[^\x20-\x7E]/', $subject))
 		{
-			$subject = $this->_prep_q_encoding($subject);			
+			$subject = $this->_prep_q_encoding($subject);
 		}
 
 		$this->set_header('Subject', $subject);
@@ -1385,7 +1385,9 @@ class CI_Email {
 					return FALSE;
 				}
 
-				$ctype = $this->_mime_types(pathinfo($filename, PATHINFO_EXTENSION));
+				ee()->load->library('mime_type');
+				$ctype = ee()->mime_type->ofFile($filename);
+
 				$file_content = fread($fp, $file);
 				fclose($fp);
 			}
@@ -1801,7 +1803,7 @@ class CI_Email {
 			$this->_set_error_message('lang:email_no_hostname');
 			return FALSE;
 		}
-		
+
 		if ( ! is_numeric($this->smtp_port) OR $this->smtp_port < 0)
 		{
 			$this->_set_error_message('lang:email_no_port');
@@ -2180,35 +2182,6 @@ class CI_Email {
 		{
 			$this->_debug_msg[] = str_replace('%s', $val, $line).'<br />';
 		}
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Mime Types
-	 *
-	 * @param	string
-	 * @return	string
-	 */
-	protected function _mime_types($ext = '')
-	{
-		static $mimes;
-
-		$ext = strtolower($ext);
-
-		if ( ! is_array($mimes))
-		{
-			$mimes =& get_mimes();
-		}
-
-		if (isset($mimes[$ext]))
-		{
-			return is_array($mimes[$ext])
-				? current($mimes[$ext])
-				: $mimes[$ext];
-		}
-
-		return 'application/x-unknown-content-type';
 	}
 
 }

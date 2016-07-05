@@ -6,7 +6,7 @@
  *
  * @package		CodeIgniter
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2008 - 2015, EllisLab, Inc.
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -66,6 +66,7 @@ class CI_Upload {
 			$this->initialize($props);
 		}
 
+		ee()->load->library('mime_type');
 		log_message('debug', "Upload Class Initialized");
 	}
 
@@ -142,8 +143,7 @@ class CI_Upload {
 	 */
 	public function do_upload($field = 'userfile')
 	{
-		
-	// Is $_FILES[$field] set? If not, no reason to continue.
+		// Is $_FILES[$field] set? If not, no reason to continue.
 		if ( ! isset($_FILES[$field]))
 		{
 			$this->set_error('upload_no_file_selected');
@@ -158,7 +158,7 @@ class CI_Upload {
 		}
 
 		// Was the file able to be uploaded? If not, determine the reason why.
-		if ( ! is_uploaded_file($_FILES[$field]['tmp_name']))
+		if ( ! $this->raw_upload && ! is_uploaded_file($_FILES[$field]['tmp_name']))
 		{
 			$error = ( ! isset($_FILES[$field]['error'])) ? 4 : $_FILES[$field]['error'];
 
@@ -192,20 +192,53 @@ class CI_Upload {
 			return FALSE;
 		}
 
-
 		// Set the uploaded data as class variables
 		$this->file_temp = $_FILES[$field]['tmp_name'];
 		$this->file_size = $_FILES[$field]['size'];
-		$this->file_type = preg_replace("/^(.+?);.*$/", "\\1", $_FILES[$field]['type']);
-		$this->file_type = strtolower(trim(stripslashes($this->file_type), '"'));
+		$this->file_type = ee()->mime_type->ofFile($this->file_temp);
 		$this->file_name = $this->_prep_filename($_FILES[$field]['name']);
 		$this->file_ext	 = $this->get_extension($this->file_name);
 		$this->client_name = $this->file_name;
 
+		// Is this a hidden file? Not allowed
+		if (strncmp($this->file_name, '.', 1) == 0)
+		{
+			$this->set_error('upload_invalid_file');
+			return FALSE;
+		}
+
+		// Disallowed File Names
+		$disallowed_names = ee()->config->item('upload_file_name_blacklist');
+
+		if ($disallowed_names !== FALSE)
+		{
+			if ( ! is_array($disallowed_names))
+			{
+				$disallowed_names = array($disallowed_names);
+			}
+			$disallowed_names = array_map("strtolower", $disallowed_names);
+		}
+		else
+		{
+			$disallowed_names = array();
+		}
+
+		// Yes ".htaccess" is covered by the above hidden file check
+		// but this is here as an extra sanity-saving precation.
+		$disallowed_names[] = '.htaccess';
+		$disallowed_names[] = 'web.config';
+
+		if (in_array(strtolower($this->file_name), $disallowed_names))
+		{
+			$this->set_error('upload_invalid_file');
+			return FALSE;
+		}
+
+
 		// Is the file type allowed to be uploaded?
 		if ( ! $this->is_allowed_filetype())
 		{
-			$this->set_error('upload_invalid_filetype');
+			$this->set_error('upload_invalid_file');
 			return FALSE;
 		}
 
@@ -217,7 +250,7 @@ class CI_Upload {
 
 			if ( ! $this->is_allowed_filetype(TRUE))
 			{
-				$this->set_error('upload_invalid_filetype');
+				$this->set_error('upload_invalid_file');
 				return FALSE;
 			}
 		}
@@ -537,29 +570,7 @@ class CI_Upload {
 	 */
 	public function is_image()
 	{
-		// IE will sometimes return odd mime-types during upload, so here we just standardize all
-		// jpegs or pngs to the same file type.
-
-		$png_mimes  = array('image/x-png');
-		$jpeg_mimes = array('image/jpg', 'image/jpe', 'image/jpeg', 'image/pjpeg');
-
-		if (in_array($this->file_type, $png_mimes))
-		{
-			$this->file_type = 'image/png';
-		}
-
-		if (in_array($this->file_type, $jpeg_mimes))
-		{
-			$this->file_type = 'image/jpeg';
-		}
-
-		$img_mimes = array(
-							'image/gif',
-							'image/jpeg',
-							'image/png',
-						);
-
-		return (in_array($this->file_type, $img_mimes, TRUE)) ? TRUE : FALSE;
+		return ee()->mime_type->fileIsImage($this->file_temp);
 	}
 
 	// --------------------------------------------------------------------
@@ -571,33 +582,11 @@ class CI_Upload {
 	 */
 	public function is_allowed_filetype($ignore_mime = FALSE)
 	{
-		if ($this->allowed_types == '*')
-		{
-			return TRUE;
-		}
-
-		if (count($this->allowed_types) == 0 OR ! is_array($this->allowed_types))
-		{
-			$this->set_error('upload_no_file_types');
-			return FALSE;
-		}
-
 		$ext = strtolower(ltrim($this->file_ext, '.'));
 
-		if ( ! in_array($ext, $this->allowed_types))
+		if ( ! empty($this->allowed_types) && is_array($this->allowed_types) && ! in_array($ext, $this->allowed_types))
 		{
 			return FALSE;
-		}
-
-		// Images get some additional checks
-		$image_types = array('gif', 'jpg', 'jpeg', 'png', 'jpe');
-
-		if (in_array($ext, $image_types))
-		{
-			if (getimagesize($this->file_temp) === FALSE)
-			{
-				return FALSE;
-			}
 		}
 
 		if ($ignore_mime === TRUE)
@@ -605,21 +594,12 @@ class CI_Upload {
 			return TRUE;
 		}
 
-		$mime = $this->mimes_types($ext);
-
-		if (is_array($mime))
+		if ($this->is_image)
 		{
-			if (in_array($this->file_type, $mime, TRUE))
-			{
-				return TRUE;
-			}
-		}
-		elseif ($mime == $this->file_type)
-		{
-				return TRUE;
+			return ee()->mime_type->fileIsImage($this->file_temp);
 		}
 
-		return FALSE;
+		return ee()->mime_type->fileIsSafeForUpload($this->file_temp);
 	}
 
 	// --------------------------------------------------------------------
@@ -822,24 +802,34 @@ class CI_Upload {
 		{
 			$current = ini_get('memory_limit') * 1024 * 1024;
 
-			// There was a bug/behavioural change in PHP 5.2, where numbers over one million get output
-			// into scientific notation.  number_format() ensures this number is an integer
+			// There was a bug/behavioural change in PHP 5.2, where numbers over
+			// one million get output into scientific notation.  number_format()
+			// ensures this number is an integer
 			// http://bugs.php.net/bug.php?id=43053
 
 			$new_memory = number_format(ceil(filesize($file) + $current), 0, '.', '');
 
-			ini_set('memory_limit', $new_memory); // When an integer is used, the value is measured in bytes. - PHP.net
+			// When an integer is used, the value is measured in bytes.
+			ini_set('memory_limit', $new_memory);
 		}
 
-		// If the file being uploaded is an image, then we should have no problem with XSS attacks (in theory), but
-		// IE can be fooled into mime-type detecting a malformed image as an html file, thus executing an XSS attack on anyone
-		// using IE who looks at the image.  It does this by inspecting the first 255 bytes of an image.  To get around this
-		// CI will itself look at the first 255 bytes of an image to determine its relative safety.  This can save a lot of
-		// processor power and time if it is actually a clean image, as it will be in nearly all instances _except_ an
-		// attempted XSS attack.
+		// If the file being uploaded is an image, then we should have no
+		// problem with XSS attacks (in theory), but IE can be fooled into mime-
+		// type detecting a malformed image as an html file, thus executing an
+		// XSS attack on anyone using IE who looks at the image.  It does this
+		// by inspecting the first 255 bytes of an image.  To get around this CI
+		// will itself look at the first 255 bytes of an image to determine its
+		// relative safety.  This can save a lot of processor power and time if
+		// it is actually a clean image, as it will be in nearly all instances
+		// _except_ an attempted XSS attack.
 
-		if (function_exists('getimagesize') && @getimagesize($file) !== FALSE)
+		if (function_exists('getimagesize') && ($image = getimagesize($file)) !== FALSE)
 		{
+			if (ee()->mime_type->fileIsSafeForUpload($file) === FALSE)
+			{
+				return FALSE; // tricky tricky
+			}
+
 			if (($file = @fopen($file, 'rb')) === FALSE) // "b" to force binary
 			{
 				return FALSE; // Couldn't open the file, return FALSE
@@ -848,8 +838,9 @@ class CI_Upload {
 			$opening_bytes = fread($file, 256);
 			fclose($file);
 
-			// These are known to throw IE into mime-type detection chaos
-			// <a, <body, <head, <html, <img, <plaintext, <pre, <script, <table, <title
+			// These are known to throw IE into mime-type detection chaos <a,
+			// <body, <head, <html, <img, <plaintext, <pre, <script, <table,
+			// <title
 			// title is basically just in SVG, but we filter it anyhow
 
 			if ( ! preg_match('/<(a|body|head|html|img|plaintext|pre|script|table|title)[\s>]/i', $opening_bytes))
@@ -934,18 +925,8 @@ class CI_Upload {
 	 */
 	public function mimes_types($mime)
 	{
-		global $mimes;
-
-		if (count($this->mimes) == 0)
-		{
-			if (@require_once(APPPATH.'config/mimes.php'))
-			{
-				$this->mimes = $mimes;
-				unset($mimes);
-			}
-		}
-
-		return ( ! isset($this->mimes[$mime])) ? FALSE : $this->mimes[$mime];
+		ee()->load->library('mime_type');
+		return ee()->mime_type->isSafeForUpload($mime);
 	}
 
 	// --------------------------------------------------------------------
@@ -972,7 +953,9 @@ class CI_Upload {
 
 		foreach ($parts as $part)
 		{
-			if ( ! in_array(strtolower($part), $this->allowed_types) OR $this->mimes_types(strtolower($part)) === FALSE)
+			if ((is_array($this->allowed_types)
+				 && ! in_array(strtolower($part), $this->allowed_types)
+				) OR $this->mimes_types(strtolower($part)) === FALSE)
 			{
 				$filename .= '.'.$part.'_';
 			}

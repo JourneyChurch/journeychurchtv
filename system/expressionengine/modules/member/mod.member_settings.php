@@ -5,7 +5,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -84,17 +84,14 @@ class Member_settings extends Member {
 	{
 		$query = ee()->db->query("SELECT email, join_date, last_visit, last_activity, last_entry_date, last_comment_date, total_forum_topics, total_forum_posts, total_entries, total_comments, last_forum_post_date FROM exp_members WHERE member_id = '".ee()->session->userdata('member_id')."'");
 
-		$time_fmt = (ee()->session->userdata['time_format'] != '') ? ee()->session->userdata['time_format'] : ee()->config->item('time_format');
-		$datecodes = ($time_fmt == 'us') ? $this->us_datecodes : $this->eu_datecodes;
-
 		return  $this->_var_swap($this->_load_element('home_page'),
 								array(
 										'email'						=> $query->row('email') ,
-										'join_date'					=> ee()->localize->format_date($datecodes['long'], $query->row('join_date') ),
-										'last_visit_date'			=> ($query->row('last_activity')  == 0) ? '--' : ee()->localize->format_date($datecodes['long'], $query->row('last_activity') ),
-										'recent_entry_date'			=> ($query->row('last_entry_date')  == 0) ? '--' : ee()->localize->format_date($datecodes['long'], $query->row('last_entry_date') ),
-										'recent_comment_date'		=> ($query->row('last_comment_date')  == 0) ? '--' : ee()->localize->format_date($datecodes['long'], $query->row('last_comment_date') ),
-										'recent_forum_post_date'	=> ($query->row('last_forum_post_date')  == 0) ? '--' : ee()->localize->format_date($datecodes['long'], $query->row('last_forum_post_date') ),
+										'join_date'					=> ee()->localize->human_time($query->row('join_date') ),
+										'last_visit_date'			=> ($query->row('last_activity')  == 0) ? '--' : ee()->localize->human_time($query->row('last_activity') ),
+										'recent_entry_date'			=> ($query->row('last_entry_date')  == 0) ? '--' : ee()->localize->human_time($query->row('last_entry_date') ),
+										'recent_comment_date'		=> ($query->row('last_comment_date')  == 0) ? '--' : ee()->localize->human_time($query->row('last_comment_date') ),
+										'recent_forum_post_date'	=> ($query->row('last_forum_post_date')  == 0) ? '--' : ee()->localize->human_time($query->row('last_forum_post_date') ),
 										'total_topics'				=> $query->row('total_forum_topics') ,
 										'total_posts'				=> $query->row('total_forum_posts')  + $query->row('total_forum_topics') ,
 										'total_replies'				=> $query->row('total_forum_posts') ,
@@ -367,9 +364,9 @@ class Member_settings extends Member {
 
 		if ($timezone == '')
 		{
-			$timezone = ($this->config->item('default_site_timezone')
-				 && $this->config->item('default_site_timezone') != '') ?
-				 $this->config->item('default_site_timezone') : 'UTC';
+			$timezone = (ee()->config->item('default_site_timezone')
+				 && ee()->config->item('default_site_timezone') != '') ?
+				 ee()->config->item('default_site_timezone') : 'UTC';
 		}
 
 
@@ -377,7 +374,7 @@ class Member_settings extends Member {
 										array(
 												'aim_console'			=> "onclick=\"window.open('".$this->_member_path('aim_console/'.$this->cur_id)."', '_blank', 'width=240,height=360,scrollbars=yes,resizable=yes,status=yes,screenx=5,screeny=5');\"",
 												'icq_console'			=> "onclick=\"window.open('".$this->_member_path('icq_console/'.$this->cur_id)."', '_blank', 'width=650,height=580,scrollbars=yes,resizable=yes,status=yes,screenx=5,screeny=5');\"",
-												'yahoo_console'			=> "http://edit.yahoo.com/config/send_webmesg?.target=".$row['yahoo_im'] ."&amp;.src=pg",
+												'yahoo_console'			=> "http://edit.yahoo.com/config/send_webmesg?.target=".ee()->functions->encode_ee_tags($row['yahoo_im'], TRUE) ."&amp;.src=pg",
 												'email_console'			=> "onclick=\"window.open('".$this->_member_path('email_console/'.$this->cur_id)."', '_blank', 'width=650,height=600,scrollbars=yes,resizable=yes,status=yes,screenx=5,screeny=5');\"",
 												'send_private_message'	=> $this->_member_path('messages/pm/'.$this->cur_id),
 												'search_path'			=> $search_path,
@@ -417,7 +414,7 @@ class Member_settings extends Member {
 			$lcond	= substr($cond, 0, strpos($cond, ' '));
 			$rcond	= substr($cond, strpos($cond, ' '));
 
-			if ( isset($row[$val['3']]))
+			if (array_key_exists($val['3'], $row))
 			{
 				$lcond = str_replace($val['3'], "\$row['".$val['3'] ."']", $lcond);
 				$cond = $lcond.' '.$rcond;
@@ -725,7 +722,7 @@ class Member_settings extends Member {
 				$lcond	= substr($cond, 0, strpos($cond, ' '));
 				$rcond	= substr($cond, strpos($cond, ' '));
 
-				if (isset($fnames[$val['3']]))
+				if (array_key_exists($val['3'], $fnames))
 				{
 					$lcond = str_replace($val['3'], "\$result_row['m_field_id_".$fnames[$val['3']]."']", $lcond);
 
@@ -795,6 +792,7 @@ class Member_settings extends Member {
 				ee()->typography->initialize();
 
 				$str = '';
+				$var_conds = ee()->functions->assign_conditional_variables($field_chunk);
 
 				foreach ($query->result_array() as $row)
 				{
@@ -802,25 +800,55 @@ class Member_settings extends Member {
 
 					$field_data = (isset($result_row['m_field_id_'.$row['m_field_id']])) ? $result_row['m_field_id_'.$row['m_field_id']] : '';
 
+					// enables conditionals on these variables
+					$row['field_label'] = $row['m_field_label'];
+					$row['field_description'] = $row['m_field_description'];
+					$row['field_data'] = $field_data;
+
 					if ($field_data != '')
 					{
 						$field_data = ee()->typography->parse_type($field_data,
-																	 array(
-																				'text_format'	=> $row['m_field_fmt'],
-																				'html_format'	=> 'safe',
-																				'auto_links'	=> 'y',
-																				'allow_img_url' => 'n'
-																			)
-																	);
-
-
-
+							 array(
+										'text_format'   => $row['m_field_fmt'],
+										'html_format'   => 'safe',
+										'auto_links'    => 'y',
+										'allow_img_url' => 'n'
+									)
+							);
 					}
-
 
 					$temp = str_replace('{field_name}', $row['m_field_label'], $temp);
 					$temp = str_replace('{field_description}', $row['m_field_description'], $temp);
 					$temp = str_replace('{field_data}', $field_data, $temp);
+
+					foreach ($var_conds as $val)
+					{
+						// Prep the conditional
+
+						$cond = ee()->functions->prep_conditional($val['0']);
+
+						$lcond	= substr($cond, 0, strpos($cond, ' '));
+						$rcond	= substr($cond, strpos($cond, ' '));
+
+						if (array_key_exists($val['3'], $row))
+						{
+							$lcond = str_replace($val['3'], "\$row['".$val['3'] ."']", $lcond);
+							$cond = $lcond.' '.$rcond;
+							$cond = str_replace("\|", "|", $cond);
+
+							eval("\$result = ".$cond.";");
+
+							if ($result)
+							{
+								$temp = preg_replace("/".LD.$val['0'].RD."(.*?)".LD.'\/if'.RD."/s", "\\1", $temp);
+							}
+							else
+							{
+								$temp = preg_replace("/".LD.$val['0'].RD."(.*?)".LD.'\/if'.RD."/s", "", $temp);
+							}
+						}
+
+					}
 
 					$str .= $temp;
 
@@ -922,7 +950,7 @@ class Member_settings extends Member {
 				{
 					$rows = ( ! isset($row['m_field_ta_rows'])) ? '10' : $row['m_field_ta_rows'];
 
-					$tarea = "<textarea name='".'m_field_id_'.$row['m_field_id']."' id='".'m_field_id_'.$row['m_field_id']."' style='width:".$width.";' class='textarea' cols='90' rows='{$rows}'>".form_prep($field_data)."</textarea>";
+					$tarea = "<textarea name='".'m_field_id_'.$row['m_field_id']."' id='".'m_field_id_'.$row['m_field_id']."' style='width:".$width.";' class='textarea' cols='90' rows='{$rows}'>".$this->_form_prep_encoded($field_data)."</textarea>";
 
 					$temp = str_replace('<td ', "<td valign='top' ", $temp);
 					$temp = str_replace('{lang:profile_field}', $required.$row['m_field_label'], $temp);
@@ -935,7 +963,7 @@ class Member_settings extends Member {
 					/**  Render text fields
 					/** ----------------------------------------*/
 
-					$input = "<input type='text' name='".'m_field_id_'.$row['m_field_id']."' id='".'m_field_id_'.$row['m_field_id']."' style='width:".$width.";' value='".form_prep($field_data)."' maxlength='".$row['m_field_maxl']."' class='input' />";
+					$input = "<input type='text' name='".'m_field_id_'.$row['m_field_id']."' id='".'m_field_id_'.$row['m_field_id']."' style='width:".$width.";' value='".$this->_form_prep_encoded($field_data)."' maxlength='".$row['m_field_maxl']."' class='input' />";
 
 					$temp = str_replace('{lang:profile_field}', $required.$row['m_field_label'], $temp);
 					$temp = str_replace('{lang:profile_field_description}', $row['m_field_description'], $temp);
@@ -951,7 +979,7 @@ class Member_settings extends Member {
 
 					foreach (explode("\n", trim($row['m_field_list_items'])) as $v)
 					{
-						$v = trim($v);
+						$v = $this->_form_prep_encoded(trim($v));
 
 						$selected = ($field_data == $v) ? " selected='selected'" : '';
 
@@ -984,22 +1012,29 @@ class Member_settings extends Member {
 				'form:birthday_year'	=> $this->_birthday_year($query->row('bday_y') ),
 				'form:birthday_month'	=> $this->_birthday_month($query->row('bday_m') ),
 				'form:birthday_day'		=> $this->_birthday_day($query->row('bday_d') ),
-				'url'					=> ($query->row('url')  == '') ? 'http://' : $query->row('url') ,
-				'location'				=> form_prep($query->row('location') ),
-				'occupation'			=> form_prep($query->row('occupation') ),
-				'interests'				=> form_prep($query->row('interests') ),
-				'aol_im'				=> form_prep($query->row('aol_im') ),
-				'icq'					=> form_prep($query->row('icq') ),
-				'icq_im'				=> form_prep($query->row('icq') ),
-				'yahoo_im'				=> form_prep($query->row('yahoo_im') ),
-				'msn_im'				=> form_prep($query->row('msn_im') ),
-				'bio'					=> form_prep($query->row('bio') ),
+				'url'					=> ($query->row('url')  == '') ? 'http://' : $this->_form_prep_encoded($query->row('url') ),
+				'location'				=> $this->_form_prep_encoded($query->row('location') ),
+				'occupation'			=> $this->_form_prep_encoded($query->row('occupation') ),
+				'interests'				=> $this->_form_prep_encoded($query->row('interests') ),
+				'aol_im'				=> $this->_form_prep_encoded($query->row('aol_im') ),
+				'icq'					=> $this->_form_prep_encoded($query->row('icq') ),
+				'icq_im'				=> $this->_form_prep_encoded($query->row('icq') ),
+				'yahoo_im'				=> $this->_form_prep_encoded($query->row('yahoo_im') ),
+				'msn_im'				=> $this->_form_prep_encoded($query->row('msn_im') ),
+				'bio'					=> $this->_form_prep_encoded($query->row('bio') ),
 				'custom_profile_fields'	=> $r
 			)
 		);
 	}
 
-
+	/**
+	 * Encode EE tags after form prepping or they'll be rendered in the text area.
+	 */
+	protected function _form_prep_encoded($value)
+	{
+		$value = form_prep($value);
+		return ee()->functions->encode_ee_tags($value, TRUE);
+	}
 
 
 	/** ----------------------------------------
@@ -1138,9 +1173,9 @@ class Member_settings extends Member {
 			if (ee()->db->table_exists('comments'))
 			{
 				$d = array(
-						'location'	=> $data['location'],
-						'url'		=> $data['url']
-					);
+					'location'	=> $data['location'],
+					'url'		=> $data['url']
+				);
 
 				ee()->db->where('author_id', ee()->session->userdata('member_id'));
 				ee()->db->update('comments', $d);
@@ -1152,11 +1187,11 @@ class Member_settings extends Member {
 		/** -------------------------------------*/
 
 		return $this->_var_swap($this->_load_element('success'),
-								array(
-										'lang:heading'	=>	ee()->lang->line('profile_updated'),
-										'lang:message'	=>	ee()->lang->line('mbr_profile_has_been_updated')
-									 )
-								);
+			array(
+				'lang:heading' => ee()->lang->line('profile_updated'),
+				'lang:message' => ee()->lang->line('mbr_profile_has_been_updated')
+			)
+		);
 	}
 
 
@@ -1205,6 +1240,13 @@ class Member_settings extends Member {
 	/** ----------------------------------------*/
 	function update_preferences()
 	{
+		// This form is all checkboxes, so check a hidden form field for existence to ensure
+		// this is a valid POST request, or visiting this page will blank their prefs
+		if ( ! isset($_POST['site_id']))
+		{
+			return ee()->output->show_user_error('general', array(ee()->lang->line('invalid_action')));
+		}
+
 		/** -------------------------------------
 		/**  Assign the query data
 		/** -------------------------------------*/
@@ -1216,7 +1258,7 @@ class Member_settings extends Member {
 						'parse_smileys'			=> (isset($_POST['parse_smileys']))  ? 'y' : 'n'
 					  );
 
-		ee()->db->query(ee()->db->update_string('exp_members', $data, "member_id = '".ee()->session->userdata('member_id')."'"));
+		ee()->db->update('members', $data, array('member_id' => ee()->session->userdata('member_id')));
 
 		// -------------------------------------------
 		// 'member_update_preferences' hook.
@@ -1556,19 +1598,18 @@ class Member_settings extends Member {
 			return ee()->output->show_user_error('general', array(ee()->lang->line('localization_disallowed')));
 		}
 
-		// Time format selection menu
+		// Fetch the admin config values in order to populate the form with
+		// the same options
+		ee()->load->model('admin_model');
+		ee()->load->helper('form');
 
-		$tf = "<select name='time_format' class='select'>\n";
-		$selected = (ee()->session->userdata['time_format'] == 'us') ? " selected='selected'" : '';
-		$tf .= "<option value='us'{$selected}>".ee()->lang->line('united_states')."</option>\n";
-		$selected = (ee()->session->userdata['time_format'] == 'eu') ? " selected='selected'" : '';
-		$tf .= "<option value='eu'{$selected}>".ee()->lang->line('european')."</option>\n";
-		$tf .= "</select>\n";
+		$defaults = array(
+			'date_format'     => ee()->session->userdata('date_format'),
+			'time_format'     => ee()->session->userdata('time_format'),
+			'include_seconds' => ee()->session->userdata('include_seconds')
+		);
 
-
-		$query = ee()->db->query("SELECT language, timezone FROM exp_members WHERE member_id = '".ee()->session->userdata('member_id')."'");
-
-		ee()->load->helper('date_helper');
+		$config_fields = ee()->config->prep_view_vars('localization_cfg', $defaults);
 
 		return $this->_var_swap(
 			$this->_load_element('localization_form'),
@@ -1577,9 +1618,11 @@ class Member_settings extends Member {
 					array('action' => $this->_member_path('update_localization'))
 				),
 				'path:update_localization'		=>	$this->_member_path('update_localization'),
-				'form:localization'				=>	ee()->localize->timezone_menu(($query->row('timezone')  == '') ? 'UTC' : $query->row('timezone'), 'timezone'),
-				'form:time_format'				=>	$tf,
-				'form:language'					=>	ee()->functions->language_pack_names(($query->row('language')  == '') ? 'english' : $query->row('language') )
+				'form:localization'				=>	ee()->localize->timezone_menu((ee()->session->userdata('timezone') == '') ? 'UTC' : ee()->session->userdata('timezone'), 'timezone'),
+				'form:date_format'				=>	form_preference('date_format', $config_fields['fields']['date_format']),
+				'form:time_format'				=>	form_preference('time_format', $config_fields['fields']['time_format']),
+				'form:include_seconds'			=>	form_preference('include_seconds', $config_fields['fields']['include_seconds']),
+				'form:language'					=>	ee()->functions->language_pack_names((ee()->session->userdata('language')  == '') ? 'english' : ee()->session->userdata('language') )
 			 )
 		);
 	}
@@ -1608,7 +1651,9 @@ class Member_settings extends Member {
 
 		$data['language']	= ee()->security->sanitize_filename($_POST['deft_lang']);
 		$data['timezone']	= $_POST['timezone'];
+		$data['date_format'] = $_POST['date_format'];
 		$data['time_format'] = $_POST['time_format'];
+		$data['include_seconds'] = $_POST['include_seconds'];
 
 		if ( ! is_dir(APPPATH.'language/'.$data['language']))
 		{
@@ -1840,10 +1885,6 @@ class Member_settings extends Member {
 
 		foreach ($_POST as $key => $val)
 		{
-			if ($key == 'XID')
-			{
-				continue;
-			}
 			if ($key == 'group_id')
 			{
 				if ($val != 'any')
@@ -2055,7 +2096,7 @@ UNGA;
 					array('action' => $this->_member_path('update_notepad'))
 				),
 				'path:update_notepad'	=> $this->_member_path('update_notepad'),
-				'notepad_data'			=> $query->row('notepad') ,
+				'notepad_data'			=> $this->_form_prep_encoded($query->row('notepad')),
 				'notepad_size'			=> $query->row('notepad_size')
 			)
 		);
@@ -2240,11 +2281,11 @@ UNGA;
 		}
 
 		// Clear the tracker cookie since we're not sure where the redirect should go
-		ee()->functions->set_cookie('tracker');
+		ee()->input->delete_cookie('tracker');
 
 		$return = ee()->functions->form_backtrack();
 
-		if (ee()->config->item('user_session_type') != 'c')
+		if (ee()->config->item('website_session_type') != 'c')
 		{
 			if (ee()->config->item('force_query_string') == 'y' && substr($return, 0, -3) == "php")
 			{

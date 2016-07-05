@@ -4,13 +4,13 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
  * @filesource
  */
- 
+
 // ------------------------------------------------------------------------
 
 /**
@@ -22,28 +22,62 @@
  * @author		EllisLab Dev Team
  * @link		http://ellislab.com
  */
-class EE_Upload extends CI_Upload 
+class EE_Upload extends CI_Upload
 {
 	protected $use_temp_dir = FALSE;
+	protected $raw_upload = FALSE;
 
 	/**
 	 * Constructor
-	 */ 
+	 */
 	function __construct($props = array())
 	{
 		parent::__construct();
 
 		// Make a local reference to the ExpressionEngine super object
 		$this->EE =& get_instance();
-		
+
 		ee()->load->helper('xss');
-		
+
 		$props['xss_clean'] = xss_check();
 
 		$this->initialize($props);
 
 		log_message('debug', "Upload Class Initialized");
-	}	
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Take raw file data and populate our tmp directory and FILES array and
+	 * then pass it through the normal do_upload routine.
+	 *
+	 * @access	public
+	 * @param string $name The file name
+	 * @param string $data The raw file data
+	 * @return mixed The result of do_upload
+	 */
+	public function raw_upload($name, $data)
+	{
+		// This will force do_upload to skip its is_uploaded_file checks
+		$this->raw_upload = TRUE;
+
+		$tmp = tempnam(sys_get_temp_dir(), 'raw');
+
+		if (file_put_contents($tmp, $data) === FALSE)
+		{
+			throw new Exception('Could not upload file');
+		}
+
+		$_FILES['userfile'] = array(
+			'name' => $name,
+			'size' => mb_strlen($data),
+			'tmp_name' => $tmp,
+			'error' => UPLOAD_ERR_OK
+		);
+
+		return $this->do_upload();
+	}
 
 	// --------------------------------------------------------------------
 
@@ -59,7 +93,7 @@ class EE_Upload extends CI_Upload
    function file_overwrite($original_file = '', $new = '', $type_match = TRUE)
 	{
 		$this->file_name = $new;
-		
+
 		// If renaming a file, it should have same file type suffix as the original
 		if ($type_match === TRUE)
 		{
@@ -69,26 +103,26 @@ class EE_Upload extends CI_Upload
 				return FALSE;
 			}
 		}
-		
+
 		if ($this->remove_spaces == 1)
 		{
 			$this->file_name = preg_replace("/\s+/", "_", $this->file_name);
 			$original_file = preg_replace("/\s+/", "_", $original_file);
 		}
-		
+
 		// Check to make sure the file doesn't already exist
 		if (file_exists($this->upload_path . $this->file_name))
 		{
 			$this->set_error('file_exists');
 			return FALSE;
 		}
- 		
+
 		if ( ! @copy($this->upload_path.$original_file, $this->upload_path.$this->file_name))
 		{
 			$this->set_error('copy_error');
 			return FALSE;
 		}
-		
+
 		unlink ($this->upload_path.$original_file);
 
 		return TRUE;

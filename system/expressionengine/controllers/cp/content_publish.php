@@ -7,7 +7,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -136,8 +136,25 @@ class Content_publish extends CP_Controller {
         // here for now.  -Daniel B.
         $this->lang->loadfile('publish_tabs_custom');
 
-		$entry_id	= (int) $this->input->get_post('entry_id');
-		$channel_id	= (int) $this->input->get_post('channel_id');
+		$entry_id	= (int) ee()->input->get_post('entry_id');
+		$channel_id	= (int) ee()->input->get_post('channel_id');
+		$site_id	= (int) ee()->input->get_post('site_id');
+
+		// If an entry or channel on a different site is requested, try
+		// to switch sites and reload the publish form
+		if ($site_id != 0 && $site_id != ee()->config->item('site_id') && empty($_POST))
+		{
+			ee()->cp->switch_site(
+				$site_id,
+				cp_url(
+					'content_publish/entry_form',
+					array(
+						'channel_id'	=> $channel_id,
+						'entry_id'		=> $entry_id,
+					)
+				)
+			);
+		}
 
 		// Prevent publishing new entries if disallowed
 		if ( ! $this->cp->allowed_group('can_access_content', 'can_access_publish') AND $entry_id == 0)
@@ -204,7 +221,8 @@ class Content_publish extends CP_Controller {
 
 		$this->form_validation->set_error_delimiters('<div class="notice">', '</div>');
 
-		if ($this->form_validation->run() === TRUE)
+		$valid = $this->form_validation->run();
+		if ($valid === TRUE)
 		{
 			if ($this->_save($channel_id, $entry_id) === TRUE)
 			{
@@ -262,7 +280,7 @@ class Content_publish extends CP_Controller {
 		// they contain. Then work through the details of how
 		// they are show.
 
-		$this->cp->add_js_script('file', 'cp/publish');
+		$this->cp->add_js_script('file', array('cp/publish', 'cp/category_editor'));
 
 		$tab_hierarchy	= $this->_setup_tab_hierarchy($field_data, $layout_info);
 		$layout_styles	= $this->_setup_layout_styles($field_data, $layout_info);
@@ -292,7 +310,7 @@ class Content_publish extends CP_Controller {
 			$this->cp->add_js_script(array('file' => 'cp/publish_admin'));
 		}
 
-		$this->_set_global_js($entry_id);
+		$this->_set_global_js($entry_id, $valid);
 
 		reset($tab_hierarchy);
 
@@ -317,8 +335,7 @@ class Content_publish extends CP_Controller {
 
 		$data = array(
 			'message'			=> '',	// @todo consider pulling?
-			'cp_page_title'		=> $entry_id ? lang('edit_entry') : lang('new_entry') . ': '. $this->_channel_data['channel_title'],
-
+			'cp_page_title'		=> lang($entry_id ? 'edit_entry' : 'new_entry').': '.$this->_channel_data['channel_title'],
 			'tabs'				=> $tab_hierarchy,
 			'first_tab'			=> key($tab_hierarchy),
 			'tab_labels'		=> $this->_tab_labels,
@@ -479,6 +496,17 @@ class Content_publish extends CP_Controller {
 				{
 					$valid_name_error[] = 'missing_name';
 				}
+
+				$defaults = array(
+				        lang('publish')     => 'publish',
+				        lang('categories')  => 'categories',
+				        lang('options')     => 'options',
+				        lang('date')        => 'date'
+				);
+
+				if($name == '_tab_label' && ! empty($defaults[$info])) {
+				        $tab['fields'][$name] = $defaults[$info];
+				}
 			}
 
 			$clean_layout[strtolower($tab['name'])] = $tab['fields'];
@@ -556,10 +584,12 @@ class Content_publish extends CP_Controller {
 	 */
 	function view_entry()
 	{
-		$entry_id	= $this->input->get('entry_id');
-		$channel_id	= $this->input->get('channel_id');
+		$entry_id   = $this->input->get('entry_id', TRUE);
+		$channel_id = $this->input->get('channel_id', TRUE);
 
-		if ( ! $channel_id OR ! $entry_id OR ! $this->cp->allowed_group('can_access_content'))
+		if ( ! filter_var($channel_id, FILTER_VALIDATE_INT)
+			OR ! filter_var($entry_id, FILTER_VALIDATE_INT)
+			OR ! $this->cp->allowed_group('can_access_content'))
 		{
 			show_error(lang('unauthorized_access'));
 		}
@@ -666,12 +696,14 @@ class Content_publish extends CP_Controller {
 		{
 			$show_edit_link .= AMP.'filter='.$filter_link;
 
-			$filters	 = unserialize(base64_decode($filter_link));
+			$filters     = unserialize(base64_decode($filter_link));
 			$filter_link = BASE.AMP.'C=content_edit';
 
 			if (isset($filters['keywords']))
 			{
-				$filters['keywords'] = base64_encode($filters['keywords']);
+				$filters['keywords'] = base64_encode(
+					htmlentities($filters['keywords'], ENT_QUOTES, 'UTF-8')
+				);
 			}
 
 			$filter_link = BASE.AMP.'C=content_edit'.AMP.http_build_query($filters);
@@ -682,7 +714,7 @@ class Content_publish extends CP_Controller {
 
 		if ($show_comments_link)
 		{
-			if (isset($this->installed_modules['comment']))
+			if (isset($this->cp->installed_modules['comment']))
 			{
 				$comment_count = $this->db->where('entry_id', $entry_id)
 										  ->count_all_results('comments');
@@ -1268,10 +1300,11 @@ class Content_publish extends CP_Controller {
 	/**
 	 * Set Global Javascript
 	 *
-	 * @param 	int
+	 * @param int  $entry_id The ID of the Entry (0 for new)
+	 * @param bool $valid    Result of runing form_validator
 	 * @return 	void
 	 */
-	private function _set_global_js($entry_id)
+	private function _set_global_js($entry_id, $valid)
 	{
 		$autosave_interval_seconds = ($this->config->item('autosave_interval_seconds') === FALSE) ?
 										60 : $this->config->item('autosave_interval_seconds');
@@ -1300,6 +1333,7 @@ class Content_publish extends CP_Controller {
 			'lang.duplicate_tab_name'			=> lang('duplicate_tab_name'),
 			'lang.hide_toolbar' 				=> lang('hide_toolbar'),
 			'lang.illegal_characters'			=> lang('illegal_characters'),
+			'lang.illegal_tab_name'				=> lang('illegal_tab_name'),
 			'lang.loading'						=> lang('loading'),
 			'lang.tab_name'						=> lang('tab_name'),
 			'lang.show_toolbar' 				=> lang('show_toolbar'),
@@ -1332,7 +1366,7 @@ class Content_publish extends CP_Controller {
 
 		$this->javascript->set_global('publish.title_focus', FALSE);
 
-		if ( ! $entry_id && $this->config->item('publish_page_title_focus') != 'n')
+		if ( ! $entry_id && $valid && $this->config->item('publish_page_title_focus') != 'n')
 		{
 			$this->javascript->set_global('publish.title_focus', TRUE);
 		}
@@ -2403,7 +2437,14 @@ class Content_publish extends CP_Controller {
 		$str = str_replace("%uFFD4", "\'",		$str);
 		$str = str_replace("%uFFD5", "\'",		$str);
 
-		$str =	preg_replace("/\%u([0-9A-F]{4,4})/e","'&#'.base_convert('\\1',16,10).';'", $str);
+		$str = preg_replace_callback(
+			"/\%u([0-9A-F]{4,4})/",
+			function($matches)
+			{
+				return base_convert($matches[1], 16, 10);
+			},
+			$str
+		);
 
 		$str = $this->security->xss_clean(stripslashes(urldecode($str)));
 
@@ -2436,7 +2477,7 @@ class Content_publish extends CP_Controller {
 				if (count($this->_file_manager['file_list']))
 				{
 					$button_js[] = array(
-						'name'			=> $button->tag_name,
+						'name'			=> htmlentities($button->tag_name, ENT_QUOTES, 'UTF-8'),
 						'key'			=> $button->accesskey,
 						'replaceWith'	=> '',
 						'className'		=> $button->classname.' id'.$button->id
@@ -2452,7 +2493,7 @@ class Content_publish extends CP_Controller {
 			else
 			{
 				$button_js[] = array(
-					'name'		=> $button->tag_name,
+					'name'		=> htmlentities($button->tag_name, ENT_QUOTES, 'UTF-8'),
 					'key'		=> strtoupper($button->accesskey),
 					'openWith'	=> $button->tag_open,
 					'closeWith'	=> $button->tag_close,

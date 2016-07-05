@@ -4,7 +4,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.0
@@ -304,6 +304,23 @@ class Grid_model extends CI_Model {
 	// ------------------------------------------------------------------------
 
 	/**
+	 * Returns the row data for a single entry ID and field ID
+	 *
+	 * @param	int 	Entry ID
+	 * @param	int		Field ID to get row data for
+	 * @param	string	Content type to get data for
+	 * @return	array	Row data
+	 */
+	public function get_entry($entry_id, $field_id, $content_type)
+	{
+		$table = $this->_data_table($content_type, $field_id);
+		ee()->db->where('entry_id', $entry_id);
+		return ee()->db->get($table)->result_array();
+	}
+
+	// ------------------------------------------------------------------------
+
+	/**
 	 * Returns entry row data for a given entry ID and field ID, caches data
 	 * it has already queried for
 	 *
@@ -360,16 +377,19 @@ class Grid_model extends CI_Model {
 			// search:field parameter
 			if (isset($options['search']) && ! empty($options['search']))
 			{
-				$this->_field_search($options['search'], $field_id);
+				$this->_field_search($options['search'], $field_id, $content_type);
 			}
 
 			ee()->load->helper('array_helper');
 
+			$orderby = element('orderby', $options);
+			if ($orderby == 'random' || empty($orderby))
+			{
+				$orderby = 'row_order';
+			}
+
 			ee()->db->where_in('entry_id', $entry_ids)
-				->order_by(
-					element('orderby', $options, 'row_order'),
-					element('sort', $options, 'asc')
-				);
+				->order_by($orderby, element('sort', $options, 'asc'));
 
 			// -------------------------------------------
 			// 'grid_query' hook.
@@ -463,15 +483,18 @@ class Grid_model extends CI_Model {
 
 		// orderby parameter can only order by the columns available to it,
 		// default to 'row_id'
-		if ( ! in_array($orderby, array_keys($sortable_columns)))
+		if ($orderby != 'random')
 		{
-			$orderby = 'row_order';
-		}
-		// Convert the column name to its matching table column name to hand
-		// off to the query for proper sorting
-		else
-		{
-			$orderby = 'col_id_'.$sortable_columns[$orderby];
+			if ( ! in_array($orderby, array_keys($sortable_columns)))
+			{
+				$orderby = 'row_order';
+			}
+			// Convert the column name to its matching table column name to hand
+			// off to the query for proper sorting
+			else
+			{
+				$orderby = 'col_id_'.$sortable_columns[$orderby];
+			}
 		}
 
 		// Gather search:field_name parameters

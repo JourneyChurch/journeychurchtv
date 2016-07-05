@@ -4,7 +4,7 @@
  *
  * @package		ExpressionEngine
  * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2003 - 2013, EllisLab, Inc.
+ * @copyright	Copyright (c) 2003 - 2015, EllisLab, Inc.
  * @license		http://ellislab.com/expressionengine/user-guide/license.html
  * @link		http://ellislab.com
  * @since		Version 2.6
@@ -119,9 +119,15 @@ class EE_Relationship_data_parser {
 	 */
 	public function parse_node($node, $parent_id, $tagdata)
 	{
-
 		if ( ! isset($node->entry_ids[$parent_id]))
 		{
+			if ($node->in_cond)
+			{
+				return ee()->functions->prep_conditionals($tagdata, array(
+					$node->open_tag => FALSE
+				));
+			}
+
 			return $this->clear_node_tagdata($node, $tagdata);
 		}
 
@@ -151,11 +157,22 @@ class EE_Relationship_data_parser {
 				// channel entries parser.
 				if ($node->shortcut == 'total_results')
 				{
-					return str_replace(
-						$node->open_tag,
-						count($entry_ids),
-						$tagdata
-					);
+					$total_results = count($entry_ids);
+
+					if ($node->in_cond)
+					{
+						return ee()->functions->prep_conditionals($tagdata, array(
+							$node->open_tag => $total_results
+						));
+					}
+					else
+					{
+						return str_replace(
+							$node->open_tag,
+							$total_results,
+							$tagdata
+						);
+					}
 				}
 
 				$matches = array(array($node->open_tag, $node->open_tag));
@@ -168,26 +185,7 @@ class EE_Relationship_data_parser {
 				$categories[$entry_id] = $this->category($entry_id);
 			}
 
-			// put categories into the weird form the channel module uses
-			// @todo take db results directly
-			foreach ($categories as &$cats)
-			{
-				foreach ($cats as &$cat)
-				{
-					if ( ! empty($cat))
-					{
-						$cat = array(
-							$cat['cat_id'],
-							$cat['parent_id'],
-							$cat['cat_name'],
-							$cat['cat_image'],
-							$cat['cat_description'],
-							$cat['group_id'],
-							$cat['cat_url_title']
-						);
-					}
-				}
-			}
+			$categories = $this->_format_cat_array($categories);
 
 			$data = array(
 				'entries' => array($entry_id => $this->entry($entry_id)),
@@ -285,7 +283,7 @@ class EE_Relationship_data_parser {
 	 *					$whole_tag is TRUE, then whole {if no_results} {/if}
 	 *					tag block will be returned.
 	 */
-	public function find_no_results($node, $node_tagdata, $whole_tag=FALSE)
+	public function find_no_results($node, $node_tagdata, $whole_tag = FALSE)
 	{
 		$tag = preg_quote($node->name(), '/');
 
@@ -294,7 +292,17 @@ class EE_Relationship_data_parser {
 
 		if ($has_no_results && preg_match("/".LD."if {$tag}:no_results".RD."(.*?)".LD.'\/'."if".RD."/s", $node_tagdata, $match))
 		{
-			return ($whole_tag ? $match[0] : $match[1]);
+			if (stristr($match[1], LD.'if'))
+			{
+				$match[0] = ee()->functions->full_tag($match[0], $node_tagdata, LD.'if', LD.'\/'."if".RD);
+			}
+
+			if ($whole_tag)
+			{
+				return $match[0];
+			}
+
+			return substr($match[0], strlen(LD."if {$tag}:no_results".RD), -strlen(LD.'/'."if".RD));
 		}
 
 		return '';
@@ -457,13 +465,14 @@ class EE_Relationship_data_parser {
 
 				$value = trim($value,  " |\t\n\r");
 				$value = explode('|', $value);
+				$value = array_map('strtolower', $value);
 
 				if ($p == 'channel')
 				{
 					$p = 'channel_name';
 				}
 
-				$data_matches = in_array($data[$p], $value);
+				$data_matches = in_array(strtolower($data[$p]), $value);
 
 				if (($data_matches && $not) OR
 					( ! $data_matches && ! $not))
@@ -471,8 +480,6 @@ class EE_Relationship_data_parser {
 					continue 2;
 				}
 			}
-
-			$rows[$entry_id] = $data;
 
 			// categories
 			if (isset($this->_categories[$entry_id]))
@@ -484,11 +491,6 @@ class EE_Relationship_data_parser {
 
 			if ($requested_cats)
 			{
-				if ( ! isset($categories[$entry_id]))
-				{
-					continue;
-				}
-
 				$not = FALSE;
 				$cat_match = FALSE;
 
@@ -496,6 +498,18 @@ class EE_Relationship_data_parser {
 				{
 					$requested_cats = substr($requested_cats, 4);
 					$not = TRUE;
+				}
+
+				if (! isset($categories[$entry_id]))
+				{
+					// If the entry has no categories and the category parameter
+					// specifies 'not x', include it.
+					if ($not)
+					{
+						$rows[$entry_id] = $data;
+					}
+
+					continue;
 				}
 
 				$requested_cats = explode('|', $requested_cats);
@@ -511,6 +525,10 @@ class EE_Relationship_data_parser {
 
 						$cat_match = TRUE;
 					}
+					elseif ($not)
+					{
+						$cat_match = TRUE;
+					}
 				}
 
 				if ( ! $cat_match)
@@ -518,28 +536,11 @@ class EE_Relationship_data_parser {
 					continue;
 				}
 			}
+
+			$rows[$entry_id] = $data;
 		}
 
-		// put categories into the weird form the channel module uses
-		// @todo take db results directly
-		foreach ($categories as &$cats)
-		{
-			foreach ($cats as &$cat)
-			{
-				if ( ! empty($cat))
-				{
-					$cat = array(
-						$cat['cat_id'],
-						$cat['parent_id'],
-						$cat['cat_name'],
-						$cat['cat_image'],
-						$cat['cat_description'],
-						$cat['group_id'],
-						$cat['cat_url_title']
-					);
-				}
-			}
-		}
+		$categories = $this->_format_cat_array($categories);
 
 		$end_script = FALSE;
 
@@ -569,6 +570,56 @@ class EE_Relationship_data_parser {
 			'entries' => $rows,
 			'categories' => $categories,
 		);
+	}
+
+ 	// --------------------------------------------------------------------
+
+	/**
+	 * Utility method to format the category array for processing by the
+	 * Channel Entries Parser's Category parser.  Renames required elements and
+	 * leaves the rest alone.
+	 *
+	 * @param 	array	An array of category data.  Required keys below:
+	 * 		- cat_id: changed to index 0
+	 * 		- parent_id: changed to index 1
+	 * 		- cat_name: changed to index 2
+	 * 		- cat_image: changed to index 3
+	 * 		- cat_description: changed to index 4
+	 * 		- group_id: changed to index 5
+	 * 		- cat_url_title: changed to index 6
+	 *
+	 * @return	array  The array of category data with keys renamed to match the
+	 *                 category parser's requirements.
+	 */
+
+	private function _format_cat_array($categories)
+	{
+		// @todo take db results directly
+		foreach ($categories as &$cats)
+		{
+			foreach ($cats as &$cat)
+			{
+				if ( ! empty($cat))
+				{
+					$cat['0'] = $cat['cat_id'];
+					unset($cat['cat_id']);
+					$cat['1'] = $cat['parent_id'];
+					unset($cat['parent_id']);
+					$cat['2'] = $cat['cat_name'];
+					unset($cat['cat_name']);
+					$cat['3'] = $cat['cat_image'];
+					unset($cat['cat_image']);
+					$cat['4'] = $cat['cat_description'];
+					unset($cat['cat_description']);
+					$cat['5'] = $cat['group_id'];
+					unset($cat['group_id']);
+					$cat['6'] = $cat['cat_url_title'];
+					unset($cat['cat_url_title']);
+				}
+			}
+		}
+
+		return $categories;
 	}
 
  	// --------------------------------------------------------------------
