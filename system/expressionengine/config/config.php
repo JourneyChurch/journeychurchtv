@@ -15,7 +15,7 @@ $config['app_version'] = '2.10.1';
 $config['license_contact'] = 'webmaster@journeychurch.tv';
 $config['license_number'] = '2839-0301-3052-3653';
 $config['debug'] = '1';
-$config['cp_url'] = 'http://rebrand.dev/admin.php';
+$config['cp_url'] = 'http://rebrand.dev/system.php';
 $config['doc_url'] = 'http://ellislab.com/expressionengine/user-guide/';
 $config['is_system_on'] = 'y';
 $config['allow_extensions'] = 'y';
@@ -23,8 +23,10 @@ $config['cache_driver'] = 'file';
 $config['cookie_prefix'] = '';
 $config['cookie_httponly'] = 'y';
 
+$config['index_page'] = 'index.php';
 
 // END EE config items
+
 
 /*
 |--------------------------------------------------------------------------
