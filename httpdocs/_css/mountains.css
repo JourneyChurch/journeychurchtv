@@ -107,10 +107,6 @@ p {
   display:table-cell;
 }
 
-.banner .inner img {
-  margin-top:-200px;
-}
-
 .scroll-down-container {
   position:absolute;
   bottom:0;
