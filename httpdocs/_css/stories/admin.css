@@ -29,7 +29,10 @@ select {
   border-radius:0;
   border:none;
   color:#686868;
+}
 
+select:hover {
+  cursor:pointer;
 }
 
 .btn {
@@ -410,4 +413,8 @@ select {
 .edit-categories form label {
   font-weight:200;
   margin:0;
+}
+
+.edit-categories input[type=checkbox]:hover {
+  cursor:pointer;
 }
