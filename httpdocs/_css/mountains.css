@@ -153,6 +153,12 @@ p {
   text-transform:uppercase;
 }
 
+#promo h5 {
+  color:white;
+  text-transform:uppercase;
+  letter-spacing:5px;
+}
+
 #promo button {
   background-color:white;
   color:black;
