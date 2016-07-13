@@ -1,0 +1,13 @@
+#no-js-wrapper {
+  display:none;
+}
+
+.no-js {
+  #no-js-wrapper {
+    display:block;
+  }
+
+  #wrapper {
+    display:none;
+  }
+}

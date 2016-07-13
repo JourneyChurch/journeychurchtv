@@ -4,31 +4,40 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
+
+	{!-- Browser Data --}
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	{!--}<link rel="apple-touch-icon-precomposed" href="/_img/iOS.jpg" />{--}
-	<meta name="apple-mobile-web-app-title" content="JourneyChurch" />
+	<meta name="apple-mobile-web-app-title" content="Journey Church" />
 	{!--}<meta name="apple-itunes-app" content="app-id=978127236">{--}
 	<meta name="google-site-verification" content="S1vJM4d9ZXFbAYLs-Q2QSc0N2Q-TUm9GsvAUaQyIm6A" />
 
 	<title>JourneyChurch.tv{if embed:title} | {embed:title}{/if}</title>
 
-	<meta name="description" content="JourneyChurch is a house committed to transforming our cities ... one life at a time.">
-	<meta name="author" content="JourneyChurch.tv">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<meta name="description" content="Journey Church is a house committed to transforming our cities ... one life at a time.">
+	<meta name="author" content="Journey Church">
+	{!--}<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">{--}
+	{!--}<link rel="icon" href="/favicon.ico" type="image/x-icon">{--}
 
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+
+	{!-- Stylesheet --}
+	<link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+
 	{!-- Fonts --}
 	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css" />
-	<script type="text/javascript" src="//use.typekit.net/fhp5zym.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	{!--}<script type="text/javascript" src="//use.typekit.net/fhp5zym.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>{--}
 
-	{!-- Charbeat --}
-	<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+	{!-- Modernizr --}
+	<script type="text/javascript" src="/js/modernizr-custom.js"></script>
+	
 
 	{!-- Pingdom Real Stats --}
 	<script>
@@ -42,7 +51,3 @@
 	    s.parentNode.insertBefore(p, s);
 	})();
 	</script>
-
-	{if embed:tags}
-		{embed:tags}
-	{/if}
