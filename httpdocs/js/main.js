@@ -1,3 +1,6 @@
-var name = "george";
-var name2 = "georgy";
-var name3 = "Eythan";
+$(document).ready(function () {
+    $(".nav-icon").click(function () {
+        $(".nav").fadeToggle(300);
+        $(".nav-icon").toggleClass("nav-visible");
+    });
+});

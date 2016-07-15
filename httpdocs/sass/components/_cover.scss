@@ -1,0 +1,13 @@
+/* Cover */
+.cover {
+  height:100vh;
+  width:100%;
+  display:table;
+
+  h1 {
+    margin:0;
+    text-align:center;
+    display:table-cell;
+    vertical-align:middle;
+  }
+}

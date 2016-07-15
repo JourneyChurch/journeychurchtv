@@ -1,0 +1,19 @@
+/* Global */
+html {
+
+}
+
+body {
+  font-family: $font-family;
+}
+
+ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  li {
+    a:hover {
+      text-decoration:none;
+    }
+  }
+}

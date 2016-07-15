@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* VENDORS */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -5809,9 +5810,25 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+/* HELPERS */
+/* Variables */
+/* Functions */
+/* Mixins */
+/* Classes */
+/* LAYOUT */
+/* Global */
 body {
   font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", Arial; }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  ul li a:hover {
+    text-decoration: none; }
+
+/* Header */
+/* Main */
 #no-js-wrapper {
   display: none; }
 
@@ -5819,5 +5836,85 @@ body {
   display: block; }
 .no-js #wrapper {
   display: none; }
+
+/* Footer */
+/* COMPONENTS */
+/* Main Nav */
+.nav {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 25px 40px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  display: none; }
+  .nav ul {
+    float: left; }
+    .nav ul li {
+      display: inline;
+      margin: 0 10px; }
+      .nav ul li:first-child {
+        margin-left: 0; }
+      .nav ul li:last-child {
+        margin-right: 0; }
+      .nav ul li a {
+        display: inline-block;
+        padding: 10px;
+        color: white;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-size: 12px; }
+
+/* Nav Icon */
+.nav-icon {
+  display: inline-block;
+  position: fixed;
+  top: 22px;
+  right: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  padding: 16px 11px;
+  z-index: 1500;
+  -webkit-transition: background-color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in; }
+  .nav-icon:hover {
+    cursor: pointer; }
+  .nav-icon span {
+    height: 2px;
+    width: 20px;
+    background-color: white;
+    display: block;
+    -webkit-transition: transform 0.2s ease-in;
+    -moz-transition: transform 0.2s ease-in;
+    -o-transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease-in; }
+    .nav-icon span:first-child {
+      margin-bottom: 6px; }
+  .nav-icon.nav-visible {
+    background-color: transparent; }
+    .nav-icon.nav-visible span {
+      -webkit-transition: transform 0.2s ease-in;
+      -moz-transition: transform 0.2s ease-in;
+      -o-transition: transform 0.2s ease-in;
+      transition: transform 0.2s ease-in; }
+      .nav-icon.nav-visible span:first-child {
+        transform: rotateZ(45deg) translateX(3px) translateY(2.5px); }
+      .nav-icon.nav-visible span:last-child {
+        transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
+
+/* Cover */
+.cover {
+  height: 100vh;
+  width: 100%;
+  display: table; }
+  .cover h1 {
+    margin: 0;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle; }
+
+/* Buttons */
+/* PAGES */
 
 /*# sourceMappingURL=main.css.map */

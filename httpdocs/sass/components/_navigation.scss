@@ -1,0 +1,69 @@
+/* Main Nav */
+.nav {
+  background-color:rgba(0, 0, 0, 0.8);
+  padding:25px 40px;
+  position:fixed;
+  z-index:1000;
+  width:100%;
+  display:none;
+  ul {
+    float:left;
+    li {
+      display:inline;
+      margin:0 10px;
+      &:first-child {
+        margin-left:0;
+      }
+      &:last-child {
+        margin-right:0;
+      }
+      a {
+        display:inline-block;
+        padding:10px;
+        color:white;
+        letter-spacing:3px;
+        text-transform:uppercase;
+        font-size:12px;
+      }
+    }
+  }
+}
+
+/* Nav Icon */
+.nav-icon {
+  display:inline-block;
+  position:fixed;
+  top:22px;
+  right:40px;
+  background-color:rgba(0, 0, 0, 0.8);
+  border-radius:50%;
+  padding:16px 11px;
+  z-index:1500;
+  @include transition(background-color, 0.2s, ease-in);
+  &:hover {
+    cursor:pointer;
+  }
+  span {
+    height:2px;
+    width:20px;
+    background-color:white;
+    display:block;
+    @include transition(transform, 0.2s, ease-in);
+
+    &:first-child {
+      margin-bottom:6px;
+    }
+  }
+  &.nav-visible {
+    background-color:transparent;
+    span {
+      @include transition(transform, 0.2s, ease-in);
+      &:first-child {
+        transform:rotateZ(45deg) translateX(3px) translateY(2.5px);
+      }
+      &:last-child {
+        transform:rotateZ(-45deg) translateX(3px) translateY(-2.5px);
+      }
+    }
+  }
+}
