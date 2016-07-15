@@ -5,11 +5,11 @@
   position:fixed;
   z-index:1000;
   width:100%;
+  text-align:center;
   display:none;
   ul {
-    float:left;
     li {
-      display:inline;
+      display:inline-block;
       margin:0 10px;
       &:first-child {
         margin-left:0;
