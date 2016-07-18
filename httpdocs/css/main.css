@@ -5856,15 +5856,18 @@ ul {
 /* COMPONENTS */
 /* Main Nav */
 .nav {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0px;
   right: 0px;
   z-index: 1000;
   display: none;
   height: 100%;
-  padding: 100px 0px 0px 25px;
-  width: 275px; }
+  padding-top: 100px;
+  padding-left: 25px;
+  padding-bottom: 100px;
+  width: 275px;
+  overflow-y: scroll; }
   .nav ul li {
     display: block; }
     .nav ul li:first-child {
@@ -5886,7 +5889,7 @@ ul {
   padding: 16px 11px;
   z-index: 1500;
   position: absolute;
-  top: 30px;
+  top: 35px;
   right: 30px;
   -webkit-transition: background-color 0.2s ease-in;
   -moz-transition: background-color 0.2s ease-in;
@@ -5905,21 +5908,23 @@ ul {
     transition: transform 0.2s ease-in; }
     .nav-icon span:first-child {
       margin-bottom: 6px; }
-  .nav-icon.nav-visible {
-    background-color: transparent; }
-    .nav-icon.nav-visible span {
-      -webkit-transition: transform 0.2s ease-in;
-      -moz-transition: transform 0.2s ease-in;
-      -o-transition: transform 0.2s ease-in;
-      transition: transform 0.2s ease-in; }
-      .nav-icon.nav-visible span:first-child {
-        transform: rotateZ(45deg) translateX(3px) translateY(2.5px); }
-      .nav-icon.nav-visible span:last-child {
-        transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
+
+/* Nav Visible */
+.nav-visible {
+  overflow: hidden; }
+  .nav-visible .nav-icon span {
+    -webkit-transition: transform 0.2s ease-in;
+    -moz-transition: transform 0.2s ease-in;
+    -o-transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease-in; }
+    .nav-visible .nav-icon span:first-child {
+      transform: rotateZ(45deg) translateX(3px) translateY(2.5px); }
+    .nav-visible .nav-icon span:last-child {
+      transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
 
 /* Cover */
 .cover {
-  height: 100vh;
+  height: 500px;
   width: 100%;
   display: table;
   background-image: url("/img/Deer.JPG");

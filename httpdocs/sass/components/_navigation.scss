@@ -1,14 +1,17 @@
 /* Main Nav */
 .nav {
-  background-color:rgba(0, 0, 0, 0.6);
+  background-color:rgba(0, 0, 0, 0.7);
   position:absolute;
   top:0px;
   right:0px;
   z-index:1000;
   display:none;
   height:100%;
-  padding:100px 0px 0px 25px;
+  padding-top:100px;
+  padding-left:25px;
+  padding-bottom:100px;
   width:275px;
+  overflow-y:scroll;
   ul {
     li {
       display:block;
@@ -37,7 +40,7 @@
   padding:16px 11px;
   z-index:1500;
   position:absolute;
-  top:30px;
+  top:35px;
   right:30px;
   @include transition(background-color, 0.2s, ease-in);
   &:hover {
@@ -54,8 +57,13 @@
       margin-bottom:6px;
     }
   }
-  &.nav-visible {
-    background-color:transparent;
+}
+
+/* Nav Visible */
+.nav-visible {
+  overflow:hidden;
+
+  .nav-icon {
     span {
       @include transition(transform, 0.2s, ease-in);
       &:first-child {
