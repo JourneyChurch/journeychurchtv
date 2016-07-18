@@ -5,3 +5,10 @@
   -o-transition: $property $duration $timing-function;
   transition: $property $duration $timing-function;
 }
+
+@mixin background-size-cover() {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
