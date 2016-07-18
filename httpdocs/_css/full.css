@@ -12,7 +12,7 @@
 		padding-top: 16px;
 	}
 	.journeylogo span {
-		font-family: 'Gotham-Book', 'Montserrat'; font-weight: 100; font-style: normal;
+		font-family: 'Gotham-Light', 'Montserrat'; font-weight: 100; font-style: normal;
 		font-size: 14px;
 		color: #FFFFFF;
 		margin-top: 15px;
@@ -28,7 +28,7 @@
 		margin-top: 20px;
 	}
 	.nav {
-		font-family: 'Gotham-Book', 'Montserrat'; font-weight: 400; font-style: normal;
+		font-family: 'Gotham-Light', 'Montserrat'; font-weight: 400; font-style: normal;
 		font-size: 14px;
 		color: #FFFFFF;
 		text-transform: uppercase;
@@ -51,7 +51,7 @@
 		position:relative;
 		z-index: 100;
 		color: #FFFFFF;
-		font-family: 'Gotham-Book', 'Montserrat';
+		font-family: 'Gotham-Light', 'Montserrat';
 		font-weight: 400;
 		font-size: 12px;
 		text-transform: uppercase;
@@ -60,7 +60,7 @@
 	}
 	ul.nav-main li a {
 		color: #FFFFFF!important;
-		font-family: 'Gotham-Book', 'Montserrat'!important;
+		font-family: 'Gotham-Light', 'Montserrat'!important;
 		font-weight: 400!important;
 		font-size: 12px!important;
 		text-transform: uppercase!important;
