@@ -72,13 +72,13 @@ samp {color: #ff00c6;font-family:inherit;}
 	margin: 0;
 }
 html, body {
-	font-family: 'Gotham-Light', 'Montserrat'; font-weight: 300;
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial; font-weight: 300;
 	font-style: normal;
 	height: 100%;
 	font-size: 14px;
 }
 
-h1, h2, h3, h4, h5 {font-family: 'Gotham-Light', 'Montserrat'; font-weight: 400; font-style: normal; text-transform: uppercase;}
+h1, h2, h3, h4, h5 {font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial; font-weight: 400; font-style: normal; text-transform: uppercase;}
 
 h2 {font-size: 26px;text-transform: uppercase;}
 
@@ -95,7 +95,7 @@ button {
   transition: all 0.3s ease-out;
 
   /* Font styles */
-  font-family: 'Gotham-Light', 'Montserrat';
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
   font-weight: 400;
   font-style: normal;
   text-decoration: none;
@@ -202,7 +202,7 @@ div.capty-caption a {
 	padding: 5px 0;
 	text-align: center;
 	text-transform: uppercase;
-	font-family: 'Gotham-Light', 'Montserrat'; font-weight: 400; font-style: normal;
+	font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial; font-weight: 400; font-style: normal;
 	font-size: 14px;
 	color: #b7b6b1;
 	/*	-moz-box-shadow: 0px 1px 5px #020202;
@@ -336,7 +336,7 @@ ul.side-nav {
 
 /* Home */
 	.happening h2, .latest h2 {
-		font-family: 'Gotham-Light', 'Montserrat';
+		font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
 		font-weight: 200;
 		font-style: normal;
 		text-transform: uppercase;
@@ -445,7 +445,7 @@ ul.side-nav {
 		font-size: 18px;
 	}
 	#accordion .accordion-title, #accordion2 .accordion-title, #accordion3 .accordion-title {
-		font-family: 'Gotham-Light', 'Montserrat';
+		font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
 		font-weight: 400;
 		font-size: 16px;
 		padding-right: 10px;
@@ -461,7 +461,7 @@ ul.side-nav {
 		margin-top: 10px;
 	}
 	.side-locations h4 {
-		font-family: 'Gotham-Light', 'Montserrat'; font-weight: 300;
+		font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial; font-weight: 300;
 		font-style: normal;
 		height: 100%;
 		font-size: 14px;
@@ -846,7 +846,7 @@ ul.side-nav {
 	color: #006f7c;
 }
 .marker-title {
-	font-family: 'Gotham-Light', 'Montserrat'; font-weight: 300; font-style: normal;
+	font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial; font-weight: 300; font-style: normal;
 	text-transform: uppercase;
 	font-size: 16px;
 }
@@ -1489,18 +1489,18 @@ h2.pastorclark span {
 
 /* Search */
 input.gsc-search-button {
-	font-family: 'Gotham-Light', 'Montserrat' !important;
+	font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial !important;
 	font-weight: 300!important;
 	text-transform: uppercase;
 	font-style: normal!important;
 }
 .cse input.gsc-input, input.gsc-input {
-	font-family: 'Gotham-Light', 'Montserrat' !important;
+	font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial !important;
 	font-weight: 300!important;
 	font-style: normal!important;
 }
 .gsc-control-cse .gsc-table-result {
-	font-family: 'Gotham-Light', 'Montserrat' !important;
+	font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial !important;
 }
 .gsc-result .gs-title {
 	font-family: 'aleoregular',Georgia,serif!important;
