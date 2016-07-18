@@ -5834,6 +5834,15 @@ ul {
     text-decoration: none; }
 
 /* Header */
+/* Logo */
+.logo {
+  width: 50px;
+  display: inline-block;
+  z-index: 1500;
+  position: absolute;
+  top: 30px;
+  left: 30px; }
+
 /* Main */
 #no-js-wrapper {
   display: none; }
@@ -5847,16 +5856,17 @@ ul {
 /* COMPONENTS */
 /* Main Nav */
 .nav {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 25px 40px;
-  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0px;
+  right: 0px;
   z-index: 1000;
-  width: 100%;
-  text-align: center;
-  display: none; }
+  display: none;
+  height: 100%;
+  padding: 100px 0px 0px 25px;
+  width: 275px; }
   .nav ul li {
-    display: inline-block;
-    margin: 0 10px; }
+    display: block; }
     .nav ul li:first-child {
       margin-left: 0; }
     .nav ul li:last-child {
@@ -5872,13 +5882,12 @@ ul {
 /* Nav Icon */
 .nav-icon {
   display: inline-block;
-  position: fixed;
-  top: 22px;
-  right: 40px;
-  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 50%;
   padding: 16px 11px;
   z-index: 1500;
+  position: absolute;
+  top: 30px;
+  right: 30px;
   -webkit-transition: background-color 0.2s ease-in;
   -moz-transition: background-color 0.2s ease-in;
   -o-transition: background-color 0.2s ease-in;
@@ -5908,17 +5917,12 @@ ul {
       .nav-icon.nav-visible span:last-child {
         transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
 
-/* Nav Logo */
-.nav-logo {
-  width: 40px;
-  float: left; }
-
 /* Cover */
 .cover {
   height: 100vh;
   width: 100%;
   display: table;
-  background-image: url("/img/Mountains_BG_White.jpg");
+  background-image: url("/img/Deer.JPG");
   background-size: cover;
   background-attachment: scroll;
   background-position: center center; }
