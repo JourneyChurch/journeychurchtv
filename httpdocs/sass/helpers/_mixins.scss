@@ -48,3 +48,12 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+@mixin vertical-align-wrapper() {
+  display:table;
+}
+
+@mixin vertical-align() {
+  display:table-cell;
+  vertical-align:middle;
+}

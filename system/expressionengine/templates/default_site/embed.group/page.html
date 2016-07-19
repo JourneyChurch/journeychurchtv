@@ -1,0 +1,33 @@
+{exp:channel:entries channel="Page" limit="1"}
+  <div id="page-{title}" {if cover_type == "Partial Cover"}class="cover-partial bg-img"{if:else}class="cover bg-img"{/if}>
+    <div class="inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            {if cover_content != ""}
+              {cover_content}
+            {if:else}
+              <div class="title">{title}</div>
+            {/if}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #page-{title} {
+      background-image:url("/img/{background_image}");
+    }
+  </style>
+
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          {page_content}
+        </div>
+      </div>
+    </div>
+  </section>
+{/exp:channel:entries}
