@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  font-family: $font-family;
+  @include font-book;
   background-color: $background-color;
 }
 
@@ -17,4 +17,61 @@ ul {
       text-decoration:none;
     }
   }
+}
+
+p {
+  margin:20px 0;
+  line-height:26px;
+  @include font-light;
+}
+
+.section {
+  padding:125px 0;
+}
+
+.preview-content {
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.bg-img {
+  background-attachment:scroll;
+  background-position:center center;
+  background-repeat:no-repeat;
+  @include background-size-cover;
+  background-color:black;
+  color:white;
+}
+
+.font-extra-light {
+  @include font-extra-light;
+}
+
+.font-light {
+  @include font-light;
+}
+
+.font-book {
+  @include font-book;
+}
+.font-medium {
+  @include font-medium;
+}
+
+.font-bold {
+  @include font-bold;
+}
+
+.font-black {
+  @include font-black;
+}
+
+.eyebrow {
+  @include font-bold;
+  text-transform:uppercase;
+  letter-spacing:3px;
+}
+
+#connect {
+  background-image:url("/img/JBOX.jpg");
 }

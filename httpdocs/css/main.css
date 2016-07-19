@@ -5812,15 +5812,37 @@ button.close {
     display: none !important; } }
 /* HELPERS */
 /* Variables */
-@font-face {
-  font-family: 'Gotham-Book';
-  src: url("/fonts/Gotham-Book.eot");
-  /* IE9 Compat Modes */
-  src: url("/fonts/Gotham-Book.eot?#iefix") format("embedded-opentype"), url("/fonts/Gotham-Book.woff2") format("woff2"), url("/fonts/Gotham-Book.woff") format("woff"), url("/fonts/Gotham-Book.ttf") format("truetype"), url("/fonts/Gotham-Book.svg#svgFontName") format("svg");
-  /* Legacy iOS */ }
 /* Functions */
 /* Mixins */
-/* Classes */
+/* LAYOUT */
+/* Global */
+body {
+  font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #f3f3f3; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  ul li a:hover {
+    text-decoration: none; }
+
+p {
+  margin: 20px 0;
+  line-height: 26px;
+  font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 300; }
+
+.section {
+  padding: 125px 0; }
+
+.preview-content {
+  padding-left: 30px;
+  padding-right: 30px; }
+
 .bg-img {
   background-attachment: scroll;
   background-position: center center;
@@ -5829,20 +5851,48 @@ button.close {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: black; }
+  background-color: black;
+  color: white; }
 
-/* LAYOUT */
-/* Global */
-body {
-  font-family: "Gotham-Book", Arial;
-  background-color: #eaeaea; }
+.font-extra-light {
+  font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 200; }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
-  ul li a:hover {
-    text-decoration: none; }
+.font-light {
+  font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 300; }
+
+.font-book {
+  font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 400; }
+
+.font-medium {
+  font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 500; }
+
+.font-bold {
+  font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 700; }
+
+.font-black {
+  font-family: "Gotham SSm 8r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 800; }
+
+.eyebrow {
+  font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px; }
+
+#connect {
+  background-image: url("/img/JBOX.jpg"); }
 
 /* Header */
 /* Logo */
@@ -5940,7 +5990,7 @@ ul {
 
 /* Cover */
 .cover {
-  height: calc(100vh);
+  height: 100vh;
   width: 100%;
   min-height: 450px;
   display: table;
@@ -5955,9 +6005,22 @@ ul {
     bottom: 0px;
     left: 0px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); }
+    background-color: white;
+    color: black;
+    padding: 10px 0; }
 
 /* Buttons */
+.btn-default {
+  border: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 15px 20px; }
+
 /* PAGES */
 
 /*# sourceMappingURL=main.css.map */

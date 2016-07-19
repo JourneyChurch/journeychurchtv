@@ -1,4 +1,40 @@
 /* Mixins */
+@mixin font-extra-light() {
+  font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 200;
+}
+
+@mixin font-light() {
+  font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin font-book() {
+  font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin font-medium() {
+  font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@mixin font-bold() {
+  font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin font-black() {
+  font-family: "Gotham SSm 8r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 800;
+}
+
 @mixin transition($property, $duration, $timing-function) {
   -webkit-transition: $property $duration $timing-function;
   -moz-transition: $property $duration $timing-function;

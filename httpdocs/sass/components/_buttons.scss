@@ -1,1 +1,10 @@
 /* Buttons */
+.btn-default {
+  border:none;
+  border-radius:0;
+  text-transform:uppercase;
+  font-size:10px;
+  @include font-bold;
+  letter-spacing:2px;
+  padding:15px 20px;
+}
