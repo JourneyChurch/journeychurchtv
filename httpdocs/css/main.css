@@ -5851,7 +5851,7 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: black;
+  background-color: #464646;
   color: white; }
 
 .font-extra-light {
@@ -5895,14 +5895,19 @@ p {
   background-image: url("/img/JBOX.jpg"); }
 
 /* Header */
+#header {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  padding: 30px;
+  z-index: 1500; }
+
 /* Logo */
 .logo {
   width: 50px;
   display: inline-block;
-  z-index: 1500;
-  position: absolute;
-  top: 30px;
-  left: 30px; }
+  float: left; }
 
 /* Main */
 #no-js-wrapper {
@@ -5924,22 +5929,23 @@ p {
   z-index: 1000;
   display: none;
   height: 100%;
-  padding-top: 100px;
-  padding-left: 25px;
-  padding-bottom: 100px;
   width: 275px;
   overflow-y: scroll; }
-  .nav ul li {
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 5px; }
-    .nav ul li a {
-      display: inline-block;
-      padding: 5px;
-      color: white;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 12px; }
+  .nav ul {
+    padding-top: 100px;
+    padding-left: 25px;
+    padding-bottom: 100px; }
+    .nav ul li {
+      display: block;
+      margin-top: 5px;
+      margin-bottom: 5px; }
+      .nav ul li a {
+        display: inline-block;
+        padding: 5px;
+        color: white;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-size: 12px; }
   .nav .social ul li {
     display: inline;
     margin: 0 5px; }
@@ -5952,11 +5958,8 @@ p {
 .nav-icon {
   display: inline-block;
   border-radius: 50%;
-  padding: 16px 11px;
-  z-index: 1500;
-  position: absolute;
-  top: 35px;
-  right: 30px;
+  padding: 20px 15px;
+  float: right;
   -webkit-transition: background-color 0.2s ease-in;
   -moz-transition: background-color 0.2s ease-in;
   -o-transition: background-color 0.2s ease-in;
@@ -5977,40 +5980,65 @@ p {
 
 /* Nav Visible */
 .nav-visible {
-  overflow: hidden; }
+  overflow: hidden !important; }
   .nav-visible .nav-icon span {
     -webkit-transition: transform 0.2s ease-in;
     -moz-transition: transform 0.2s ease-in;
     -o-transition: transform 0.2s ease-in;
     transition: transform 0.2s ease-in; }
     .nav-visible .nav-icon span:first-child {
+      -webkit-transform: rotateZ(45deg) translateX(3px) translateY(2.5px);
+      -ms-transform: rotateZ(45deg) translateX(3px) translateY(2.5px);
+      -moz-transform: rotateZ(45deg) translateX(3px) translateY(2.5px);
+      -o-transform: rotateZ(45deg) translateX(3px) translateY(2.5px);
       transform: rotateZ(45deg) translateX(3px) translateY(2.5px); }
     .nav-visible .nav-icon span:last-child {
+      -webkit-transform: rotateZ(-45deg) translateX(3px) translateY(2.5px);
+      -ms-transform: rotateZ(-45deg) translateX(3px) translateY(2.5px);
+      -moz-transform: rotateZ(-45deg) translateX(3px) translateY(2.5px);
+      -o-transform: rotateZ(-45deg) translateX(3px) translateY(2.5px);
       transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
 
+@media only screen and (max-width: 767px) {
+  .nav {
+    width: 100%;
+    height: 100%; }
+    .nav .nav-links {
+      width: 100%;
+      height: 100%;
+      display: table !important;
+      text-align: center; }
+      .nav .nav-links ul {
+        padding: 0;
+        display: table-cell !important;
+        vertical-align: middle; } }
 /* Cover */
 .cover, .cover-partial {
-  height: 100vh;
+  height: calc(100vh - 50px);
   width: 100%;
   min-height: 450px;
-  display: table;
-  background-image: url("/img/Deer.JPG"); }
+  display: table !important; }
   .cover .inner, .cover-partial .inner {
-    display: table-cell;
+    display: table-cell !important;
     vertical-align: middle;
     text-align: center; }
     .cover .inner .title, .cover-partial .inner .title {
       text-transform: uppercase; }
-  .cover .caption, .cover-partial .caption {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    background-color: white;
-    color: black;
-    padding: 10px 0; }
 
 .cover-partial {
+  height: 450px; }
+
+.cover-caption {
+  display: table !important;
+  background-color: white;
+  color: black;
+  height: 50px;
+  width: 100%; }
+  .cover-caption .inner {
+    display: table-cell !important;
+    vertical-align: middle; }
+
+.no-cssvhunit .cover, .no-cssvhunit .cover-partial {
   height: 450px; }
 
 /* Buttons */

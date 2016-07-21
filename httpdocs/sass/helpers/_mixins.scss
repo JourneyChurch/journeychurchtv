@@ -50,10 +50,10 @@
 }
 
 @mixin vertical-align-wrapper() {
-  display:table;
+  display:table !important;
 }
 
 @mixin vertical-align() {
-  display:table-cell;
+  display:table-cell !important;
   vertical-align:middle;
 }

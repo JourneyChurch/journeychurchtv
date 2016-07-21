@@ -1,5 +1,5 @@
 <ul>
 {exp:channel:entries channel="navigation_item" sort="asc" category="{embed:category}" dynamic="no"}
-  <li><a href="{link}" {if new_tab}target="_blank"{/if}>{title}</a></li>
+  <li><a href="{navigation_item_link}" {if navigation_item_new_tab}target="_blank"{/if}>{title}</a></li>
 {/exp:channel:entries}
 </ul>

@@ -1,10 +1,9 @@
 /* Cover */
 .cover {
-  height:100vh;
+  height:calc(100vh - 50px);
   width:100%;
   min-height:450px;
   @include vertical-align-wrapper;
-  background-image:url("/img/Deer.JPG");
   .inner {
     @include vertical-align;
     text-align:center;
@@ -12,18 +11,26 @@
       text-transform:uppercase;
     }
   }
-  .caption {
-    position:absolute;
-    bottom:0px;
-    left:0px;
-    width:100%;
-    background-color:white;
-    color:black;
-    padding:10px 0;
-  }
 }
 
 .cover-partial {
   @extend .cover;
   height:450px;
+}
+
+.cover-caption {
+  @include vertical-align-wrapper;
+  background-color:white;
+  color:black;
+  height:50px;
+  width:100%;
+  .inner {
+    @include vertical-align;
+  }
+}
+
+.no-cssvhunit {
+  .cover {
+    height:450px;
+  }
 }
