@@ -2,46 +2,13 @@
 
 {embed="embed/page"}
 
-{embed="embed/sections"}
-
-<section id="connect" class="section bg-img text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 class="font-light">Connect</h1>
-      </div>
-
-      <div class="col-sm-4">
-        <h3 class="font-extra-light">Ministries</h3>
-        <p>This is the ministries section</p>
-      </div>
-
-      <div class="col-sm-4">
-        <h3 class="font-extra-light">Serve</h3>
-        <p>This is the ministries section</p>
-      </div>
-
-      <div class="col-sm-4">
-        <h3 class="font-extra-light">Groups</h3>
-        <p>This is the ministries section</p>
-      </div>
-    </div>
-  </div>
-</section>
+{embed="embed/sections" section-category="4" watch-category="5"}
 
 <section class="section text-center">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
         <h1 class="font-light">What's Going On?</h1>
-      </div>
-
-      <div class="col-sm-6">
-        <h3 class="font-extra-light">Latest Event</h3>
-      </div>
-
-      <div class="col-sm-6">
-        <h3 class="font-extra-light">Latest Campaign</h3>
       </div>
     </div>
   </div>
@@ -58,4 +25,35 @@
   </div>
 </section>
 
-{embed="embed/footer"}
+{embed="embed/footer-opener"}
+
+{!-- Check if experience is live --}
+<script>
+$(document).ready(function() {
+  var ExperienceLiveCheck = function() {
+    $.ajax({
+      url: 'http://live.journeychurch.tv/api/v1/events/current',
+      dataType: 'json',
+      crossDomain: true,
+      success: function(data) {
+        if (data.response.item.isLive) {
+          $('#watch-caption').attr('href', 'live.journeychurch.tv');
+          $('#watch-caption').html('Watch Live <i class="fa fa-angle-right" aria-hidden="true"></i>');
+        }
+      }
+    });
+  }
+
+  var StartExperienceLiveCheck = function() {
+    ExperienceLiveCheck();
+
+    setInterval(function() {
+      ExperienceLiveCheck();
+    }, 5000);
+  }
+
+  StartExperienceLiveCheck();
+});
+</script>
+
+{embed="embed/footer-closer"}

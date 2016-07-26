@@ -5922,7 +5922,7 @@ p {
 /* COMPONENTS */
 /* Main Nav */
 .nav {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0px;
   right: 0px;
@@ -6052,6 +6052,19 @@ p {
   font-weight: 700;
   letter-spacing: 2px;
   padding: 15px 20px; }
+
+.vid-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%; }
+  .vid-responsive iframe, .vid-responsive object, .vid-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 /* PAGES */
 
