@@ -5836,7 +5836,7 @@ p {
   font-style: normal;
   font-weight: 300; }
 
-.bg-img {
+.bg-img, .bg-img-fixed {
   background-attachment: scroll;
   background-position: center center;
   background-repeat: no-repeat;
@@ -5846,6 +5846,9 @@ p {
   background-size: cover;
   background-color: #464646;
   color: white; }
+
+.bg-img-fixed {
+  background-attachment: fixed; }
 
 .font-extra-light {
   font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
@@ -5884,6 +5887,14 @@ p {
   text-transform: uppercase;
   letter-spacing: 3px; }
 
+.vertical-align-wrapper {
+  display: table !important;
+  width: 100%; }
+
+.vertical-align {
+  display: table-cell !important;
+  vertical-align: middle; }
+
 /* Header */
 #header {
   position: absolute;
@@ -5921,21 +5932,31 @@ p {
   padding-right: 30px; }
 
 /* Footer */
-#footer .connect {
-  background-color: #2D2D2D;
-  display: none; }
-#footer .info {
+#footer {
   background-color: black;
   color: white;
   font-size: 12px; }
-  #footer .info p {
+  #footer .col-footer {
+    height: 50px; }
+  #footer p {
     margin: 0; }
+  #footer ul li {
+    display: inline-block;
+    margin: 0 4px; }
+    #footer ul li a {
+      color: white;
+      font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+      font-style: normal;
+      font-weight: 200; }
+    #footer ul li i {
+      font-size: 16px;
+      color: white; }
 
 /* COMPONENTS */
 /* Main Nav */
 .nav {
   background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
+  position: fixed;
   top: 0px;
   right: 0px;
   z-index: 1000;
@@ -6023,6 +6044,7 @@ p {
       width: 100%;
       height: 100%;
       display: table !important;
+      width: 100%;
       text-align: center;
       padding: 0; }
       .nav .nav-links-wrapper .nav-links {
@@ -6033,19 +6055,19 @@ p {
   height: calc(100vh - 50px);
   width: 100%;
   min-height: 450px;
-  display: table !important; }
+  display: table !important;
+  width: 100%; }
   .cover .inner, .cover-partial .inner {
     display: table-cell !important;
     vertical-align: middle;
     text-align: center; }
-    .cover .inner .title, .cover-partial .inner .title {
-      text-transform: uppercase; }
 
 .cover-partial {
   height: 450px; }
 
 .cover-caption {
   display: table !important;
+  width: 100%;
   background-color: white;
   color: black;
   height: 50px;
@@ -6090,6 +6112,7 @@ p {
   .card .info {
     width: 100%;
     display: table !important;
+    width: 100%;
     background-color: white; }
     .card .info .inner {
       height: 150px;

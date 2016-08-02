@@ -1,5 +1,5 @@
-{exp:channel:entries channel="Page" limit="1"}
-  <div id="page-{entry_id}" {if page_cover_type == "Partial Cover"}class="cover-partial bg-img"{if:else}class="cover bg-img"{/if}>
+{exp:channel:entries channel="Page" limit="1" {if embed:id}entry_id="{embed:id}"{/if}}
+  <div id="page-{entry_id}" {if page_cover_type == "Partial Cover"}{if page_background_image_fixed == "Yes"}class="cover-partial bg-img-fixed"{if:else}class="cover-partial bg-img"{/if}{if:else}{if page_background_image_fixed == "Yes"}class="cover bg-img-fixed"{if:else}class="cover bg-img"{/if}{/if}>
     <div class="inner">
       <div class="container">
         <div class="row">
@@ -7,7 +7,7 @@
             {if page_cover_content != ""}
               {page_cover_content}
             {if:else}
-              <div class="title">{title}</div>
+              <h1 class="font-extra-light">{title}</h1>
             {/if}
           </div>
         </div>
@@ -21,7 +21,7 @@
 
   <style>
     #page-{entry_id} {
-      background-image:url("/img/{page_background_image}");
+      background-image:url("/img/Page/_constrain/{page_background_image}");
     }
   </style>
 

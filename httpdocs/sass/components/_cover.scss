@@ -7,15 +7,17 @@
   .inner {
     @include vertical-align;
     text-align:center;
-    .title {
-      text-transform:uppercase;
-    }
   }
 }
 
 .cover-partial {
   @extend .cover;
   height:450px;
+  .inner {
+    .title {
+      
+    }
+  }
 }
 
 .cover-caption {

@@ -1,17 +1,27 @@
 /* Footer */
 
 #footer {
-  .connect {
-    background-color:#2D2D2D;
-    display:none;
+  background-color:black;
+  color:white;
+  font-size:12px;
+  .col-footer {
+    height:50px;
   }
-
-  .info {
-    background-color:black;
-    color:white;
-    font-size:12px;
-    p {
-      margin:0;
+  p {
+    margin:0;
+  }
+  ul {
+    li {
+      display:inline-block;
+      margin:0 4px;
+      a {
+        color:white;
+        @include font-extra-light;
+      }
+      i {
+        font-size:16px;
+        color:white;
+      }
     }
   }
 }

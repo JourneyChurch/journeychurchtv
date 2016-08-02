@@ -34,6 +34,11 @@ p {
   color:white;
 }
 
+.bg-img-fixed {
+  @extend .bg-img;
+  background-attachment:fixed;
+}
+
 .font-extra-light {
   @include font-extra-light;
 }
@@ -61,4 +66,12 @@ p {
   @include font-bold;
   text-transform:uppercase;
   letter-spacing:3px;
+}
+
+.vertical-align-wrapper {
+  @include vertical-align-wrapper;
+}
+
+.vertical-align {
+  @include vertical-align;
 }
