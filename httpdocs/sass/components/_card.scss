@@ -1,0 +1,30 @@
+.card {
+  text-align:left;
+  color:black !important;
+  margin-top:15px;
+  margin-bottom:15px;
+  .info {
+    width:100%;
+    @include vertical-align-wrapper;
+    background-color:white;
+    .inner {
+      height:150px;
+      width:100%;
+      padding:25px;
+      overflow-y:scroll;
+      @include vertical-align;
+      .title {
+        margin:0;
+      }
+      .date {
+        margin-top:25px;
+        margin-bottom:0;
+      }
+    }
+  }
+  .cover-img {
+    height:200px;
+    background-color:black;
+    width:100%;
+  }
+}

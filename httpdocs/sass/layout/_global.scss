@@ -25,15 +25,6 @@ p {
   @include font-light;
 }
 
-.section {
-  padding:125px 0;
-}
-
-.preview-content {
-  padding-left:30px;
-  padding-right:30px;
-}
-
 .bg-img {
   background-attachment:scroll;
   background-position:center center;
@@ -70,8 +61,4 @@ p {
   @include font-bold;
   text-transform:uppercase;
   letter-spacing:3px;
-}
-
-#connect {
-  background-image:url("/img/JBOX.jpg");
 }

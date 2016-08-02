@@ -18,6 +18,14 @@
     <div class="container">
       <div class="row">
 
+      {if entry_id == 18}
+        <div class="col-sm-6 col-sm-offset-3">
+          <h1 class="title font-light">Need Prayer?</h1>
+          <form>
+            <input type="text" placeholder="How can we pray for you?">
+          </form>
+        </div>
+      {if:else}
 
       {!-- Video Type --}
       {if section_type == "Video"}
@@ -27,7 +35,14 @@
 
       {!-- Events Type --}
       {if section_type == "Events"}
-          {embed="embed/events" category="{embed:events-category}"}
+        {if section_display_title}
+          <div class="col-sm-12">
+            <h1 class="title font-light">{section_display_title}</h1>
+          </div>
+
+          <div class="clearfix"></div>
+        {/if}
+        {embed="embed/events" number-of-columns="{section_number_of_columns}"}
       {/if}
 
 
@@ -35,7 +50,7 @@
       {if section_type == "Grid"}
         {if section_display_title}
           <div class="col-sm-12">
-            <h1 class="font-light">{section_display_title}</h1>
+            <h1 class="title font-light">{section_display_title}</h1>
           </div>
         {/if}
 
@@ -81,6 +96,7 @@
           </div>
         {/if}
       {/if}
+    {/if}
 
 {!-- Section Footer --}
     </div>
