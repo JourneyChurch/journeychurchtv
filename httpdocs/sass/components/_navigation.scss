@@ -11,19 +11,20 @@
   overflow-y:scroll;
   .nav-links-wrapper {
     padding-top:100px;
-    padding-left:25px;
+    padding-left:23px;
     ul {
       li {
-        display:block;
-        margin-top:5px;
-        margin-bottom:5px;
         a {
           display:inline-block;
-          padding:5px;
+          padding:8px;
           color:white;
-          letter-spacing:3px;
-          text-transform:uppercase;
           font-size:12px;
+          @include font-block-book;
+          @include transition(color 0.2s ease-in);
+          &:hover {
+            color:#B0B0B0;
+            @include transition(color 0.2s ease-in);
+          }
         }
       }
     }
@@ -97,7 +98,35 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+.page-nav {
+  background-color:white;
+  ul {
+    text-align:center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    padding:20px 15px;
+    li {
+      display:inline-block;
+      margin:0 3px;
+      a {
+        padding:22px 15px;
+        color:#B0B0B0;
+        font-size:12px;
+        @include font-block-medium;
+        @include transition(color 0.2s ease-in);
+        &:hover {
+          color:black;
+          @include transition(color 0.2s ease-in);
+        }
+      }
+    }
+  }
+}
+
+@include media-xs {
   .nav {
     width:100%;
     height:100%;

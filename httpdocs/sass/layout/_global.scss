@@ -22,7 +22,11 @@ ul {
 p {
   margin:20px 0;
   line-height:26px;
-  @include font-light;
+  @include font-extra-light;
+}
+
+a {
+  @include font-book;
 }
 
 .bg-img {
@@ -50,6 +54,7 @@ p {
 .font-book {
   @include font-book;
 }
+
 .font-medium {
   @include font-medium;
 }
@@ -62,10 +67,28 @@ p {
   @include font-black;
 }
 
-.eyebrow {
-  @include font-bold;
-  text-transform:uppercase;
-  letter-spacing:3px;
+.font-block-extra-light {
+  @include font-block-extra-light;
+}
+
+.font-block-light {
+  @include font-block-light;
+}
+
+.font-block-book {
+  @include font-block-book;
+}
+
+.font-block-medium {
+  @include font-block-medium;
+}
+
+.font-block-bold {
+  @include font-block-bold;
+}
+
+.font-block-black {
+  @include font-block-black;
 }
 
 .vertical-align-wrapper {

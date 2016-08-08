@@ -4,11 +4,9 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            {if page_cover_content != ""}
-              {page_cover_content}
-            {if:else}
-              <h1 class="font-extra-light">{title}</h1>
-            {/if}
+            {if page_display_title}<h4 class="font-block-bold">{page_display_title}</h4>{if:else}<h4 class="font-block-bold">{title}</h4>{/if}
+            {if page_sub_title}<h2 class="font-extra-light">{page_sub_title}</h2>{/if}
+            {if page_link}<br><a href="{page_link}" class="btn btn-fade">{page_link_text}</a>{/if}
           </div>
         </div>
       </div>
@@ -21,12 +19,19 @@
 
   <style>
     #page-{entry_id} {
-      background-image:url("/img/Page/_constrain/{page_background_image}");
+      background-image:url("/img/Backgrounds/{page_background_image}");
     }
   </style>
 
+
+  {if page_navigation_category_id}
+    <div class="page-nav">
+      {embed="embed/navigation" category="{page_navigation_category_id}"}
+    </div>
+  {/if}
+
   {if page_content != ""}
-  <section class="section">
+  <section class="section-page">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -35,5 +40,9 @@
       </div>
     </div>
   </section>
+  {/if}
+
+  {if page_section_category_id}
+    {embed="embed/sections" section-category="{page_section_category_id}" {if page_watch_category_id}watch-category="{page_watch_category_id}"{/if}}
   {/if}
 {/exp:channel:entries}

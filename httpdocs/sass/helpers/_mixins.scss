@@ -35,11 +35,47 @@
   font-weight: 800;
 }
 
-@mixin transition($property, $duration, $timing-function) {
-  -webkit-transition: $property $duration $timing-function;
-  -moz-transition: $property $duration $timing-function;
-  -o-transition: $property $duration $timing-function;
-  transition: $property $duration $timing-function;
+@mixin font-block {
+  text-transform:uppercase;
+  letter-spacing:0.23em;
+}
+
+@mixin font-block-extra-light() {
+  @include font-block;
+  @include font-extra-light;
+}
+
+@mixin font-block-light() {
+  @include font-block;
+  @include font-light;
+}
+
+@mixin font-block-book() {
+  @include font-block;
+  @include font-book;
+}
+
+@mixin font-block-medium() {
+  @include font-block;
+  @include font-medium;
+}
+
+@mixin font-block-bold() {
+  @include font-block;
+  @include font-bold;
+}
+
+@mixin font-block-black() {
+  @include font-block;
+  @include font-black;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
 }
 
 @mixin background-size-cover() {
@@ -57,4 +93,22 @@
 @mixin vertical-align() {
   display:table-cell !important;
   vertical-align:middle;
+}
+
+@mixin media-xs() {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin media-sm() {
+  @media only screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin media-md() {
+  @media only screen and (max-width: 1199px) {
+    @content;
+  }
 }

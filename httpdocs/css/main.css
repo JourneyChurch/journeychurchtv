@@ -2913,32 +2913,32 @@ select[multiple].input-lg,
 a.btn.disabled, fieldset[disabled] a.btn {
   pointer-events: none; }
 
-.btn-default {
+.btn-default, .btn-fade {
   color: #333;
   background-color: #fff;
   border-color: #ccc; }
-  .btn-default:focus, .btn-default.focus {
+  .btn-default:focus, .btn-fade:focus, .btn-default.focus, .focus.btn-fade {
     color: #333;
     background-color: #e6e6e6;
     border-color: #8c8c8c; }
-  .btn-default:hover {
+  .btn-default:hover, .btn-fade:hover {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-  .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+  .btn-default:active, .btn-fade:active, .btn-default.active, .active.btn-fade, .open > .btn-default.dropdown-toggle, .open > .dropdown-toggle.btn-fade {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-    .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+    .btn-default:active:hover, .btn-fade:active:hover, .btn-default:active:focus, .btn-fade:active:focus, .btn-default:active.focus, .btn-fade:active.focus, .btn-default.active:hover, .active.btn-fade:hover, .btn-default.active:focus, .active.btn-fade:focus, .btn-default.active.focus, .active.focus.btn-fade, .open > .btn-default.dropdown-toggle:hover, .open > .dropdown-toggle.btn-fade:hover, .open > .btn-default.dropdown-toggle:focus, .open > .dropdown-toggle.btn-fade:focus, .open > .btn-default.dropdown-toggle.focus, .open > .dropdown-toggle.focus.btn-fade {
       color: #333;
       background-color: #d4d4d4;
       border-color: #8c8c8c; }
-  .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+  .btn-default:active, .btn-fade:active, .btn-default.active, .active.btn-fade, .open > .btn-default.dropdown-toggle, .open > .dropdown-toggle.btn-fade {
     background-image: none; }
-  .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default.focus {
+  .btn-default.disabled:hover, .disabled.btn-fade:hover, .btn-default.disabled:focus, .disabled.btn-fade:focus, .btn-default.disabled.focus, .disabled.focus.btn-fade, .btn-default[disabled]:hover, [disabled].btn-fade:hover, .btn-default[disabled]:focus, [disabled].btn-fade:focus, .btn-default[disabled].focus, [disabled].focus.btn-fade, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-fade:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-fade:focus, fieldset[disabled] .btn-default.focus, fieldset[disabled] .focus.btn-fade {
     background-color: #fff;
     border-color: #ccc; }
-  .btn-default .badge {
+  .btn-default .badge, .btn-fade .badge {
     color: #fff;
     background-color: #333; }
 
@@ -5832,9 +5832,14 @@ ul {
 p {
   margin: 20px 0;
   line-height: 26px;
-  font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
   font-style: normal;
-  font-weight: 300; }
+  font-weight: 200; }
+
+a {
+  font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 400; }
 
 .bg-img, .bg-img-fixed {
   background-attachment: scroll;
@@ -5880,12 +5885,47 @@ p {
   font-style: normal;
   font-weight: 800; }
 
-.eyebrow {
+.font-block-extra-light {
+  text-transform: uppercase;
+  letter-spacing: 0.23em;
+  font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 200; }
+
+.font-block-light {
+  text-transform: uppercase;
+  letter-spacing: 0.23em;
+  font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 300; }
+
+.font-block-book {
+  text-transform: uppercase;
+  letter-spacing: 0.23em;
+  font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 400; }
+
+.font-block-medium {
+  text-transform: uppercase;
+  letter-spacing: 0.23em;
+  font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 500; }
+
+.font-block-bold {
+  text-transform: uppercase;
+  letter-spacing: 0.23em;
   font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 700; }
+
+.font-block-black {
   text-transform: uppercase;
-  letter-spacing: 3px; }
+  letter-spacing: 0.23em;
+  font-family: "Gotham SSm 8r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+  font-style: normal;
+  font-weight: 800; }
 
 .vertical-align-wrapper {
   display: table !important;
@@ -5919,14 +5959,20 @@ p {
 .no-js #wrapper {
   display: none; }
 
-.section {
+.section, .section-page, .section-skinny {
   padding: 125px 0; }
-  .section .title {
+  .section .title, .section-page .title, .section-skinny .title {
     margin-bottom: 40px; }
 
-.section-skinny {
-  padding: 50px 0; }
+.section-page {
+  padding: 80px 0; }
 
+.section-skinny {
+  padding: 40px 0; }
+
+@media only screen and (max-width: 991px) {
+  .section, .section-page, .section-skinny {
+    padding: 60px 0; } }
 .preview-content {
   padding-left: 30px;
   padding-right: 30px; }
@@ -5966,18 +6012,29 @@ p {
   overflow-y: scroll; }
   .nav .nav-links-wrapper {
     padding-top: 100px;
-    padding-left: 25px; }
-    .nav .nav-links-wrapper ul li {
-      display: block;
-      margin-top: 5px;
-      margin-bottom: 5px; }
-      .nav .nav-links-wrapper ul li a {
-        display: inline-block;
-        padding: 5px;
-        color: white;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        font-size: 12px; }
+    padding-left: 23px; }
+    .nav .nav-links-wrapper ul li a {
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.23em;
+      font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+      font-style: normal;
+      font-weight: 400;
+      -webkit-transition: color 0.2s ease-in;
+      -moz-transition: color 0.2s ease-in;
+      -ms-transition: color 0.2s ease-in;
+      -o-transition: color 0.2s ease-in;
+      transition: color 0.2s ease-in; }
+      .nav .nav-links-wrapper ul li a:hover {
+        color: #B0B0B0;
+        -webkit-transition: color 0.2s ease-in;
+        -moz-transition: color 0.2s ease-in;
+        -ms-transition: color 0.2s ease-in;
+        -o-transition: color 0.2s ease-in;
+        transition: color 0.2s ease-in; }
     .nav .nav-links-wrapper .social ul {
       margin-top: 35px;
       padding-top: 0; }
@@ -5997,10 +6054,11 @@ p {
   border-radius: 50%;
   padding: 20px 15px;
   float: right;
-  -webkit-transition: background-color 0.2s ease-in;
-  -moz-transition: background-color 0.2s ease-in;
-  -o-transition: background-color 0.2s ease-in;
-  transition: background-color 0.2s ease-in; }
+  -webkit-transition: background-color, 0.2s, ease-in;
+  -moz-transition: background-color, 0.2s, ease-in;
+  -ms-transition: background-color, 0.2s, ease-in;
+  -o-transition: background-color, 0.2s, ease-in;
+  transition: background-color, 0.2s, ease-in; }
   .nav-icon:hover {
     cursor: pointer; }
   .nav-icon span {
@@ -6008,10 +6066,11 @@ p {
     width: 20px;
     background-color: white;
     display: block;
-    -webkit-transition: transform 0.2s ease-in;
-    -moz-transition: transform 0.2s ease-in;
-    -o-transition: transform 0.2s ease-in;
-    transition: transform 0.2s ease-in; }
+    -webkit-transition: transform, 0.2s, ease-in;
+    -moz-transition: transform, 0.2s, ease-in;
+    -ms-transition: transform, 0.2s, ease-in;
+    -o-transition: transform, 0.2s, ease-in;
+    transition: transform, 0.2s, ease-in; }
     .nav-icon span:first-child {
       margin-bottom: 6px; }
 
@@ -6019,10 +6078,11 @@ p {
 .nav-visible {
   overflow: hidden !important; }
   .nav-visible .nav-icon span {
-    -webkit-transition: transform 0.2s ease-in;
-    -moz-transition: transform 0.2s ease-in;
-    -o-transition: transform 0.2s ease-in;
-    transition: transform 0.2s ease-in; }
+    -webkit-transition: transform, 0.2s, ease-in;
+    -moz-transition: transform, 0.2s, ease-in;
+    -ms-transition: transform, 0.2s, ease-in;
+    -o-transition: transform, 0.2s, ease-in;
+    transition: transform, 0.2s, ease-in; }
     .nav-visible .nav-icon span:first-child {
       -webkit-transform: rotateZ(45deg) translateX(3px) translateY(2.5px);
       -ms-transform: rotateZ(45deg) translateX(3px) translateY(2.5px);
@@ -6035,6 +6095,41 @@ p {
       -moz-transform: rotateZ(-45deg) translateX(3px) translateY(2.5px);
       -o-transform: rotateZ(-45deg) translateX(3px) translateY(2.5px);
       transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
+
+.page-nav {
+  background-color: white; }
+  .page-nav ul {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    padding: 20px 15px; }
+    .page-nav ul li {
+      display: inline-block;
+      margin: 0 3px; }
+      .page-nav ul li a {
+        padding: 22px 15px;
+        color: #B0B0B0;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.23em;
+        font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
+        font-style: normal;
+        font-weight: 500;
+        -webkit-transition: color 0.2s ease-in;
+        -moz-transition: color 0.2s ease-in;
+        -ms-transition: color 0.2s ease-in;
+        -o-transition: color 0.2s ease-in;
+        transition: color 0.2s ease-in; }
+        .page-nav ul li a:hover {
+          color: black;
+          -webkit-transition: color 0.2s ease-in;
+          -moz-transition: color 0.2s ease-in;
+          -ms-transition: color 0.2s ease-in;
+          -o-transition: color 0.2s ease-in;
+          transition: color 0.2s ease-in; }
 
 @media only screen and (max-width: 767px) {
   .nav {
@@ -6054,7 +6149,7 @@ p {
 .cover, .cover-partial {
   height: calc(100vh - 50px);
   width: 100%;
-  min-height: 450px;
+  min-height: 500px;
   display: table !important;
   width: 100%; }
   .cover .inner, .cover-partial .inner {
@@ -6063,7 +6158,7 @@ p {
     text-align: center; }
 
 .cover-partial {
-  height: 450px; }
+  height: 500px; }
 
 .cover-caption {
   display: table !important;
@@ -6077,11 +6172,11 @@ p {
     vertical-align: middle; }
 
 .no-cssvhunit .cover, .no-cssvhunit .cover-partial {
-  height: 450px; }
+  height: 500px; }
 
 /* Buttons */
-.btn-default {
-  border: none;
+.btn-default, .btn-fade {
+  border: 0;
   border-radius: 0;
   text-transform: uppercase;
   font-size: 11px;
@@ -6089,7 +6184,39 @@ p {
   font-style: normal;
   font-weight: 700;
   letter-spacing: 2px;
-  padding: 15px 20px; }
+  padding: 15px 20px;
+  -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  -ms-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in; }
+  .btn-default:hover, .btn-fade:hover, .btn-default:active, .btn-fade:active, .btn-default:focus, .btn-fade:focus, .btn-default:active:hover, .btn-fade:active:hover {
+    background-color: #2D2D2D;
+    color: white;
+    box-shadow: none;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -ms-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in; }
+
+.btn-fade {
+  border: 2px solid white;
+  padding: 12px 18px;
+  -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  -ms-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in; }
+  .btn-fade:hover, .btn-fade:active, .btn-fade:focus {
+    color: white;
+    background-color: transparent !important;
+    border: 2px solid white !important;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -ms-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in; }
 
 .vid-responsive {
   position: relative;

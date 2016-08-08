@@ -2,22 +2,20 @@
 .cover {
   height:calc(100vh - 50px);
   width:100%;
-  min-height:450px;
+  min-height:500px;
   @include vertical-align-wrapper;
   .inner {
     @include vertical-align;
     text-align:center;
+    .title {
+
+    }
   }
 }
 
 .cover-partial {
   @extend .cover;
-  height:450px;
-  .inner {
-    .title {
-      
-    }
-  }
+  height:500px;
 }
 
 .cover-caption {
@@ -33,6 +31,6 @@
 
 .no-cssvhunit {
   .cover {
-    height:450px;
+    height:500px;
   }
 }

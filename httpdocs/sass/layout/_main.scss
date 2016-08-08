@@ -21,8 +21,20 @@
   }
 }
 
+.section-page {
+  @extend .section;
+  padding:80px 0;
+}
+
 .section-skinny {
-  padding:50px 0;
+  @extend .section;
+  padding:40px 0;
+}
+
+@include media-sm {
+  .section {
+    padding:60px 0;
+  }
 }
 
 .preview-content {
