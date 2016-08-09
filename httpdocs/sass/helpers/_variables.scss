@@ -1,2 +1,13 @@
 /* Variables */
-$background-color: #f3f3f3;
+
+/* Colors */
+
+$color-lightest: white;
+$color-extra-light: #F3F3F3;
+$color-light: #B0B0B0;
+$color-regular: #686868;
+$color-dark: #464646;
+$color-extra-dark: #2D2D2D;
+$color-darkest: black;
+
+$background-color: $color-extra-light;

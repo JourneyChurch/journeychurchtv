@@ -20,8 +20,8 @@
 
 .cover-caption {
   @include vertical-align-wrapper;
-  background-color:white;
-  color:black;
+  background-color: $color-lightest;
+  color: $color-darkest;
   height:50px;
   width:100%;
   .inner {

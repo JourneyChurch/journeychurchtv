@@ -8,6 +8,10 @@ body {
   background-color: $background-color;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height:1.45em;
+}
+
 ul {
   list-style-type:none;
   margin:0;
@@ -34,8 +38,8 @@ a {
   background-position:center center;
   background-repeat:no-repeat;
   @include background-size-cover;
-  background-color:#464646;
-  color:white;
+  background-color: $color-dark;
+  color: $color-lightest;
 }
 
 .bg-img-fixed {

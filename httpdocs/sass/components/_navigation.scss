@@ -17,12 +17,12 @@
         a {
           display:inline-block;
           padding:8px;
-          color:white;
+          color: $color-lightest;
           font-size:12px;
           @include font-block-book;
           @include transition(color 0.2s ease-in);
           &:hover {
-            color:#B0B0B0;
+            color: $color-light;
             @include transition(color 0.2s ease-in);
           }
         }
@@ -63,7 +63,7 @@
   span {
     height:2px;
     width:20px;
-    background-color:white;
+    background-color: $color-lightest;
     display:block;
     @include transition(transform, 0.2s, ease-in);
 
@@ -99,7 +99,7 @@
 }
 
 .page-nav {
-  background-color:white;
+  background-color: $color-lightest;
   ul {
     text-align:center;
     white-space: nowrap;
@@ -113,12 +113,12 @@
       margin:0 3px;
       a {
         padding:22px 15px;
-        color:#B0B0B0;
+        color: $color-light;
         font-size:12px;
         @include font-block-medium;
         @include transition(color 0.2s ease-in);
         &:hover {
-          color:black;
+          color: $color-darkest;
           @include transition(color 0.2s ease-in);
         }
       }

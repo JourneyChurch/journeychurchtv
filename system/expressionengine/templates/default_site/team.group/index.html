@@ -2,4 +2,57 @@
 
 {embed="embed/page" id="35"}
 
+{if segment_2}
+<section class="section">
+  <div class="team">
+    <div class="container">
+      <div class="row">
+        {exp:channel:entries channel="Team" url-title="{url_title}"}
+          <div class="team-member">
+            <div class="col-sm-5">
+              <img src="/img/Backgrounds/team-crop.jpg" class="img-responsive img-circle"/>
+              <div class="social">
+                <ul>
+                  <li><a href="{team_email}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                  <li><a href="{team_facebook}"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                  <li><a href="{team_twitter}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <li><a href="{team_instagram}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-1">
+              <div class="caption">
+                <h2 class="font-extra-light">{title}</h2>
+                <h4 class="font-block-bold">{team_job_title}</h4>
+                <p>{team_biography}</p>
+              </div>
+            </div>
+          </div>
+        {/exp:channel:entries}
+      </div>
+    </div>
+  </div>
+</section>
+{if:else}
+<section class="section">
+  <div class="team text-center">
+    <div class="container">
+      <div class="row">
+        {exp:channel:entries channel="Team" orderby="team-order"}
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img src="/img/Backgrounds/team-crop.jpg" class="img-responsive img-circle"/>
+              <div class="caption">
+                <a href="/team/{url_title}"><h3 class="font-extra-light">{title}</h3></a>
+                <h6 class="font-block-bold">{team_job_title}</h6>
+              </div>
+            </div>
+          </div>
+        {/exp:channel:entries}
+      </div>
+    </div>
+  </div>
+</section>
+{/if}
+
 {embed="embed/footer"}

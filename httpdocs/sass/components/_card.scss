@@ -1,12 +1,12 @@
 .card {
   text-align:left;
-  color:black !important;
+  color: $color-darkest !important;
   margin-top:15px;
   margin-bottom:15px;
   .info {
     width:100%;
     @include vertical-align-wrapper;
-    background-color:white;
+    background-color: $color-lightest;
     .inner {
       height:150px;
       width:100%;
@@ -24,7 +24,7 @@
   }
   .cover-img {
     height:200px;
-    background-color:black;
+    background-color: $color-darkest;
     width:100%;
   }
 }

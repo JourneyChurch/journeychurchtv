@@ -1,8 +1,8 @@
 /* Footer */
 
 #footer {
-  background-color:black;
-  color:white;
+  background-color: $color-darkest;
+  color: $color-lightest;
   font-size:12px;
   .col-footer {
     height:50px;
@@ -20,7 +20,7 @@
       }
       i {
         font-size:16px;
-        color:white;
+        color: $color-lightest;
       }
     }
   }

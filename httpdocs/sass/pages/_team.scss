@@ -1,0 +1,14 @@
+.team-member {
+  .social {
+    background-color: $color-lightest;
+    padding:10px 15px;
+    font-size:20px;
+    margin-top:20px;
+    ul {
+      li {
+        display:inline-block;
+        margin:0 7px;
+      }
+    }
+  }
+}

@@ -9,8 +9,8 @@
   padding:15px 20px;
   @include transition(background-color 0.2s ease-in, color 0.2s ease-in);
   &:hover, &:active, &:focus, &:active:hover {
-    background-color:#2D2D2D;
-    color:white;
+    background-color: $color-extra-dark;
+    color: $color-lightest;
     box-shadow:none;
     @include transition(background-color 0.2s ease-in, color 0.2s ease-in);
   }
@@ -18,13 +18,13 @@
 
 .btn-fade {
   @extend .btn-default;
-  border:2px solid white;
+  border:2px solid $color-lightest;
   padding:12px 18px;
   @include transition(background-color 0.2s ease-in, color 0.2s ease-in);
   &:hover, &:active, &:focus {
-    color:white;
+    color: $color-lightest;
     background-color:transparent !important;
-    border:2px solid white !important;
+    border:2px solid $color-lightest !important;
     @include transition(background-color 0.2s ease-in, color 0.2s ease-in);
   }
 }
