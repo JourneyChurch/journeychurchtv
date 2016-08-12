@@ -3,53 +3,69 @@
 {embed="embed/page" id="35"}
 
 {if segment_2}
-<section class="section">
-  <div class="team">
-    <div class="container">
-      <div class="row">
-        {exp:channel:entries channel="Team" url-title="{url_title}"}
-          <div class="team-member">
+  {if segment_2 == "category" && segment_3}
+    <section class="team text-center">
+      <div class="container">
+        <div class="row">
+          {exp:channel:categories channel="Team" category_group="5" style="linear"}
+            {if segment_3 == "{category_url_title}"}
+              {exp:channel:entries channel="Team" orderby="team_order|title" sort="asc|asc" category="{category_id}"}
+                <div class="team-member col-sm-6 col-lg-4">
+                  <img src="/img/Icons/{team_photo}" class="icon"/>
+                  <div class="caption">
+                    <h3 class="font-extra-light">{title}</h3>
+                    <h5 class="font-extra-light">{team_job_title}</h5>
+                  </div>
+                  <a href="/team/{url_title}">About<i class="fa fa-angle-right pointer" aria-hidden="true"></i></a>
+                </div>
+              {/exp:channel:entries}
+            {/if}
+          {/exp:channel:categories}
+        </div>
+      </div>
+    </section>
+  {if:else}
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          {exp:channel:entries channel="Team" limit="1"}
             <div class="col-sm-5">
-              <img src="/img/Backgrounds/team-crop.jpg" class="img-responsive img-circle"/>
-              <div class="social">
+              <img src="/img/Icons/{team_photo}" class="icon"/>
+              {!--}<div class="social">
                 <ul>
                   <li><a href="{team_email}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
                   <li><a href="{team_facebook}"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
                   <li><a href="{team_twitter}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                   <li><a href="{team_instagram}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                 </ul>
-              </div>
+              </div>{--}
             </div>
-            <div class="col-sm-6 col-sm-offset-1">
-              <div class="caption">
+            <div class="col-sm-7">
+              <div class="bio">
                 <h2 class="font-extra-light">{title}</h2>
-                <h4 class="font-block-bold">{team_job_title}</h4>
+                <h6 class="font-block-bold font-color-light">{team_job_title}</h6>
                 <p>{team_biography}</p>
               </div>
             </div>
-          </div>
-        {/exp:channel:entries}
+          {/exp:channel:entries}
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  {/if}
 {if:else}
-<section class="section">
-  <div class="team text-center">
-    <div class="container">
-      <div class="row">
-        {exp:channel:entries channel="Team" orderby="team-order"}
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img src="/img/Backgrounds/team-crop.jpg" class="img-responsive img-circle"/>
-              <div class="caption">
-                <a href="/team/{url_title}"><h3 class="font-extra-light">{title}</h3></a>
-                <h6 class="font-block-bold">{team_job_title}</h6>
-              </div>
-            </div>
+<section class="team text-center">
+  <div class="container">
+    <div class="row">
+      {exp:channel:entries channel="Team" orderby="team_order|title" sort="asc|asc" dynamic="no"}
+        <div class="team-member col-sm-6 col-lg-4">
+          <img src="/img/Icons/{team_photo}" class="icon"/>
+          <div class="caption">
+            <h3 class="font-extra-light">{title}</h3>
+            <h5 class="font-extra-light">{team_job_title}</h5>
           </div>
-        {/exp:channel:entries}
-      </div>
+          <a href="/team/{url_title}">About<i class="fa fa-angle-right pointer" aria-hidden="true"></i></a>
+        </div>
+      {/exp:channel:entries}
     </div>
   </div>
 </section>

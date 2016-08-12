@@ -4,13 +4,9 @@
 {!-- Section Header --}
 {if section_background_image}
   {if section_center_text == "Yes"}
-    {if section_background_image_fixed == "Yes"}
-  <section id="section-{entry_id}" class="section bg-img-fixed text-center">
-    {if:else}
   <section id="section-{entry_id}" class="section bg-img text-center">
-    {/if}
   {if:else}
-  <section id="section-{entry_id}" class="section bg-img-fixed">
+  <section id="section-{entry_id}" class="section bg-img">
   {/if}
 {if:else}
   {if section_center_text == "Yes"}

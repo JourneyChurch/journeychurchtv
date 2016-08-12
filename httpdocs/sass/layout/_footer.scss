@@ -15,13 +15,31 @@
       display:inline-block;
       margin:0 4px;
       a {
-        color:white;
+        color:$color-lightest;
         @include font-extra-light;
+        @include transition(color 0.2s ease-in);
+        &:hover {
+          color: $color-regular;
+          @include transition(color 0.2s ease-in);
+        }
       }
       i {
         font-size:16px;
-        color: $color-lightest;
       }
+    }
+  }
+}
+
+@include media-xs {
+  .col-footer {
+    height:auto !important;
+  }
+
+  .footer-links {
+    padding:20px 0;
+
+    .col-sm-4 {
+      padding:10px;
     }
   }
 }

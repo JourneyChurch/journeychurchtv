@@ -1,5 +1,5 @@
 {exp:channel:entries channel="Page" limit="1" {if embed:id}entry_id="{embed:id}"{/if} dynamic="no"}
-  <div id="page-{entry_id}" {if page_cover_type == "Partial Cover"}{if page_background_image_fixed == "Yes"}class="cover-partial bg-img-fixed"{if:else}class="cover-partial bg-img"{/if}{if:else}{if page_background_image_fixed == "Yes"}class="cover bg-img-fixed"{if:else}class="cover bg-img"{/if}{/if}>
+  <div id="page-{entry_id}" {if page_cover_type == "Partial Cover"}class="cover-partial bg-img"{if:else}class="cover bg-img"{/if}>
     <div class="inner">
       <div class="container">
         <div class="row">

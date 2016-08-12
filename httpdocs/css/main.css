@@ -5834,6 +5834,11 @@ ul {
   ul li a:hover {
     text-decoration: none; }
 
+a {
+  color: #00bdcb; }
+  a:active, a:hover, a:focus {
+    color: #00bdcb; }
+
 p {
   margin: 20px 0;
   line-height: 26px;
@@ -5932,6 +5937,27 @@ a {
   font-style: normal;
   font-weight: 800; }
 
+.font-color-lightest {
+  color: white; }
+
+.font-color-extra-light {
+  color: #F3F3F3; }
+
+.font-color-light {
+  color: #B0B0B0; }
+
+.font-color-regular {
+  color: #686868; }
+
+.font-color-dark {
+  color: #464646; }
+
+.font-color-extra-dark {
+  color: #2D2D2D; }
+
+.font-color-darkest {
+  color: black; }
+
 .vertical-align-wrapper {
   display: table !important;
   width: 100%; }
@@ -5939,6 +5965,17 @@ a {
 .vertical-align {
   display: table-cell !important;
   vertical-align: middle; }
+
+.icon {
+  display: block;
+  height: auto;
+  max-width: 65%;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto; }
+
+.pointer {
+  padding-left: 5px; }
 
 @media only screen and (max-width: 991px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
@@ -6006,11 +6043,30 @@ a {
       color: white;
       font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
       font-style: normal;
-      font-weight: 200; }
+      font-weight: 200;
+      -webkit-transition: color 0.2s ease-in;
+      -moz-transition: color 0.2s ease-in;
+      -ms-transition: color 0.2s ease-in;
+      -o-transition: color 0.2s ease-in;
+      transition: color 0.2s ease-in; }
+      #footer ul li a:hover {
+        color: #686868;
+        -webkit-transition: color 0.2s ease-in;
+        -moz-transition: color 0.2s ease-in;
+        -ms-transition: color 0.2s ease-in;
+        -o-transition: color 0.2s ease-in;
+        transition: color 0.2s ease-in; }
     #footer ul li i {
-      font-size: 16px;
-      color: white; }
+      font-size: 16px; }
 
+@media only screen and (max-width: 767px) {
+  .col-footer {
+    height: auto !important; }
+
+  .footer-links {
+    padding: 20px 0; }
+    .footer-links .col-sm-4 {
+      padding: 10px; } }
 /* COMPONENTS */
 /* Main Nav */
 .nav {
@@ -6041,13 +6097,14 @@ a {
       -ms-transition: color 0.2s ease-in;
       -o-transition: color 0.2s ease-in;
       transition: color 0.2s ease-in; }
-      .nav .nav-links-wrapper ul li a:hover {
-        color: #B0B0B0;
+      .nav .nav-links-wrapper ul li a:active, .nav .nav-links-wrapper ul li a:hover, .nav .nav-links-wrapper ul li a:focus {
+        color: #686868;
         -webkit-transition: color 0.2s ease-in;
         -moz-transition: color 0.2s ease-in;
         -ms-transition: color 0.2s ease-in;
         -o-transition: color 0.2s ease-in;
-        transition: color 0.2s ease-in; }
+        transition: color 0.2s ease-in;
+        text-decoration: none; }
     .nav .nav-links-wrapper .social ul {
       margin-top: 35px;
       padding-top: 0; }
@@ -6136,13 +6193,14 @@ a {
         -ms-transition: color 0.2s ease-in;
         -o-transition: color 0.2s ease-in;
         transition: color 0.2s ease-in; }
-        .page-nav ul li a:hover {
+        .page-nav ul li a:active, .page-nav ul li a:hover, .page-nav ul li a:focus {
           color: black;
           -webkit-transition: color 0.2s ease-in;
           -moz-transition: color 0.2s ease-in;
           -ms-transition: color 0.2s ease-in;
           -o-transition: color 0.2s ease-in;
-          transition: color 0.2s ease-in; }
+          transition: color 0.2s ease-in;
+          text-decoration: none; }
 
 @media only screen and (max-width: 767px) {
   .nav {
@@ -6282,13 +6340,25 @@ form input {
   font-weight: 300; }
 
 /* PAGES */
-.team-member .social {
-  background-color: white;
-  padding: 10px 15px;
-  font-size: 20px;
-  margin-top: 20px; }
-  .team-member .social ul li {
-    display: inline-block;
-    margin: 0 7px; }
+.team {
+  padding: 75px 0; }
+  .team .social {
+    background-color: white;
+    padding: 10px 15px;
+    font-size: 20px;
+    margin-top: 20px; }
+    .team .social ul li {
+      display: inline-block;
+      margin: 0 7px; }
+
+.team-member {
+  padding: 50px 0; }
+  .team-member .caption {
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    padding: 5px 0; }
 
 /*# sourceMappingURL=main.css.map */

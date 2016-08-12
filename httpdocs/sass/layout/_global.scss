@@ -1,7 +1,4 @@
 /* Global */
-html {
-
-}
 
 body {
   @include font-book;
@@ -21,6 +18,13 @@ ul {
     a:hover {
       text-decoration:none;
     }
+  }
+}
+
+a {
+  color:$link-color;
+  &:active, &:hover, &:focus {
+    color:$link-color;
   }
 }
 
@@ -96,12 +100,53 @@ a {
   @include font-block-black;
 }
 
+.font-color-lightest {
+  color: $color-lightest;
+}
+
+.font-color-extra-light {
+  color: $color-extra-light;
+}
+
+.font-color-light {
+  color: $color-light;
+}
+
+.font-color-regular {
+  color: $color-regular;
+}
+
+.font-color-dark {
+  color: $color-dark;
+}
+
+.font-color-extra-dark {
+  color: $color-extra-dark;
+}
+
+.font-color-darkest {
+  color: $color-darkest;
+}
+
 .vertical-align-wrapper {
   @include vertical-align-wrapper;
 }
 
 .vertical-align {
   @include vertical-align;
+}
+
+.icon {
+  display:block;
+  height:auto;
+  max-width:65%;
+  border-radius:50%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.pointer {
+  padding-left:5px;
 }
 
 @include media-sm {
