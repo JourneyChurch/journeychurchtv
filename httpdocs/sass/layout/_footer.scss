@@ -31,15 +31,11 @@
 }
 
 @include media-xs {
-  .col-footer {
-    height:auto !important;
+  #footer {
+    text-align:left;
   }
 
-  .footer-links {
-    padding:20px 0;
-
-    .col-sm-4 {
-      padding:10px;
-    }
+  .col-footer {
+    height:auto !important;
   }
 }

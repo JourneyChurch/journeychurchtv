@@ -1,17 +1,5 @@
 .team {
-  padding:75px 0;
-  .social {
-    background-color: $color-lightest;
-    padding:10px 15px;
-    font-size:20px;
-    margin-top:20px;
-    ul {
-      li {
-        display:inline-block;
-        margin:0 7px;
-      }
-    }
-  }
+  padding:50px 0;
 }
 
 .team-member {
@@ -23,5 +11,29 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     padding:5px 0;
+  }
+}
+
+.bio {
+  background-color:$color-lightest;
+  padding:40px;
+  .social {
+    margin-top:30px;
+    ul {
+      li {
+        display:inline-block;
+        margin:0 3px;
+      }
+    }
+  }
+}
+
+.bio-icon {
+  padding-bottom:50px;
+}
+
+@include media-xs {
+  .bio {
+    padding:30px;
   }
 }

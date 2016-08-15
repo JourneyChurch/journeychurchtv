@@ -29,22 +29,22 @@
       <div class="container">
         <div class="row">
           {exp:channel:entries channel="Team" limit="1"}
-            <div class="col-sm-5">
+            <div class="col-md-5 bio-icon">
               <img src="/img/Icons/{team_photo}" class="icon"/>
-              {!--}<div class="social">
-                <ul>
-                  <li><a href="{team_email}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                  <li><a href="{team_facebook}"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-                  <li><a href="{team_twitter}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="{team_instagram}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                </ul>
-              </div>{--}
             </div>
-            <div class="col-sm-7">
+            <div class="col-md-7">
               <div class="bio">
                 <h2 class="font-extra-light">{title}</h2>
-                <h6 class="font-block-bold font-color-light">{team_job_title}</h6>
+                <h4 class="font-extra-light font-color-light">{team_job_title}</h4>
                 <p>{team_biography}</p>
+                <div class="social">
+                  <ul>
+                    <li><a href="{team_email}" class="social-circle"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                    {if team_facebook}<li><a href="{team_facebook}" class="social-circle"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>{/if}
+                    {if team_twitter}<li><a href="{team_twitter}" class="social-circle"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>{/if}
+                    {if team_instagram}<li><a href="{team_instagram}" class="social-circle"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>{/if}
+                  </ul>
+                </div>
               </div>
             </div>
           {/exp:channel:entries}

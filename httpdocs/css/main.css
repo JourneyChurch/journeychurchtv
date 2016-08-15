@@ -6060,17 +6060,15 @@ a {
       font-size: 16px; }
 
 @media only screen and (max-width: 767px) {
-  .col-footer {
-    height: auto !important; }
+  #footer {
+    text-align: left; }
 
-  .footer-links {
-    padding: 20px 0; }
-    .footer-links .col-sm-4 {
-      padding: 10px; } }
+  .col-footer {
+    height: auto !important; } }
 /* COMPONENTS */
 /* Main Nav */
 .nav {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   position: fixed;
   top: 0px;
   right: 0px;
@@ -6339,17 +6337,40 @@ form input {
   font-style: normal;
   font-weight: 300; }
 
+.social-circle {
+  font-size: 18px;
+  padding: 5px 7px;
+  border: 2px solid #00bdcb;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.15s ease-in;
+  -moz-transition: background-color 0.15s ease-in;
+  -ms-transition: background-color 0.15s ease-in;
+  -o-transition: background-color 0.15s ease-in;
+  transition: background-color 0.15s ease-in; }
+  .social-circle i {
+    -webkit-transition: color 0.15s ease-in;
+    -moz-transition: color 0.15s ease-in;
+    -ms-transition: color 0.15s ease-in;
+    -o-transition: color 0.15s ease-in;
+    transition: color 0.15s ease-in; }
+  .social-circle:hover {
+    background-color: #00bdcb;
+    -webkit-transition: background-color 0.15s ease-in;
+    -moz-transition: background-color 0.15s ease-in;
+    -ms-transition: background-color 0.15s ease-in;
+    -o-transition: background-color 0.15s ease-in;
+    transition: background-color 0.15s ease-in; }
+    .social-circle:hover i {
+      color: white;
+      -webkit-transition: color 0.15s ease-in;
+      -moz-transition: color 0.15s ease-in;
+      -ms-transition: color 0.15s ease-in;
+      -o-transition: color 0.15s ease-in;
+      transition: color 0.15s ease-in; }
+
 /* PAGES */
 .team {
-  padding: 75px 0; }
-  .team .social {
-    background-color: white;
-    padding: 10px 15px;
-    font-size: 20px;
-    margin-top: 20px; }
-    .team .social ul li {
-      display: inline-block;
-      margin: 0 7px; }
+  padding: 50px 0; }
 
 .team-member {
   padding: 50px 0; }
@@ -6360,5 +6381,21 @@ form input {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     padding: 5px 0; }
+
+.bio {
+  background-color: white;
+  padding: 40px; }
+  .bio .social {
+    margin-top: 30px; }
+    .bio .social ul li {
+      display: inline-block;
+      margin: 0 3px; }
+
+.bio-icon {
+  padding-bottom: 50px; }
+
+@media only screen and (max-width: 767px) {
+  .bio {
+    padding: 30px; } }
 
 /*# sourceMappingURL=main.css.map */
