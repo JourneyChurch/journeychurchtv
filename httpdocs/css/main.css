@@ -6031,14 +6031,15 @@ a {
 #footer {
   background-color: black;
   color: white;
-  font-size: 12px; }
+  font-size: 12px;
+  padding: 50px 0; }
   #footer .col-footer {
     height: 50px; }
   #footer p {
     margin: 0; }
   #footer ul li {
     display: inline-block;
-    margin: 0 4px; }
+    margin: 0 5px; }
     #footer ul li a {
       color: white;
       font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
@@ -6060,11 +6061,8 @@ a {
       font-size: 16px; }
 
 @media only screen and (max-width: 767px) {
-  #footer {
-    text-align: left; }
-
-  .col-footer {
-    height: auto !important; } }
+  #footer .col-footer {
+    height: 30px; } }
 /* COMPONENTS */
 /* Main Nav */
 .nav {

@@ -4,6 +4,7 @@
   background-color: $color-darkest;
   color: $color-lightest;
   font-size:12px;
+  padding:50px 0;
   .col-footer {
     height:50px;
   }
@@ -13,7 +14,7 @@
   ul {
     li {
       display:inline-block;
-      margin:0 4px;
+      margin:0 5px;
       a {
         color:$color-lightest;
         @include font-extra-light;
@@ -32,10 +33,8 @@
 
 @include media-xs {
   #footer {
-    text-align:left;
-  }
-
-  .col-footer {
-    height:auto !important;
+    .col-footer {
+      height:30px;
+    }
   }
 }
