@@ -5977,6 +5977,10 @@ a {
 .pointer {
   padding-left: 5px; }
 
+.paper {
+  padding: 40px;
+  background-color: white; }
+
 @media only screen and (max-width: 991px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     padding-top: 15px;
@@ -6380,14 +6384,11 @@ form input {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     padding: 5px 0; }
 
-.bio {
-  background-color: white;
-  padding: 40px; }
-  .bio .social {
-    margin-top: 30px; }
-    .bio .social ul li {
-      display: inline-block;
-      margin: 0 3px; }
+.bio .social {
+  margin-top: 30px; }
+  .bio .social ul li {
+    display: inline-block;
+    margin: 0 3px; }
 
 .bio-icon {
   padding-bottom: 50px; }
@@ -6395,5 +6396,15 @@ form input {
 @media only screen and (max-width: 767px) {
   .bio {
     padding: 30px; } }
+.career {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+  .career .short-description {
+    height: 150px;
+    overflow-y: scroll; }
+
+@media only screen and (max-width: 991px) {
+  .career .short-description {
+    height: auto; } }
 
 /*# sourceMappingURL=main.css.map */

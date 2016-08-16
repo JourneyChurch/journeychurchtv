@@ -1,0 +1,43 @@
+{embed="embed/header"}
+
+{embed="embed/page" id="82"}
+
+
+{if segment_2}
+<section class="section-page">
+  <div class="container">
+    <div class="row">
+    {exp:channel:entries channel="Careers"}
+      <div class="col-sm-12">
+        <h2 class="font-extra-light">{title}</h4>
+        <p>{careers_full_description}</p><br>
+        <h5 class="font-block-bold">Contact</h5>
+        <h5 class="font-extra-light">{careers_contact_name}</h5><br><br>
+        <a class="btn btn-default" href="mailto:{careers_contact_email}">Send Email</a>
+      </div>
+    {/exp:channel:entries}
+    </div>
+  </div>
+</section>
+{if:else}
+<section class="section-page">
+  <div class="container">
+    <div class="row">
+    {exp:channel:entries channel="Careers"}
+      {if no_results}
+        <div class="col-sm-12"><h2 class="font-extra-light">There are no current opportunities.</h2></div>
+      {/if}
+      <div class="col-md-6 career">
+        <div class="paper">
+          <h4 class="font-block-bold">{title}</h4>
+          <div class="short-description"><p>{careers_short_description}</p></div>
+          <a href="/careers/{url_title}">More Info<i class="fa fa-angle-right pointer"></i></a>
+        </div>
+      </div>
+    {/exp:channel:entries}
+    </div>
+  </div>
+</section>
+{/if}
+
+{embed="embed/footer"}

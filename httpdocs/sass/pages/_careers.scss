@@ -1,0 +1,16 @@
+.career {
+  padding-top:30px;
+  padding-bottom:30px;
+  .short-description {
+    height:150px;
+    overflow-y:scroll;
+  }
+}
+
+@include media-sm {
+  .career {
+    .short-description {
+      height:auto;
+    }
+  }
+}
