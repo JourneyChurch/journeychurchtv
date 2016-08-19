@@ -136,6 +136,11 @@ a {
   @include vertical-align;
 }
 
+.no-gutter {
+  padding-left:0;
+  padding-right:0;
+}
+
 .icon {
   display:block;
   height:auto;

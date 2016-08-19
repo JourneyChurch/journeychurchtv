@@ -5966,6 +5966,10 @@ a {
   display: table-cell !important;
   vertical-align: middle; }
 
+.no-gutter {
+  padding-left: 0;
+  padding-right: 0; }
+
 .icon {
   display: block;
   height: auto;
@@ -6369,6 +6373,24 @@ form input {
       -ms-transition: color 0.15s ease-in;
       -o-transition: color 0.15s ease-in;
       transition: color 0.15s ease-in; }
+
+.preview .caption {
+  background-color: white;
+  height: 500px;
+  padding: 40px 60px;
+  display: table !important;
+  width: 100%; }
+  .preview .caption .inner {
+    display: table-cell !important;
+    vertical-align: middle; }
+    .preview .caption .inner .description {
+      max-height: 200px;
+      overflow-y: scroll; }
+    .preview .caption .inner .more {
+      padding-top: 10px;
+      padding-bottom: 10px; }
+.preview .preview-img {
+  height: 500px; }
 
 /* PAGES */
 .team {

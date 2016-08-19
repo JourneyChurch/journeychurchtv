@@ -4,15 +4,31 @@
 {!-- Section Header --}
 {if section_background_image}
   {if section_center_text == "Yes"}
-  <section id="section-{entry_id}" class="section bg-img text-center">
+    {if section_size == "Skinny"}
+    <section id="section-{entry_id}" class="section-skinny bg-img text-center">
+    {if:else}
+    <section id="section-{entry_id}" class="section bg-img text-center">
+    {/if}
   {if:else}
-  <section id="section-{entry_id}" class="section bg-img">
+    {if section_size == "Skinny"}
+    <section id="section-{entry_id}" class="section-skinny bg-img">
+    {if:else}
+    <section id="section-{entry_id}" class="section bg-img">
+    {/if}
   {/if}
 {if:else}
   {if section_center_text == "Yes"}
-  <section id="section-{entry_id}" class="section text-center">
+    {if section_size == "Skinny"}
+    <section id="section-{entry_id}" class="section-skinny text-center">
+    {if:else}
+    <section id="section-{entry_id}" class="section text-center">
+    {/if}
   {if:else}
-  <section id="section-{entry_id}" class="section">
+    {if section_size == "Skinny"}
+    <section id="section-{entry_id}" class="section-skinny">
+    {if:else}
+    <section id="section-{entry_id}" class="section">
+    {/if}
   {/if}
 {/if}
     <div class="container">

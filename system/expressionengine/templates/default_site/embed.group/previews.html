@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="container">
+    <div class="row">
+      {exp:channel:entries channel="Preview" category="{embed:category}" sort="asc" orderby="preview_order"}
+        <div id="preview-{entry_id}" class="preview">
+          {if preview_orientation == "Text First"}
+            <div class="col-sm-6 no-gutter">
+              <div class="caption">
+                <div class="inner">
+                  <h3 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h3>
+                  <div class="description"><p>{preview_description}</p></div>
+                  <div class="more"><a href="{preview_link}">{preview_link_text}<i class="fa fa-angle-right pointer"></i></a></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 no-gutter">
+              <div class="preview-img bg-img"></div>
+            </div>
+          {if:elseif preview_orientation == "Image First"}
+            <div class="col-sm-6 no-gutter">
+              <div class="preview-img bg-img"></div>
+            </div>
+
+            <div class="col-sm-6 no-gutter">
+              <div class="caption">
+                <div class="inner">
+                  <h3 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h3>
+                  <div class="description"><p>{preview_description}</p></div>
+                  <div class="more"><a href="{preview_link}">{preview_link_text}<i class="fa fa-angle-right pointer"></i></a></div>
+                </div>
+              </div>
+            </div>
+          {/if}
+        </div>
+
+        <style>
+          #preview-{entry_id} .preview-img {
+            background-image:url("/img/Previews/{preview_image}");
+          }
+        </style>
+      {/exp:channel:entries}
+    </div>
+  </div>
+</section>

@@ -45,4 +45,8 @@
   {if page_section_category_id}
     {embed="embed/sections" section-category="{page_section_category_id}" {if page_watch_category_id}watch-category="{page_watch_category_id}"{/if}}
   {/if}
+
+  {if page_preview_category_id}
+    {embed="embed/previews" category="{page_preview_category_id}"}
+  {/if}
 {/exp:channel:entries}
