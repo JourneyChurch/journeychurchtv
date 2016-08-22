@@ -6374,24 +6374,42 @@ form input {
       -o-transition: color 0.15s ease-in;
       transition: color 0.15s ease-in; }
 
-.preview .caption {
-  background-color: white;
-  height: 500px;
-  padding: 40px 60px;
-  display: table !important;
-  width: 100%; }
-  .preview .caption .inner {
-    display: table-cell !important;
-    vertical-align: middle; }
-    .preview .caption .inner .description {
-      max-height: 200px;
-      overflow-y: scroll; }
-    .preview .caption .inner .more {
-      padding-top: 10px;
-      padding-bottom: 10px; }
-.preview .preview-img {
-  height: 500px; }
+.preview {
+  padding: 75px 0; }
+  .preview .caption {
+    background-color: white;
+    height: 500px;
+    padding: 40px 60px;
+    display: table !important;
+    width: 100%; }
+    .preview .caption .inner {
+      display: table-cell !important;
+      vertical-align: middle; }
+      .preview .caption .inner .description {
+        max-height: 200px;
+        overflow-y: scroll; }
+      .preview .caption .inner .more {
+        padding-top: 10px;
+        padding-bottom: 10px; }
+  .preview .preview-img {
+    height: 500px; }
+  .preview:first-child {
+    padding-top: 0; }
+  .preview:last-child {
+    padding-bottom: 0; }
 
+@media only screen and (max-width: 991px) {
+  .preview .col-sm-12 {
+    padding-top: 0;
+    padding-bottom: 0; }
+  .preview .caption {
+    height: auto;
+    padding: 60px; }
+    .preview .caption .inner .description {
+      max-height: auto;
+      overflow-y: inherit; }
+  .preview .preview-img {
+    height: 350px; } }
 /* PAGES */
 .team {
   padding: 50px 0; }

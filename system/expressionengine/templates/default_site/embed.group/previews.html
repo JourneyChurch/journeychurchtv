@@ -4,7 +4,11 @@
       {exp:channel:entries channel="Preview" category="{embed:category}" sort="asc" orderby="preview_order"}
         <div id="preview-{entry_id}" class="preview">
           {if preview_orientation == "Text First"}
-            <div class="col-sm-6 no-gutter">
+            <div class="col-md-6 col-md-push-6 col-sm-12 no-gutter">
+              <div class="preview-img bg-img"></div>
+            </div>
+
+            <div class="col-md-6 col-md-pull-6 col-sm-12 no-gutter">
               <div class="caption">
                 <div class="inner">
                   <h3 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h3>
@@ -13,16 +17,12 @@
                 </div>
               </div>
             </div>
-
-            <div class="col-sm-6 no-gutter">
-              <div class="preview-img bg-img"></div>
-            </div>
           {if:elseif preview_orientation == "Image First"}
-            <div class="col-sm-6 no-gutter">
+            <div class="col-md-6 col-sm-12 no-gutter">
               <div class="preview-img bg-img"></div>
             </div>
 
-            <div class="col-sm-6 no-gutter">
+            <div class="col-md-6 col-sm-12 no-gutter">
               <div class="caption">
                 <div class="inner">
                   <h3 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h3>
@@ -32,6 +32,7 @@
               </div>
             </div>
           {/if}
+          <div class="clearfix"></div>
         </div>
 
         <style>

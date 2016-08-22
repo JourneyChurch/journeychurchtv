@@ -1,4 +1,5 @@
 .preview {
+  padding:75px 0;
   .caption {
     background-color:$color-lightest;
     height:500px;
@@ -19,5 +20,34 @@
   }
   .preview-img {
     height:500px;
+  }
+  &:first-child {
+    padding-top:0;
+  }
+  &:last-child {
+    padding-bottom:0;
+  }
+}
+
+@include media-sm {
+  .preview {
+    .col-sm-12 {
+      padding-top:0;
+      padding-bottom:0;
+    }
+    .caption {
+      height:auto;
+      padding:60px;
+      .inner {
+        .description {
+          max-height:auto;
+          overflow-y:inherit;
+        }
+      }
+    }
+
+    .preview-img {
+      height:350px;
+    }
   }
 }
