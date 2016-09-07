@@ -1,0 +1,19 @@
+{embed="embed/header"}
+
+{embed="embed/page" id="118"}
+
+<section class="section-skinny">
+  <div class="container">
+    <div class="row">
+      {exp:channel:entries channel="Ministries" sort="asc" orderby="ministries_order"}
+        <div class="ministry col-md-6 col-lg-4 text-center">
+          <img src="/img/Icons/{ministries_image}" class="icon" />
+          <h4 class="font-extra-light">{title}</h4>
+          <a href="{ministries_link}">More<i class="fa fa-angle-right pointer"></i></a>
+        </div>
+      {/exp:channel:entries}
+    </div>
+  </div>
+</section>
+
+{embed="embed/footer"}

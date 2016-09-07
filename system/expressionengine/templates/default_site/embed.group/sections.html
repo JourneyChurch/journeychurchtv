@@ -5,29 +5,29 @@
 {if section_background_image}
   {if section_center_text == "Yes"}
     {if section_size == "Skinny"}
-    <section id="section-{entry_id}" class="section-skinny bg-img text-center">
+    <section id="section-{url_title}" class="section-skinny bg-img text-center">
     {if:else}
-    <section id="section-{entry_id}" class="section bg-img text-center">
+    <section id="section-{url_title}" class="section bg-img text-center">
     {/if}
   {if:else}
     {if section_size == "Skinny"}
-    <section id="section-{entry_id}" class="section-skinny bg-img">
+    <section id="section-{url_title}" class="section-skinny bg-img">
     {if:else}
-    <section id="section-{entry_id}" class="section bg-img">
+    <section id="section-{url_title}" class="section bg-img">
     {/if}
   {/if}
 {if:else}
   {if section_center_text == "Yes"}
     {if section_size == "Skinny"}
-    <section id="section-{entry_id}" class="section-skinny text-center">
+    <section id="section-{url_title}" class="section-skinny text-center">
     {if:else}
-    <section id="section-{entry_id}" class="section text-center">
+    <section id="section-{url_title}" class="section text-center">
     {/if}
   {if:else}
     {if section_size == "Skinny"}
-    <section id="section-{entry_id}" class="section-skinny">
+    <section id="section-{url_title}" class="section-skinny">
     {if:else}
-    <section id="section-{entry_id}" class="section">
+    <section id="section-{url_title}" class="section">
     {/if}
   {/if}
 {/if}
@@ -123,7 +123,7 @@
 {!-- Background Image --}
 {if section_background_image}
 <style>
-  #section-{entry_id} {
+  #section-{url_title} {
     background-image:url("/img/Backgrounds/{section_background_image}");
   }
 </style>
@@ -133,7 +133,7 @@
 {!-- Background Color --}
 {if section_background_color}
 <style>
-  #section-{entry_id} {
+  #section-{url_title} {
     background-color:{section_background_color};
   }
 </style>
