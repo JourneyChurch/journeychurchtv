@@ -11,7 +11,7 @@
             {if segment_3 == "{category_url_title}"}
               {exp:channel:entries channel="Team" orderby="team_order|title" sort="asc|asc" category="{category_id}"}
                 <div class="team-member col-sm-6 col-lg-4">
-                  <img src="/img/Icons/{team_photo}" class="icon"/>
+                  <img src="{team_image}" class="icon"/>
                   <div class="caption">
                     <h3 class="font-extra-light">{title}</h3>
                     <h5 class="font-extra-light">{team_job_title}</h5>
@@ -30,7 +30,7 @@
         <div class="row">
           {exp:channel:entries channel="Team" limit="1"}
             <div class="col-md-5 bio-icon">
-              <img src="/img/Icons/{team_photo}" class="icon"/>
+              <img src="{team_image}" class="icon"/>
             </div>
             <div class="col-md-7">
               <div class="bio paper">
@@ -58,7 +58,7 @@
     <div class="row">
       {exp:channel:entries channel="Team" orderby="team_order|title" sort="asc|asc" dynamic="no"}
         <div class="team-member col-sm-6 col-lg-4">
-          <img src="/img/Icons/{team_photo}" class="icon"/>
+          <img src="{team_image}" class="icon"/>
           <div class="caption">
             <h3 class="font-extra-light">{title}</h3>
             <h5 class="font-extra-light">{team_job_title}</h5>

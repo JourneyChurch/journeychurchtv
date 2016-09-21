@@ -11,7 +11,7 @@
             <div class="col-md-6 col-md-pull-6 col-sm-12 no-gutter">
               <div class="caption">
                 <div class="inner">
-                  <h3 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h3>
+                  <h1 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h1>
                   <div class="description"><p>{preview_description}</p></div>
                   <div class="more"><a href="{preview_link}">{preview_link_text}<i class="fa fa-angle-right pointer"></i></a></div>
                 </div>
@@ -25,7 +25,7 @@
             <div class="col-md-6 col-sm-12 no-gutter">
               <div class="caption">
                 <div class="inner">
-                  <h3 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h3>
+                  <h1 class="font-extra-light">{if preview_display_title}{preview_display_title}{if:else}{title}{/if}</h1>
                   <div class="description"><p>{preview_description}</p></div>
                   <div class="more"><a href="{preview_link}">{preview_link_text}<i class="fa fa-angle-right pointer"></i></a></div>
                 </div>
@@ -37,7 +37,7 @@
 
         <style>
           #preview-{url_title} .preview-img {
-            background-image:url("/img/Previews/{preview_image}");
+            background-image:url("{preview_image}");
           }
         </style>
       {/exp:channel:entries}

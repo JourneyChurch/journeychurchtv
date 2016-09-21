@@ -1,0 +1,76 @@
+{embed="embed/header-opener"}
+
+{exp:channel:entries channel="Watch" limit="1"}
+<meta property="og:url"                content="/watch/{url_title}" />
+<meta property="og:type"               content="video.episode" />
+<meta property="og:title"              content="{title} | {watch_study:title}" />
+<meta property="og:description"        content="Watch the full experience '{title}' online at journeychurch.tv/watch." />
+<meta property="og:image"              content="{watch_image}" />
+{/exp:channel:entries}
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '582098011969883',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script type="text/javascript" src="/js/jquery-3.0.0.min.js"></script>
+
+{embed="embed/header-closer"}
+
+{embed="embed/page" id="158"}
+
+<div id="watch-latest" class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        {exp:channel:entries channel="Watch" limit="1"}
+        <div class="vid-responsive">
+          <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="page-nav">
+          <ul>
+            <li><a href="#"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Notes</a></li>
+            <li><a href="#"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Audio</a></li>
+            <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a></li>
+          </ul>
+        </div>
+
+        <div class="share-nav">
+          <ul>
+            <li><a id="share-facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
+
+            <script>
+            $("#share-facebook").click(function() {
+              FB.ui({
+                method: 'share',
+                mobile_iframe: true,
+                href: 'http://journeychurch.dev/watch/{url_title}',
+              }, function(response){});
+            });
+            </script>
+
+          </ul>
+        </div>
+        {/exp:channel:entries}
+      </div>
+    </div>
+  </div>
+</div>
+
+{embed="embed/footer"}

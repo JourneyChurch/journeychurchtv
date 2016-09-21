@@ -5,11 +5,16 @@
 <section class="section-skinny">
   <div class="container">
     <div class="row">
-      {exp:channel:entries channel="Ministries" sort="asc" orderby="ministries_order"}
+      {exp:channel:entries channel="Page" sort="asc" orderby="url_title" category="27"}
         <div class="ministry col-md-6 col-lg-4 text-center">
-          <img src="/img/Icons/{ministries_image}" class="icon" />
+          {!--}<img src="/img/Icons/{page_icon_image}" class="icon" />{--}
+          <img src="/img/Icons/values-icon.jpg" class="icon" />
           <h4 class="font-extra-light">{title}</h4>
-          <a href="{ministries_link}">More<i class="fa fa-angle-right pointer"></i></a>
+          {if entry_id == 146}
+            <a href="/{url_title}">About<i class="fa fa-angle-right pointer"></i></a>
+          {if:else}
+            <a href="/ministries/{url_title}">About<i class="fa fa-angle-right pointer"></i></a>
+          {/if}
         </div>
       {/exp:channel:entries}
     </div>

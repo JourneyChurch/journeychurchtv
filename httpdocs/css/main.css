@@ -5838,6 +5838,13 @@ a {
   color: #00bdcb; }
   a:active, a:hover, a:focus {
     color: #00bdcb; }
+  a:hover .pointer {
+    transform: translateX(5px);
+    -webkit-transition: 0.15s transform ease-in;
+    -moz-transition: 0.15s transform ease-in;
+    -ms-transition: 0.15s transform ease-in;
+    -o-transition: 0.15s transform ease-in;
+    transition: 0.15s transform ease-in; }
 
 p {
   margin: 20px 0;
@@ -5973,13 +5980,19 @@ a {
 .icon {
   display: block;
   height: auto;
-  max-width: 60%;
+  max-width: 55%;
   border-radius: 50%;
   margin-right: auto;
   margin-left: auto; }
 
 .pointer {
-  padding-left: 5px; }
+  padding-left: 5px;
+  transform: translateY(0px);
+  -webkit-transition: 0.15s transform ease-in;
+  -moz-transition: 0.15s transform ease-in;
+  -ms-transition: 0.15s transform ease-in;
+  -o-transition: 0.15s transform ease-in;
+  transition: 0.15s transform ease-in; }
 
 .paper {
   padding: 40px;
@@ -5988,7 +6001,11 @@ a {
 @media only screen and (max-width: 991px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     padding-top: 15px;
-    padding-bottom: 15px; } }
+    padding-bottom: 15px; }
+
+  .no-gutter {
+    padding-left: 30px;
+    padding-right: 30px; } }
 @media only screen and (max-width: 767px) {
   .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
     padding-top: 15px;
@@ -6170,9 +6187,9 @@ a {
       -o-transform: rotateZ(-45deg) translateX(3px) translateY(2.5px);
       transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
 
-.page-nav {
+.page-nav, .share-nav {
   background-color: white; }
-  .page-nav ul {
+  .page-nav ul, .share-nav ul {
     text-align: center;
     white-space: nowrap;
     overflow-x: scroll;
@@ -6180,10 +6197,10 @@ a {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     padding: 20px 15px; }
-    .page-nav ul li {
+    .page-nav ul li, .share-nav ul li {
       display: inline-block;
       margin: 0 3px; }
-      .page-nav ul li a {
+      .page-nav ul li a, .share-nav ul li a {
         padding: 22px 15px;
         color: #B0B0B0;
         font-size: 12px;
@@ -6197,7 +6214,7 @@ a {
         -ms-transition: color 0.2s ease-in;
         -o-transition: color 0.2s ease-in;
         transition: color 0.2s ease-in; }
-        .page-nav ul li a:active, .page-nav ul li a:hover, .page-nav ul li a:focus {
+        .page-nav ul li a:active, .share-nav ul li a:active, .page-nav ul li a:hover, .share-nav ul li a:hover, .page-nav ul li a:focus, .share-nav ul li a:focus {
           color: black;
           -webkit-transition: color 0.2s ease-in;
           -moz-transition: color 0.2s ease-in;
@@ -6205,6 +6222,19 @@ a {
           -o-transition: color 0.2s ease-in;
           transition: color 0.2s ease-in;
           text-decoration: none; }
+        .page-nav ul li a.active, .share-nav ul li a.active {
+          color: black; }
+
+.share-nav {
+  background-color: black; }
+  .share-nav ul {
+    padding: 15px 10px; }
+    .share-nav ul li a {
+      padding: 17px 10px;
+      color: white;
+      font-size: 20px; }
+      .share-nav ul li a:active, .share-nav ul li a:hover, .share-nav ul li a:focus {
+        color: #686868; }
 
 @media only screen and (max-width: 767px) {
   .nav {
@@ -6344,10 +6374,13 @@ form input {
   font-weight: 300; }
 
 .social-circle {
-  font-size: 18px;
-  padding: 5px 7px;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
   border: 2px solid #00bdcb;
   border-radius: 50%;
+  text-align: center;
   -webkit-transition: background-color 0.15s ease-in;
   -moz-transition: background-color 0.15s ease-in;
   -ms-transition: background-color 0.15s ease-in;
@@ -6358,7 +6391,8 @@ form input {
     -moz-transition: color 0.15s ease-in;
     -ms-transition: color 0.15s ease-in;
     -o-transition: color 0.15s ease-in;
-    transition: color 0.15s ease-in; }
+    transition: color 0.15s ease-in;
+    margin-top: 6px; }
   .social-circle:hover {
     background-color: #00bdcb;
     -webkit-transition: background-color 0.15s ease-in;
@@ -6379,20 +6413,34 @@ form input {
   position: absolute;
   width: 100%;
   left: 0px;
-  top: 450px; }
+  top: 435px; }
   .page .social ul li {
     margin: 0 5px;
     display: inline; }
     .page .social ul li .social-circle {
       color: white;
-      border-color: white; }
+      border-color: rgba(255, 255, 255, 0.6);
+      -webkit-transition: border-color 0.2s ease-in;
+      -moz-transition: border-color 0.2s ease-in;
+      -ms-transition: border-color 0.2s ease-in;
+      -o-transition: border-color 0.2s ease-in;
+      transition: border-color 0.2s ease-in;
+      margin-top: 6px; }
+      .page .social ul li .social-circle:hover {
+        background-color: transparent;
+        border-color: white;
+        -webkit-transition: border-color 0.2s ease-in;
+        -moz-transition: border-color 0.2s ease-in;
+        -ms-transition: border-color 0.2s ease-in;
+        -o-transition: border-color 0.2s ease-in;
+        transition: border-color 0.2s ease-in; }
 
 .preview {
   padding: 75px 0; }
   .preview .caption {
     background-color: white;
     height: 500px;
-    padding: 40px 60px;
+    padding: 60px;
     display: table !important;
     width: 100%; }
     .preview .caption .inner {
@@ -6400,12 +6448,14 @@ form input {
       vertical-align: middle; }
       .preview .caption .inner .description {
         max-height: 200px;
-        overflow-y: scroll; }
+        overflow-y: scroll;
+        padding: 5px 0; }
       .preview .caption .inner .more {
-        padding-top: 10px;
-        padding-bottom: 10px; }
+        padding: 10px 0; }
   .preview .preview-img {
-    height: 500px; }
+    height: 500px;
+    background-color: #464646;
+    width: 100%; }
   .preview:first-child {
     padding-top: 0; }
   .preview:last-child {
@@ -6419,10 +6469,19 @@ form input {
     height: auto;
     padding: 60px; }
     .preview .caption .inner .description {
-      max-height: auto;
+      max-height: none;
       overflow-y: inherit; }
-  .preview .preview-img {
-    height: 350px; } }
+  .preview:first-child {
+    padding-top: 75px; } }
+@media only screen and (max-width: 767px) {
+  .preview {
+    padding: 50px 0; }
+    .preview .caption {
+      padding: 30px; }
+    .preview .preview-img {
+      height: 225px; }
+    .preview:first-child {
+      padding-top: 50px; } }
 /* PAGES */
 .team {
   padding: 50px 0; }

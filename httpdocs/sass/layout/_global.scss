@@ -26,6 +26,12 @@ a {
   &:active, &:hover, &:focus {
     color:$link-color;
   }
+  &:hover {
+    .pointer {
+      transform:translateX(5px);
+      @include transition(0.15s transform ease-in);
+    }
+  }
 }
 
 p {
@@ -144,7 +150,7 @@ a {
 .icon {
   display:block;
   height:auto;
-  max-width:60%;
+  max-width:55%;
   border-radius:50%;
   margin-right:auto;
   margin-left:auto;
@@ -152,6 +158,8 @@ a {
 
 .pointer {
   padding-left:5px;
+  transform:translateY(0px);
+  @include transition(0.15s transform ease-in);
 }
 
 .paper {
@@ -163,6 +171,10 @@ a {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     padding-top:15px;
     padding-bottom:15px;
+  }
+  .no-gutter {
+    padding-left:30px;
+    padding-right:30px;
   }
 }
 

@@ -123,6 +123,27 @@
           @include transition(color 0.2s ease-in);
           text-decoration:none;
         }
+        &.active {
+          color:$color-darkest;
+        }
+      }
+    }
+  }
+}
+
+.share-nav {
+  @extend .page-nav;
+  background-color:$color-darkest;
+  ul {
+    padding:15px 10px;
+    li {
+      a {
+        padding:17px 10px;
+        color:white;
+        font-size:20px;
+        &:active, &:hover, &:focus {
+          color: $color-regular;
+        }
       }
     }
   }
