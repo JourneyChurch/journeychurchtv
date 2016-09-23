@@ -37,7 +37,7 @@ p {
   font-family: 'AvenirLight', 'Montserrat', sans-serif;
   font-size:14px;
   line-height:30px;
-  letter-spacing:2px;
+  letter-spacing:1px;
 }
 
 .bg-img {
@@ -198,7 +198,7 @@ p {
   height: 100%;
 }
 
-#soundcloud {
+#spotify {
   position:relative;
   padding-bottom:100%;
   height:0;
@@ -206,7 +206,7 @@ p {
   max-width:100%;
 }
 
-#soundcloud iframe, #soundcloud object, #soundcloud embed {
+#spotify iframe, #spotify object, #spotify embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -216,7 +216,7 @@ p {
 
 #music {
   padding:150px 0;
-  background-color:black;
+  background-image: url("/_img/Mountains_Purchase.jpg");
 }
 
 #music h3 {
@@ -325,7 +325,7 @@ footer a:hover, footer a:focus {
     padding-bottom:60px;
   }
 
-  #soundcloud {
+  #spotify {
     margin-bottom:40px;
   }
 
