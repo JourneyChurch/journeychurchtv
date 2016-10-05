@@ -32,7 +32,7 @@
 
 {embed="embed/page" id="158"}
 
-<div id="watch-latest" class="section">
+<section id="watch-latest" class="section-page">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
@@ -43,34 +43,51 @@
 
         <div class="page-nav">
           <ul>
-            <li><a href="#"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Notes</a></li>
-            <li><a href="#"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Audio</a></li>
-            <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a></li>
+            <li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>
+            <li><a href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>
+            <li><a id="share-facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>
+            <li><a id="tweet" href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
+            <li><a id="mail" href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
           </ul>
-        </div>
 
-        <div class="share-nav">
-          <ul>
-            <li><a id="share-facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
-
-            <script>
-            $("#share-facebook").click(function() {
-              FB.ui({
-                method: 'share',
-                mobile_iframe: true,
-                href: 'http://journeychurch.dev/watch/{url_title}',
-              }, function(response){});
-            });
-            </script>
-
-          </ul>
+          <script>
+          $("#share-facebook").click(function() {
+            FB.ui({
+              method: 'share',
+              mobile_iframe: true,
+              href: 'http://journeychurch.dev/watch/{url_title}',
+            }, function(response){});
+          });
+          </script>
         </div>
         {/exp:channel:entries}
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<section id="section-weekend-studies" class="section-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="font-extra-light text-center">Weekend</h2><br/>
+      </div>
+      {exp:channel:entries channel="Studies" limit="4"}
+      <div class="col-md-3 col-xs-6">
+        <img src="/img/Events/awakening.jpg" class="img-responsive"/>
+      </div>
+      {/exp:channel:entries}
+      <div class="col-md-3 col-xs-6">
+        <img src="/img/Events/awakening.jpg" class="img-responsive"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #section-weekend-studies {
+    background-color:white;
+  }
+</style>
 
 {embed="embed/footer"}

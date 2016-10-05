@@ -25,14 +25,14 @@
       </div>
     </section>
   {if:else}
-    <section class="section">
+    <section class="section-page">
       <div class="container">
         <div class="row">
           {exp:channel:entries channel="Team" limit="1"}
-            <div class="col-md-5 bio-icon">
+            <div class="col-md-6 bio-icon">
               <img src="{team_image}" class="icon"/>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <div class="bio paper">
                 <h2 class="font-extra-light">{title}</h2>
                 <h4 class="font-extra-light font-color-light">{team_job_title}</h4>

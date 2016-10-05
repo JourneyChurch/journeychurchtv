@@ -1,24 +1,22 @@
 /* Cover */
 .cover {
-  height:calc(100vh - 50px);
-  width:100%;
+  height:calc(100vh - 50px) !important;
   min-height:500px;
   @include vertical-align-wrapper;
   .inner {
     @include vertical-align;
     text-align:center;
-    .title {
-
-    }
   }
 }
 
 .cover-partial {
   @extend .cover;
-  height:500px;
+  height:500px !important;
 }
 
 .cover-caption {
+  position:relative;
+  z-index:100;
   @include vertical-align-wrapper;
   background-color: $color-lightest;
   color: $color-darkest;

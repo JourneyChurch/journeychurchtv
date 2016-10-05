@@ -28,3 +28,9 @@
     @include transition(background-color 0.2s ease-in, color 0.2s ease-in);
   }
 }
+
+@include media-sm {
+  .btn {
+    font-size:10px !important;
+  }
+}

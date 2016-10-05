@@ -6,7 +6,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height:1.45em;
+  line-height:1.8em;
   margin-top:10px;
 }
 
@@ -44,12 +44,21 @@ a {
   @include font-book;
 }
 
+blockquote {
+  font-size:14px;
+  margin-top:20px;
+  margin-bottom:20px;
+  p {
+    margin:0;
+  }
+}
+
 .bg-img {
   background-attachment:scroll;
   background-position:center center;
   background-repeat:no-repeat;
   @include background-size-cover;
-  background-color: $color-dark;
+  background-color: $color-darkest;
   color: $color-lightest;
 }
 
@@ -150,7 +159,7 @@ a {
 .icon {
   display:block;
   height:auto;
-  max-width:55%;
+  max-width:50%;
   border-radius:50%;
   margin-right:auto;
   margin-left:auto;
@@ -169,27 +178,35 @@ a {
 
 @include media-sm {
   h1 {
-    font-size:29px;
+    font-size:29px !important;
   }
 
   h2 {
-    font-size:26px;
+    font-size:26px !important;
   }
 
   h3 {
-    font-size:19px;
+    font-size:19px !important;
   }
 
   h4 {
-    font-size:14px;
+    font-size:14px !important;
   }
 
   h5 {
-    font-size:12px;
+    font-size:12px !important;
   }
 
   h6 {
-    font-size:10px;
+    font-size:10px !important;
+  }
+
+  p {
+    font-size:12px;
+  }
+
+  a {
+    font-size:12px;
   }
 
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {

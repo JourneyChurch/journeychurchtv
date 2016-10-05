@@ -12,3 +12,41 @@
 		height: 100%;
 	}
 }
+
+.bg-video {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	height:100%;
+	overflow:hidden;
+	z-index:0;
+	min-height:500px;
+	video {
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		width:100%;
+		min-height:100%;
+		object-fit:cover;
+		opacity:0.8;
+	}
+}
+
+.no-objectfit, .no-object-fit {
+	.bg-video {
+		video {
+			min-width:100%;
+			width:auto;
+		}
+	}
+}
+
+@include media-sm {
+	.bg-video {
+		display:none;
+	}
+}

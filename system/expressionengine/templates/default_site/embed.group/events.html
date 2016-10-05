@@ -1,25 +1,28 @@
+<div class="card-wrapper">
 {exp:channel:entries channel="Events" limit="{embed:number-of-columns}"}
   <a href="/events/{url_title}">
-    <div id="events-{entry_id}" class="card col-md-4 col-sm-6">
-      <div class="cover-img bg-img"></div>
+    <div id="events-{entry_id}" class="card col-md-3 col-xs-6">
+      <div class="cover-img">
+        <img src="{events_cover_image}" class="img-responsive"/>
+      </div>
       <div class="info">
         <div class="inner">
-          <h3 class="title font-light">{title}</h5>
-          <div class="date">
-            <h5 class="font-extra-light">{if '{events_start_date format="%M %d"}' == '{events_end_date format="%M %d"}'}{events_start_date format="%M %d"}{if:else}{events_start_date format="%M %d"} - {events_end_date format="%M %d"}{/if}</h5>
-            <h5 class="font-extra-light">{events_start_date format="%g"}:{events_start_date format="%i %A"} - {events_end_date format="%g"}:{events_end_date format="%i %A"}</h5>
+          <div class="vertical-align-wrapper">
+            <div class="vertical-align">
+              <h4 class="title font-light">{title}</h4>
+              <div class="date">
+                <h5 class="font-extra-light">{if '{events_start_date format="%M %d"}' == '{events_end_date format="%M %d"}'}{events_start_date format="%M %d"}{if:else}{events_start_date format="%M %d"} - {events_end_date format="%M %d"}{/if}</h5>
+                <h5 class="font-extra-light">{events_start_date format="%g"}:{events_start_date format="%i %A"} - {events_end_date format="%g"}:{events_end_date format="%i %A"}</h5>
+              </div>
+              {!--}<h5 class="eyebrow">{events_location}</h5>
+              {events_description}
+              Contact: <a href="mailto:{events_contacy_email}">{events_contact_name}</a>{--}
+            </div>
           </div>
-          {!--}<h5 class="eyebrow">{events_location}</h3>
-          {events_description}
-          Contact: <a href="mailto:{events_contacy_email}">{events_contact_name}</a>{--}
         </div>
       </div>
     </div>
   </a>
-
-  <style>
-    #events-{entry_id} .cover-img {
-      background-image:url("/img/Events/_constrain/{events_cover_image}");
-    }
-  </style>
 {/exp:channel:entries}
+  <div class="clearfix"></div>
+</div>

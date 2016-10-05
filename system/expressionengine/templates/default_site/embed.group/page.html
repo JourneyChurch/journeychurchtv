@@ -1,6 +1,14 @@
 {exp:channel:entries channel="Page" limit="1" {if embed:id}entry_id="{embed:id}"{/if} dynamic="no"}
 <div id="page-{url_title}" class="page">
   <div {if page_cover_type == "Partial Cover"}class="cover-partial bg-img"{if:else}class="cover bg-img"{/if}>
+    {if page_background_video}
+      <div class="bg-video">
+        <video autoplay loop muted>
+          <source src="/video/{page_background_video}.webm" type="video/webm">
+          <source src="/video/{page_background_video}.mp4" type="video/mp4">
+        </video>
+      </div>
+    {/if}
     <div class="inner">
       <div class="container">
         <div class="row">
@@ -29,14 +37,24 @@
     {embed="embed/home-caption"}
   {/if}
 
+  {if page_background_video}
+  <style>
+    @media only screen and (max-width: 991px) {
+      #page-{url_title} .cover-partial, #page-{url_title} .cover {
+        background-image:url("{page_background_image}");
+      }
+    }
+  </style>
+  {if:else}
   <style>
     #page-{url_title} .cover-partial, #page-{url_title} .cover {
       background-image:url("{page_background_image}");
     }
   </style>
+  {/if}
 
   {if page_navigation_category_id}
-    <div class="page-nav">
+    <div id="page-nav" class="page-nav">
       {embed="embed/navigation" category="{page_navigation_category_id}"}
     </div>
   {/if}
