@@ -5821,11 +5821,36 @@ body {
   font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
   font-style: normal;
   font-weight: 400;
-  background-color: #F3F3F3; }
+  background-color: #F3F3F3;
+  font-size: 14px; }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.8em;
   margin-top: 10px; }
+
+h1 {
+  font-size: 2.8em; }
+
+h2 {
+  font-size: 2.3em; }
+
+h3 {
+  font-size: 1.7em; }
+
+h4 {
+  font-size: 1.3em; }
+
+h5 {
+  font-size: 1em; }
+
+h6 {
+  font-size: 0.8em; }
+
+p {
+  font-size: 1em; }
+
+a {
+  font-size: 1em; }
 
 ul {
   list-style-type: none;
@@ -5848,7 +5873,7 @@ a {
 
 p {
   margin: 20px 0;
-  line-height: 26px;
+  line-height: 2.2em;
   font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", "Work Sans", Arial;
   font-style: normal;
   font-weight: 200; }
@@ -6007,29 +6032,8 @@ blockquote {
   background-color: white; }
 
 @media only screen and (max-width: 991px) {
-  h1 {
-    font-size: 29px !important; }
-
-  h2 {
-    font-size: 26px !important; }
-
-  h3 {
-    font-size: 19px !important; }
-
-  h4 {
-    font-size: 14px !important; }
-
-  h5 {
-    font-size: 12px !important; }
-
-  h6 {
-    font-size: 10px !important; }
-
-  p {
-    font-size: 12px; }
-
-  a {
-    font-size: 12px; }
+  body {
+    font-size: 13px; }
 
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     padding-top: 15px;
@@ -6039,6 +6043,9 @@ blockquote {
     padding-left: 30px;
     padding-right: 30px; } }
 @media only screen and (max-width: 767px) {
+  body {
+    font-size: 12px; }
+
   .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
     padding-top: 15px;
     padding-bottom: 15px; } }
@@ -6400,7 +6407,7 @@ blockquote {
     width: 100%;
     min-height: 100%;
     object-fit: cover;
-    opacity: 0.8; }
+    opacity: 0.5; }
 
 .no-objectfit .bg-video video, .no-object-fit .bg-video video {
   min-width: 100%;
@@ -6422,7 +6429,7 @@ blockquote {
       overflow-y: scroll; }
       .card-wrapper .card .info .inner {
         padding: 25px;
-        height: 175px; }
+        height: 200px; }
         .card-wrapper .card .info .inner .title {
           margin: 0; }
         .card-wrapper .card .info .inner .date {
@@ -6523,7 +6530,7 @@ form input {
   padding: 75px 0; }
   .preview .caption {
     background-color: white;
-    height: 500px !important;
+    height: 525px !important;
     padding: 60px;
     display: table !important;
     width: 100%;
@@ -6532,14 +6539,13 @@ form input {
       display: table-cell !important;
       vertical-align: middle; }
       .preview .caption .inner .description {
-        max-height: 200px;
+        max-height: 225px;
         overflow-y: scroll;
         padding: 5px 0; }
       .preview .caption .inner .more {
         padding: 10px 0; }
   .preview .preview-img {
-    height: 500px;
-    background-color: black;
+    height: 525px;
     width: 100%; }
   .preview:first-child {
     padding-top: 0 !important; }

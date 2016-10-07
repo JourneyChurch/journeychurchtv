@@ -2,13 +2,13 @@
   padding:75px 0;
   .caption {
     background-color:$color-lightest;
-    height:500px !important;
+    height:525px !important;
     padding:60px;
     @include vertical-align-wrapper;
     .inner {
       @include vertical-align;
       .description {
-        max-height:200px;
+        max-height:225px;
         overflow-y:scroll;
         padding:5px 0;
       }
@@ -18,7 +18,7 @@
     }
   }
   .preview-img {
-    height:500px;
+    height:525px;
     width:100%;
   }
   &:first-child {
