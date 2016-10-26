@@ -1,93 +1,94 @@
-{embed="embed/header-opener"}
-
-{exp:channel:entries channel="Watch" limit="1"}
-<meta property="og:url"                content="/watch/{url_title}" />
-<meta property="og:type"               content="video.episode" />
-<meta property="og:title"              content="{title} | {watch_study:title}" />
-<meta property="og:description"        content="Watch the full experience '{title}' online at journeychurch.tv/watch." />
-<meta property="og:image"              content="{watch_image}" />
-{/exp:channel:entries}
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '582098011969883',
-      xfbml      : true,
-      version    : 'v2.7'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<script type="text/javascript" src="/js/jquery-3.0.0.min.js"></script>
-
-{embed="embed/header-closer"}
+{embed="embed/header"}
 
 {embed="embed/page" id="158"}
 
-<section id="watch-latest" class="section-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        {exp:channel:entries channel="Watch" limit="1"}
-        <div class="vid-responsive">
-          <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <div class="page-nav">
-          <ul>
-            <li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>
-            <li><a href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>
-            <li><a id="share-facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>
-            <li><a id="tweet" href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
-            <li><a id="mail" href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
-          </ul>
-
-          <script>
-          $("#share-facebook").click(function() {
-            FB.ui({
-              method: 'share',
-              mobile_iframe: true,
-              href: 'http://journeychurch.dev/watch/{url_title}',
-            }, function(response){});
-          });
-          </script>
-        </div>
+{if segment_2}
+  {if segment_2 == college}
+  <section class="section-skinny">
+    <div class="container">
+      <div class="row">
+        {exp:channel:entries channel="Studies" dynamic="no" orderby="{watch_date}" sort="desc"}
+        <a href="/studies/{url_title}#section-watch-player">
+          <div class="col-md-4 col-sm-6 pad-top pad-bottom">
+            <div class="thumb">
+              <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+              <div class="caption">{title}</div>
+            </div>
+          </div>
+        </a>
         {/exp:channel:entries}
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  {/if}
 
-<section id="section-weekend-studies" class="section-page">
+  {embed="embed/watch-player"}
+
+  {exp:channel:entries channel="Watch" url_title="{segment_2}"}
+    {embed="embed/watch-others" disclude="{url_title}" study="{watch_study}{watch_study:url_title}{/watch_study}"}
+  {/exp:channel:entries}
+
+{if:else}
+
+  {embed="embed/watch-player" category="34"}
+
   <div class="container">
-    <div class="row">
-      {exp:channel:entries channel="Studies" limit="4"}
-      <div class="col-md-3 col-xs-6">
-        <img src="/img/Events/awakening.jpg" class="img-responsive"/>
-      </div>
-      {/exp:channel:entries}
-      <div class="col-md-3 col-xs-6">
-        <img src="/img/Events/awakening.jpg" class="img-responsive"/>
-      </div>
-      <div class="col-md-3 col-xs-6">
-        <img src="/img/Events/awakening.jpg" class="img-responsive"/>
+    <hr>
+  </div>
+
+  <section id="section-watch-categories" class="section-skinny">
+    <div class="container">
+      <div class="row">
+        <a href="/studies#section-studies">
+          <div class="col-sm-6 pad-top pad-bottom">
+            <div class="thumb">
+              {exp:channel:entries channel="Studies" limit="1"}
+                <div class="thumb-img"><img src="{study_image}" class="img-responsive"/></div>
+              {/exp:channel:entries}
+                <div class="caption"><h4 class="font-extra-light">Studies</h4></div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/watch/college">
+          <div class="col-sm-6 pad-top pad-bottom">
+            <div class="thumb">
+              {exp:channel:entries channel="Watch" limit="1" category="31"}
+                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+              {/exp:channel:entries}
+                <div class="caption"><h4 class="font-extra-light">College</h4></div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/watch/events">
+          <div class="col-sm-6 pad-top pad-bottom">
+            <div class="thumb">
+              {exp:channel:entries channel="Watch" limit="1" category="32"}
+                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+              {/exp:channel:entries}
+                <div class="caption"><h4 class="font-extra-light">Events</h4></div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/watch/stories">
+          <div class="col-sm-6 pad-top pad-bottom">
+            <div class="thumb">
+              {exp:channel:entries channel="Watch" limit="1" category="33"}
+                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+              {/exp:channel:entries}
+                <div class="caption"><h4 class="font-extra-light">Stories</h4></div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
-  </div>
-</section>
-
-<style>
-  #section-weekend-studies {
-    
-  }
-</style>
+  </section>
+{/if}
 
 {embed="embed/footer"}

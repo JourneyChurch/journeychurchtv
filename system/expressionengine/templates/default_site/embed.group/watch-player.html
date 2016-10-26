@@ -1,0 +1,59 @@
+{exp:channel:entries channel="Watch" url_title="{segment_2}" {if embed:category}category="{embed:category}"{/if} limit="1"}
+  <meta property="og:url"                content="/watch/{url_title}" />
+  <meta property="og:type"               content="video.episode" />
+  <meta property="og:title"              content="{title} | {watch_study:title}" />
+  <meta property="og:description"        content="Watch the full experience '{title}' online at journeychurch.tv/watch." />
+  <meta property="og:image"              content="{watch_image}" />
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '582098011969883',
+        xfbml      : true,
+        version    : 'v2.7'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script type="text/javascript" src="/js/jquery-3.0.0.min.js"></script>
+
+  <section id="section-watch-player" class="section-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="vid-responsive">
+            <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+          <div class="page-nav">
+            <ul>
+              <li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>
+              <li><a href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>
+              <li><a id="share-facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>
+              <li><a id="tweet" href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
+              <li><a id="mail" href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
+            </ul>
+
+            <script>
+            $("#share-facebook").click(function() {
+              FB.ui({
+                method: 'share',
+                mobile_iframe: true,
+                href: 'http://journeychurch.dev/watch/{url_title}',
+              }, function(response){});
+            });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{/exp:channel:entries}

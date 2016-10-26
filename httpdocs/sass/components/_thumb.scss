@@ -1,0 +1,22 @@
+.thumb {
+  background-color:$color-darkest;
+  position:relative;
+  .caption {
+    padding:10px 15px;
+    background-color:$color-lightest;
+    border-top:1px solid $color-lighter;
+    h4,h5 {
+      margin:0;
+    }
+  }
+  .thumb-img {
+    opacity:1;
+    @include transition(0.25s opacity ease-in);
+  }
+  &:hover {
+    .thumb-img {
+      opacity:0.4;
+      @include transition(0.25s opacity ease-in);
+    }
+  }
+}

@@ -22,7 +22,7 @@
           @include font-block-book;
           @include transition(color 0.2s ease-in);
           &:active, &:hover, &:focus {
-            color: $color-regular;
+            color: $color-dark;
             @include transition(color 0.2s ease-in);
             text-decoration:none;
           }
@@ -114,7 +114,7 @@
       margin:0 3px;
       a {
         padding:22px 15px;
-        color: $color-light;
+        color: $color-regular;
         font-size:12px;
         @include font-block-medium;
         @include transition(color 0.2s ease-in);

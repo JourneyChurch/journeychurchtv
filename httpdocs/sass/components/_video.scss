@@ -45,6 +45,12 @@
 	}
 }
 
+.no-video {
+	video {
+		display:none;
+	}
+}
+
 @include media-sm {
 	.bg-video {
 		display:none;

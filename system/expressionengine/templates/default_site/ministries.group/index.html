@@ -6,15 +6,17 @@
   <div class="container">
     <div class="row">
       {exp:channel:entries channel="Page" sort="asc" orderby="url_title" category="27"}
-        <div class="ministry col-md-6 col-lg-4 text-center">
+        <div class="icon-post col-md-6 col-lg-4 text-center">
           {!--}<img src="/img/Icons/{page_icon_image}" class="icon" />{--}
           <img src="/img/Icons/values-icon.jpg" class="icon" />
-          <h4 class="font-extra-light">{title}</h4>
-          {if entry_id == 146}
-            <a href="/{url_title}">About<i class="fa fa-angle-right pointer"></i></a>
-          {if:else}
-            <a href="/ministries/{url_title}">About<i class="fa fa-angle-right pointer"></i></a>
-          {/if}
+          <div class="caption">
+            <h4 class="font-extra-light">{title}</h4>
+            {if entry_id == 146}
+              <a href="/{url_title}">About<i class="fa fa-angle-right pointer"></i></a>
+            {if:else}
+              <a href="/ministries/{url_title}">About<i class="fa fa-angle-right pointer"></i></a>
+            {/if}
+          </div>
         </div>
       {/exp:channel:entries}
     </div>

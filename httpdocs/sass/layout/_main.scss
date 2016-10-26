@@ -32,16 +32,8 @@
 }
 
 @include media-sm {
-  .section {
-    padding:60px 0;
-  }
-
-  .section-page {
+  .section, .section-page, .section-skinny {
     padding:30px 0;
-  }
-
-  .section-skinny {
-    padding:20px 0;
   }
 }
 

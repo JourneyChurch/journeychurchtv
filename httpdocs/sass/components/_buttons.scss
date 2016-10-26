@@ -3,13 +3,13 @@
   border:0;
   border-radius:0;
   text-transform:uppercase;
-  font-size:11px;
+  font-size:0.8em;
   @include font-bold;
   letter-spacing:2px;
   padding:15px 20px;
   @include transition(background-color 0.2s ease-in, color 0.2s ease-in);
   &:hover, &:active, &:focus, &:active:hover {
-    background-color: $color-extra-dark;
+    background-color: $color-darker;
     color: $color-lightest;
     box-shadow:none;
     @include transition(background-color 0.2s ease-in, color 0.2s ease-in);
@@ -29,8 +29,12 @@
   }
 }
 
-@include media-sm {
-  .btn {
-    font-size:10px !important;
+.btn-dark {
+  @extend .btn-default;
+  color:$color-lightest;
+  background-color:$color-darkest;
+  &:hover, &:active, &:focus {
+    color: $color-lightest;
+    background-color:$color-dark;
   }
 }

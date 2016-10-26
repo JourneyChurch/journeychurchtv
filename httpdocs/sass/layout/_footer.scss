@@ -3,7 +3,7 @@
 #footer {
   background-color: $color-darkest;
   color: $color-lightest;
-  font-size:12px;
+  font-size:0.9em;
   padding:50px 0;
   .col-footer {
     height:50px;
@@ -20,14 +20,20 @@
         @include font-extra-light;
         @include transition(color 0.2s ease-in);
         &:hover {
-          color: $color-regular;
+          color: $color-dark;
           @include transition(color 0.2s ease-in);
         }
       }
       i {
-        font-size:16px;
+        font-size:1.2em;
       }
     }
+  }
+}
+
+@include media-sm {
+  #footer {
+    font-size:1em;
   }
 }
 

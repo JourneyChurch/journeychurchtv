@@ -10,7 +10,7 @@
           {exp:channel:categories channel="Team" category_group="5" style="linear"}
             {if segment_3 == "{category_url_title}"}
               {exp:channel:entries channel="Team" orderby="team_order|title" sort="asc|asc" category="{category_id}"}
-                <div class="team-member col-sm-6 col-lg-4">
+                <div class="icon-post col-sm-6 col-lg-4">
                   <img src="{team_image}" class="icon"/>
                   <div class="caption">
                     <h3 class="font-extra-light">{title}</h3>
@@ -57,7 +57,7 @@
   <div class="container">
     <div class="row">
       {exp:channel:entries channel="Team" orderby="team_order|title" sort="asc|asc" dynamic="no"}
-        <div class="team-member col-sm-6 col-lg-4">
+        <div class="icon-post col-sm-6 col-lg-4">
           <img src="{team_image}" class="icon"/>
           <div class="caption">
             <h3 class="font-extra-light">{title}</h3>

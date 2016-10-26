@@ -35,14 +35,6 @@ h6 {
   font-size:0.8em;
 }
 
-p {
-  font-size:1em;
-}
-
-a {
-  font-size:1em;
-}
-
 ul {
   list-style-type:none;
   margin:0;
@@ -55,6 +47,8 @@ ul {
 }
 
 a {
+  @include font-book;
+  font-size:1em;
   color:$link-color;
   &:active, &:hover, &:focus {
     color:$link-color;
@@ -69,12 +63,9 @@ a {
 
 p {
   margin:20px 0;
+  font-size:1em;
   line-height:2.2em;
   @include font-extra-light;
-}
-
-a {
-  @include font-book;
 }
 
 blockquote {
@@ -84,6 +75,14 @@ blockquote {
   p {
     margin:0;
   }
+}
+
+hr {
+  background-color:$color-light;
+  height:2px;
+  width:100%;
+  border:0;
+  margin:0;
 }
 
 .bg-img {
@@ -152,8 +151,8 @@ blockquote {
   color: $color-lightest;
 }
 
-.font-color-extra-light {
-  color: $color-extra-light;
+.font-color-lighter {
+  color: $color-lighter;
 }
 
 .font-color-light {
@@ -168,8 +167,8 @@ blockquote {
   color: $color-dark;
 }
 
-.font-color-extra-dark {
-  color: $color-extra-dark;
+.font-color-darker {
+  color: $color-darker;
 }
 
 .font-color-darkest {
@@ -189,13 +188,31 @@ blockquote {
   padding-right:0;
 }
 
-.icon {
-  display:block;
-  height:auto;
-  max-width:50%;
-  border-radius:50%;
-  margin-right:auto;
-  margin-left:auto;
+.pad-top {
+  padding-top:30px;
+}
+
+.pad-bottom {
+  padding-bottom:30px;
+}
+
+.two-column-mobile-wrapper {
+  padding:0 15px;
+
+  .two-column-mobile {
+    margin-top:15px;
+    margin-bottom:15px;
+    padding:0 15px;
+  }
+}
+
+.content-left {
+  padding-right:75px;
+  border-right:3px solid #E9E9E9;
+}
+
+.content-right {
+  padding-left:75px;
 }
 
 .pointer {
@@ -211,7 +228,7 @@ blockquote {
 
 @include media-sm {
   body {
-    font-size:13px;
+    font-size:12px;
   }
 
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
@@ -222,11 +239,24 @@ blockquote {
     padding-left:30px;
     padding-right:30px;
   }
+
+  .content-left {
+    padding-right:30px;
+    border:0;
+  }
+
+  .content-right {
+    padding-left:30px;
+  }
+
+  .content-img {
+    display:none;
+  }
 }
 
 @include media-xs {
   body {
-    font-size:12px;
+    font-size:11px;
   }
 
   .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {

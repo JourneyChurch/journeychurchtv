@@ -1,0 +1,49 @@
+{embed="embed/header"}
+
+{embed="embed/page"}
+
+{if segment_2}
+
+{if segment_2 == "current"}
+  {exp:channel:entries channel="Watch" dynamic="no" orderby="{watch_date}" sort="desc" limit="1"}
+    {redirect="studies/{watch_study}{watch_study:url_title}{/watch_study}#section-studies"}
+  {/exp:channel:entries}
+{/if}
+<section id="section-studies" class="section-skinny">
+  <div class="container">
+    <div class="row">
+    {exp:channel:entries channel="Watch" dynamic="no" orderby="{watch_date}" sort="desc"}
+      {if "{watch_study}{watch_study:url_title}{/watch_study}" == "{segment_2}"}
+      <a href="/watch/{url_title}#section-watch-player">
+        <div class="col-md-4 col-sm-6 pad-top pad-bottom">
+          <div class="thumb">
+            <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+            <div class="caption">{title}</div>
+          </div>
+        </div>
+      </a>
+      {/if}
+    {/exp:channel:entries}
+    </div>
+  </div>
+</section>
+{if:else}
+<section id="section-studies" class="section-skinny">
+  <div class="container">
+    <div class="row">
+      {exp:channel:entries channel="Studies" dynamic="no" orderby="{studies_date}" sort="desc"}
+        <a href="/studies/{url_title}#section-studies">
+          <div class="col-md-4 col-sm-6 pad-top pad-bottom">
+            <div class="thumb">
+              <div class="thumb-img"><img src="{study_image}" class="img-responsive"/></div>
+              <div class="caption">{title}</div>
+            </div>
+          </div>
+        </a>
+      {/exp:channel:entries}
+    </div>
+  </div>
+</section>
+{/if}
+
+{embed="embed/footer"}

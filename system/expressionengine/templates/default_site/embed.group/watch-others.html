@@ -1,0 +1,20 @@
+<div class="container"><hr></div>
+
+<section class="section-skinny">
+  <div class="container">
+    <div class="row">
+      {exp:channel:entries channel="Watch" category="34" dynamic="no" orderby="{watch_date}" sort="desc"}
+      {if "{watch_study}{watch_study:url_title}{/watch_study}" == "{embed:study}" && "{url_title}" != "{embed:disclude}"}
+      <a href="/watch/{url_title}#section-watch-player">
+        <div class="col-md-4 col-sm-6 pad-top pad-bottom">
+          <div class="thumb">
+            <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+            <div class="caption">{title}</div>
+          </div>
+        </div>
+      </a>
+      {/if}
+      {/exp:channel:entries}
+    </div>
+  </div>
+</section>

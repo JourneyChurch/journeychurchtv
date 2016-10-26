@@ -8,6 +8,12 @@
           <source src="/video/{page_background_video}.mp4" type="video/mp4">
         </video>
       </div>
+
+      <style>
+        .no-video #page-{url_title} .cover-partial, .no-video #page-{url_title} .cover {
+          background-image:url("{page_background_image}");
+        }
+      </style>
     {/if}
     <div class="inner">
       <div class="container">
@@ -21,6 +27,7 @@
       </div>
     </div>
 
+    {if page_social}
     <div class="social">
       <ul>
       {page_social}
@@ -31,6 +38,7 @@
       {/page_social}
       </ul>
     </div>
+    {/if}
   </div>
 
   {if entry_id == "9"}
@@ -59,20 +67,12 @@
     </div>
   {/if}
 
-  {if page_content != ""}
-  <section class="section-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          {page_content}
-        </div>
-      </div>
-    </div>
-  </section>
+  {if "{page_content:count}" != ""}
+    {embed="embed/content" url-title="{page_content}{page_content:url_title}{/page_content}"}
   {/if}
 
   {if page_section_category_id}
-    {embed="embed/sections" section-category="{page_section_category_id}" {if page_watch_category_id}watch-category="{page_watch_category_id}"{/if}}
+    {embed="embed/content-sections" category="{page_section_category_id}"}
   {/if}
 
   {if page_preview_category_id}

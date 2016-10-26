@@ -1,6 +1,6 @@
 /* Cover */
 .cover {
-  height:calc(100vh - 50px) !important;
+  height:calc(100vh - 55px) !important;
   min-height:500px;
   @include vertical-align-wrapper;
   .inner {
@@ -20,7 +20,7 @@
   @include vertical-align-wrapper;
   background-color: $color-lightest;
   color: $color-darkest;
-  height:50px;
+  height:55px;
   width:100%;
   .inner {
     @include vertical-align;

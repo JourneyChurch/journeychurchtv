@@ -1,10 +1,21 @@
 ## BEGIN Expression Engine Rewrite
+# Enable Rewrite Engine
+# ------------------------------
 RewriteEngine On
 RewriteBase /
+
+# Redirect index.php Requests
+# ------------------------------
+RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+RewriteCond %{THE_REQUEST} !/system/.*
+RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,L]
+
+# Standard ExpressionEngine Rewrite
+# ------------------------------
+RewriteCond $1 !\.(css|js|gif|jpe?g|png) [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond $1 !\.(gif|jpe?g|png)$ [NC]
-RewriteRule ^(.*)$ /index.php?/$1 [L]
+RewriteRule ^(.*)$ /index.php/$1 [L]
 ## END Expression Engine Rewrite
 
-## https://kb.mediatemple.net/questions/242/How+do+I+redirect+my+site+using+a+.htaccess+file%3F
+## https://ellislab.com/forums/archive/viewthread/224981
