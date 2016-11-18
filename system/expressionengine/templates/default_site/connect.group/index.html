@@ -80,7 +80,35 @@
 	{exp:channel:entries channel="Connect" dynamic="on" require_entry="yes"}
 		{if connect-logo}
 			<div class="container clearfix">
+				{if entry_id == "211"}
+					{!-- Creative Journey Video --}
+
+					<div class="grid_12">
+						<div class="vid-responsive">
+							<iframe src="https://www.youtube.com/embed/NSYvr-WtnzI" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+
+					<style>
+						.vid-responsive {
+							position: relative;
+							padding-bottom: 56.25%;
+							height: 0;
+							overflow: hidden;
+							max-width: 100%;
+							margin-bottom:30px;
+						}
+
+						.vid-responsive iframe, .vid-responsive object, .vid-responsive embed {
+							position: absolute;
+							top: 0; left: 0;
+							width: 100%;
+							height: 100%;
+						}
+					</style>
+				{if:else}
 				<img src="{connect-logo}" class="connect-logo">
+				{/if}
 				<div class="clear"></div>
 			</div>
 		{if:else}
