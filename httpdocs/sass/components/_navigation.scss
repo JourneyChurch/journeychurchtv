@@ -123,6 +123,9 @@
           @include transition(color 0.2s ease-in);
           text-decoration:none;
         }
+        &:hover {
+          cursor:pointer;
+        }
         &.active {
           color:$color-darkest;
         }

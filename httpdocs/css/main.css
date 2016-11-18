@@ -6287,6 +6287,8 @@ hr {
           -o-transition: color 0.2s ease-in;
           transition: color 0.2s ease-in;
           text-decoration: none; }
+        .page-nav ul li a:hover, .share-nav ul li a:hover {
+          cursor: pointer; }
         .page-nav ul li a.active, .share-nav ul li a.active {
           color: black; }
 
@@ -6439,6 +6441,9 @@ hr {
 
 .no-video video {
   display: none; }
+
+.watch-player .vid-responsive {
+  border-bottom: 1px solid #F3F3F3; }
 
 @media only screen and (max-width: 991px) {
   .bg-video {

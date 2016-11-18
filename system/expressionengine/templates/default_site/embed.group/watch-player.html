@@ -1,9 +1,34 @@
 {exp:channel:entries channel="Watch" url_title="{segment_2}" {if embed:category}category="{embed:category}"{/if} limit="1"}
-  <meta property="og:url"                content="/watch/{url_title}" />
-  <meta property="og:type"               content="video.episode" />
-  <meta property="og:title"              content="{title} | {watch_study:title}" />
-  <meta property="og:description"        content="Watch the full experience '{title}' online at journeychurch.tv/watch." />
-  <meta property="og:image"              content="{watch_image}" />
+
+  <script type="text/javascript" src="/js/jquery-3.0.0.min.js"></script>
+
+  <section id="section-watch-player" class="section-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 watch-player">
+          <div class="vid-responsive">
+            <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+          <div class="page-nav">
+            <ul>
+              {if watch_notes}<li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
+              {if watch_podcast_url}<li><a target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
+              <li><a id="share-facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>{/if}
+              <li><a id="tweet"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
+              <li><a id="mail" href="mailto:?subject=Check%20out%20this%20experience%20at%20Journeychurch.tv&body={site_url}watch/{url_title}"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <meta property="og:url" content="{site_url}watch/{url_title}" />
+  <meta property="og:type" content="video.episode" />
+  <meta property="og:title" content="{title} | {watch_study}{watch_study:title}{/watch_study}" />
+  <meta property="og:description" content="Watch the full experience online at journeychurch.tv/watch." />
+  <meta property="og:image" content="{watch_image}" />
 
   <script>
     window.fbAsyncInit = function() {
@@ -23,37 +48,66 @@
      }(document, 'script', 'facebook-jssdk'));
   </script>
 
-  <script type="text/javascript" src="/js/jquery-3.0.0.min.js"></script>
+  <script>
+  $("#share-facebook").click(function() {
+    FB.ui({
+      method: 'share',
+      mobile_iframe: true,
+      href: '{site_url}watch/{url_title}',
+    }, function(response){});
+  });
 
-  <section id="section-watch-player" class="section-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="vid-responsive">
-            <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
-          </div>
+  (function() {
+    if (window.__twitterIntentHandler) return;
+    var intentRegex = /twitter\.com\/intent\/(\w+)/,
+        windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes',
+        width = 550,
+        height = 420,
+        winHeight = screen.height,
+        winWidth = screen.width;
 
-          <div class="page-nav">
-            <ul>
-              <li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>
-              <li><a href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>
-              <li><a id="share-facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>
-              <li><a id="tweet" href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
-              <li><a id="mail" href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
-            </ul>
+    function handleIntent(e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement,
+          m, left, top;
 
-            <script>
-            $("#share-facebook").click(function() {
-              FB.ui({
-                method: 'share',
-                mobile_iframe: true,
-                href: 'http://journeychurch.dev/watch/{url_title}',
-              }, function(response){});
-            });
-            </script>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      while (target && target.nodeName.toLowerCase() !== 'a') {
+        target = target.parentNode;
+      }
+
+      if (target && target.nodeName.toLowerCase() === 'a' && target.href) {
+        m = target.href.match(intentRegex);
+        if (m) {
+          left = Math.round((winWidth / 2) - (width / 2));
+          top = 0;
+
+          if (winHeight > height) {
+            top = Math.round((winHeight / 2) - (height / 2));
+          }
+
+          window.open(target.href, 'intent', windowOptions + ',width=' + width +
+                                             ',height=' + height + ',left=' + left + ',top=' + top);
+          e.returnValue = false;
+          e.preventDefault && e.preventDefault();
+        }
+      }
+    }
+
+    if (document.addEventListener) {
+      document.addEventListener('click', handleIntent, false);
+    } else if (document.attachEvent) {
+      document.attachEvent('onclick', handleIntent);
+    }
+    window.__twitterIntentHandler = true;
+  }());
+
+  var url = 'https://twitter.com/intent/tweet?text=Watch the experience ';
+  var watchTitle = '"{title}"';
+  var tweetUrl = '&url={site_url}watch/{url_title}';
+  var social = '&via=journeychurchtv';
+
+  var tweet = encodeURI(url + watchTitle + tweetUrl + social + '');
+
+  $("#tweet").attr("href", tweet);
+  </script>
 {/exp:channel:entries}

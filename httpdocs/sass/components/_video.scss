@@ -51,6 +51,12 @@
 	}
 }
 
+.watch-player {
+	.vid-responsive {
+		border-bottom:1px solid $color-lighter;
+	}
+}
+
 @include media-sm {
 	.bg-video {
 		display:none;

@@ -3,12 +3,30 @@
 {embed="embed/page" id="158"}
 
 {if segment_2}
-  {if segment_2 == college}
-  <section class="section-skinny">
+
+  {if segment_2 == "college"}
+  <section id="section-studies" class="section-skinny">
     <div class="container">
       <div class="row">
-        {exp:channel:entries channel="Studies" dynamic="no" orderby="{watch_date}" sort="desc"}
-        <a href="/studies/{url_title}#section-watch-player">
+        {exp:channel:entries channel="Studies" dynamic="no" orderby="{study_start_date}" sort="desc" category="37"}
+          <div class="col-md-4 col-sm-6 pad-top pad-bottom">
+            <a href="/studies/{url_title}#section-studies">
+              <div class="thumb">
+                <div class="thumb-img"><img src="{study_image}" class="img-responsive"/></div>
+                <div class="caption">{title}</div>
+              </div>
+            </a>
+          </div>
+        {/exp:channel:entries}
+      </div>
+    </div>
+  </section>
+  {if:elseif segment_2 == "events"}
+  <section id="section-events" class="section-skinny">
+    <div class="container">
+      <div class="row">
+        {exp:channel:entries channel="Watch" dynamic="no" orderby="{watch_date}" sort="desc" category="32"}
+        <a href="/watch/{url_title}#section-watch-player">
           <div class="col-md-4 col-sm-6 pad-top pad-bottom">
             <div class="thumb">
               <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
@@ -20,17 +38,44 @@
       </div>
     </div>
   </section>
+  {if:elseif segment_2 == "stories"}
+  <section id="section-stories" class="section-skinny">
+    <div class="container">
+      <div class="row">
+        {exp:channel:entries channel="Watch" dynamic="no" orderby="{watch_date}" sort="desc" category="33"}
+        <a href="/watch/{url_title}#section-watch-player">
+          <div class="col-md-4 col-sm-6 pad-top pad-bottom">
+            <div class="thumb">
+              <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+              <div class="caption">{title}</div>
+            </div>
+          </div>
+        </a>
+        {/exp:channel:entries}
+      </div>
+    </div>
+  </section>
+  {if:else}
+    {embed="embed/watch-player"}
+
+    {exp:channel:entries channel="Watch" url_title="{segment_2}" category="34|31"}
+      {embed="embed/watch-others" disclude="{url_title}" study="{watch_study}{watch_study:url_title}{/watch_study}"}
+    {/exp:channel:entries}
   {/if}
-
-  {embed="embed/watch-player"}
-
-  {exp:channel:entries channel="Watch" url_title="{segment_2}"}
-    {embed="embed/watch-others" disclude="{url_title}" study="{watch_study}{watch_study:url_title}{/watch_study}"}
-  {/exp:channel:entries}
 
 {if:else}
 
   {embed="embed/watch-player" category="34"}
+
+  <script>
+  $("#share-facebook").click(function() {
+    FB.ui({
+      method: 'share',
+      mobile_iframe: true,
+      href: 'http://journeychurch.dev/watch/exodus-1',
+    }, function(response){});
+  });
+  </script>
 
   <div class="container">
     <hr>
@@ -39,56 +84,61 @@
   <section id="section-watch-categories" class="section-skinny">
     <div class="container">
       <div class="row">
-        <a href="/studies#section-studies">
-          <div class="col-sm-6 pad-top pad-bottom">
+        <div class="col-sm-6 pad-top pad-bottom">
+          <a href="/studies#section-studies">
             <div class="thumb">
-              {exp:channel:entries channel="Studies" limit="1"}
+              {exp:channel:entries channel="Studies" limit="1" category="36"}
                 <div class="thumb-img"><img src="{study_image}" class="img-responsive"/></div>
               {/exp:channel:entries}
                 <div class="caption"><h4 class="font-extra-light">Studies</h4></div>
               <div class="clearfix"></div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
 
-        <a href="/watch/college">
-          <div class="col-sm-6 pad-top pad-bottom">
+        <div class="col-sm-6 pad-top pad-bottom">
+          <a href="/watch/college#section-studies">
             <div class="thumb">
-              {exp:channel:entries channel="Watch" limit="1" category="31"}
-                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+              {exp:channel:entries channel="Studies" limit="1" category="37"}
+                <div class="thumb-img"><img src="{study_image}" class="img-responsive"/></div>
               {/exp:channel:entries}
                 <div class="caption"><h4 class="font-extra-light">College</h4></div>
               <div class="clearfix"></div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
 
-        <a href="/watch/events">
-          <div class="col-sm-6 pad-top pad-bottom">
-            <div class="thumb">
-              {exp:channel:entries channel="Watch" limit="1" category="32"}
-                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
-              {/exp:channel:entries}
-                <div class="caption"><h4 class="font-extra-light">Events</h4></div>
-              <div class="clearfix"></div>
+        <div class="pad-top pad-bottom">
+          <a href="/watch/events#section-events">
+            <div class="col-sm-6">
+              <div class="thumb">
+                {exp:channel:entries channel="Watch" limit="1" category="32"}
+                  <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+                {/exp:channel:entries}
+                  <div class="caption"><h4 class="font-extra-light">Events</h4></div>
+                <div class="clearfix"></div>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
 
-        <a href="/watch/stories">
-          <div class="col-sm-6 pad-top pad-bottom">
-            <div class="thumb">
-              {exp:channel:entries channel="Watch" limit="1" category="33"}
-                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
-              {/exp:channel:entries}
-                <div class="caption"><h4 class="font-extra-light">Stories</h4></div>
-              <div class="clearfix"></div>
+        <div class="pad-top pad-bottom">
+          <a href="/watch/stories#section-stories">
+            <div class="col-sm-6">
+              <div class="thumb">
+                {exp:channel:entries channel="Watch" limit="1" category="33"}
+                  <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+                {/exp:channel:entries}
+                  <div class="caption"><h4 class="font-extra-light">Stories</h4></div>
+                <div class="clearfix"></div>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   </section>
+
 {/if}
 
 {embed="embed/footer"}
