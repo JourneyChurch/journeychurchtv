@@ -8,7 +8,7 @@
   <section id="section-studies" class="section-skinny">
     <div class="container">
       <div class="row">
-        {exp:channel:entries channel="Studies" dynamic="no" orderby="{study_start_date}" sort="desc" category="37"}
+        {exp:channel:entries channel="Studies" dynamic="no" orderby="study_start_date" sort="desc" category="37"}
           <div class="col-md-4 col-sm-6 pad-top pad-bottom">
             <a href="/studies/{url_title}#section-studies">
               <div class="thumb">
@@ -25,15 +25,15 @@
   <section id="section-events" class="section-skinny">
     <div class="container">
       <div class="row">
-        {exp:channel:entries channel="Watch" dynamic="no" orderby="{watch_date}" sort="desc" category="32"}
-        <a href="/watch/{url_title}#section-watch-player">
+        {exp:channel:entries channel="Watch" dynamic="no" orderby="watch_date" sort="desc" category="32"}
           <div class="col-md-4 col-sm-6 pad-top pad-bottom">
-            <div class="thumb">
-              <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
-              <div class="caption">{title}</div>
-            </div>
+            <a href="/watch/{url_title}#section-watch-player">
+              <div class="thumb">
+                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+                <div class="caption">{title}</div>
+              </div>
+            </a>
           </div>
-        </a>
         {/exp:channel:entries}
       </div>
     </div>
@@ -42,15 +42,15 @@
   <section id="section-stories" class="section-skinny">
     <div class="container">
       <div class="row">
-        {exp:channel:entries channel="Watch" dynamic="no" orderby="{watch_date}" sort="desc" category="33"}
-        <a href="/watch/{url_title}#section-watch-player">
+        {exp:channel:entries channel="Watch" dynamic="no" orderby="watch_date" sort="desc" category="33"}
           <div class="col-md-4 col-sm-6 pad-top pad-bottom">
-            <div class="thumb">
-              <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
-              <div class="caption">{title}</div>
-            </div>
+            <a href="/watch/{url_title}#section-watch-player">
+              <div class="thumb">
+                <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
+                <div class="caption">{title}</div>
+              </div>
+            </a>
           </div>
-        </a>
         {/exp:channel:entries}
       </div>
     </div>

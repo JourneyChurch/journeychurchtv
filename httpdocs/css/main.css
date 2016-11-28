@@ -6321,7 +6321,7 @@ hr {
 /* Cover */
 .cover, .cover-partial {
   height: calc(100vh - 55px) !important;
-  min-height: 500px;
+  min-height: 450px;
   display: table !important;
   width: 100%;
   height: 100%; }
@@ -6331,7 +6331,7 @@ hr {
     text-align: center; }
 
 .cover-partial {
-  height: 500px !important; }
+  height: 450px !important; }
 
 .cover-caption {
   position: relative;
@@ -6348,7 +6348,7 @@ hr {
     vertical-align: middle; }
 
 .no-cssvhunit .cover, .no-cssvhunit .cover-partial {
-  height: 500px; }
+  height: 450px; }
 
 /* Buttons */
 .btn-default, .btn-fade, .btn-dark {
