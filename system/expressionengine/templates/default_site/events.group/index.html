@@ -1,0 +1,29 @@
+{embed="embed/header"}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="facebook"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+  $.ajax({
+    url: "/php/events/getEvents.php",
+    success: function(result) {
+      var events = JSON.parse(result).data;
+      $.each(events, function(index, e) {
+        $("#facebook").append("<div class='col-sm-12'><img src='" + e.cover.source.replace("\/", "") + "' class='img-responsive' /><h1>" + e.name + "</h1><br>" + e.description + "</div>");
+      });
+      console.log(result);
+    },
+    error: function(e) {
+      alert(e);
+    }
+  });
+</script>
+
+{embed="embed/footer"}

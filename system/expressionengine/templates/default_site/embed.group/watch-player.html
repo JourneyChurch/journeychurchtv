@@ -5,12 +5,24 @@
   <section id="section-watch-player" class="section-page">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 watch-player">
-          <div class="vid-responsive">
-            <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
+        <div class="watch-player">
+          <div class="vid-wrapper col-lg-8 col-md-7">
+            <div class="vid-responsive">
+              <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="page-nav">
+              <ul>
+                {if watch_notes}<li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
+                {if watch_podcast_url}<li><a target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
+                <li><a id="share-facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>{/if}
+                <li><a id="tweet"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
+                <li><a id="mail" href="mailto:?subject=Check%20out%20this%20experience%20at%20Journeychurch.tv&body={site_url}watch/{url_title}"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
+              </ul>
+            </div>
           </div>
 
-          <div class="page-nav">
+          <div class="sidebar col-lg-4 col-md-5">
             <ul>
               {if watch_notes}<li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
               {if watch_podcast_url}<li><a target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
@@ -19,6 +31,7 @@
               <li><a id="mail" href="mailto:?subject=Check%20out%20this%20experience%20at%20Journeychurch.tv&body={site_url}watch/{url_title}"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
             </ul>
           </div>
+          <div class="clearfix"></div>
         </div>
       </div>
     </div>

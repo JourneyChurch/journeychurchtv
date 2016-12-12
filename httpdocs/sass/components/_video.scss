@@ -52,13 +52,39 @@
 }
 
 .watch-player {
+	/*.vid-wrapper {
+		padding-right:0;
+	}*/
+
 	.vid-responsive {
 		border-bottom:1px solid $color-lighter;
+	}
+
+	/*.page-nav {
+		display:none !important;
+	}
+
+	.sidebar {
+		padding-left:0;
+	}*/
+}
+
+@include media-md {
+	.watch-player {
+		.page-nav {
+			display:block;
+		}
 	}
 }
 
 @include media-sm {
 	.bg-video {
 		display:none;
+	}
+
+	.watch-player {
+		.vid-wrapper {
+			padding-right:30px;
+		}
 	}
 }
