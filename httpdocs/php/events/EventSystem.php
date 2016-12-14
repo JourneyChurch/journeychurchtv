@@ -25,5 +25,12 @@ class EventSystem {
 
     echo($events);
   }
+
+  public function getEvent($id) {
+    $this->getAccessToken();
+    $event = file_get_contents("https://graph.facebook.com/v2.8/" . $id . "/?" . $this->accessToken . "&fields=id,attending_count,cover,description,end_time,name,place,start_time");
+
+    echo($event);
+  }
 }
 ?>
