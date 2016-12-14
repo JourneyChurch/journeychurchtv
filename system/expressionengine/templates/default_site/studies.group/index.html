@@ -8,25 +8,26 @@
     {exp:channel:entries channel="Watch" dynamic="no" orderby="watch_date" sort="desc" limit="1" category="34"}
       {redirect="studies/{watch_study}{watch_study:url_title}{/watch_study}#section-studies"}
     {/exp:channel:entries}
-  {/if}
-  <section id="section-studies" class="section-skinny">
-    <div class="container">
-      <div class="row">
-      {exp:channel:entries channel="Watch" dynamic="no" orderby="watch_date" sort="desc"}
-        {if "{watch_study}{watch_study:url_title}{/watch_study}" == "{segment_2}"}
-        <div class="col-md-4 col-sm-6 pad-top pad-bottom">
-          <a href="/watch/{url_title}#section-watch-player">
-            <div class="thumb">
-              <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
-              <div class="caption">{title}</div>
-            </div>
-          </a>
+  {if:else}
+    <section id="section-studies" class="section-skinny">
+      <div class="container">
+        <div class="row">
+          {exp:channel:entries channel="Studies" url_title="{segment_2}"}
+            {parents field="watch_study"}
+              <div class="col-md-4 col-sm-6 pad-top pad-bottom">
+                <a href="/watch/{parents:url_title}#section-watch-player">
+                  <div class="thumb">
+                    <div class="thumb-img"><img src="{parents:watch_image}" class="img-responsive"/></div>
+                    <div class="caption">{parents:title}</div>
+                  </div>
+                </a>
+              </div>
+            {/parents}
+          {/exp:channel:entries}
         </div>
-        {/if}
-      {/exp:channel:entries}
       </div>
-    </div>
-  </section>
+    </section>
+  {/if}
 {if:else}
   <section id="section-studies" class="section-skinny">
     <div class="container">
