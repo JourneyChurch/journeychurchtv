@@ -6,7 +6,10 @@
   font-size:0.9em;
   padding:50px 0;
   .col-footer {
-    height:50px;
+    height:35px;
+  }
+  #help-button {
+    margin-top:25px;
   }
   p {
     margin:0;
@@ -33,14 +36,12 @@
 
 @include media-sm {
   #footer {
-    font-size:1em;
-  }
-}
-
-@include media-xs {
-  #footer {
     .col-footer {
       height:30px;
+    }
+
+    #help-button {
+      margin-top:0;
     }
   }
 }

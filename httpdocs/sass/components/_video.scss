@@ -23,6 +23,7 @@
 	overflow:hidden;
 	z-index:0;
 	min-height:500px;
+	display:none;
 	video {
 		position:absolute;
 		top:0;
@@ -69,6 +70,14 @@
 	}*/
 }
 
+@include media-sm {
+	.watch-player {
+		.vid-wrapper {
+			padding-right:30px;
+		}
+	}
+}
+
 @include media-md {
 	.watch-player {
 		.page-nav {
@@ -77,14 +86,8 @@
 	}
 }
 
-@include media-sm {
+@include media-lg {
 	.bg-video {
-		display:none;
-	}
-
-	.watch-player {
-		.vid-wrapper {
-			padding-right:30px;
-		}
+		display:block;
 	}
 }

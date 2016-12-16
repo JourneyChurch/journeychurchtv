@@ -1,17 +1,19 @@
 /* Main Nav */
 .nav {
+  width:100%;
+  height:100%;
   background-color:rgba(0, 0, 0, 0.85);
   position:fixed;
   top:0px;
   right:0px;
   z-index:1000;
   display:none;
-  height:100%;
-  width:275px;
   overflow-y:scroll;
   .nav-links-wrapper {
-    padding-top:100px;
-    padding-left:23px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    padding:0;
     ul {
       li {
         a {
@@ -47,6 +49,27 @@
           }
         }
       }
+    }
+    .nav-links {
+      @include vertical-align;
+    }
+  }
+}
+
+@include media-xs-only {
+  .nav {
+    .nav-links-wrapper {
+        @include vertical-align-wrapper;
+    }
+  }
+}
+
+@include media-sm {
+  .nav {
+    width:275px;
+    .nav-links-wrapper {
+      padding-top:100px;
+      padding-left:23px;
     }
   }
 }
@@ -147,23 +170,6 @@
         &:active, &:hover, &:focus {
           color: $color-regular;
         }
-      }
-    }
-  }
-}
-
-@include media-xs {
-  .nav {
-    width:100%;
-    height:100%;
-    .nav-links-wrapper {
-      width:100%;
-      height:100%;
-      @include vertical-align-wrapper;
-      text-align:center;
-      padding:0;
-      .nav-links {
-        @include vertical-align;
       }
     }
   }

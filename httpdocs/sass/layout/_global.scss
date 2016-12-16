@@ -3,7 +3,7 @@
 body {
   @include font-book;
   background-color: $background-color;
-  font-size:14px;
+  font-size:11px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,6 +83,11 @@ hr {
   width:100%;
   border:0;
   margin:0;
+}
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  padding-top:15px;
+  padding-bottom:15px;
 }
 
 .bg-img {
@@ -243,6 +248,7 @@ hr {
     padding-top:15px;
     padding-bottom:15px;
   }
+  
   .no-gutter {
     padding-left:30px;
     padding-right:30px;
@@ -262,13 +268,8 @@ hr {
   }
 }
 
-@include media-xs {
+@include media-md {
   body {
-    font-size:11px;
-  }
-
-  .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
-    padding-top:15px;
-    padding-bottom:15px;
+    font-size:13px;
   }
 }

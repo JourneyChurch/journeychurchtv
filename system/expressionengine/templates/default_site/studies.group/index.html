@@ -13,7 +13,7 @@
       <div class="container">
         <div class="row">
           {exp:channel:entries channel="Studies" url_title="{segment_2}"}
-            {parents field="watch_study"}
+            {parents field="watch_study" dynamic="no" orderby="watch_date" sort="desc"}
               <div class="col-md-4 col-sm-6 pad-top pad-bottom">
                 <a href="/watch/{parents:url_title}#section-watch-player">
                   <div class="thumb">
