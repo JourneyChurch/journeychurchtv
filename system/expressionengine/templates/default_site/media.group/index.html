@@ -17,9 +17,6 @@
 	{/if}
 {embed="_includes/header-closer" bar="yes"}
 
-<script type="text/javascript" src="/_js/jwplayer.js"></script>
-<script type="text/javascript">jwplayer.key="kF3pT55ll5YkHD+C2nHMxZzfw+b5tbjmUoRRYg==";</script>
-
 {if segment_2 == ""}
 	<div class="title-bar media-title">
 		<div class="container">
@@ -40,37 +37,14 @@
 			</div>
 			<div class="grid_7">
 				{if media-video}
-					<div class="videoWrapper">
-						<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='555' height='297' frameborder='0'></iframe>
-					</div>
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src='http://www.streammonkey.com/iframe/{media-video}' frameborder='0'></iframe>
+				</div>
 				{!-- YouTube --}
 				{if:elseif media-youtube && media-video == ""}
-				<div class="videoWrapper" style="max-width:650px!important">
-					<div id="vid{entry_id}">
-						<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
-					</div>
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}" frameborder="0" allowfullscreen></iframe>
 				</div>
-					<script type="text/javascript">
-						jwplayer("vid{entry_id}").setup({
-						    'autostart': 'false',
-							'height': '360px',
-						    'width': '100%',
-							'menu': 'false',
-							'aspectratio': '16:9',
-							'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
-							'image': '{media-series}{media-series:series-img}{/media-series}',
-							'abouttext': 'JourneyChurch.tv Media',
-							'aboutlink': 'http://journeychurch.tv/media',
-						    'plugins': {
-						    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
-						   	},
-						    'modes': [{
-						    	'type':'flash',
-						    	'src': '/_js/jwplayer.flash.swf'
-						    }]
-						});
-					</script>
-					<div class="clear"></div>
 				{/if}
 			</div>
 		{/exp:channel:entries}
@@ -153,41 +127,18 @@
 				{exp:channel:entries channel="Media" dynamic="on" limit="1"}
 					{!-- Stream Monkey --}
 					{if media-video}
-						<div class="videoWrapper">
-							<iframe src='http://www.streammonkey.com/iframe/{media-video}' width='640' height='360' frameborder='0'></iframe>
-						</div>
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src='http://www.streammonkey.com/iframe/{media-video}' frameborder='0'></iframe>
+					</div>
 					{!-- YouTube --}
 					{if:elseif media-youtube && media-video == ""}
-					<div class="videoWrapper" style="max-width:650px!important">
-						<div id="vid{entry_id}">
-							<iframe class="mobile-vid" type="text/html" height="360" width="638" src="http://www.youtube.com/embed/{media-youtube}" frameborder="0"></iframe>
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}" frameborder="0" allowfullscreen></iframe>
 						</div>
-					</div>
-						<script type="text/javascript">
-							jwplayer("vid{entry_id}").setup({
-							    'autostart': 'false',
-								'height': '360px',
-							    'width': '100%',
-								'menu': 'false',
-								'aspectratio': '16:9',
-								'file': 'http://www.youtube.com/watch?v={media-youtube}?hd=1',
-								'image': '{media-series}{media-series:series-img}{/media-series}',
-								'abouttext': 'JourneyChurch.tv Media',
-								'aboutlink': 'http://journeychurch.tv/media',
-							    'plugins': {
-							    	'gapro-2':{ accountid: "UA-23134458-1", trackstarts: true, trackpercentage: true, tracktime: true}
-							   	},
-							    'modes': [{
-							    	'type':'flash',
-							    	'src': '/_js/jwplayer.flash.swf'
-							    }]
-							});
-						</script>
-						<div class="clear"></div>
 					{!-- Vimeo --}
 					{if:elseif media-vimeo && media-youtube == "" && media-video == ""}
-						<div class="videoWrapper">
-							<iframe src="//player.vimeo.com/video/{media-vimeo}?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="//player.vimeo.com/video/{media-vimeo}?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 						</div>
 						<div class="clear"></div>
 					{/if}
