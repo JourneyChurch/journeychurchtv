@@ -1,7 +1,5 @@
 {exp:channel:entries channel="Watch" url_title="{segment_2}" {if embed:category}category="{embed:category}"{/if} orderby="watch_date" limit="1"}
 
-  <script type="text/javascript" src="/js/jquery-3.0.0.min.js"></script>
-
   <section id="section-watch-player" class="section-page">
     <div class="container">
       <div class="row">
@@ -13,10 +11,10 @@
 
             <div class="page-nav hidden-md hidden-lg">
               <ul>
-                {if watch_notes}<li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
-                {if watch_podcast_url}<li><a target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
-                <li><a id="share-facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>{/if}
-                <li><a id="tweet"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
+                {if watch_notes}<li><a id="notes-mobile" target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
+                {if watch_podcast_url}<li><a id="podcast-mobile" target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
+                <li><a id="share-facebook-mobile"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>{/if}
+                <li><a id="tweet-mobile"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
                 <li><a id="mail" href="mailto:?subject=Check%20out%20this%20experience%20at%20Journeychurch.tv&body={site_url}watch/{url_title}"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
               </ul>
             </div>
@@ -28,11 +26,20 @@
               <h4 class="date font-extra-light font-color-regular">{watch_date format="%F %j %Y"}</h4>
               <br>
               <ul>
-                {if watch_notes}<li><a target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
-                {if watch_podcast_url}<li><a target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
-                <li><a id="share-facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>{/if}
+                {if watch_notes}<li><a id="notes" target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
+                {if watch_podcast_url}<li><a id="podcast" target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
+                <li><a id="share-facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>
                 <li><a id="tweet"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
                 <li><a id="mail" href="mailto:?subject=Check%20out%20this%20experience%20at%20Journeychurch.tv&body={site_url}watch/{url_title}"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
+
+                <script>
+                  var podcast = "{watch_podcast_url}";
+
+                  if (!(podcast.includes(".mp3"))) {
+                    podcast = podcast + ".mp3";
+                    $("#podcast, #podcast-mobile").attr("href", podcast);
+                  }
+                </script>
               </ul>
             </div>
           </div>
@@ -50,25 +57,25 @@
   <meta property="og:image" content="{watch_image}" />
 
   <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '582098011969883',
-        xfbml      : true,
-        version    : 'v2.7'
-      });
-    };
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '582098011969883',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 
-  <script>
-  $("#share-facebook").click(function() {
+  $("#share-facebook, #share-facebook-mobile").click(function(e) {
+    e.preventDefault();
+
     FB.ui({
       method: 'share',
       mobile_iframe: true,
@@ -120,13 +127,16 @@
     window.__twitterIntentHandler = true;
   }());
 
-  var url = 'https://twitter.com/intent/tweet?text=Watch the experience ';
-  var watchTitle = '"{title}"';
+  var url = 'https://twitter.com/intent/tweet?text=';
+  var watchTitle = 'Watch the experience "{title}"';
   var tweetUrl = '&url={site_url}watch/{url_title}';
   var social = '&via=journeychurchtv';
 
-  var tweet = encodeURI(url + watchTitle + tweetUrl + social + '');
+  var encoded = encodeURI(watchTitle + tweetUrl + social + '');
+  encoded = encoded.replace("&#8217;", "%27");
 
-  $("#tweet").attr("href", tweet);
+  var tweet = url + encoded;
+
+  $("#tweet, #tweet-mobile").attr("href", tweet);
   </script>
 {/exp:channel:entries}
