@@ -151,7 +151,7 @@
 					{if media-desc}<p>{media-desc}</p><br>{/if}
 					{if media-speaker}<p><strong>Speaker:</strong> {media-speaker}</p>{/if}
 					{if media-date}<p><strong>Date:</strong> {media-date format="%F %j, %Y"}</p><br>{/if}
-					{if media-podcast}<a href="{media-podcast}" download="{title}" target="_blank" style="float:left"><button style="margin-left:0;background-color:{media-series:series-color}"><i class="fa fa-headphones"></i> Download Audio</button></a>{/if}
+					{if media-podcast}<a id="podcast" href="{media-podcast}" download="{title}" target="_blank" style="float:left"><button style="margin-left:0;background-color:{media-series:series-color}"><i class="fa fa-headphones"></i> Download Audio</button></a>{/if}
 					{categories}{if category_id=="9"}<a href="https://itunes.apple.com/us/podcast/journeychurch.tv-podcast/id445862036?mt=2" target="_blank" style="float:left"><button style="margin-left:0;background-color:{media-series:series-color}"><i class="fa fa-rss"></i> Subscribe</button></a>{/if}{/categories}
 					<div class="media-desc-btm">
 						<div class="clear"></div>
@@ -160,6 +160,17 @@
 						<span class='st_twitter_hcount' st_title='Just watched "{title}" from @JourneyChurchtv:' displayText='Tweet'></span>
 					</div>
 				</div>
+
+				<script>
+					var podcast = "{media-podcast}";
+
+					if (!(podcast.includes(".mp3"))) {
+						podcast = podcast + ".mp3";
+
+						document.getElementById("podcast").href = podcast;
+					}
+				</script>
+
 				<div class="clear"></div>
 			{/exp:channel:entries}
 		</div>
