@@ -20,7 +20,7 @@
           display:inline-block;
           padding:8px;
           color: $color-lightest;
-          font-size:12px;
+          font-size:1em;
           @include font-block-book;
           @include transition(color 0.2s ease-in);
           &:active, &:hover, &:focus {
@@ -45,7 +45,7 @@
             margin-right:0;
           }
           a {
-            font-size:18px;
+            font-size:1.3em;
           }
         }
       }
@@ -68,7 +68,8 @@
   .nav {
     width:275px;
     .nav-links-wrapper {
-      padding-top:100px;
+      text-align:left;
+      padding-top:110px;
       padding-left:23px;
     }
   }
@@ -136,9 +137,9 @@
       display:inline-block;
       margin:0 3px;
       a {
-        padding:22px 15px;
+        padding:22px 1.1em;
         color: $color-regular;
-        font-size:12px;
+        font-size:0.9em;
         @include font-block-medium;
         @include transition(color 0.2s ease-in);
         &:active, &:hover, &:focus {

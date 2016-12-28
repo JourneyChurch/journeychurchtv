@@ -58,7 +58,7 @@
   {if:else}
     {embed="embed/watch-player"}
 
-    {exp:channel:entries channel="Watch" url_title="{segment_2}" category="34|31"}
+    {exp:channel:entries channel="Watch" url_title="{segment_2}" category="34|31" dynamic="no"}
       {embed="embed/watch-others" disclude="{url_title}" study="{watch_study}{watch_study:url_title}{/watch_study}"}
     {/exp:channel:entries}
   {/if}
@@ -87,7 +87,7 @@
         <div class="col-sm-6 pad-top pad-bottom">
           <a href="/studies#section-studies">
             <div class="thumb">
-              {exp:channel:entries channel="Studies" limit="1" category="36"}
+              {exp:channel:entries channel="Studies" limit="1" category="36" orderby="study_start_date" sort="desc"}
                 <div class="thumb-img"><img src="{study_image}" class="img-responsive"/></div>
               {/exp:channel:entries}
                 <div class="caption"><h4 class="font-extra-light">Studies</h4></div>
@@ -99,7 +99,7 @@
         <div class="col-sm-6 pad-top pad-bottom">
           <a href="/watch/college#section-studies">
             <div class="thumb">
-              {exp:channel:entries channel="Studies" limit="1" category="37"}
+              {exp:channel:entries channel="Studies" limit="1" category="37" orderby="study_start_date" sort="desc"}
                 <div class="thumb-img"><img src="{study_image}" class="img-responsive"/></div>
               {/exp:channel:entries}
                 <div class="caption"><h4 class="font-extra-light">College</h4></div>
@@ -111,7 +111,7 @@
         <div class="col-sm-6 pad-top pad-bottom">
           <a href="/watch/events#section-events">
             <div class="thumb">
-              {exp:channel:entries channel="Watch" limit="1" category="32"}
+              {exp:channel:entries channel="Watch" limit="1" category="32" orderby="watch_date" sort="desc"}
                 <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
               {/exp:channel:entries}
                 <div class="caption"><h4 class="font-extra-light">Events</h4></div>
@@ -123,7 +123,7 @@
         <div class="col-sm-6 pad-top pad-bottom">
           <a href="/watch/stories#section-stories">
             <div class="thumb">
-              {exp:channel:entries channel="Watch" limit="1" category="33"}
+              {exp:channel:entries channel="Watch" limit="1" category="33" orderby="watch_date" sort="desc"}
                 <div class="thumb-img"><img src="{watch_image}" class="img-responsive"/></div>
               {/exp:channel:entries}
                 <div class="caption"><h4 class="font-extra-light">Stories</h4></div>

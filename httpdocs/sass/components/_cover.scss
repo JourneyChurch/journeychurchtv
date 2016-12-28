@@ -6,6 +6,9 @@
   .inner {
     @include vertical-align;
     text-align:center;
+    .btn {
+      margin-top:0.8em;
+    }
   }
 }
 

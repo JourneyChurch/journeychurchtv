@@ -85,9 +85,11 @@ hr {
   margin:0;
 }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
-  padding-top:15px;
-  padding-bottom:15px;
+@for $i from 1 through 12 {
+  .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i} {
+    padding-top:5px;
+    padding-bottom:5px;
+  }
 }
 
 .bg-img {
@@ -188,6 +190,17 @@ hr {
   @include vertical-align;
 }
 
+.pad-top {
+  padding-top:0px !important;
+}
+
+.pad-bottom {
+  padding-bottom:30px !important;
+  &:last-child {
+    padding-bottom:0px !important;
+  }
+}
+
 .no-gutter {
   padding-left:0;
   padding-right:0;
@@ -201,14 +214,6 @@ hr {
   padding-right:0;
 }
 
-.pad-top {
-  padding-top:30px;
-}
-
-.pad-bottom {
-  padding-bottom:30px;
-}
-
 .two-column-mobile-wrapper {
   padding:0 15px;
 
@@ -220,12 +225,13 @@ hr {
 }
 
 .content-left {
-  padding-right:75px;
-  border-right:3px solid #E9E9E9;
+  padding-right:30px;
+  border:0;
 }
 
 .content-right {
-  padding-left:75px;
+  padding-left:30px;
+  display:none;
 }
 
 .pointer {
@@ -239,37 +245,49 @@ hr {
   background-color:$color-lightest;
 }
 
+.no-gutter {
+  padding-left:30px;
+  padding-right:30px;
+}
+
 @include media-sm {
   body {
     font-size:12px;
   }
 
-  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
-    padding-top:15px;
-    padding-bottom:15px;
-  }
-  
-  .no-gutter {
-    padding-left:30px;
-    padding-right:30px;
-  }
-
-  .content-left {
-    padding-right:30px;
-    border:0;
-  }
-
-  .content-right {
-    padding-left:30px;
-  }
-
-  .content-img {
-    display:none;
+  @for $i from 1 through 12 {
+    .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i} {
+      padding-top:0;
+      padding-bottom:0;
+    }
   }
 }
 
 @include media-md {
   body {
     font-size:13px;
+  }
+
+  .content-left {
+    padding-right:75px;
+    border-right:3px solid #E9E9E9;
+  }
+
+  .content-right {
+    padding-left:75px;
+    display:block;
+  }
+
+  .no-gutter {
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .pad-top {
+    padding-top:30px !important;
+  }
+
+  .pad-bottom {
+    padding-bottom:30px !important;
   }
 }

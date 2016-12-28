@@ -52,42 +52,32 @@
 	}
 }
 
-.watch-player {
-	/*.vid-wrapper {
-		padding-right:0;
-	}*/
-
-	.vid-responsive {
-		border-bottom:1px solid $color-lighter;
-	}
-
-	/*.page-nav {
-		display:none !important;
-	}
-
-	.sidebar {
-		padding-left:0;
-	}*/
-}
-
-@include media-sm {
-	.watch-player {
-		.vid-wrapper {
-			padding-right:30px;
-		}
-	}
-}
-
 @include media-md {
 	.watch-player {
-		.page-nav {
-			display:block;
+		position:relative;
+		.vid-wrapper {
+			padding-right:0;
+		}
+		.sidebar {
+			position: absolute;
+			left: 58.33333%;
+			top: 0;
+			height: 100%;
+			.inner {
+				background-color: $color-lightest;
+				height: 100%;
+				padding:25px 30px;
+				overflow-y:scroll;
+				ul {
+					li {
+						margin-bottom:5px;
+					}
+				}
+			}
 		}
 	}
 }
 
 @include media-lg {
-	.bg-video {
-		display:block;
-	}
+
 }
