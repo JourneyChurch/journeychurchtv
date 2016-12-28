@@ -40,8 +40,8 @@
 		{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
 			<div class="container">
 				<div class="grid_12">
-					<a href="/devos/{url_title}"><strong>{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Read Today's Daily Devotional{if:else}Daily Devotional{/if} |</strong> {entry_date format="%F %j"} - {title} {if devos-author}by {devos-author}{/if}</a>
-					<a id="bible-in-a-year" href="/_doc/Bible_in_a_Year_Web.pdf">Bible in a Year</a>
+					<a href="/devos/{url_title}"><strong>{if {current_time format="%Y%m%d"} == {entry_date format="%Y%m%d"}}Read Today's Devotional{if:else}Devotional{/if} |</strong> {entry_date format="%F %j"} - {title} {if devos-author}by {devos-author}{/if}</a>
+					{if {current_time format="%Y"} < 2017}<a id="bible-in-a-year" href="/_doc/Bible_in_a_Year_Web.pdf">Bible in a Year</a>{/if}
 				</div>
 			</div>
 			<div class="clear"></div>
