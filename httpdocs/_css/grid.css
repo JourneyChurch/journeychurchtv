@@ -13,9 +13,9 @@ Licensed under GPL and MIT
 /* =============================================================================
    Base 966px Grid
    ========================================================================== */
-   
+
 	body {min-width: 996px;}
-	
+
 	.pull-right {
 		float:right;
 	}
@@ -108,7 +108,7 @@ Licensed under GPL and MIT
 	.container .suffix_11 {padding-left: 913px;-moz-padding-start: 913px;-webkit-padding-start: 913px;}
 
 	/* Push Space */
-	.container .push_1 {left: 10px;}
+	.container .push_1 {left: 83px;}
 	.container .push_2 {left: 166px;}
 	.container .push_3 {left: 249px;}
 	.container .push_4 {left: 332px;}
@@ -141,14 +141,14 @@ Licensed under GPL and MIT
 /* =============================================================================
    Less than 768px
    ========================================================================== */
-   
+
 @media only screen and (max-width: 767px) {
-	
+
 	body{min-width:0;}
-	
+
 	/* Container */
 	.container { margin:0 auto; width:92%; overflow:hidden; }
-	
+
 	/* Global */
 	.container .grid_1,
 	.container .grid_2,
@@ -168,16 +168,16 @@ Licensed under GPL and MIT
 		margin-left: 0;
 		margin-right: 0;
 		display:inline-block;
-		
+
 		/* IE 6&7 */
 		zoom:1;
 		*display:inline;
 	}
-	
+
 	.sub-title {
 		margin-left: 0!important;
 	}
-	
+
 	/* Nested children need no padding */
 	.grid_1  .grid_1,
 	.grid_2  .grid_1, .grid_2  .grid_2,
@@ -196,11 +196,11 @@ Licensed under GPL and MIT
 		-webkit-padding-start: 0px;
 		padding-right: 0px;
 	}
-	
+
 	.container .push_1, .container .push_2,
-	.container .push_3, .container .push_4, 
+	.container .push_3, .container .push_4,
 	.container .push_5, .container .push_6,
-	.container .push_7, .container .push_8, 
+	.container .push_7, .container .push_8,
 	.container .push_9, .container .push_10,
 	.container .push_11	{
 		left: 0;
