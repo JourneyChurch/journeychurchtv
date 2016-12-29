@@ -503,7 +503,6 @@ ul.side-nav {
 
 	.blog-entry {
 		padding: 20px 0;
-		border-bottom: 1px solid #b2b4b1;
 	}
 		.blog-entry h2 {
 			font-family: 'aleoregular',Georgia,serif;
@@ -547,7 +546,8 @@ ul.side-nav {
 			padding-top: 0;
 		}
 	.blog-details {
-		margin-top: 10px;
+		padding-top: 15px;
+    border-top:1px solid #b2b4b1;
 	}
 
 	.blog-title {
