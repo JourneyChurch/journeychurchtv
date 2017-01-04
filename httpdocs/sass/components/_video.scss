@@ -76,6 +76,10 @@
 			}
 		}
 	}
+
+	.bg-video {
+		display:block !important;
+	}
 }
 
 @include media-lg {

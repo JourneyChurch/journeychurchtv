@@ -5,7 +5,7 @@
 {if segment_2}
 
   {if segment_2 == "current"}
-    {exp:channel:entries channel="Watch" dynamic="no" orderby="watch_date" sort="desc" limit="1" category="34"}
+    {exp:channel:entries channel="Watch" dynamic="no" orderby="date" sort="desc" limit="1" category="34"}
       {redirect="studies/{watch_study}{watch_study:url_title}{/watch_study}#section-studies"}
     {/exp:channel:entries}
   {if:else}
@@ -13,7 +13,7 @@
       <div class="container">
         <div class="row">
           {exp:channel:entries channel="Studies" url_title="{segment_2}"}
-            {parents field="watch_study" dynamic="no" orderby="watch_date" sort="desc"}
+            {parents field="watch_study" dynamic="no" orderby="date" sort="desc"}
               <div class="col-sm-6 col-lg-4 pad-top pad-bottom">
                 <a href="/watch/{parents:url_title}#section-watch-player">
                   <div class="thumb">
@@ -32,7 +32,7 @@
   <section id="section-studies" class="section-skinny">
     <div class="container">
       <div class="row">
-        {exp:channel:entries channel="Studies" dynamic="no" orderby="study_start_date" sort="desc" category="36"}
+        {exp:channel:entries channel="Studies" dynamic="no" orderby="date" sort="desc" category="36"}
         <div class="col-sm-6 col-lg-4 pad-top pad-bottom">
           <a href="/studies/{url_title}#section-studies">
             <div class="thumb">

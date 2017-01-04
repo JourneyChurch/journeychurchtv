@@ -6570,7 +6570,10 @@ hr {
         padding: 25px 30px;
         overflow-y: scroll; }
         .watch-player .sidebar .inner ul li {
-          margin-bottom: 5px; } }
+          margin-bottom: 5px; }
+
+  .bg-video {
+    display: block !important; } }
 .card {
   text-align: left;
   color: black !important; }
