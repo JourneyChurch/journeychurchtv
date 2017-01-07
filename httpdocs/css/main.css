@@ -6377,7 +6377,8 @@ hr {
       transform: rotateZ(-45deg) translateX(3px) translateY(-2.5px); }
 
 .page-nav, .share-nav {
-  background-color: white; }
+  background-color: white;
+  position: relative; }
   .page-nav ul, .share-nav ul {
     text-align: center;
     white-space: nowrap;
@@ -6385,12 +6386,16 @@ hr {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    padding: 20px 15px; }
+    height: 5em; }
     .page-nav ul li, .share-nav ul li {
       display: inline-block;
       margin: 0 3px; }
+      .page-nav ul li:first-child, .share-nav ul li:first-child {
+        padding-left: 15px; }
+      .page-nav ul li:last-child, .share-nav ul li:last-child {
+        padding-right: 15px; }
       .page-nav ul li a, .share-nav ul li a {
-        padding: 22px 1.1em;
+        padding: 1.1em;
         color: #B0B0B0;
         font-size: 0.9em;
         text-transform: uppercase;
@@ -6415,6 +6420,38 @@ hr {
           cursor: pointer; }
         .page-nav ul li a.active, .share-nav ul li a.active {
           color: black; }
+  .page-nav .nav-shadow-left, .share-nav .nav-shadow-left {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 30px;
+    height: 5em;
+    background: transparent;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, white, transparent);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, white, transparent);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, white, transparent);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, white, transparent);
+    /* Standard syntax */ }
+  .page-nav .nav-shadow-right, .share-nav .nav-shadow-right {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 30px;
+    height: 5em;
+    background: transparent;
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right, white, transparent);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, white, transparent);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, white, transparent);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, white, transparent);
+    /* Standard syntax */ }
 
 .share-nav {
   background-color: black; }

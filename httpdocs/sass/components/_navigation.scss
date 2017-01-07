@@ -125,6 +125,7 @@
 
 .page-nav {
   background-color: $color-lightest;
+  position:relative;
   ul {
     text-align:center;
     white-space: nowrap;
@@ -132,12 +133,18 @@
     overflow-y:hidden;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    padding:20px 15px;
+    height:5em;
     li {
       display:inline-block;
       margin:0 3px;
+      &:first-child {
+        padding-left:15px;
+      }
+      &:last-child {
+        padding-right:15px;
+      }
       a {
-        padding:22px 1.1em;
+        padding:1.1em;
         color: $color-regular;
         font-size:0.9em;
         @include font-block-medium;
@@ -155,6 +162,30 @@
         }
       }
     }
+  }
+  .nav-shadow-left {
+    position:absolute;
+    top:0;
+    left:0px;
+    width:30px;
+    height:5em;
+    background: transparent; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, $color-lightest, transparent); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, $color-lightest, transparent); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, $color-lightest, transparent); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, $color-lightest, transparent); /* Standard syntax */
+  }
+  .nav-shadow-right {
+    position:absolute;
+    top:0;
+    right:0px;
+    width:30px;
+    height:5em;
+    background: transparent; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right, $color-lightest, transparent); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, $color-lightest, transparent); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, $color-lightest, transparent); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, $color-lightest, transparent); /* Standard syntax */
   }
 }
 

@@ -1,5 +1,9 @@
 <ul>
-{exp:channel:entries channel="navigation_item" category="{embed:category}" dynamic="no" orderby="navigation_item_order" sort="asc"}
-  <li><a href="{navigation_item_link}" {if navigation_item_new_tab}target="_blank"{/if} {if "nav-{segment_1}-{last_segment}" == url_title}class="active"{/if}>{if navigation_item_display_name}{navigation_item_display_name}{if:else}{title}{/if}</a></li>
-{/exp:channel:entries}
+  <div class="vertical-align-wrapper">
+    <div class="vertical-align">
+    {exp:channel:entries channel="navigation_item" category="{embed:category}" dynamic="no" orderby="navigation_item_order" sort="asc"}
+      <li><a href="{navigation_item_link}" {if navigation_item_new_tab}target="_blank"{/if} {if "nav-{segment_1}-{last_segment}" == url_title}class="active"{/if}>{if navigation_item_display_name}{navigation_item_display_name}{if:else}{title}{/if}</a></li>
+    {/exp:channel:entries}
+    </div>
+  </div>
 </ul>
