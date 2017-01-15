@@ -1,0 +1,172 @@
+@media only screen and (min-width: 0px) {
+  body {
+    font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
+  }
+
+  section {
+    padding:50px 0;
+  }
+
+  p {
+    font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  .bg-img {
+    background-repeat:no-repeat;
+    background-position:center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .font-extra-light {
+    font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 200;
+  }
+
+  .font-light {
+    font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  .font-book {
+    font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .font-medium {
+    font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .font-bold {
+    font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .font-black {
+    font-family: "Gotham SSm 8r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 800;
+  }
+
+  .font-block {
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+  }
+
+  .btn-default {
+    background-color:transparent;
+    border-radius:0;
+    border:2px solid white;
+    color:white;
+    font-size:0.8em;
+  }
+
+  .btn-default:hover {
+    border-color:white;
+    background-color:white;
+    color:black;
+  }
+
+  .btn-default:active {
+    border-color:#e6e6e6;
+  }
+
+  .btn-default:active:focus {
+    background-color:#e6e6e6;
+    border-color:#e6e6e6;
+  }
+
+  .grayscale {
+    -webkit-filter: grayscale(100%);
+	  filter: grayscale(100%);
+  }
+
+  #cover {
+    padding:100px 0;
+  }
+
+  #about {
+    background-image:url("/_img/standup/about-2.jpg");
+    color:white;
+  }
+
+  #schedule {
+    background-color:#F3F3F3;
+  }
+
+  #tickets {
+    font-size:16px;
+  }
+
+  footer {
+    padding:50px 0;
+    background-color:black;
+  }
+
+  footer p {
+    color:white;
+    font-size:12px;
+    line-height:20px;
+  }
+
+  footer ul {
+    list-style-type:none;
+    padding:0;
+  }
+
+  footer ul li {
+    display:inline;
+    margin:0 5px;
+  }
+
+  footer ul li a {
+    font-size:22px;
+  }
+
+  footer a {
+    color:white;
+    opacity:0.6;
+    -moz-transition:opacity 0.25s ease-in;
+    -webkit-transition:opacity 0.25s ease-in;
+    -o-transition:opacity 0.25s ease-in;
+    transition:opacity 0.25s ease-in;
+  }
+
+  footer a:hover, footer a:focus {
+    opacity:1;
+    color:white;
+    -moz-transition:opacity 0.25s ease-in;
+    -webkit-transition:opacity 0.25s ease-in;
+    -o-transition:opacity 0.25s ease-in;
+    transition:opacity 0.25s ease-in;
+    text-decoration:none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+  section {
+    padding:100px 0;
+  }
+
+  .thumb {
+    float:right !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
