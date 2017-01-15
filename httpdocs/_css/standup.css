@@ -69,15 +69,27 @@
     border:2px solid white;
     color:white;
     font-size:0.8em;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in;
   }
 
   .btn-default:hover {
     border-color:white;
     background-color:white;
     color:black;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in;
   }
 
   .btn-default:active {
+    border-color:#e6e6e6;
+  }
+
+  .btn-default:focus {
     border-color:#e6e6e6;
   }
 
@@ -86,13 +98,54 @@
     border-color:#e6e6e6;
   }
 
+  .btn-default:active:hover {
+    border-color:#e6e6e6;
+  }
+
   .grayscale {
     -webkit-filter: grayscale(100%);
 	  filter: grayscale(100%);
   }
 
+  .scroll-down-container {
+    position:absolute;
+    bottom:0;
+    right:5%;
+  }
+
+  .scroll-down {
+    font-size:45px;
+    text-align:right;
+  }
+
+  .scroll-down i {
+    position:relative;
+    -webkit-animation:bounce 1s infinite;
+  }
+
+  @-webkit-keyframes bounce {
+    0%       { bottom:5px; }
+    25%, 75% { bottom:15px; }
+    50%      { bottom:20px; }
+    100%     {bottom:0;}
+  }
+
+  .scroll-down:hover {
+    cursor:pointer;
+  }
+
   #cover {
-    padding:100px 0;
+    padding:0;
+    height:100vh;
+    width:100%;
+    display:table;
+    position:relative;
+    min-height:600px;
+  }
+
+  #cover .inner {
+    display:table-cell;
+    vertical-align:middle;
   }
 
   #about {
@@ -154,7 +207,9 @@
 }
 
 @media only screen and (min-width: 768px) {
-
+  .scroll-down {
+    font-size:50px;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -162,8 +217,8 @@
     padding:100px 0;
   }
 
-  .thumb {
-    float:right !important;
+  .scroll-down {
+    font-size:65px;
   }
 }
 

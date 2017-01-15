@@ -23,12 +23,17 @@
 	</head>
 	<body>
 		<section id="cover">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<img src="/_img/standup/Splash_page_image.png" class="img-responsive">
+			<div class="inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<img src="/_img/standup/Splash_page_image.png" class="img-responsive">
+						</div>
 					</div>
 				</div>
+			</div>
+			<div class="scroll-down-container">
+				<div class="scroll-down"><i class="fa fa-angle-down"></i></div>
 			</div>
 		</section>
 
@@ -82,10 +87,10 @@
 						<br><br>
 					</div>
 					<div class="clearfix"></div>
-					<div class="col-md-4">
-			      <img src="/_img/standup/Eddie2016.jpg" class="img-responsive thumb grayscale">
+					<div class="col-md-3">
+			      <img src="/_img/standup/Eddie2016.jpg" class="img-responsive grayscale">
 					</div>
-					<div class="col-md-8">
+					<div class="col-md-9">
 						<div class="caption">
 			        <h3 class="font-bold font-block">Eddie Guerra</h3>
 			        <p>From Chalmette Louisiana Worked for Joyce Meyer Ministries Student Pastor for Healing Place Church for 10 years Married to Megan Guerra since 2007 2 kids Myla Melissa and Tallan Elijah We were never supposed to have kids. Love Hunting, college football (LSU), soccer and winning!</p>
@@ -93,10 +98,10 @@
 					</div>
 					<div class="clearfix"></div>
 					<br><br><br>
-					<div class="col-md-4">
-			      <img src="/_img/standup/jonathan.jpg" class="img-responsive thumb grayscale">
+					<div class="col-md-3">
+			      <img src="/_img/standup/jonathan.jpg" class="img-responsive grayscale">
 					</div>
-					<div class="col-md-8">
+					<div class="col-md-9">
 						<div class="caption">
 			        <h3 class="font-bold font-block">Jonathon Pena</h3>
 			        <p>Leads The Ezekiel Project, the youth ministry of Church on the Hill pastored by Pastors Adam and Jami McCain in Cedar Hill, Tx. The Ezekiel Project was planted in 2010 and has a strong influence in the public schools reaching hundreds of students per week on their campuses. Pastor Jonathan currently lives in Grand Prairie TX with his wife Mirna and their two kids Anaiah and Uzziah.</p>
@@ -211,5 +216,17 @@
 				</div>
 			</div>
 		</footer>
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+		<script>
+		$(document).ready(function() {
+			$(".scroll-down").click(function() {
+				$("body, html").animate({
+					scrollTop : $("#about").offset().top + "px"
+				});
+			});
+		});
+		</script>
 	</body>
 </html>
