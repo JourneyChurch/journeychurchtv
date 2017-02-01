@@ -1057,9 +1057,6 @@ h2.pastorclark span {
 	-webkit-transition: opacity 0.2s ease-in;
   transition: opacity 0.2s ease-in;
 }
-#devos-bar .fa {
-	font-size: 28px;
-}
 @media only screen and (max-width: 767px) {
 	#devos-bar .grid_12 {
 		border-bottom: none;
