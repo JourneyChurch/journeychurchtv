@@ -1,0 +1,280 @@
+@media only screen and (min-width: 0px) {
+  body {
+    font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
+    font-size:12px;
+  }
+
+  section {
+    padding:50px 0;
+  }
+
+  p {
+    font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  h2 {
+    font-size:1.6em;
+  }
+
+  .bg-img {
+    background-repeat:no-repeat;
+    background-position:center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .font-extra-light {
+    font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 200;
+  }
+
+  .font-light {
+    font-family: "Gotham SSm 3r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  .font-book {
+    font-family: "Gotham SSm 4r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .font-medium {
+    font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .font-bold {
+    font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .font-black {
+    font-family: "Gotham SSm 8r", "Gotham SSm A", "Gotham SSm B", 'Montserrat', Arial;
+    font-style: normal;
+    font-weight: 800;
+  }
+
+  .font-block {
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+  }
+
+  .btn-default {
+    border-color:#e6e6e6;
+    border-radius:0;
+    font-size:0.8em;
+    background-color: #e6e6e6;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+  }
+
+  .btn-default:hover {
+    color:white;
+    background-color:black;
+    border-color:black;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+  }
+
+  .btn-default:active {
+    color:white;
+    background-color:black;
+    border-color:black;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+  }
+
+  .btn-default:focus {
+    color:white;
+    background-color:black;
+    border-color:black;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+  }
+
+  .btn-default:active:focus {
+    color:white;
+    background-color:black;
+    border-color:black;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+  }
+
+  .btn-default:active:hover {
+    color:white;
+    background-color:black;
+    border-color:black;
+    -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
+  }
+
+  .scroll-down-container {
+    position:absolute;
+    bottom:0;
+    right:5%;
+  }
+
+  .scroll-down {
+    font-size:45px;
+    text-align:right;
+  }
+
+  .scroll-down i {
+    position:relative;
+    -webkit-animation:bounce 1s infinite;
+    color:white;
+  }
+
+  @-webkit-keyframes bounce {
+    0%       { bottom:5px; }
+    25%, 75% { bottom:15px; }
+    50%      { bottom:20px; }
+    100%     {bottom:0;}
+  }
+
+  .scroll-down:hover {
+    cursor:pointer;
+  }
+
+  #cover {
+    padding:0;
+    height:100vh;
+    width:100%;
+    display:table;
+    position:relative;
+    min-height:600px;
+    background-image:url("/_img/springretreat/Grass-1.jpg");
+  }
+
+  #cover .inner {
+    display:table-cell;
+    vertical-align:middle;
+  }
+
+  #about {
+
+  }
+
+  #speakers {
+    background-color:#F3F3F3;
+  }
+
+  #schedule {
+    background-image:url("/_img/springretreat/About.jpg");
+  }
+
+  #faqs {
+    background-image:url("/_img/springretreat/grass-2.jpg");
+  }
+
+  #faqs h2 {
+    color:white;
+  }
+
+  #faqs .wrapper {
+    background-color:white;
+    padding:3em;
+  }
+
+  footer {
+    padding:50px 0;
+    background-color:black;
+  }
+
+  footer p {
+    color:white;
+    font-size:12px;
+    line-height:20px;
+  }
+
+  footer ul {
+    list-style-type:none;
+    padding:0;
+  }
+
+  footer ul li {
+    display:inline;
+    margin:0 5px;
+  }
+
+  footer ul li a {
+    font-size:22px;
+  }
+
+  footer a {
+    color:white;
+    opacity:0.6;
+    -moz-transition:opacity 0.25s ease-in;
+    -webkit-transition:opacity 0.25s ease-in;
+    -o-transition:opacity 0.25s ease-in;
+    transition:opacity 0.25s ease-in;
+  }
+
+  footer a:hover, footer a:focus {
+    opacity:1;
+    color:white;
+    -moz-transition:opacity 0.25s ease-in;
+    -webkit-transition:opacity 0.25s ease-in;
+    -o-transition:opacity 0.25s ease-in;
+    transition:opacity 0.25s ease-in;
+    text-decoration:none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size:13px;
+  }
+
+  .scroll-down {
+    font-size:50px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body {
+    font-size:14px;
+  }
+
+  h2 {
+    font-size:1.8em;
+  }
+
+  section {
+    padding:100px 0;
+  }
+
+  .scroll-down {
+    font-size:65px;
+  }
+
+  #faqs .wrapper {
+    background-color:white;
+    padding:4em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
