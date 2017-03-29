@@ -43,7 +43,7 @@
 				{!-- YouTube --}
 				{if:elseif media-youtube && media-video == ""}
 				<div class="embed-responsive embed-responsive-16by9">
-					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}" frameborder="0" allowfullscreen></iframe>
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}?rel=0" frameborder="0" allowfullscreen></iframe>
 				</div>
 				{/if}
 			</div>
@@ -133,7 +133,7 @@
 					{!-- YouTube --}
 					{if:elseif media-youtube && media-video == ""}
 						<div class="embed-responsive embed-responsive-16by9">
-							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}" frameborder="0" allowfullscreen></iframe>
+							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{media-youtube}?rel=0" frameborder="0" allowfullscreen></iframe>
 						</div>
 					{!-- Vimeo --}
 					{if:elseif media-vimeo && media-youtube == "" && media-video == ""}
