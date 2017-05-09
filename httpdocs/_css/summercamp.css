@@ -86,9 +86,9 @@
   }
 
   .btn-default:hover {
-    color:white;
-    background-color:#124d66;
-    border-color:#124d66;
+    color:#124d66;
+    background-color:#c8e4e9;
+    border-color:#c8e4e9;
     -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
@@ -96,9 +96,9 @@
   }
 
   .btn-default:active {
-    color:white;
-    background-color:#124d66;
-    border-color:#124d66;
+    color:#124d66;
+    background-color:#c8e4e9;
+    border-color:#c8e4e9;
     -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
@@ -106,9 +106,9 @@
   }
 
   .btn-default:focus {
-    color:white;
-    background-color:#124d66;
-    border-color:#124d66;
+    color:#124d66;
+    background-color:#c8e4e9;
+    border-color:#c8e4e9;
     -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
@@ -116,9 +116,9 @@
   }
 
   .btn-default:active:focus {
-    color:white;
-    background-color:#124d66;
-    border-color:#124d66;
+    color:#124d66;
+    background-color:#c8e4e9;
+    border-color:#c8e4e9;
     -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
@@ -126,9 +126,9 @@
   }
 
   .btn-default:active:hover {
-    color:white;
-    background-color:#124d66;
-    border-color:#124d66;
+    color:#124d66;
+    background-color:#c8e4e9;
+    border-color:#c8e4e9;
     -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -o-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
     -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in, border-color 0.2s ease-in;
@@ -179,13 +179,8 @@
   }
 
   #about {
-    background-color:#c8e4e9;
+    background-color:white;
     color:#124d66;
-  }
-
-  #about img {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
   }
 
   #speakers {
