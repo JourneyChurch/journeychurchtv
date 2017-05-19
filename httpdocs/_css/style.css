@@ -696,17 +696,13 @@ ul.side-nav {
 		line-height:36px
 	}
 	.connections-imgs {
-		margin: 30px auto;
-	}
-		.connections-imgs img {
-			margin: auto 10px;
-		}
-		.connections-imgs img:first-child {
-			margin-left: 0;
-		}
-		.connections-imgs img:last-child {
-			margin-right: 0;
-		}
+    margin:30px 0;
+  }
+  @media only screen and (max-width: 768px) {
+    .connections-imgs .grid_5:first-child {
+      margin-bottom:30px;
+    }
+  }
 	.connections-social {
 		margin: 40px auto;
 	}
