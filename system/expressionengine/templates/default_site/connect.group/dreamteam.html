@@ -43,7 +43,7 @@
 				<div>
 					{faq-body}
 					<br>
-					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know you're interested.</a>
+					Interested in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know!</a>
 				</div>
 			{/exp:channel:entries}
 		</div>
@@ -62,7 +62,7 @@
 				<div>
 					{faq-body}
 					<br>
-					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know you're interested.</a>
+					Interested in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know!</a>
 				</div>
 			{/exp:channel:entries}
 		</div>
@@ -74,7 +74,30 @@
 				<div>
 					{faq-body}
 					<br>
-					Have an interest in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know you're interested.</a>
+					Interested in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know!</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+		<br><br>
+		<h2>Production</h2>
+		<div id="accordion4">
+			{exp:channel:entries channel="FAQ" category="91" orderby="date" sort="desc"}
+				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
+				<div>
+					{faq-body}
+					<br>
+					Interested in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know!</a>
+				</div>
+			{/exp:channel:entries}
+		</div>
+		<h2>Kids</h2>
+		<div id="accordion4">
+			{exp:channel:entries channel="FAQ" category="92" orderby="date" sort="desc"}
+				<h3><span class="accordion-title">{title}</span> <span class="fa fa-plus pull-right" style="padding-right:10px"></span></h3>
+				<div>
+					{faq-body}
+					<br>
+					Interested in joining the team? <a href="https://journeydreamteam.wufoo.com/forms/z1c9s6bh1wpxdn8/" target="_blank">Click here to let us know!</a>
 				</div>
 			{/exp:channel:entries}
 		</div>
@@ -87,6 +110,7 @@ $(function() {
 	 $("#accordion").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
 	 $("#accordion2").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
 	 $("#accordion3").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
+	 $("#accordion4").accordion({ header: "h3", active: false, collapsible: true, heightStyle: "content" });
 });
 </script>
 {embed="_includes/footer"}
