@@ -431,7 +431,7 @@ ul.side-nav {
 	}
 
 	#accordion h3:focus { outline: 0; }
-	#accordion, #accordion2, #accorion3, #accorion4, #accorion5 {
+	#accordion, #accordion2, #accordion3, #accordion4, #accordion5 {
 		cursor: pointer;
 	}
 	#accordion h3, #accordion2 h3, #accordion3 h3, #accordion4 h3, #accordion5 h3 {
