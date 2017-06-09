@@ -25,32 +25,6 @@
 	<div class="clear marg-b-40">&nbsp;</div>
 
 	<div class="grid_12">
-	{exp:channel:entries channel="team" entry_id="170|2299" orderby="team-sort"}
-		<div class="grid_6 alpha">
-			<div class="team-entry">
-				{if team-photo}
-					<a href="/team/{url_title}"><img src="{team-photo}" style="max-width:250px;"></a>
-				{/if}
-				<br><br>
-				<h3>
-					<a href="/team/{url_title}">{title}</a>
-					<span style="display:block">{team-title}</span>
-				</h3>
-				{if team-bio}
-					<p>
-						{exp:word_limit total="20"}{team-bio}{/exp:word_limit} <a href="/team/{url_title}">Read More</a>
-					</p>
-				{/if}
-				<p style="margin-top:10px">
-					<span class="fa fa-envelope-o"> Email:</span> <a href="mailto:{team-email}">{team-email}</a>
-				</p>
-				<div class="clear"></div>
-			</div>
-		</div>
-	{/exp:channel:entries}
-	</div>
-
-	<div class="grid_12">
 		<div id="God" class="grid_12">
 			<div class="team-entry">
 				<h3>God</h3>
