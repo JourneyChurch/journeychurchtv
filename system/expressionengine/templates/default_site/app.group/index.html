@@ -3,36 +3,40 @@
     <title>Journey Church App</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css">
   </head>
 
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-2 nav-wrapper">
+        <div class="col-md-3 nav-wrapper">
           <nav>
             <ul class="list-unstyled" role="tablist">
-            {exp:channel:entries channel="app_feature"}
-              <li><a href="#{ url_title }" aria-controls="{ url_title }" data-toggle="tab" role="tab">{ title }</a></li>
+            {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
+              <li><a href="#{ url_title }" aria-controls="{ url_title }" data-toggle="tab" role="tab" class="text-uppercase">{ title }</a></li>
             {/exp:channel:entries}
             </ul>
           </nav>
         </div>
 
-        <div class="col-sm-10 content-wrapper">
+        <div class="col-md-9 content-wrapper">
           <div class="tab-content">
-            {exp:channel:entries channel="app_feature"}
-            <div id="{ url_title }" class="tab-pane" role="tabpanel">
-              <div class="col-sm-6">
-                <h2>{ title }</h2>
+            {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
+            <div id="{ url_title }" class="tab-pane fade" role="tabpanel">
+              <div class="col-md-6">
+                <h3 class="text-uppercase">{ title }</h3>
                 <br>
-                <p>{ app_description }</p>
+                <p>{ app_feature_description }</p>
+                <br>
               </div>
 
-              <div class="col-sm-5 col-sm-offset-1">
+              <div class="col-md-5 col-md-offset-1">
                 <div class="iphone-wrapper">
-                  <img src="{ app_image }">
+                  <img src="{ app_feature_image }">
                   <img src="/_img/app/iphone-outline.png">
                 </div>
+
+                <br>
 
                 <div class="clearfix"></div>
               </div>
@@ -41,7 +45,14 @@
             </div>
             {/exp:channel:entries}
           </div>
+
+          <div class="promotionals">
+            <a href="https://itunes.apple.com/us/app/journey-church-norman/id1227537655?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;margin-left:10px;"></a>
+            <a href='https://play.google.com/store/apps/details?id=com.customchurchapps.journeychurchnorman&hl=en&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' style="display:inline-block;overflow:hidden;no-repeat;width:155px;background-size:contain;"/></a>
+          </div>
         </div>
+
+        <div class="clearfix"></div>
       </div>
     </div>
 
@@ -50,22 +61,31 @@
 
     <script>
       $("nav ul li:first").addClass("active");
-      $(".tab-pane:first").addClass("active");
+      $(".tab-pane:first").addClass("active in");
     </script>
 
     <style>
+      body {
+        font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
+        font-weight: 300;
+        font-style: normal;
+        height: 100%;
+        font-size: 14px;
+      }
+
       .nav-wrapper {
-        height:100%;
+        margin-top:20px;
         padding:0;
-        border-right:1px solid #F3F3F3;
+        overflow-y: scroll;
       }
 
       .nav-wrapper nav {
-        margin-top:20px;
+        padding:15px;
       }
 
-      .nav-wrapper ul li {
-
+      .nav-wrapper ul {
+        margin:0;
+        border:1px solid #F3F3F3;
       }
 
       .nav-wrapper ul li a {
@@ -73,6 +93,7 @@
         text-decoration:none;
         padding:10px 15px;
         display:block;
+        font-size:12px;
       }
 
       .nav-wrapper ul .active {
@@ -87,21 +108,25 @@
         margin-top:20px;
       }
 
+      .tab-content .tab-pane h3 {
+        color:#006f7c;
+      }
+
       .content-wrapper {
         height:100%;
       }
 
       .iphone-wrapper {
-        width:200px;
-        height:400px;
+        width:250px;
+        height:500px;
         position:relative;
         margin:0 auto;
       }
 
       .iphone-wrapper img:first-child {
         position:absolute;
-        top:45px;
-        left:16px;
+        top:57px;
+        left:19px;
         width:84.6%;
         height:75%;
       }
@@ -111,6 +136,16 @@
         width:100%;
         height:100%;
       }
+
+      .promotionals {
+        padding-top:20px;
+        padding-bottom:20px;
+      }
+
+      .promotionals a:last-child img {
+        margin-top:-32px;
+      }
+
     </style>
   </body>
 </html>
