@@ -25,10 +25,12 @@
             {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
             <div id="{ url_title }" class="tab-pane fade" role="tabpanel">
               <div class="col-md-5 col-md-push-5 col-md-offset-1">
+                {parents field="app_feature" orderby="app_feature_step_order" sort="asc"}
                 <div class="iphone-wrapper">
-                  <img src="{ app_feature_image }">
+                    <img src="{ parents:app_feature_step_image }">
                   <img src="/_img/app/iphone-outline.png">
                 </div>
+                {/parents}
 
                 <br>
 
@@ -40,6 +42,15 @@
                 <br>
                 <p>{ app_feature_description }</p>
                 <br>
+                <ol>
+                {parents field="app_feature" orderby="app_feature_step_order" sort="asc"}
+                  <li>
+                    <strong>{ parents:title }</strong><br>
+                    { parents:app_feature_step_description }
+                  </li>
+                  <br>
+                {/parents}
+                </ol>
               </div>
 
               <div class="clearfix"></div>
@@ -152,6 +163,13 @@
 
       .promotionals a:last-child img {
         margin-top:-32px;
+      }
+
+      ol {
+        border:1px solid #F3F3F3;
+        background-color:#F9F9F9;
+        padding:15px 15px 15px 35px;
+        margin:0;
       }
 
 
