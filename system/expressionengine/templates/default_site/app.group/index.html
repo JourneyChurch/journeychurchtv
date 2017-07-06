@@ -25,12 +25,18 @@
             {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
             <div id="{ url_title }" class="tab-pane fade" role="tabpanel">
               <div class="col-md-5 col-md-push-5 col-md-offset-1">
-                {parents field="app_feature" orderby="app_feature_step_order" sort="asc"}
                 <div class="iphone-wrapper">
-                    <img src="{ parents:app_feature_step_image }">
-                  <img src="/_img/app/iphone-outline.png">
+                  <div class="carousel slide">
+                    <div class="carousel-inner">
+                      {parents field="app_feature" orderby="app_feature_step_order" sort="asc"}
+                        <div class="item">
+                          <img src="{ parents:app_feature_step_image }">
+                        </div>
+                      {/parents}
+                      <img src="/_img/app/iphone-outline.png">
+                    </div>
+                  </div>
                 </div>
-                {/parents}
 
                 <br>
 
@@ -42,13 +48,21 @@
                 <br>
                 <p>{ app_feature_description }</p>
                 <br>
-                <ol>
-                {parents field="app_feature" orderby="app_feature_step_order" sort="asc"}
+                <ol id="ol-{ url_title }">
+                {parents field="app_feature" orderby="app_feature_step_order" sort="asc" dynamic="no"}
+                  {if parents:no_results}
+                    <style>
+                      #ol-{ url_title } {
+                        display:none;
+                      }
+                    </style>
+                  {/if}
+
                   <li>
                     <strong>{ parents:title }</strong><br>
                     { parents:app_feature_step_description }
                   </li>
-                  <br>
+                  {if '{parents:count}' != '{parents:total_results}'}<br>{/if}
                 {/parents}
                 </ol>
               </div>
@@ -74,6 +88,8 @@
     <script>
       $("nav ul li:first").addClass("active");
       $(".tab-pane:first").addClass("active in");
+      $(".carousel-inner .item:first").addClass("active");
+      $(".carousel").carousel();
     </script>
 
     <style>
@@ -142,18 +158,27 @@
         margin:0 auto;
       }
 
-      .iphone-wrapper img:first-child {
+      .iphone-wrapper .carousel .carousel-inner .item {
         position:absolute;
         top:57px;
         left:19px;
         width:84.6%;
         height:75%;
+        z-index:-100;
       }
 
-      .iphone-wrapper img:last-child {
+      .iphone-wrapper .carousel .carousel-inner .item img {
         position:absolute;
+        height:100%;
+        width:100%;
+      }
+
+      .iphone-wrapper .carousel .carousel-inner .item:last-child img{
+        top:auto;
+        left:auto;
         width:100%;
         height:100%;
+        z-index:0;
       }
 
       .promotionals {
@@ -168,7 +193,7 @@
       ol {
         border:1px solid #F3F3F3;
         background-color:#F9F9F9;
-        padding:15px 15px 15px 35px;
+        padding:20px 15px 20px 35px;
         margin:0;
       }
 
