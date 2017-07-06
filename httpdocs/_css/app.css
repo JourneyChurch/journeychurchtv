@@ -1,0 +1,121 @@
+body {
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
+  font-weight: 300;
+  font-style: normal;
+  height: 100%;
+  font-size: 14px;
+}
+
+.nav-wrapper {
+  margin-top:20px;
+  padding:0;
+  overflow-y: scroll;
+}
+
+.nav-wrapper nav {
+  padding:15px 30px;
+}
+
+.nav-wrapper ul {
+  margin:0;
+  border:1px solid #F3F3F3;
+}
+
+.nav-wrapper ul li a {
+  color:#717271;
+  text-decoration:none;
+  padding:12px;
+  display:block;
+  font-size:12px;
+  border-bottom:1px solid #F3F3F3;
+}
+
+.nav-wrapper ul li:last-child a {
+  border-bottom:0;
+}
+
+.nav-wrapper ul .active a, .nav-wrapper ul .active a:hover  {
+  background-color:#006f7c;
+  color:white;
+}
+
+.nav-wrapper ul a:hover {
+  background-color:#F9F9F9;
+  color:#282828;
+}
+
+.tab-content {
+  margin-top:20px;
+}
+
+.tab-content .tab-pane h3 {
+  color:#006f7c;
+}
+
+.content-wrapper {
+  height:100%;
+}
+
+.iphone-wrapper {
+  width:250px;
+  height:500px;
+  position:relative;
+  margin:5px auto 0 auto;
+}
+
+.iphone-wrapper .carousel .carousel-inner .item {
+  position:absolute;
+  top:57px;
+  left:19px;
+  width:84.6%;
+  height:75%;
+  z-index:-100;
+}
+
+.iphone-wrapper .carousel .carousel-inner .item img {
+  position:absolute;
+  height:100%;
+  width:100%;
+}
+
+.iphone-wrapper .carousel .carousel-inner .item:last-child img{
+  top:auto;
+  left:auto;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+
+.promotionals {
+  margin-left:-10px;
+}
+
+.promotionals a:last-child img {
+  margin-top:-32px;
+}
+
+ol {
+  border:1px solid #F3F3F3;
+  background-color:#F9F9F9;
+  padding:20px 20px 20px 35px;
+  margin:0;
+}
+
+ol strong {
+  color:black;
+}
+
+ol .active strong {
+  color:#006f7c;
+}
+
+.controls {
+  margin-top:20px;
+  font-size:24px;
+}
+
+footer {
+  background-color:#F9F9F9;
+  border-top:1px solid #F3F3F3;
+  padding:10px 0;
+}

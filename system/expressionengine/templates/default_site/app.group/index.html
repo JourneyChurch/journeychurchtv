@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/_css/app.css">
   </head>
 
   <body>
@@ -20,11 +21,11 @@
           </nav>
         </div>
 
-        <div class=" col-md-9 content-wrapper">
+        <div class="col-md-9 content-wrapper">
           <div class="tab-content">
             {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
             <div id="{ url_title }" class="tab-pane fade" role="tabpanel">
-              <div class="col-md-5 col-md-push-5 col-md-offset-1">
+              <div class="col-md-5 col-md-push-6 col-md-offset-1">
                 <div class="iphone-wrapper">
                   <div class="carousel slide">
                     <div class="carousel-inner">
@@ -38,9 +39,12 @@
                   </div>
                 </div>
 
-                <br>
-
-                <div class="clearfix"></div>
+                <div class="controls">
+                  <div class="col-xs-2 col-xs-offset-3 text-center move-left"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+                  <div class="col-xs-2 text-center play-pause"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                  <div class="col-xs-2 text-center move-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                  <div class="clearfix"></div>
+                </div>
               </div>
 
               <div class="col-md-6 col-md-pull-6">
@@ -65,12 +69,13 @@
                   {if '{parents:count}' != '{parents:total_results}'}<br>{/if}
                 {/parents}
                 </ol>
-                <br>
               </div>
 
               <div class="clearfix"></div>
             </div>
             {/exp:channel:entries}
+
+            <div class="clearfix"></div>
           </div>
 
           <div class="promotionals">
@@ -78,163 +83,12 @@
             <a href='https://play.google.com/store/apps/details?id=com.customchurchapps.journeychurchnorman&hl=en&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' style="display:inline-block;overflow:hidden;no-repeat;width:155px;background-size:contain;"/></a>
           </div>
         </div>
-
-        <div class="clearfix"></div>
       </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script>
-    $(document).ready(function() {
-      $("nav ul li:first").addClass("active");
-      $(".tab-pane:first").addClass("active in");
-      $("ol li:first").addClass("active");
-
-      $(".carousel-inner .item:first").addClass("active");
-      $(".carousel").carousel({
-        pause: null
-      });
-
-      var carousels = $(".tab-content .carousel");
-      carousels.each(function(index) {
-        $(this).on('slid.bs.carousel', function(event) {
-          var item = event.relatedTarget;
-          var itemIndex = $(".item").index(item);
-          var itemsSize = $(".item").length;
-          var featureNumber = index + 1;
-
-          var steps = $("#ol-" + featureNumber + " li");
-
-          var step = steps.get(itemIndex);
-          $(step).addClass("active");
-
-          var nextStep;
-          if (itemIndex == 0) {
-             previousStep = steps.get(itemsSize - 1);
-          }
-          else {
-             previousStep = steps.get(itemIndex - 1);
-          }
-          $(previousStep).removeClass("active");
-        });
-      });
-    });
-    </script>
-
-    <style>
-      body {
-        font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
-        font-weight: 300;
-        font-style: normal;
-        height: 100%;
-        font-size: 14px;
-      }
-
-      .nav-wrapper {
-        margin-top:20px;
-        padding:0;
-        overflow-y: scroll;
-      }
-
-      .nav-wrapper nav {
-        padding:15px 30px;
-      }
-
-      .nav-wrapper ul {
-        margin:0;
-        border:1px solid #F3F3F3;
-      }
-
-      .nav-wrapper ul li a {
-        color:#717271;
-        text-decoration:none;
-        padding:12px;
-        display:block;
-        font-size:12px;
-        border-bottom:1px solid #F3F3F3;
-      }
-
-      .nav-wrapper ul li:last-child a {
-        border-bottom:0;
-      }
-
-      .nav-wrapper ul .active a, .nav-wrapper ul .active a:hover  {
-        background-color:#006f7c;
-        color:white;
-      }
-
-      .nav-wrapper ul a:hover {
-        background-color:#F9F9F9;
-        color:#282828;
-      }
-
-      .tab-content {
-        margin-top:20px;
-      }
-
-      .tab-content .tab-pane h3 {
-        color:#006f7c;
-      }
-
-      .content-wrapper {
-        height:100%;
-      }
-
-      .iphone-wrapper {
-        width:250px;
-        height:500px;
-        position:relative;
-        margin:0 auto;
-      }
-
-      .iphone-wrapper .carousel .carousel-inner .item {
-        position:absolute;
-        top:57px;
-        left:19px;
-        width:84.6%;
-        height:75%;
-        z-index:-100;
-      }
-
-      .iphone-wrapper .carousel .carousel-inner .item img {
-        position:absolute;
-        height:100%;
-        width:100%;
-      }
-
-      .iphone-wrapper .carousel .carousel-inner .item:last-child img{
-        top:auto;
-        left:auto;
-        width:100%;
-        height:100%;
-        z-index:0;
-      }
-
-      .promotionals {
-        padding-top:20px;
-        padding-bottom:20px;
-      }
-
-      .promotionals a:last-child img {
-        margin-top:-32px;
-      }
-
-      ol {
-        border:1px solid #F3F3F3;
-        background-color:#F9F9F9;
-        padding:20px 20px 20px 35px;
-        margin:0;
-      }
-
-      ol strong {
-        color:black;
-      }
-
-      ol .active strong {
-        color:#006f7c;
-      }
-    </style>
+    <script src="https://use.fontawesome.com/2bb08ad6ac.js"></script>
+    <script src="/_js/app.js"></script>
   </body>
 </html>
