@@ -9,81 +9,123 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-3 nav-wrapper">
-          <nav>
-            <button class="btn btn-default btn-block text-uppercase" data-toggle="collapse" data-target="#nav-collapse">Select Feature <i class="fa fa-angle-down" aria-hidden="true"></i></button>
-            <div class="collapse" id="nav-collapse">
-              <ul class="list-unstyled" role="tablist">
-              {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
-                <li><a href="#{ url_title }" aria-controls="{ url_title }" data-toggle="tab" role="tab" class="text-uppercase">{ title }</a></li>
-              {/exp:channel:entries}
-              </ul>
-            </div>
-          </nav>
+    <nav class="navbar navbar-default main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
 
-        <div class="col-md-9 content-wrapper">
-          <div class="tab-content">
-            {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
-            <div id="{ url_title }" class="tab-pane fade" role="tabpanel">
-              <div class="col-md-5 col-md-push-6 col-md-offset-1">
-                <div class="iphone-wrapper">
-                  <div class="carousel slide">
-                    <div class="carousel-inner">
-                      {parents field="app_feature" orderby="app_feature_step_order" sort="asc"}
-                        <div class="item">
-                          <img src="{ parents:app_feature_step_image }">
-                        </div>
-                      {/parents}
-                      <img src="/_img/app/iphone-outline.png">
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="nav navbar-nav">
+            <li {if segment_2 == "about"}class="active"{/if}><a href="/app/about">About</a></li>
+            <li {if segment_2 == "download"}class="active"{/if}><a href="/app/download">Download</a></li>
+            <li {if segment_2 == ""}class="active"{/if}><a href="/app">Guide</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {if segment_2 == "about"}
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h1 class="text-uppercase blue">About the App</h1>
+            <p>About the app</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {if:elseif segment_2 == "download"}
+    <section id="download">
+
+    </section>
+    {if:else}
+    <section id="guide">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 nav-wrapper">
+            <nav class="feature-nav">
+              <button class="btn btn-default btn-block text-uppercase" data-toggle="collapse" data-target="#nav-collapse">Select Feature <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+              <div class="collapse" id="nav-collapse">
+                <ul class="list-unstyled" role="tablist">
+                {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
+                  <li><a href="#{ url_title }" aria-controls="{ url_title }" data-toggle="tab" role="tab" class="text-uppercase">{ title }</a></li>
+                {/exp:channel:entries}
+                </ul>
+              </div>
+            </nav>
+          </div>
+
+          <div class="col-md-9 content-wrapper">
+            <div class="tab-content">
+              {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
+              <div id="{ url_title }" class="tab-pane fade" role="tabpanel">
+                <div class="col-md-5 col-md-push-6 col-md-offset-1">
+                  <div class="iphone-wrapper">
+                    <div class="carousel slide">
+                      <div class="carousel-inner">
+                        {parents field="app_feature" orderby="app_feature_step_order" sort="asc"}
+                          <div class="item">
+                            <img src="{ parents:app_feature_step_image }">
+                          </div>
+                        {/parents}
+                        <img src="/_img/app/iphone-outline.png">
+                      </div>
                     </div>
+                  </div>
+
+                  <div class="controls">
+                    <div class="col-xs-2 col-xs-offset-3 text-center move-left"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+                    <div class="col-xs-2 text-center play-pause"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                    <div class="col-xs-2 text-center move-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                    <div class="clearfix"></div>
                   </div>
                 </div>
 
-                <div class="controls">
-                  <div class="col-xs-2 col-xs-offset-3 text-center move-left"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
-                  <div class="col-xs-2 text-center play-pause"><i class="fa fa-pause" aria-hidden="true"></i></div>
-                  <div class="col-xs-2 text-center move-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-                  <div class="clearfix"></div>
+                <div class="col-md-6 col-md-pull-6">
+                  <h3 class="text-uppercase">{ title }</h3>
+                  <br>
+                  <p>{ app_feature_description }</p>
+                  <br>
+                  <ol id="ol-{ count }">
+                  {parents field="app_feature" orderby="app_feature_step_order" sort="asc" dynamic="no"}
+                    {if parents:no_results}
+                      <style>
+                        #ol-{ count } {
+                          display:none;
+                        }
+                      </style>
+                    {/if}
+
+                    <li>
+                      <strong>{ parents:title }</strong><br>
+                      { parents:app_feature_step_description }
+                    </li>
+                    {if '{parents:count}' != '{parents:total_results}'}<br>{/if}
+                  {/parents}
+                  </ol>
+                  <br><br>
                 </div>
-              </div>
 
-              <div class="col-md-6 col-md-pull-6">
-                <h3 class="text-uppercase">{ title }</h3>
-                <br>
-                <p>{ app_feature_description }</p>
-                <br>
-                <ol id="ol-{ count }">
-                {parents field="app_feature" orderby="app_feature_step_order" sort="asc" dynamic="no"}
-                  {if parents:no_results}
-                    <style>
-                      #ol-{ count } {
-                        display:none;
-                      }
-                    </style>
-                  {/if}
-
-                  <li>
-                    <strong>{ parents:title }</strong><br>
-                    { parents:app_feature_step_description }
-                  </li>
-                  {if '{parents:count}' != '{parents:total_results}'}<br>{/if}
-                {/parents}
-                </ol>
-                <br><br>
+                <div class="clearfix"></div>
               </div>
+              {/exp:channel:entries}
 
               <div class="clearfix"></div>
             </div>
-            {/exp:channel:entries}
 
             <div class="clearfix"></div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    {/if}
 
     <footer>
       <div class="container">

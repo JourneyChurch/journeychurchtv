@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("nav ul li:first").addClass("active");
+  $(".feature-nav ul li:first").addClass("active");
   $(".tab-pane:first").addClass("active in");
   $("ol li:first").addClass("active");
 
