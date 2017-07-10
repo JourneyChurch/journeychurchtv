@@ -13,17 +13,14 @@
       <div class="row">
         <div class="col-md-3 nav-wrapper">
           <nav>
-            <ul class="list-unstyled" role="tablist">
-            {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
-              <li><a href="#{ url_title }" aria-controls="{ url_title }" data-toggle="tab" role="tab" class="text-uppercase">{ title }</a></li>
-            {/exp:channel:entries}
-            </ul>
-
-            <select>
+            <button class="btn btn-default btn-block text-uppercase" data-toggle="collapse" data-target="#nav-collapse">Select Feature <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+            <div class="collapse" id="nav-collapse">
+              <ul class="list-unstyled" role="tablist">
               {exp:channel:entries channel="app_feature" orderby="app_feature_order" sort="asc"}
-                <option id="{ url_title }">{ title }</option>
+                <li><a href="#{ url_title }" aria-controls="{ url_title }" data-toggle="tab" role="tab" class="text-uppercase">{ title }</a></li>
               {/exp:channel:entries}
-            </select>
+              </ul>
+            </div>
           </nav>
         </div>
 

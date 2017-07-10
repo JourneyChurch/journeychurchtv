@@ -9,16 +9,27 @@ body {
 .nav-wrapper {
   margin-top:20px;
   padding:0;
-  overflow-y: scroll;
 }
 
 .nav-wrapper nav {
   padding:15px 30px;
 }
 
+.nav-wrapper .btn, .nav-wrapper .btn:active, .nav-wrapper .btn:hover, .nav-wrapper .btn:active:hover, .nav-wrapper .btn:active:focus, .nav-wrapper .btn:focus {
+  background-color:#F9F9F9;
+  border-radius:0;
+  border:1px solid #F3F3F3;
+  font-size:12px;
+  padding:10px;
+  box-shadow:none;
+  outline:none;
+}
+
 .nav-wrapper ul {
   margin:0;
-  border:1px solid #F3F3F3;
+  border-left:1px solid #F3F3F3;
+  border-right:1px solid #F3F3F3;
+  border-bottom:1px solid #F3F3F3;
 }
 
 .nav-wrapper ul li a {
@@ -145,28 +156,22 @@ footer .contact {
   margin-bottom:40px;
 }
 
-footer .contact a {
-  color:#006f7c;
-}
-
-footer .btn:active, footer .btn:hover, footer .btn:active:hover, footer .btn:active:focus, footer .btn:focus {
-  background-color:white;
-  border:1px solid #E6E6E6;
-  box-shadow:none;
-}
-
 @media screen and (min-width: 768px) {
 
 }
 
 @media screen and (min-width: 992px) {
-  footer .btn {
-    margin-bottom:0;
-  }
-
   footer .contact {
     margin-bottom:0;
     text-align:left;
+  }
+
+  .nav-wrapper .btn {
+    display:none;
+  }
+
+  .nav-wrapper .collapse {
+    display:block !important;
   }
 
   .promotionals {
