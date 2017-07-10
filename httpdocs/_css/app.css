@@ -138,15 +138,8 @@ footer {
   padding:5px 0;
 }
 
-footer .btn {
-  margin-top:15px;
-  margin-bottom:40px;
-  background-color:#006f7c;
-  color:white;
-  border-radius:0;
-  border:1px solid #006f7c;
-  font-size:12px;
-  padding:10px;
+footer a {
+  color:#006f7c;
 }
 
 footer .contact {
