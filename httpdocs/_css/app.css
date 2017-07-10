@@ -2,7 +2,7 @@ body {
   font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
   font-weight: 300;
   font-style: normal;
-  height: 100%;
+  min-height: 100%;
   font-size: 14px;
 }
 
@@ -53,7 +53,7 @@ body {
 }
 
 .content-wrapper {
-  height:100%;
+  min-height:100%;
 }
 
 .iphone-wrapper {
@@ -88,6 +88,8 @@ body {
 
 .promotionals {
   margin-left:-10px;
+  margin-top:20px;
+  text-align:center;
 }
 
 .promotionals a:last-child img {
@@ -111,11 +113,67 @@ ol .active strong {
 
 .controls {
   margin-top:20px;
+  margin-bottom:60px;
   font-size:24px;
+}
+
+.controls i:hover {
+  cursor:pointer;
 }
 
 footer {
   background-color:#F9F9F9;
   border-top:1px solid #F3F3F3;
-  padding:10px 0;
+  padding:5px 0;
+}
+
+footer .btn {
+  margin-top:15px;
+  margin-bottom:40px;
+  background-color:#006f7c;
+  color:white;
+  border-radius:0;
+  border:1px solid #006f7c;
+  font-size:12px;
+  padding:10px;
+}
+
+footer .contact {
+  margin-top:15px;
+  line-height:26px;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+footer .contact a {
+  color:#006f7c;
+}
+
+footer .btn:active, footer .btn:hover, footer .btn:active:hover, footer .btn:active:focus, footer .btn:focus {
+  background-color:white;
+  border:1px solid #E6E6E6;
+  box-shadow:none;
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 992px) {
+  footer .btn {
+    margin-bottom:0;
+  }
+
+  footer .contact {
+    margin-bottom:0;
+    text-align:left;
+  }
+
+  .promotionals {
+    text-align:right;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
 }
