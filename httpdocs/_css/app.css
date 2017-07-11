@@ -31,7 +31,7 @@ body {
 }
 
 .main-nav .navbar-toggle .icon-bar {
-    background-color:black;
+  background-color:black;
 }
 
 .main-nav .navbar-nav > .active > a, .main-nav .navbar-nav > .active > a:hover {
@@ -188,16 +188,12 @@ footer .contact {
     text-align:left;
   }
 
-  .nav-wrapper .btn {
-    display:none;
-  }
-
   .nav-wrapper ul {
     border:1px solid #F3F3F3;
   }
 
-  .nav-wrapper .collapse {
-    display:block !important;
+  .main-nav .navbar-nav > li > a {
+    color:#777;
   }
 
   .promotionals {
@@ -206,5 +202,11 @@ footer .contact {
 }
 
 @media screen and (min-width: 1200px) {
+  .nav-wrapper .btn {
+    display:none;
+  }
 
+  .nav-wrapper .collapse {
+    display:block !important;
+  }
 }
