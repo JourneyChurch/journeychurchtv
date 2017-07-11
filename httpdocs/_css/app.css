@@ -21,9 +21,17 @@ body {
   text-transform: uppercase;
 }
 
+.main-nav .navbar-nav > li > a {
+  color:black;
+}
+
 .main-nav .navbar-toggle {
   border-radius:0;
   border:0;
+}
+
+.main-nav .navbar-toggle .icon-bar {
+    background-color:black;
 }
 
 .main-nav .navbar-nav > .active > a, .main-nav .navbar-nav > .active > a:hover {
