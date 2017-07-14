@@ -2,8 +2,18 @@ body {
   font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
   font-weight: 300;
   font-style: normal;
-  min-height: 100%;
   font-size: 14px;
+  min-height:100%;
+  position:relative;
+  padding-bottom:200px;
+}
+
+section {
+  padding:30px 0;
+}
+
+section h1 {
+  margin:0;
 }
 
 .blue {
@@ -13,7 +23,9 @@ body {
 .main-nav {
   background-color:#F9F9F9;
   border-bottom:1px solid #F3F3F3;
+  border-top:0;
   border-radius:0;
+  margin-bottom:0;
 }
 
 .main-nav ul li {
@@ -152,7 +164,6 @@ ol .active strong {
 
 .controls {
   margin-top:20px;
-  margin-bottom:60px;
   font-size:24px;
 }
 
@@ -165,6 +176,10 @@ footer {
   border-top:1px solid #F3F3F3;
   border-bottom:1px solid #F3F3F3;
   padding:5px 0;
+  position:absolute;
+  width:100%;
+  bottom:0px;
+  height:200px;
 }
 
 footer a {
@@ -183,6 +198,14 @@ footer .contact {
 }
 
 @media screen and (min-width: 992px) {
+  body {
+    padding-bottom:90px;
+  }
+
+  footer {
+    height:90px;
+  }
+
   footer .contact {
     margin-bottom:0;
     text-align:left;
