@@ -103,10 +103,6 @@ section h1 {
   color:#006f7c;
 }
 
-.content-wrapper {
-  min-height:100%;
-}
-
 .iphone-wrapper {
   width:250px;
   height:500px;
@@ -165,6 +161,7 @@ ol .active strong {
 .controls {
   margin-top:20px;
   font-size:24px;
+  margin-bottom:40px;
 }
 
 .controls i:hover {
