@@ -16,6 +16,10 @@ section h1 {
   margin:0;
 }
 
+p a {
+  color:#006f7c;
+}
+
 .blue {
   color:#006f7c;
 }
@@ -136,11 +140,14 @@ section h1 {
 .promotionals {
   margin-left:-10px;
   margin-top:20px;
-  text-align:center;
 }
 
 .promotionals a:last-child img {
   margin-top:-32px;
+}
+
+.promotionals-footer {
+  text-align:center;
 }
 
 ol {
@@ -154,8 +161,16 @@ ol strong {
   color:black;
 }
 
+ol i {
+  opacity:0.1;
+}
+
 ol .active strong {
   color:#006f7c;
+}
+
+ol .active i {
+  opacity:1;
 }
 
 .controls {
@@ -177,10 +192,6 @@ footer {
   width:100%;
   bottom:0px;
   height:200px;
-}
-
-footer a {
-  color:#006f7c;
 }
 
 footer .contact {
@@ -216,7 +227,7 @@ footer .contact {
     color:#777;
   }
 
-  .promotionals {
+  .promotionals-footer {
     text-align:right;
   }
 }
