@@ -61,6 +61,7 @@ p a {
 
 .nav-wrapper .feature-nav {
   padding:15px 30px;
+  margin-bottom:10px;
 }
 
 .nav-wrapper .btn, .nav-wrapper .btn:active, .nav-wrapper .btn:hover, .nav-wrapper .btn:active:hover, .nav-wrapper .btn:active:focus, .nav-wrapper .btn:focus {
