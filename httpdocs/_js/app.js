@@ -46,15 +46,28 @@ $(document).ready(function() {
       // Add corresponding step with active
       $(step).addClass("active");
 
-      // Determine previous step and remove active from it
-      var previousStep;
+      // Determine step before and remove active from it
+      var stepBefore;
       if (slideIndex == 0) {
-         previousStep = steps.get(slidesLength - 1);
+         stepBefore = steps.get(slidesLength - 1);
       }
       else {
-         previousStep = steps.get(slideIndex - 1);
+         stepBefore = steps.get(slideIndex - 1);
       }
-      $(previousStep).removeClass("active");
+
+      $(stepBefore).removeClass("active");
+
+
+      // Determine step after and remove active from it
+      var stepAfter;
+      if (slideIndex == slidesLength - 1) {
+         stepAfter = steps.get(0);
+      }
+      else {
+         stepAfter = steps.get(slideIndex + 1);
+      }
+
+      $(stepAfter).removeClass("active");
     });
   }
 
