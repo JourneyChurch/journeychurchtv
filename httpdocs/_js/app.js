@@ -1,99 +1,138 @@
 $(document).ready(function() {
 
-  // Sidebar navigation
-  $(".feature-nav ul li:first").addClass("active");
+
+  // Initialize ui with active elements
+  function addActiveElements() {
+
+    // Set first sidebar navigation item to active
+    $(".feature-nav ul li:first").addClass("active");
+
+    // Make first feature active and others disappear
+    $(".tab-pane:first").addClass("active in");
+
+    // First Step for each feature is active
+    $("ol").each(function() {
+      var firstItem = $(this).find("li:first");
+      firstItem.addClass("active");
+    });
+
+    // Add active class to first item in each slider
+    $(".carousel-inner").each(function() {
+      var firstItem = $(this).find(".item:first");
+      firstItem.addClass("active");
+    });
+  }
 
 
-  // Make first feature active and others disappear
-  $(".tab-pane:first").addClass("active in");
+  // Register steps to change when slider changes. This has to be called everytime the feature changes
+  function registerStepsWithSlider() {
+    var activeTab = ".tab-content .active";
 
+    // Called everytime the active slider changes slides
+    $(activeTab + " .carousel").on('slide.bs.carousel', function(event) {
 
-  // First Step for each feature is active
-  $("ol").each(function() {
-    var firstItem = $(this).find("li:first");
-    firstItem.addClass("active");
-  });
+      // Find active slide credentials
+      var slides = $(this).find(".item");
+      var slidesLength = slides.length;
+      var slide = event.relatedTarget;
+      var slideIndex = slides.index(slide);
 
+      // Get steps
+      var steps = $(activeTab + " ol li");
 
-  // Add active class to first item in each slider
-  $(".carousel-inner").each(function() {
-    var firstItem = $(this).find(".item:first");
-    firstItem.addClass("active");
-  });
+      // Match step and slide by index
+      var step = steps.get(slideIndex);
 
-
-  // Changes the current step when slider changes for each feature.
-  // This has to be called every time the feature changes to register .active .carousel
-  function syncStepsWithSlider() {
-    $(".tab-content .active .carousel").on('slide.bs.carousel', function(event) {
-      var items = $(this).find(".item");
-      var itemsLength = items.length;
-      var item = event.relatedTarget;
-      var itemIndex = items.index(item);
-
-      var steps = $(".tab-content .active ol li");
-
-      var step = steps.get(itemIndex);
+      // Add corresponding step with active
       $(step).addClass("active");
 
+      // Determine previous step and remove active from it
       var previousStep;
-      if (itemIndex == 0) {
-         previousStep = steps.get(itemsLength - 1);
+      if (slideIndex == 0) {
+         previousStep = steps.get(slidesLength - 1);
       }
       else {
-         previousStep = steps.get(itemIndex - 1);
+         previousStep = steps.get(slideIndex - 1);
       }
       $(previousStep).removeClass("active");
     });
   }
 
 
-  // Initialize first slider
-  $(".carousel").first().carousel();
-  syncStepsWithSlider();
+  // Register controls for a feature slider. This has to be called everytime the feature changes
+  function registerControls() {
+    var activeTabControls = ".tab-content .active .controls";
+    var activeTabCarousel = ".tab-content .active .carousel";
+
+    // Move Left
+    $(activeTabControls + " .move-left").unbind('click').click(function() {
+      $(activeTabCarousel).carousel('prev');
+    });
+
+    // Play/Pause
+    $(activeTabControls + " .play-pause").unbind('click').click(function() {
+      $(activeTabControls + " .play-pause i").toggleClass('fa-pause fa-play');
+
+      if ($(activeTabControls + " .play-pause i").hasClass('fa-pause')) {
+        $(activeTabCarousel).carousel();
+      }
+      else {
+        $(activeTabCarousel).carousel('pause');
+      }
+    });
+
+    // Move Right
+    $(activeTabControls + " .move-right").unbind('click').click(function() {
+      $(activeTabCarousel).carousel('next');
+    });
+  }
 
 
-  // Controls for slider inside iphone
-  // Move Left
-  $(".controls .move-left").click(function() {
-    $(".tab-content .active .carousel").carousel('prev');
-  });
+  function init() {
+    // Initialize active elements
+    addActiveElements();
 
-  // Play/Pause
-  $(".controls .play-pause").click(function() {
-    $(".controls .play-pause i").toggleClass('fa-pause fa-play');
+    // Start first slider
+    $(".carousel").first().carousel();
 
-    if ($(".controls .play-pause i").hasClass('fa-pause')) {
-      $(".tab-content .active .carousel").carousel();
-    }
-    else {
-      $(".tab-content .active .carousel").carousel('pause');
-    }
-  });
-
-  // Move Right
-  $(".controls .move-right").click(function() {
-    $(".tab-content .active .carousel").carousel('next');
-  });
+    // Register Steps and Contols with slider
+    registerStepsWithSlider();
+    registerControls();
+  }
 
 
-  // Play the feature slider when selected. Pause all the other sliders
+  // Start app
+  init();
+
+
+  // Listen for tab changes. Play active slider. Pause all other sliders
   $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
-    $(".controls .play-pause i").toggleClass("fa-pause fa-play");
 
-    var newTab = e.target; // newly activated tab
-    var previousTab = e.relatedTarget; // previous active tab
+    // previous active tab
+    var previousTab = e.relatedTarget;
 
-    var newHashFrag = newTab.href.split("#")[1];
+    // new active tab
+    var newTab = e.target;
+
+    // Div ids obtained from hash fragments
     var previousHashFrag = previousTab.href.split("#")[1];
+    var newHashFrag = newTab.href.split("#")[1];
 
-    console.log("New: " + newHashFrag);
-    console.log("Previous " + previousHashFrag);
-
+    // Pause previous slider
     $("#" + previousHashFrag + " .carousel").carousel("pause");
+
+    // Start new slider
     $("#" + newHashFrag + " .carousel").carousel();
 
+    // Make sure pause is shown
+    $("#" + newHashFrag + " .controls .play-pause i").removeClass("fa-play");
+    $("#" + newHashFrag + " .controls .play-pause i").addClass("fa-pause");
+
     // reregister steps with slider for new feature
-    syncStepsWithSlider();
+    registerStepsWithSlider();
+
+    // reregister controls with new feature
+    registerControls();
   });
+
 });
