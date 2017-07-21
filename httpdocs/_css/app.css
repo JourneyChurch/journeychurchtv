@@ -153,7 +153,7 @@ p a {
 ol {
   border:1px solid #F3F3F3;
   background-color:#F9F9F9;
-  padding:20px 20px 20px 35px;
+  padding:20px 20px 8px 35px;
   margin:0;
 }
 
@@ -171,6 +171,14 @@ ol .active strong {
 
 ol .active i {
   opacity:1;
+}
+
+ol li p {
+  margin:8px 0 0 0;
+}
+
+ol li {
+  margin-bottom:12px;
 }
 
 .controls {
