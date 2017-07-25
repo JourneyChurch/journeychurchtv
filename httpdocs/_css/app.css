@@ -26,7 +26,7 @@ p a {
 
 .main-nav {
   background-color:#F9F9F9;
-  border-bottom:1px solid #F3F3F3;
+  border-bottom:1px solid #F7F7F7;
   border-top:0;
   border-radius:0;
   margin-bottom:0;
@@ -67,7 +67,7 @@ p a {
 .nav-wrapper .btn, .nav-wrapper .btn:active, .nav-wrapper .btn:hover, .nav-wrapper .btn:active:hover, .nav-wrapper .btn:active:focus, .nav-wrapper .btn:focus {
   background-color:#F9F9F9;
   border-radius:0;
-  border:1px solid #F3F3F3;
+  border:1px solid #F7F7F7;
   font-size:12px;
   padding:10px;
   box-shadow:none;
@@ -76,9 +76,9 @@ p a {
 
 .nav-wrapper ul {
   margin:0;
-  border-left:1px solid #F3F3F3;
-  border-right:1px solid #F3F3F3;
-  border-bottom:1px solid #F3F3F3;
+  border-left:1px solid #F7F7F7;
+  border-right:1px solid #F7F7F7;
+  border-bottom:1px solid #F7F7F7;
 }
 
 .nav-wrapper ul li a {
@@ -87,7 +87,7 @@ p a {
   padding:12px;
   display:block;
   font-size:12px;
-  border-bottom:1px solid #F3F3F3;
+  border-bottom:1px solid #F7F7F7;
 }
 
 .nav-wrapper ul li:last-child a {
@@ -152,18 +152,24 @@ p a {
 }
 
 ol {
-  border:1px solid #F3F3F3;
-  background-color:#F9F9F9;
-  padding:20px 20px 8px 35px;
+  border:1px solid #F7F7F7;
+  /*background-color:#F9F9F9;*/
+  /*padding:20px 20px 8px 35px;*/
+  padding:0;
+  list-style-type:none;
   margin:0;
 }
 
 ol strong {
-  color:black;
+  color:#006f7c;
 }
 
 ol i {
   opacity:0.1;
+}
+
+ol .active {
+  background-color:#F9F9f9;
 }
 
 ol .active strong {
@@ -179,7 +185,12 @@ ol li p {
 }
 
 ol li {
-  margin-bottom:11px;
+  padding:15px;
+  border-bottom:1px solid #F7F7F7;
+}
+
+ol li:last-child {
+  border-bottom:0;
 }
 
 .controls {
@@ -194,8 +205,8 @@ ol li {
 
 footer {
   background-color:#F9F9F9;
-  border-top:1px solid #F3F3F3;
-  border-bottom:1px solid #F3F3F3;
+  border-top:1px solid #F7F7F7;
+  border-bottom:1px solid #F7F7F7;
   padding:5px 0;
   position:absolute;
   width:100%;
@@ -229,7 +240,7 @@ footer .contact {
   }
 
   .nav-wrapper ul {
-    border:1px solid #F3F3F3;
+    border:1px solid #F7F7F7;
   }
 
   .main-nav .navbar-nav > li > a {
