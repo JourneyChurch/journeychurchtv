@@ -1,0 +1,257 @@
+/*
+  Colors:
+
+  blue: #00bbe1
+  pink: #e90f71
+  orange: #f28d3c
+  green: #709B4A
+  purple: #6D66A3
+  yellow: #F7E851
+  light pink: #FAA0C2
+  dark blue: #066F9D
+*/
+
+body {
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.blue {
+  color:#00bbe1;
+}
+
+.orange {
+  color: #f28d3c
+}
+
+.pink {
+  color: #e90f71;
+}
+
+.green {
+  color:#709B4A;
+}
+
+.purple {
+  color: #6D66A3;
+}
+
+.yellow {
+  color:#F7E851;
+}
+
+.white {
+  color:white;
+}
+
+.no-gutter {
+  padding:0;
+}
+
+.font-block {
+  letter-spacing:2px;
+}
+
+.v-align-wrapper {
+  display:table;
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+.v-align {
+  display:table-cell;
+  vertical-align: middle;
+}
+
+.event-content {
+  margin-top:25px;
+}
+
+#tagline, #connect {
+  padding:50px 0;
+}
+
+#tagline {
+  background-color:#066F9D;
+  color:white;
+}
+
+#tagline h4 {
+  line-height:24px;
+}
+
+#cover {
+  height:700px;
+  background: url("/_img/mckbd/cover.jpg") no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.title, .description {
+  position:relative;
+  color:white;
+}
+
+.title {
+  height:350px;
+}
+
+.description {
+  height:250px;
+}
+
+.description:last-child {
+  height:300px;
+}
+
+.img {
+  background-attachment: scroll;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.inner {
+  padding-left:15px;
+  padding-right:15px;
+}
+
+.content, .img, .overlay {
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+}
+
+.overlay {
+  opacity:0.75;
+}
+
+.description ul {
+  margin:0;
+}
+
+.description ul li {
+  font-size:16px;
+  margin-top:10px;
+}
+
+#weekend-1, #weekend-2 {
+  position:relative;
+}
+
+#weekend-1 .title .overlay {
+  background-color:#00bbe1;
+}
+
+#weekend-1 .title .img {
+  background-image: url("/_img/mckbd/weekend-1.jpg");
+}
+
+#weekend-1 .description {
+  background-color:#00bbe1;
+}
+
+#weekend-2 .title .overlay {
+  background-color:#e90f71;
+}
+
+#weekend-2 .title .img {
+  background-image: url("/_img/mckbd/weekend-2.jpg");
+}
+
+#weekend-2 .description {
+  background-color:#e90f71
+}
+
+#connect {
+  background-color:#6D66A3;
+}
+
+#connect a {
+  color:#F7E851;
+}
+
+#social {
+  padding:25px 0;
+  background-color:#F7E851;
+  color:#6D66A3;
+}
+
+#social a {
+  font-size:24px !important;
+  margin-left:5px;
+  color:#6D66A3;
+}
+
+@media screen and (min-width: 768px) {
+  .inner {
+    width:400px;
+  }
+
+  .title, .description {
+    height:400px !important;
+  }
+
+  .description ul li {
+    font-size:18px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .inner {
+    width:450px;
+  }
+
+  .title, .description {
+    height:500px !important;
+  }
+
+  .description ul li {
+    font-size:20px;
+  }
+}
+
+@media print {
+  body, h1, h2, h3, ol, ul, div {
+    width: auto;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    float: none;
+    position: static;
+    overflow: visible;
+  }
+
+  #cover {
+    display:none;
+  }
+
+  section {
+    padding:10px 0 !important;
+  }
+
+  .title, .description {
+    height:200px;
+  }
+
+  .inner {
+    width:auto;
+  }
+
+  .img, .overlay {
+    display:none;
+  }
+}
