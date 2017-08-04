@@ -73,6 +73,14 @@ body {
   margin-top:25px;
 }
 
+.separator {
+  height:10px;
+  width:100%;
+  background-color:#F7E851;
+  border-top:2px solid black;
+  border-bottom:2px solid black;
+}
+
 #tagline, #connect {
   padding:50px 0;
 }
@@ -87,8 +95,8 @@ body {
 }
 
 #cover {
-  height:700px;
-  background: url("/_img/mckbd/cover.jpg") no-repeat center center scroll;
+  height:600px;
+  background: url("/_img/mckbd/cover.png") no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -217,10 +225,6 @@ body {
 
   .title, .description {
     height:500px !important;
-  }
-
-  .description ul li {
-    font-size:20px;
   }
 }
 
