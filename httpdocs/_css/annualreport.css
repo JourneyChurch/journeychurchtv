@@ -14,6 +14,7 @@ body {
   font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
   font-style: normal;
   color:white;
+  font-size:12px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,8 +23,36 @@ h1, h2, h3, h4, h5, h6 {
   line-height:1.4em;
 }
 
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
 .font-light {
   font-weight:100;
+}
+
+.font-bold {
+  font-weight:500;
 }
 
 .dark-blue {
@@ -95,12 +124,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen(min-width: 992px) {
-  h1 {
-    font-size:60px;
-  }
-
-  h2 {
-    font-size:45px;
+  body {
+    font-size:14px;
   }
 }
 
