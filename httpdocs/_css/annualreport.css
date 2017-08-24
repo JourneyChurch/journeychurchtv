@@ -123,11 +123,11 @@ h6 {
   max-width:50%;
 }
 
-@media screen(min-width: 768px) {
+@media screen and (min-width: 768px) {
 
 }
 
-@media screen(min-width: 992px) {
+@media screen and (min-width: 992px) {
   body {
     font-size:14px;
   }
@@ -145,6 +145,6 @@ h6 {
   }
 }
 
-@media screen(min-width: 1200px) {
+@media screen and (min-width: 1200px) {
 
 }
