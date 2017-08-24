@@ -12,13 +12,13 @@
 
 body {
   font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
-  font-weight: 200;
   font-style: normal;
   color:white;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin:0;
+  font-weight: 400;
 }
 
 .font-light {
@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pad {
-  width:90%;
+  width:80%;
 }
 
 .pad-narrow {
