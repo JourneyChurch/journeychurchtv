@@ -123,6 +123,10 @@ h6 {
   max-width:50%;
 }
 
+.letters-close {
+  letter-spacing:-3px;
+}
+
 @media screen and (min-width: 768px) {
 
 }
