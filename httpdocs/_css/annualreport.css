@@ -111,12 +111,16 @@ h6 {
   vertical-align:middle;
 }
 
-.pad {
-  width:70%;
+.pad-narrow, .pad {
+  width:80%;
 }
 
-.pad-narrow {
-  width:50%;
+.large {
+  font-size:5em;
+}
+
+.logo {
+  max-width:50%;
 }
 
 @media screen(min-width: 768px) {
@@ -126,6 +130,18 @@ h6 {
 @media screen(min-width: 992px) {
   body {
     font-size:14px;
+  }
+
+  .pad {
+    width:70%;
+  }
+
+  .pad-narrow {
+    width:50%;
+  }
+
+  .logo {
+    max-width:100%;
   }
 }
 
