@@ -22,17 +22,6 @@
 
 <div class="clear"></div>
 
-{if site-alert != " "}
-<div id="page-alert">
-	<div class="container">
-		<div class="grid_12">
-			<h2>{site-alert}</h2>
-		</div>
-	</div>
-	<div class="clear"></div>
-</div>
-{/if}
-
 <div id="full-only">
 	<div id="devos-bar">
 		{exp:channel:entries channel="Devos" orderby="date" sort="desc" show_future_entries="no" limit="1"}
