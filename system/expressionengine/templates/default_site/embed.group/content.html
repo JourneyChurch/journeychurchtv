@@ -2,19 +2,8 @@
 <section id="section-{entry_id}" class="section-page">
   <div class="container">
     <div class="row">
-      <div class="col-md-7 content-left">
+      <div class="col-md-8 col-md-offset-2">
         {content_body}
-      </div>
-
-      <div class="col-md-4 content-right">
-        {if content_youtube_video_id}
-          <div class="vid-responsive">
-            <iframe src="https://www.youtube.com/embed/{content_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
-          </div>
-        {if:else}
-          <img src="{content_sidebar_image}" class="content-img img-responsive"/><br/>
-          {content_sidebar_content}
-        {/if}
       </div>
     </div>
   </div>
