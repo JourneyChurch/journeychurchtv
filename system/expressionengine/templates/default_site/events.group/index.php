@@ -1,6 +1,6 @@
 <?php
 
-use php\events\facebook;
+use php\events;
 
 ?>
 

@@ -14,9 +14,6 @@
                 <h5 class="font-extra-light">{if '{events_start_date format="%M %d"}' == '{events_end_date format="%M %d"}'}{events_start_date format="%M %d"}{if:else}{events_start_date format="%M %d"} - {events_end_date format="%M %d"}{/if}</h5>
                 <h5 class="font-extra-light">{events_start_date format="%g"}:{events_start_date format="%i %A"} - {events_end_date format="%g"}:{events_end_date format="%i %A"}</h5>
               </div>
-              {!--}<h5 class="eyebrow">{events_location}</h5>
-              {events_description}
-              Contact: <a href="mailto:{events_contacy_email}">{events_contact_name}</a>{--}
             </div>
           </div>
         </div>
