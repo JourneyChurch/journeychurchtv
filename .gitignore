@@ -5,6 +5,7 @@ email_images/*
 uploads/*
 cache/*
 /system/expressionengine/cache/*
+/system/expressionengine/third_party/facebook_connection/config.php
 
 # Compiled source #
 ###################

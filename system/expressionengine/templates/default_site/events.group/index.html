@@ -1,20 +1,9 @@
-<?php
-
-use php\events\facebook;
-
-?>
-
 {embed="embed/header"}
 
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <?php
-
-        $facebookConnection = new FacebookConnection(174276778638);
-        $facebookConnection->getEvents();
-
-      ?>
+      <p>{exp:facebook_connection:get_event page_id="123" event_id="567"}</p>
     </div>
   </div>
 </div>
