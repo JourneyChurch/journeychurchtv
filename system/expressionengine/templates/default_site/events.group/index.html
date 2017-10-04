@@ -1,11 +1,137 @@
-{embed="embed/header"}
+{embed="embed/header-opener"}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <p>{exp:facebook_connection:get_event page_id="123" event_id="567"}</p>
+  {if segment_2 && segment_3}
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=582098011969883";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script>
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+      return t;
+    }(document, "script", "twitter-wjs"));
+  </script>
+  {/if}
+{embed="embed/header-closer"}
+
+{if segment_2 && segment_3}
+<section id="section-event" class="section-page">
+  <div class="container">
+    <div class="row">
+      {exp:facebook:event page_id="{segment_2}" event_id="{segment_3}"}
+        <div class="col-sm-6">
+          <div id="event-{id}">
+            <div class="cover-img bg-img"></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <h2 class="font-extra-light">{name}</h2>
+          <h5><i class="fa fa-calendar-o" aria-hidden="true"></i> Starts: {start_time format="%F %j, %g:%i %A"}</h5>
+          {if end_time}<h5><i class="fa fa-calendar-o" aria-hidden="true"></i> Ends: {end_time format="%F %j, %g:%i %A"}</h5>{/if}
+          <h5><i class="fa fa-map-marker" aria-hidden="true"></i> {place_name} | <a href="https://google.com/maps/?q={latitude},{longitude}">Directions</a> <i class="fa fa-angle-right" aria-hidden="true"></i></h5>
+          {if attending_count > 0}<h5>{attending_count} attending on Facebook</h5>{/if}
+          {if ticket_uri}<a href="{ticket_uri}">Register</a>{/if}
+          <div class="fb-share-button" data-href="/events/{page_id}/{id}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+          <a id="twitter-share-button" class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-sm-8">
+          <p>{description}</p>
+        </div>
+
+        <script>
+          $(document).ready(function() {
+            $("#event-{id} .cover-img").css("background-image", "url({image})");
+          });
+        </script>
+      {/exp:facebook:event}
     </div>
   </div>
-</div>
+</section>
+{if:elseif segment_2}
+<section id="section-events" class="section-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        {exp:facebook:events page_id="{segment_2}"}
+          {events}
+            <div class="col-sm-6">
+              <div id="event-{id}">
+                <a href="/events/{page_id}/{id}">
+                  <div class="cover-img bg-img"></div>
+                  <h4>{name}</h4>
+                </a>
+                <h5>{start_time format="%F %j"}</h5>
+              </div>
+            </div>
+
+            <script>
+              $(document).ready(function() {
+                $("#event-{id} .cover-img").css("background-image", "url({image})");
+              });
+            </script>
+          {/events}
+        {/exp:facebook:events}
+      </div>
+    </div>
+  </div>
+</section>
+{if:else}
+<section id="section-events" class="section-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        {exp:facebook:events page_id="174276778638"}
+          {events}
+            <div class="col-sm-6">
+              <div id="event-{id}">
+                <a href="/events/{page_id}/{id}">
+                  <div class="cover-img bg-img"></div>
+                  <h4>{name}</h4>
+                </a>
+                <h5>{start_time format="%F %j"}</h5>
+              </div>
+            </div>
+
+            <script>
+              $(document).ready(function() {
+                $("#event-{id} .cover-img").css("background-image", "url({image})");
+              });
+            </script>
+          {/events}
+        {/exp:facebook:events}
+      </div>
+    </div>
+  </div>
+</section>
+{/if}
+
+<style>
+  .cover-img {
+    height:300px;
+    width:100%;
+  }
+</style>
 
 {embed="embed/footer"}
