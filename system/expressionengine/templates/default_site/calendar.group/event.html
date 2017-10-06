@@ -1,26 +1,6 @@
 {embed="_includes/header" bar="yes" title="Events"}
 
 <link type="text/css" rel="stylesheet" href="/themes/third_party/acs_bridge/css/dialog.css" />
-
-{if segment_3 == "baptism" OR segment_3 == "44566ffe-b5dc-4c0b-a35c-a20c00c06a5e"}
-	{embed="_component/event-baptism"}
-{if:elseif segment_3 == "awakening" OR segment_3 == "771eb5ea-c3e8-4e87-a034-a19600d8946a"}
-	{embed="_component/event-awakening"}
-{if:elseif segment_3 == "7787bd58-fcab-4b12-b093-a2df01258bbc" OR segment_3 == "goodfriday"}
-	{embed="_component/event-goodfriday"}
-{if:elseif segment_3 == "michaeljr" OR segment_3 == "ef1198ce-ea4d-4e51-ae68-a2af00c6ae91"}
-	{redirect="main/michaeljr"}
-{if:elseif segment_3 == "c402db02-8496-4a68-a116-a29d01246d7c" OR segment_3 == "girlfriends"}
-	{embed="_component/event-girlfriends"}
-{if:elseif segment_3 == "9960a460-3f98-4b38-ab97-a489011cde72" OR segment_3 == "carshow"}
-	{embed="_component/event-carshow"}
-{if:elseif segment_3 == "68e87c44-f09a-482b-b49a-a49900f1f39a"}
-	{embed="_component/event-carshow"}
-{if:elseif segment_3 == "051211d7-3548-40c7-9934-a3250164b90d" OR segment_3 == "35a6914c-72c6-4266-98e1-a3250164e85c" OR segment_3 == "mckbd"}
-	{embed="_component/event-mckbd"}
-{if:elseif segment_3 == ""}
-	{redirect="calendar/index"}
-{if:else}
 	<div id="event"></div>
 	<div class="register-button"></div>
 	{exp:channel:entries channel="events" url_title="{segment_3}"}
