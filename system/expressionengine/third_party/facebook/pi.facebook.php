@@ -120,6 +120,20 @@ class Facebook
     return $values_array;
   }
 
+  // Clean fields string from EE tag
+  private static function clean_fields_string($fields_string)
+  {
+
+    // Replace [] with {}. Brackets conflict with EE tags. Must be "place{name,location{latitude,longitude}}"
+    $fields_string = str_replace("[", "{", $fields_string);
+    $fields_string = str_replace("]", "}", $fields_string);
+
+    // Remove all spaces
+    $fields_string = str_replace(" ", "", $fields_string);
+
+    return $fields_string;
+  }
+
   // Make GET request
   private static function request_GET($url, $query_parameters = NULL)
   {
@@ -176,21 +190,14 @@ class Facebook
     // Get access token
     $access_token = $this->get_access_token();
 
-    // Fields to return from api
-    $fields = [
-      "id",
-      "cover" => [
-        "source"
-      ],
-      "name",
-      "start_time"
-    ];
+    // Fields to return from api in form of query string "place[name,location[latitude,longitude]]"
+    $fields = ee()->TMPL->fetch_param("fields");
 
-    // Create commas separated string for fields in url
-    $fields_query_string = Facebook::convert_array_to_query_string($fields);
+    // Clean fields string
+    $fields = Facebook::clean_fields_string($fields);
 
     // Request url for page events
-    $url = "https://graph.facebook.com/v2.10/$page_id/events?access_token=$access_token&fields=$fields_query_string";
+    $url = "https://graph.facebook.com/v2.10/$page_id/events?access_token=$access_token&fields=$fields";
 
     // Make request to facebook api
     $events = Facebook::request_GET($url)["data"];
@@ -214,35 +221,24 @@ class Facebook
     // Get event id from template
     $event_id = ee()->TMPL->fetch_param("event_id");
 
+    // Fields to return from api in form of query string "place[name,location[latitude,longitude]]"
+    $fields = ee()->TMPL->fetch_param("fields");
+
+    // Clean fields string
+    $fields = Facebook::clean_fields_string($fields);
+
+    // Replace [] with {}. Brackets conflict with EE tags. Must be "place{name,location{latitude,longitude}}"
+    $fields = str_replace("[", "{", $fields);
+    $fields = str_replace("]", "}", $fields);
+
+    // Remove all spaces
+    $fields = str_replace(" ", "", $fields);
+
     // Get access token
     $access_token = $this->get_access_token();
 
-    // Fields to return from api
-    $fields = [
-      "id",
-      "attending_count",
-      "cover" => [
-        "source"
-      ],
-      "description",
-      "end_time",
-      "name",
-      "place" => [
-        "location" => [
-          "latitude",
-          "longitude"
-        ],
-        "name"
-      ],
-      "start_time",
-      "ticket_uri"
-    ];
-
-    // Get query string for fields
-    $fields_query_string = Facebook::convert_array_to_query_string($fields);
-
     // Request url for page events
-    $url = "https://graph.facebook.com/v2.10/$event_id?access_token=$access_token&fields=$fields_query_string";
+    $url = "https://graph.facebook.com/v2.10/$event_id?access_token=$access_token&fields=$fields";
 
     // Make request to facebook api
     $event = Facebook::request_GET($url);

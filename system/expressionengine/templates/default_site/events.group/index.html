@@ -36,7 +36,7 @@
 <section id="section-event" class="section-page">
   <div class="container">
     <div class="row">
-      {exp:facebook:event page_id="{segment_2}" event_id="{segment_3}"}
+      {exp:facebook:event page_id="{segment_2}" event_id="{segment_3}" fields="id,attending_count,cover[source],description,end_time,name,place[location[longitude,latitude],name],start_time,ticket_uri"}
         <div class="col-sm-6">
           <div id="event-{id}">
             <div class="cover-img bg-img"></div>
@@ -78,7 +78,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        {exp:facebook:events page_id="{segment_2}"}
+        {exp:facebook:events page_id="{segment_2}" fields="id,cover[source],name,start_time"}
           {events}
             <div class="col-sm-6">
               <div id="event-{id}">
@@ -108,7 +108,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        {exp:facebook:events page_id="174276778638"}
+        {exp:facebook:events page_id="174276778638" fields="id,cover[source],name,start_time"}
           {events}
             <div class="col-sm-6">
               <div id="event-{id}">
