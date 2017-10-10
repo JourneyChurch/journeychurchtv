@@ -70,7 +70,8 @@ class Facebook
           $query_string .= "}";
         }
         // If not last value append a comma for next value
-        else {
+        else
+        {
           $query_string .= "},";
         }
       }

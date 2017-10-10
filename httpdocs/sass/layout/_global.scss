@@ -65,7 +65,7 @@ p {
   margin:20px 0;
   font-size:1em;
   line-height:2.2em;
-  @include font-extra-light;
+  @include font-light;
 }
 
 blockquote {
@@ -250,6 +250,16 @@ hr {
   padding-right:30px;
 }
 
+@include media-xs {
+  .no-gutter-left-xs {
+    padding-left:0;
+  }
+
+  .no-gutter-right-xs {
+    padding-right:0;
+  }
+}
+
 @include media-sm {
   body {
     font-size:12px;
@@ -260,6 +270,14 @@ hr {
       padding-top:0;
       padding-bottom:0;
     }
+  }
+
+  .no-gutter-left-sm {
+    padding-left:0;
+  }
+
+  .no-gutter-right-sm {
+    padding-right:0;
   }
 }
 
@@ -283,11 +301,29 @@ hr {
     padding-right:0;
   }
 
+  .no-gutter-left-md {
+    padding-left:0;
+  }
+
+  .no-gutter-right-md {
+    padding-right:0;
+  }
+
   .pad-top {
     padding-top:30px !important;
   }
 
   .pad-bottom {
     padding-bottom:30px !important;
+  }
+}
+
+@include media-lg {
+  .no-gutter-left-lg {
+    padding-left:0;
+  }
+
+  .no-gutter-right-lg {
+    padding-right:0;
   }
 }

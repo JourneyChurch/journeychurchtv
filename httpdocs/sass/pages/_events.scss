@@ -1,0 +1,35 @@
+.event {
+  .caption {
+    padding-top:0;
+    padding-bottom:0;
+    .inner {
+      background-color:$color-lightest;
+      padding:40px;
+      h3 {
+        margin-top:0;
+      }
+      .twitter-share-button {
+        position:relative !important;
+        top:4px;
+      }
+    }
+  }
+  .image {
+    padding-top:0;
+    padding-bottom:0;
+    .bg-img {
+      height:350px;
+      width:100%;
+    }
+  }
+}
+
+@include media-sm {
+  .event {
+    .caption {
+      .inner {
+        height:350px;
+      }
+    }
+  }
+}
