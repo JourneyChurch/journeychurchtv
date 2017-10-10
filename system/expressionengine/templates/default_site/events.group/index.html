@@ -1,6 +1,4 @@
 {embed="embed/header-opener"}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   {if segment_2 && segment_3}
   <div id="fb-root"></div>
   <script>
@@ -37,37 +35,41 @@
   <div class="container">
     <div class="row">
       {exp:facebook:event page_id="{segment_2}" event_id="{segment_3}" fields="id,attending_count,cover[source],description,end_time,name,place[location[longitude,latitude],name],start_time,ticket_uri"}
-        <div class="col-sm-6">
-          <div id="event-{id}">
-            <div class="cover-img bg-img"></div>
+        {if error}
+          <h2>{error}</h2>
+        {if:else}
+          <div class="col-sm-6">
+            <div id="event-{id}">
+              <div class="cover-img bg-img"></div>
+            </div>
           </div>
-        </div>
 
-        <div class="col-sm-6">
-          <h2 class="font-extra-light">{name}</h2>
-          <h5><i class="fa fa-calendar-o" aria-hidden="true"></i> Starts: {start_time format="%F %j, %g:%i %A"}</h5>
-          {if end_time}<h5><i class="fa fa-calendar-o" aria-hidden="true"></i> Ends: {end_time format="%F %j, %g:%i %A"}</h5>{/if}
-          {if place_name}<h5><i class="fa fa-map-marker" aria-hidden="true"></i> {place_name}{if place_location_latitude && place_location_longitude} | <a href="https://google.com/maps/?q={place_location_latitude},{place_location_longitude}">Directions</a> <i class="fa fa-angle-right" aria-hidden="true"></i>{/if}</h5>{/if}
-          {if attending_count > 0}<h5>{attending_count} attending on Facebook</h5>{/if}
-          {if ticket_uri}<a href="{ticket_uri}">Register</a>{/if}
-          <div class="fb-share-button" data-href="/events/{page_id}/{id}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
-          <a id="twitter-share-button" class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
-        </div>
+          <div class="col-sm-6">
+            <h2 class="font-extra-light">{name}</h2>
+            <h5>Starts: {start_time format="%F %j, %g:%i %A"}</h5>
+            {if end_time}<h5>Ends: {end_time format="%F %j, %g:%i %A"}</h5>{/if}
+            {if place_name}<h5><i class="fa fa-map-marker" aria-hidden="true"></i> {place_name}{if place_location_latitude && place_location_longitude} | <a href="https://google.com/maps/?q={place_location_latitude},{place_location_longitude}">Directions</a> <i class="fa fa-angle-right" aria-hidden="true"></i>{/if}</h5>{/if}
+            {if attending_count > 0}<h5>{attending_count} attending on Facebook</h5>{/if}
+            {if ticket_uri}<a href="{ticket_uri}">Register</a>{/if}
+            <div class="fb-share-button" data-href="/events/{page_id}/{id}" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+            <a id="twitter-share-button" class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+          </div>
 
-        <div class="clearfix"></div>
+          <div class="clearfix"></div>
 
-        {if description}
-        <div class="col-sm-8">
-          <p>{description}</p>
-        </div>
-        {/if}
+          {if description}
+          <div class="col-sm-8">
+            <p>{description}</p>
+          </div>
+          {/if}
 
-        {if cover_source}
-        <script>
-          $(document).ready(function() {
-            $("#event-{id} .cover-img").css("background-image", "url({cover_source})");
-          });
-        </script>
+          {if cover_source}
+          <script>
+            $(document).ready(function() {
+              $("#event-{id} .cover-img").css("background-image", "url({cover_source})");
+            });
+          </script>
+          {/if}
         {/if}
       {/exp:facebook:event}
     </div>
@@ -79,25 +81,29 @@
     <div class="row">
       <div class="col-sm-12">
         {exp:facebook:events page_id="{segment_2}" fields="id,cover[source],name,start_time"}
-          {events}
-            <div class="col-sm-6">
-              <div id="event-{id}">
-                <a href="/events/{page_id}/{id}">
-                  <div class="cover-img bg-img"></div>
-                  <h4>{name}</h4>
-                </a>
-                <h5>{start_time format="%F %j"}</h5>
+          {if error}
+            <h2>{error}</h2>
+          {if:else}
+            {events}
+              <div class="col-sm-6">
+                <div id="event-{id}">
+                  <a href="/events/{page_id}/{id}">
+                    <div class="cover-img bg-img"></div>
+                    <h4>{name}</h4>
+                  </a>
+                  <h5>{start_time format="%F %j"}</h5>
+                </div>
               </div>
-            </div>
 
-            {if cover_source}
-            <script>
-              $(document).ready(function() {
-                $("#event-{id} .cover-img").css("background-image", "url({cover_source})");
-              });
-            </script>
-            {/if}
-          {/events}
+              {if cover_source}
+              <script>
+                $(document).ready(function() {
+                  $("#event-{id} .cover-img").css("background-image", "url({cover_source})");
+                });
+              </script>
+              {/if}
+            {/events}
+          {/if}
         {/exp:facebook:events}
       </div>
     </div>
@@ -107,8 +113,10 @@
 <section id="section-events" class="section-page">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
-        {exp:facebook:events page_id="174276778638" fields="id,cover[source],name,start_time"}
+      {exp:facebook:events page_id="174276778638" fields="id,cover[source],name,start_time"}
+        {if error}
+          <h2>{error}</h2>
+        {if:else}
           {events}
             <div class="col-sm-6">
               <div id="event-{id}">
@@ -128,8 +136,8 @@
             </script>
             {/if}
           {/events}
-        {/exp:facebook:events}
-      </div>
+        {/if}
+      {/exp:facebook:events}
     </div>
   </div>
 </section>

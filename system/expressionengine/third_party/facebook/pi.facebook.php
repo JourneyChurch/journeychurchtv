@@ -24,7 +24,7 @@ class Facebook
   // Include facebook configuration variables
   public function __construct()
   {
-    include("config.php");
+    include(dirname(__FILE__). "/../config.php");
     $this->appID = $config["events"]["facebook"]["appID"];
     $this->secret = $config["events"]["facebook"]["secret"];
   }
@@ -184,37 +184,50 @@ class Facebook
   // Get events from facebook page
   public function events()
   {
-    // Get page id from template
-    $page_id = ee()->TMPL->fetch_param("page_id");
-
     // Get access token
     $access_token = $this->get_access_token();
+
+    // Get page id from template
+    $page_id = ee()->TMPL->fetch_param("page_id");
 
     // Fields to return from api in form of query string "place[name,location[latitude,longitude]]"
     $fields = ee()->TMPL->fetch_param("fields");
 
-    // Clean fields string
-    $fields = Facebook::clean_fields_string($fields);
+    // Only get events if page id, access token, and fields are present
+    if ($page_id && $access_token && $fields)
+    {
+      // Clean fields string
+      $fields = Facebook::clean_fields_string($fields);
 
-    // Request url for page events
-    $url = "https://graph.facebook.com/v2.10/$page_id/events?access_token=$access_token&fields=$fields";
+      // Request url for page events
+      $url = "https://graph.facebook.com/v2.10/$page_id/events?access_token=$access_token&fields=$fields";
 
-    // Make request to facebook api
-    $events = Facebook::request_GET($url)["data"];
+      // Make request to facebook api
+      $events = Facebook::request_GET($url)["data"];
 
-    // Organize variables
-    $variables = [];
-    foreach($events as $event) {
-      array_push($variables, Facebook::get_values_from_array($event));
+      // Organize variables
+      $variables = [];
+      foreach($events as $event)
+      {
+        array_push($variables, Facebook::get_values_from_array($event));
+      }
+
+      // Put events into template variables
+      return ee()->TMPL->parse_variables_row(ee()->TMPL->tagdata, ["events" => $variables, "page_id" => $page_id, "error" => NULL]);
     }
-
-    // Put events into template variables
-    return ee()->TMPL->parse_variables_row(ee()->TMPL->tagdata, ["events" => $variables, "page_id" => $page_id]);
+    else
+    {
+      // Put events into template variables
+      return ee()->TMPL->parse_variables_row(ee()->TMPL->tagdata, ["error" => "There was a problem fetching events."]);
+    }
   }
 
   // Get single event from facebook page
   public function event()
   {
+    // Get access token
+    $access_token = $this->get_access_token();
+
     // Get page id from template
     $page_id = ee()->TMPL->fetch_param("page_id");
 
@@ -224,29 +237,28 @@ class Facebook
     // Fields to return from api in form of query string "place[name,location[latitude,longitude]]"
     $fields = ee()->TMPL->fetch_param("fields");
 
-    // Clean fields string
-    $fields = Facebook::clean_fields_string($fields);
+    // Only get events if page id, event id, access token, and fields are present
+    if ($access_token && $page_id && $event_id && $fields)
+    {
+      // Clean fields string
+      $fields = Facebook::clean_fields_string($fields);
 
-    // Replace [] with {}. Brackets conflict with EE tags. Must be "place{name,location{latitude,longitude}}"
-    $fields = str_replace("[", "{", $fields);
-    $fields = str_replace("]", "}", $fields);
+      // Request url for page events
+      $url = "https://graph.facebook.com/v2.10/$event_id?access_token=$access_token&fields=$fields";
 
-    // Remove all spaces
-    $fields = str_replace(" ", "", $fields);
+      // Make request to facebook api
+      $event = Facebook::request_GET($url);
 
-    // Get access token
-    $access_token = $this->get_access_token();
+      // Get variables from resulting event array
+      $variables = Facebook::get_values_from_array($event);
+      $variables["page_id"] = $page_id;
+      $variables["error"] = NULL;
 
-    // Request url for page events
-    $url = "https://graph.facebook.com/v2.10/$event_id?access_token=$access_token&fields=$fields";
-
-    // Make request to facebook api
-    $event = Facebook::request_GET($url);
-
-    // Get variables from resulting event array
-    $variables = Facebook::get_values_from_array($event);
-    $variables["page_id"] = $page_id;
-
-    return ee()->TMPL->parse_variables_row(ee()->TMPL->tagdata, $variables);
+      return ee()->TMPL->parse_variables_row(ee()->TMPL->tagdata, $variables);
+    }
+    else
+    {
+      return ee()->TMPL->parse_variables_row(ee()->TMPL->tagdata, ["error" => "There was a problem fetching this event."]);
+    }
   }
 }
