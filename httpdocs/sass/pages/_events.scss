@@ -1,6 +1,6 @@
 .event {
   margin-top:30px;
-  &:nth-child(-n+3) {
+  &:first-child {
     margin-top:0;
   }
   .caption {
@@ -22,16 +22,28 @@
     padding-top:0;
     padding-bottom:0;
     .bg-img {
-      height:350px;
+      height:300px;
       width:100%;
+    }
+    .caption {
+      background-color:$color-lightest;
+      padding:5px 15px;
     }
   }
 }
 
 @include media-sm {
   .event {
+    &:nth-child(-n+3) {
+      margin-top:0;
+    }
     .caption {
       .inner {
+        height:350px;
+      }
+    }
+    .image {
+      .bg-img {
         height:350px;
       }
     }

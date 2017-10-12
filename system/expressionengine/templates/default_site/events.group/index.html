@@ -143,9 +143,13 @@
                 <div id="event-{id}">
                   <a href="/events/{page_id}/{id}">
                     <div class="bg-img"></div>
-                    <h4>{name}</h4>
                   </a>
-                  <h5>{start_time format="%F %j"}</h5>
+                  <div class="caption">
+                    <a href="/events/{page_id}/{id}">
+                      <h4>{name}</h4>
+                    </a>
+                    <h5>{start_time format="%F %j"}</h5>
+                  </div>
                 </div>
               </div>
             </div>

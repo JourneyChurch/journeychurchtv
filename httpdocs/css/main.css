@@ -5951,11 +5951,11 @@ hr {
   color: white;
   position: relative; }
   .bg-img .caption, .bg-img-fixed .caption {
-    position: absolute;
+    position: absolute !important;
     padding: 3px 8px !important;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    bottom: 0; }
+    width: 100% !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    bottom: 0 !important; }
     .bg-img .caption a, .bg-img-fixed .caption a {
       color: white; }
 
@@ -6788,7 +6788,7 @@ form input {
 .social-share {
   margin-top: 5px; }
   .social-share .twitter-share-button {
-    margin-left: 5px; }
+    margin-left: 7px; }
 
 .preview {
   padding-top: 50px; }
@@ -6945,7 +6945,7 @@ form input {
     height: auto; } }
 .event {
   margin-top: 30px; }
-  .event:nth-child(-n+3) {
+  .event:first-child {
     margin-top: 0; }
   .event .caption {
     padding-top: 0;
@@ -6962,11 +6962,18 @@ form input {
     padding-top: 0;
     padding-bottom: 0; }
     .event .image .bg-img, .event .image .bg-img-fixed {
-      height: 350px;
+      height: 300px;
       width: 100%; }
+    .event .image .caption {
+      background-color: white;
+      padding: 5px 15px; }
 
 @media only screen and (min-width: 798px) {
+  .event:nth-child(-n+3) {
+    margin-top: 0; }
   .event .caption .inner {
+    height: 350px; }
+  .event .image .bg-img, .event .image .bg-img-fixed {
     height: 350px; } }
 
 /*# sourceMappingURL=main.css.map */

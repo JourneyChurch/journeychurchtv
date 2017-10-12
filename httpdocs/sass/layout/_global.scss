@@ -101,11 +101,11 @@ hr {
   color: $color-lightest;
   position:relative;
   .caption {
-    position:absolute;
+    position:absolute !important;
     padding:3px 8px !important;
-    width:100%;
-    background-color:rgba(0, 0, 0, 0.5);
-    bottom:0;
+    width:100% !important;
+    background-color:rgba(0, 0, 0, 0.4) !important;
+    bottom:0 !important;
     a {
       color:$color-lightest;
     }
