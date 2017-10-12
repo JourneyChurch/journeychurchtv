@@ -62,8 +62,10 @@
                     {if end_time}<h5>Ends: <span class="font-light">{end_time format="%F %j, %g:%i %A"}</span></h5>{/if}
                     {if place_name}<h5><i class="fa fa-map-marker" aria-hidden="true"></i> {place_name}{if place_location_latitude && place_location_longitude} | <a href="https://google.com/maps/?q={place_location_latitude},{place_location_longitude}">Directions</a> <i class="fa fa-angle-right" aria-hidden="true"></i>{/if}</h5>{/if}
                     {if attending_count > 0}<h5 class="font-light"><i class="fa fa-check-square-o" aria-hidden="true"></i> {attending_count} attending on Facebook</h5>{/if}
+                    {if ticket_uri}
                     <br>
                     <a href="{ticket_uri}" class="btn btn-default btn-dark">Register</a>
+                    {/if}
                   </div>
                 </div>
               </div>
