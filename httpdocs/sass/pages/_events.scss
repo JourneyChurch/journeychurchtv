@@ -1,4 +1,8 @@
 .event {
+  margin-top:30px;
+  &:nth-child(-n+3) {
+    margin-top:0;
+  }
   .caption {
     padding-top:0;
     padding-bottom:0;

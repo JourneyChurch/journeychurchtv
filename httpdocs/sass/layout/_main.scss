@@ -38,14 +38,14 @@
 
 @include media-md {
   .section {
-    padding:100px 0;
-  }
-
-  .section-page {
     padding:80px 0;
   }
 
+  .section-page {
+    padding:60px 0;
+  }
+
   .section-skinny {
-    padding:50px 0;
+    padding:40px 0;
   }
 }

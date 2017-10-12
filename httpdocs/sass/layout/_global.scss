@@ -99,6 +99,17 @@ hr {
   @include background-size-cover;
   background-color: $color-darkest;
   color: $color-lightest;
+  position:relative;
+  .caption {
+    position:absolute;
+    padding:3px 8px !important;
+    width:100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    bottom:0;
+    a {
+      color:$color-lightest;
+    }
+  }
 }
 
 .bg-img-fixed {

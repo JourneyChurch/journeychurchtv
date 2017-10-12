@@ -1,5 +1,5 @@
 </head>
-<body>
+<body {if embed:no_cover}class="no-cover"{/if}>
   <div id="no-js-wrapper">
     <div class="container">
       <div class="row">
@@ -11,6 +11,8 @@
   </div>
 
   <div id="wrapper">
+    {if embed:no_cover}<div class="header-filler"></div>{/if}
+
     <header id="header" role="banner">
       <a href="/" class="logo">
         <img src="/img/logo.png" class="img-responsive" />

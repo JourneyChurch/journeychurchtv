@@ -8,6 +8,24 @@
   z-index:1500;
 }
 
+.header-filler {
+  display:none;
+}
+
+.no-cover {
+  #header {
+    padding-top:15px;
+    padding-bottom:15px;
+  }
+
+  .header-filler {
+    background-color:$color-lightest;
+    height:80px;
+    width:100%;
+    display:block;
+  }
+}
+
 /* Logo */
 .logo {
   width:50px;

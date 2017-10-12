@@ -194,6 +194,9 @@ class Facebook
     // Fields to return from api in form of query string "place[name,location[latitude,longitude]]"
     $fields = ee()->TMPL->fetch_param("fields");
 
+    // Get time Filesystem
+    $time_filter = ee()->TMPL->fetch_param("time_filter");
+
     // Only get events if page id, access token, and fields are present
     if ($page_id && $access_token && $fields)
     {
@@ -201,7 +204,15 @@ class Facebook
       $fields = Facebook::clean_fields_string($fields);
 
       // Request url for page events
-      $url = "https://graph.facebook.com/v2.10/$page_id/events?access_token=$access_token&fields=$fields";
+      if ($time_filter)
+      {
+        $url = "https://graph.facebook.com/v2.10/$page_id/events?access_token=$access_token&fields=$fields&time_filter=$time_filter";
+      }
+      else
+      {
+        // Request url for page events
+        $url = "https://graph.facebook.com/v2.10/$page_id/events?access_token=$access_token&fields=$fields";
+      }
 
       // Make request to facebook api
       $events = Facebook::request_GET($url)["data"];
