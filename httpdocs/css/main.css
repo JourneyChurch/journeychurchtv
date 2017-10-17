@@ -6308,7 +6308,7 @@ hr {
 /* COMPONENTS */
 /* Main Nav */
 .nav {
-  width: 100%;
+  width: 275px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.85);
   position: fixed;
@@ -6320,8 +6320,9 @@ hr {
   .nav .nav-links-wrapper {
     width: 100%;
     height: 100%;
-    text-align: center;
-    padding: 0; }
+    padding-top: 110px;
+    padding-left: 23px;
+    text-align: left; }
     .nav .nav-links-wrapper ul li a {
       display: inline-block;
       padding: 8px;
@@ -6361,20 +6362,6 @@ hr {
       display: table-cell !important;
       vertical-align: middle; }
 
-/*@include media-xs-only {
-  .nav {
-    .nav-links-wrapper {
-        @include vertical-align-wrapper;
-    }
-  }
-}*/
-@media only screen and (min-width: 0) {
-  .nav {
-    width: 275px; }
-    .nav .nav-links-wrapper {
-      text-align: left;
-      padding-top: 110px;
-      padding-left: 23px; } }
 /* Nav Icon */
 .nav-icon {
   display: inline-block;
