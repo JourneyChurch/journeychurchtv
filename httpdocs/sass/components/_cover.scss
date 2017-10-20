@@ -5,6 +5,7 @@
   @include vertical-align-wrapper;
   .inner {
     @include vertical-align;
+    position:relative;
     text-align:center;
     .btn {
       margin-top:0.8em;

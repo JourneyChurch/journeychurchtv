@@ -1,30 +1,26 @@
-{exp:channel:entries channel="Page" limit="1" {if embed:id}entry_id="{embed:id}"{/if} dynamic="no"}
+{exp:channel:entries channel="page" limit="1" {if embed:id}entry_id="{embed:id}"{/if} {if embed:url_title}url_title="{embed:url_title}"{/if} dynamic="no"}
 <div id="page-{url_title}" class="page">
-  <div {if page_cover_type == "Partial Cover"}class="cover-partial bg-img"{if:else}class="cover bg-img"{/if}>
+  <div {if page_cover_type == "Partial Height"}class="cover-partial bg-img"{if:else}class="cover bg-img"{/if}>
     <div class="inner">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
             {if page_display_title}<h4 class="font-block-bold">{page_display_title}</h4>{if:else}<h4 class="font-block-bold">{title}</h4>{/if}
-            {if page_sub_title}<h2 class="font-extra-light">{page_sub_title}</h2>{/if}
-            {if page_link}<a href="{page_link}" class="btn btn-fade">{page_link_text}</a>{/if}
+            {if page_subtitle}<h2 class="font-extra-light">{page_subtitle}</h2>{/if}
+            {if page_link_url}<a href="{page_link_url}" class="btn btn-fade">{page_link_text}</a>{/if}
           </div>
         </div>
       </div>
-    </div>
 
-    {if page_social}
-    <div class="social">
-      <ul>
-      {page_social}
-        {if page_social:social_facebook}<li><a href="https://facebook.com/{page_social:social_facebook}" class="social-circle"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>{/if}
-        {if page_social:social_twitter}<li><a href="https://twitter.com/{page_social:social_twitter}" class="social-circle"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>{/if}
-        {if page_social:social_instagram}<li><a href="https://instagram.com/{page_social:social_instagram}" class="social-circle"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>{/if}
-        {if page_social:social_youtube}<li><a href="https://youtube.com/{page_social:social_youtube}" class="social-circle"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>{/if}
-      {/page_social}
-      </ul>
+      <div class="social">
+        <ul>
+          {if "{page_social:social_facebook}" != ""}<li><a href="https://facebook.com/{page_social:social_facebook}" class="social-circle"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>{/if}
+          {if "{page_social:social_twitter}" != ""}<li><a href="https://twitter.com/{page_social:social_twitter}" class="social-circle"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>{/if}
+          {if "{page_social:social_instagram}" != ""}<li><a href="https://instagram.com/{page_social:social_instagram}" class="social-circle"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>{/if}
+          {if "{page_social:social_youtube}" != ""}<li><a href="https://youtube.com/{page_social:social_youtube}" class="social-circle"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>{/if}
+        </ul>
+      </div>
     </div>
-    {/if}
   </div>
 
   {if entry_id == "9"}
@@ -33,28 +29,20 @@
 
   <style>
     #page-{url_title} .cover-partial, #page-{url_title} .cover {
-      background-image:url("{page_background_image}");
+      background-image:url("{page_cover_image}");
     }
   </style>
 
-  {if page_navigation_category_id}
-    <div id="page-nav" class="page-nav">
-      <div class="nav-shadow-left"></div>
-      {embed="embed/navigation" category="{page_navigation_category_id}"}
-      <div class="nav-shadow-right"></div>
-    </div>
+  {if "{page_navigation_menu:entry_id}" != ""}
+  <div id="page-nav" class="page-nav">
+    <div class="nav-shadow-left"></div>
+      {embed="embed/navigation_menu" id="{page_navigation_menu:entry_id}"}
+    <div class="nav-shadow-right"></div>
+  </div>
   {/if}
 
-  {if "{page_content:count}" != ""}
-    {embed="embed/content" url-title="{page_content}{page_content:url_title}{/page_content}"}
-  {/if}
-
-  {if page_section_category_id}
-    {embed="embed/content-sections" category="{page_section_category_id}"}
-  {/if}
-
-  {if page_preview_category_id}
-    {embed="embed/previews" category="{page_preview_category_id}"}
-  {/if}
+  {page_content}
+    {embed="embed/content" id="{page_content:entry_id}"}
+  {/page_content}
 </div>
 {/exp:channel:entries}

@@ -1,38 +1,38 @@
-{embed="embed/header"}
-
-{embed="embed/page" id="9"}
-
-{embed="embed/sections" section-category="4" watch-category="5"}
-
-{embed="embed/footer-opener"}
-
-{!-- Check if experience is live --}
-<script>
-$(document).ready(function() {
-  var ExperienceLiveCheck = function() {
-    $.ajax({
-      url: 'http://live.journeychurch.tv/api/v1/events/current',
-      dataType: 'json',
-      crossDomain: true,
-      success: function(data) {
-        if (data.response.item.isLive) {
-          $('#watch-caption').attr('href', 'live.journeychurch.tv');
-          $('#watch-caption').html('Watch Live <i class="fa fa-angle-right" aria-hidden="true"></i>');
-        }
+{if segment_1}
+  {embed="embed/header"}
+  {embed="embed/page" url_title="{segment_1}"}
+  {embed="embed/footer"}
+{if:else}
+  {embed="embed/header"}
+  {embed="embed/page" id="9"}
+  {embed="embed/footer-opener"}
+    {!-- Check if experience is live --}
+    <script>
+    $(document).ready(function() {
+      var ExperienceLiveCheck = function() {
+        $.ajax({
+          url: 'http://live.journeychurch.tv/api/v1/events/current',
+          dataType: 'JSON',
+          crossDomain: true,
+          success: function(data) {
+            if (data.response.item.isLive) {
+              $('#watch-caption').attr('href', 'live.journeychurch.tv');
+              $('#watch-caption').html('Watch Live <i class="fa fa-angle-right" aria-hidden="true"></i>');
+            }
+          }
+        });
       }
+
+      var StartExperienceLiveCheck = function() {
+        ExperienceLiveCheck();
+
+        setInterval(function() {
+          ExperienceLiveCheck();
+        }, 5000);
+      }
+
+      StartExperienceLiveCheck();
     });
-  }
-
-  var StartExperienceLiveCheck = function() {
-    ExperienceLiveCheck();
-
-    setInterval(function() {
-      ExperienceLiveCheck();
-    }, 5000);
-  }
-
-  StartExperienceLiveCheck();
-});
-</script>
-
-{embed="embed/footer-closer"}
+    </script>
+  {embed="embed/footer-closer"}
+{/if}

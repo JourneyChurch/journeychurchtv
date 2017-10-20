@@ -6530,6 +6530,7 @@ hr {
   .cover .inner, .cover-partial .inner {
     display: table-cell !important;
     vertical-align: middle;
+    position: relative;
     text-align: center; }
     .cover .inner .btn, .cover-partial .inner .btn {
       margin-top: 0.8em; }
@@ -6750,7 +6751,7 @@ form input {
   position: absolute;
   width: 100%;
   left: 0px;
-  top: 435px; }
+  bottom: 15px; }
   .page .social ul li {
     margin: 0 5px;
     display: inline; }

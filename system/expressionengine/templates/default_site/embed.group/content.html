@@ -1,11 +1,72 @@
-{exp:channel:entries channel="Content" url_title="{embed:url-title}" limit="1"}
-<section id="section-{entry_id}" class="section-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        {content_body}
+{exp:channel:entries channel="content" entry_id="{embed:id}"}
+  <section id="section-{url_title}" {if content_background_image}class="bg-img"{/if}>
+    <div class="container">
+      <div class="row">
+        {if "{content_section_columns:count}" != ""}
+          <div {if "{content_section_columns:section_columns_text_align}" == "Center"}class="text-center"{if:else}class="text-left"{/if}>
+            {if display_title}
+              <div class="col-sm-12">
+                <h2>{display_title}</h2>
+              </div>
+            {/if}
+            {if "{content_section_columns:section_columns_number_columns}" == "4"}
+              <div class="col-sm-3">{content_section_columns:section_columns_column_1}</div>
+              <div class="col-sm-3">{content_section_columns:section_columns_column_2}</div>
+              <div class="col-sm-3">{content_section_columns:section_columns_column_3}</div>
+              <div class="col-sm-3">{content_section_columns:section_columns_column_4}</div>
+            {if:elseif "{content_section_columns:section_columns_number_columns}" == "3"}
+              <div class="col-sm-4">{content_section_columns:section_columns_column_1}</div>
+              <div class="col-sm-4">{content_section_columns:section_columns_column_2}</div>
+              <div class="col-sm-4">{content_section_columns:section_columns_column_3}</div>
+            {if:elseif "{content_section_columns:section_columns_number_columns}" == "2"}
+              <div class="col-sm-6">{content_section_columns:section_columns_column_1}</div>
+              <div class="col-sm-6">{content_section_columns:section_columns_column_2}</div>
+            {if:else}
+              <div class="col-sm-8 col-sm-offset-2">{content_section_columns:section_columns_column_1}</div>
+            {/if}
+          </div>
+        {if:elseif "{content_section_events:count}" != ""}
+          {if display_title}
+            <div class="col-sm-12">
+              <h2>{display_title}</h2>
+            </div>
+          {/if}
+        {if:elseif "{content_section_preview:count}" != ""}
+          {if display_title}
+            <div class="col-sm-12">
+              <h2>{display_title}</h2>
+            </div>
+          {/if}
+        {if:elseif "{content_section_video:count}" != ""}
+          {if display_title}
+            <div class="col-sm-12">
+              <h2>{display_title}</h2>
+            </div>
+          {/if}
+        {if:elseif "{content_section_video_cat:count}" != ""}
+          {if display_title}
+            <div class="col-sm-12">
+              <h2>{display_title}</h2>
+            </div>
+          {/if}
+        {/if}
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  {if content_background_color}
+  <style>
+    #section-{url_title} {
+      background-color: {content_background_color}
+    }
+  </style>
+  {/if}
+
+  {if content_background_image}
+  <style>
+    #section-{url_title} {
+      background-image: url("{content_background_image}");
+    }
+  </style>
+  {/if}
 {/exp:channel:entries}
