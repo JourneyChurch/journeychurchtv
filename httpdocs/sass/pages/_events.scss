@@ -32,6 +32,10 @@
   }
 }
 
+.event-embed {
+  @extend .event;
+}
+
 @include media-sm {
   .event {
     &:nth-child(-n+3) {
@@ -46,6 +50,14 @@
       .bg-img {
         height:350px;
       }
+    }
+  }
+}
+
+@include media-lg {
+  .event-embed {
+    &:nth-child(-n+5) {
+      margin-top:0;
     }
   }
 }

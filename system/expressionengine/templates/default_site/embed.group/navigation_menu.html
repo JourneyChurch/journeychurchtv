@@ -1,7 +1,7 @@
 <ul>
   <div class="vertical-align-wrapper">
     <div class="vertical-align">
-      {exp:channel:entries channel="navigation_menu" {if embed:id}entry_id="{embed:id}"{if:else}url_title="main"{/if} dynamic="no"}
+      {exp:channel:entries channel="navigation_menu" {if embed:id}entry_id="{embed:id}"{/if} {if embed:url_title}url_title="{embed:url_title}"{/if} dynamic="no"}
         {navigation_menu_items}
           <li><a href="{navigation_menu_items:navigation_item_link_url}" {if navigation_menu_items:navigation_item_new_tab}target="_blank"{/if} {if navigation_menu_items:url_title == "nav-{segment_1}-{last_segment}"}class="active"{/if}>{if navigation_menu_items:navigation_item_display_name}{navigation_menu_items:navigation_item_display_name}{if:else}{navigation_menu_items:title}{/if}</a></li>
         {/navigation_menu_items}

@@ -1,4 +1,4 @@
-{exp:channel:entries channel="Watch" url_title="{segment_2}" {if embed:category}category="{embed:category}"{/if}orderby="date" limit="1"}
+{exp:channel:entries channel="Watch" url_title="{segment_2}" {if embed:category}category="{embed:category}"{/if}orderby="date" limit="1" dynamic="no"}
 
   <section id="section-watch-player" class="section-page">
     <div class="container">
@@ -8,20 +8,9 @@
             <div class="vid-responsive">
               <iframe src="https://www.youtube.com/embed/{watch_youtube_video_id}" frameborder="0" allowfullscreen></iframe>
             </div>
-
-            <div class="page-nav hidden-md hidden-lg">
-              <ul>
-                {if watch_notes}<li><a id="notes-mobile" target="_blank" href="/Docs/{watch_notes}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Notes</a></li>{/if}
-                {if watch_podcast_url}<li><a id="podcast-mobile" target="_blank" href="{watch_podcast_url}"><i class="fa fa-cloud-download" aria-hidden="true"></i> Audio</a></li>{/if}
-                {categories}{if "{category_id}" == "33"}<li><a id="story" target="_blank" href="/stories"><i class="fa fa-book" aria-hidden="true"></i> What's Your Story?</a></li>{/if}{/categories}
-                <li><a id="share-facebook-mobile"><i class="fa fa-facebook-official" aria-hidden="true"></i> Share</a></li>{/if}
-                <li><a id="tweet-mobile"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet</a></li>
-                <li><a id="mail" href="mailto:?subject=Check%20out%20this%20experience%20at%20Journeychurch.tv&body={site_url}watch/{url_title}"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mail</a></li>
-              </ul>
-            </div>
           </div>
 
-          <div class="sidebar hidden-xs hidden-sm col-md-5 no-gutter-left">
+          <div class="sidebar col-md-5 no-gutter-left-md">
             <div class="inner">
               <h3 class="font-extra-light">{title}</h3>
               <h4 class="date font-extra-light font-color-regular">{entry_date format="%F %j %Y"}</h4>

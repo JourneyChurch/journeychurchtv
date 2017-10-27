@@ -1,12 +1,33 @@
-{exp:channel:entries channel="content" entry_id="{embed:id}"}
-  <section id="section-{url_title}" {if content_background_image}class="bg-img"{/if}>
+{exp:channel:entries channel="content" entry_id="{embed:id}" dynamic="no"}
+
+  {!-- Section Head --}
+  {if content_background_image}
+    {if content_height == "Tall"}
+      <section id="section-{url_title}" class="bg-img section-tall">
+    {if:elseif content_height == "Short"}
+      <section id="section-{url_title}" class="bg-img section-short">
+    {if:else}
+      <section id="section-{url_title}" class="bg-img section">
+    {/if}
+  {if:else}
+    {if content_height == "Tall"}
+      <section id="section-{url_title}" class="section-tall">
+    {if:elseif content_height == "Short"}
+      <section id="section-{url_title}" class="section-short">
+    {if:else}
+      <section id="section-{url_title}" class="section">
+    {/if}
+  {/if}
     <div class="container">
       <div class="row">
+
+
+        {!-- If Section Columns --}
         {if "{content_section_columns:count}" != ""}
           <div {if "{content_section_columns:section_columns_text_align}" == "Center"}class="text-center"{if:else}class="text-left"{/if}>
-            {if display_title}
+            {if content_display_title}
               <div class="col-sm-12">
-                <h2>{display_title}</h2>
+                <h2>{content_display_title}</h2>
               </div>
             {/if}
             {if "{content_section_columns:section_columns_number_columns}" == "4"}
@@ -25,30 +46,71 @@
               <div class="col-sm-8 col-sm-offset-2">{content_section_columns:section_columns_column_1}</div>
             {/if}
           </div>
+
+
+        {!-- If Section Events --}
         {if:elseif "{content_section_events:count}" != ""}
-          {if display_title}
+          {if content_display_title}
             <div class="col-sm-12">
-              <h2>{display_title}</h2>
+              <h2 class="font-light">{content_display_title}</h2>
             </div>
           {/if}
+
+          {embed="embed/events" page_id="{content_section_events:section_events_facebook_page_id}" fields="id,cover[source],name,start_time" time_filter="upcoming"}
+
+
+        {!-- If Section Preview --}
         {if:elseif "{content_section_preview:count}" != ""}
-          {if display_title}
+          {if content_display_title}
             <div class="col-sm-12">
-              <h2>{display_title}</h2>
+              <h2 class="font-light">{content_display_title}</h2>
             </div>
           {/if}
+
+          {content_section_preview}
+            {content_section_preview:section_preview_previews}
+              {embed="embed/preview" id="{content_section_preview:section_preview_previews:entry_id}"}
+            {/content_section_preview:section_preview_previews}
+          {/content_section_preview}
+
+
+        {!-- If Section Video --}
         {if:elseif "{content_section_video:count}" != ""}
-          {if display_title}
+          {if content_display_title}
             <div class="col-sm-12">
-              <h2>{display_title}</h2>
+              <h2 class="font-light">{content_display_title}</h2>
+            </div>
+
+            <div class="clearfix"></div>
+          {/if}
+
+          <div class="watch-player">
+            <div class="vid-wrapper col-md-7">
+              <div class="vid-responsive">
+                <iframe src="https://www.youtube.com/embed/{content_section_video:section_video_youtube_id}" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+
+            <div class="sidebar col-md-5 no-gutter-left-md">
+              <div class="inner">
+                <h2 class="font-light">{content_section_video:title}</h2>
+                <p>{content_section_video:section_video_description}</p>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+
+
+        {!-- If Section Watch Category --}
+        {if:elseif "{content_section_watch_cat:count}" != ""}
+          {if content_display_title}
+            <div class="col-sm-12">
+              <h2 class="font-light">{content_display_title}</h2>
             </div>
           {/if}
-        {if:elseif "{content_section_video_cat:count}" != ""}
-          {if display_title}
-            <div class="col-sm-12">
-              <h2>{display_title}</h2>
-            </div>
-          {/if}
+
+          {embed="embed/watch-player" category="{content_section_watch_cat:section_watch_category_id}"}
         {/if}
       </div>
     </div>

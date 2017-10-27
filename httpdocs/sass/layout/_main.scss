@@ -17,17 +17,20 @@
   .title {
     margin-bottom:40px;
   }
+  h2 {
+    margin-top:0;
+  }
 }
 
-.section-page {
+.section-tall {
   @extend .section;
 }
 
-.section-skinny {
+.section-short {
   @extend .section;
 }
 
-.section, .section-page, .section-skinny {
+.section, .section-tall, .section-short {
   padding:40px 0;
 }
 
@@ -38,14 +41,14 @@
 
 @include media-md {
   .section {
-    padding:80px 0;
+    padding:50px 0;
   }
 
-  .section-page {
-    padding:60px 0;
+  .section-tall {
+    padding:70px 0;
   }
 
-  .section-skinny {
-    padding:40px 0;
+  .section-short {
+    padding:30px 0;
   }
 }

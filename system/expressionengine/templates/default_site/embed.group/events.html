@@ -1,25 +1,31 @@
-<div class="two-column-mobile-wrapper">
-{exp:channel:entries channel="Events" limit="{embed:number-columns}"}
-  <a href="/events/{url_title}">
-    <div id="events-{entry_id}" class="two-column-mobile card col-md-3 col-sm-6">
-      <div class="cover-img">
-        <img src="{events_cover_image}" class="img-responsive"/>
-      </div>
-      <div class="info">
-        <div class="inner">
-          <div class="vertical-align-wrapper">
-            <div class="vertical-align">
-              <h4 class="title font-light">{title}</h4>
-              <div class="date">
-                <h5 class="font-extra-light">{if '{events_start_date format="%M %d"}' == '{events_end_date format="%M %d"}'}{events_start_date format="%M %d"}{if:else}{events_start_date format="%M %d"} - {events_end_date format="%M %d"}{/if}</h5>
-                <h5 class="font-extra-light">{events_start_date format="%g"}:{events_start_date format="%i %A"} - {events_end_date format="%g"}:{events_end_date format="%i %A"}</h5>
-              </div>
+{exp:facebook:events page_id="{embed:page_id}" fields="{embed:fields}" {if embed:time_filter}time_filter="{embed:time_filter}"{/if}}
+  {if error}
+    <h2>{error}</h2>
+  {if:else}
+    {events}
+      <div class="col-sm-6 col-lg-4 event-embed">
+        <div class="image">
+          <div id="event-{id}">
+            <a href="/events/{page_id}/{id}">
+              <div class="bg-img"></div>
+            </a>
+            <div class="caption">
+              <a href="/events/{page_id}/{id}">
+                <h5>{name}</h5>
+              </a>
+              <h5>{start_time format="%F %j"}</h5>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </a>
-{/exp:channel:entries}
-  <div class="clearfix"></div>
-</div>
+
+      {if cover_source}
+      <script>
+        $(document).ready(function() {
+          $("#event-{id} .bg-img").css("background-image", "url({cover_source})");
+        });
+      </script>
+      {/if}
+    {/events}
+  {/if}
+{/exp:facebook:events}
