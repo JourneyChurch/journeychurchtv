@@ -1,0 +1,7 @@
+{exp:channel:entries channel="redirect" url_title="{embed:url_title}"}
+  <?php ee()->functions->redirect('{redirect_url}'); ?>
+
+  {if no_results}
+    {redirect="/"}
+  {/if}
+{/exp:channel:entries}
