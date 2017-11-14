@@ -1,400 +1,48 @@
-/*
-  Colors:
-
-  Red: #bf0404
-  Green: #063b17
-  Yellow (text): #ffda12
-  Pink: #ffcccc
-  Blue (optional): #96c6b9
-  White: #ffffff
-*/
-
-@font-face {
-  font-family: 'Homestead-Regular';
-  src: url('/_font/Homestead-Regular/Homestead-Regular.eot'); /* IE9 Compat Modes */
-  src: url('/_font/Homestead-Regular/Homestead-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/_font/Homestead-Regular/Homestead-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/_font/Homestead-Regular/Homestead-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('/_font/Homestead-Regular/Homestead-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('/_font/Homestead-Regular/Homestead-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+body
+{
+  font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
+  font-weight:300;
+  background-color:black;
+  color:white;
+  background-image:url("/_img/christmas/Christmas-day.jpeg");
 }
 
-@font-face {
-  font-family: 'Homestead-Display';
-  src: url('/_font/Homestead-Display/Homestead-Display.eot'); /* IE9 Compat Modes */
-  src: url('/_font/Homestead-Display/Homestead-Display.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/_font/Homestead-Display/Homestead-Display.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/_font/Homestead-Display/Homestead-Display.woff') format('woff'), /* Pretty Modern Browsers */
-       url('/_font/Homestead-Display/Homestead-Display.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('/_font/Homestead-Display/Homestead-Display.svg#svgFontName') format('svg'); /* Legacy iOS */
+section
+{
+  padding:25px 0;
 }
 
-html, body {
-  height:100%;
-  min-height:800px;
-}
-
-body {
-  font-size:16px;
-}
-
-p {
-  margin:15px 0;
-  line-height:2em;
-  font-size:1em;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", Arial;
-  font-style: normal;
-  font-weight: 200;
-}
-
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.17em; }
-h4 { font-size: 1.12em; }
-h5 { font-size: .83em; }
-h6 { font-size: .75em; }
-
-strong {
-  font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", Arial;
-  font-style: normal;
-  font-weight: 500 !important;
-}
-
-.bg-img {
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-attachment:scroll;
+.bg-img
+{
+  background-color:black;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.v-center-wrapper {
-  display:table;
-  width:100%;
-  height:100%;
+.no-gutter
+{
+  padding-right:0;
+  padding-left:0;
 }
 
-.v-center {
-  display:table-cell;
-  vertical-align:middle;
-}
-
-.btn-default {
-  border-radius:0px;
-  text-shadow:none;
-  background-image:none;
-  box-shadow:none;
-  padding:10px 17px;
-  font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", Arial;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  font-size:0.7em;
-  color:#bf0404;
-  background-color:white;
-  border:0;
-  /*border:2px solid #bf0404;*/
+.btn-default
+{
   margin-top:5px;
+  margin-bottom:5px;
 }
 
-.btn-default:active, .btn-default:focus, .btn-default:hover {
-  background-color:#bf0404;
-  border-color:#bf0404;
-  color:white;
-  box-shadow:none;
+.wrapper
+{
+  padding:25px 0;
 }
 
-.btn-default:active:focus {
-  background-color:#ffcccc;
-  border-color:#ffcccc;
-  color:white;
-  box-shadow:none;
-}
-
-.wrapper {
-  position:relative;
-  height:100%;
-  width:100%;
-}
-
-.grid {
-  position:absolute;
-  width:50%;
-  height:50%;
-}
-
-.grid:hover .section-image {
-  opacity:0.4;
-  transition:0.25s ease-in opacity;
-}
-
-.grid:hover .section-title {
-  display:none;
-}
-
-.grid:hover .section-content {
-  display:block;
-}
-
-.grid-mobile {
-  display:none;
-}
-
-.section-wrapper {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background-color:black;
-}
-
-.section-image {
-  position:absolute;
-  top:0;
-  left:0;
-  height:100%;
-  width:100%;
-  transition:0.25s ease-in opacity;
-}
-
-.section-caption {
-  position:absolute;
-  height:100%;
-  width:100%;
-  top:0;
-  left:0;
-  color:white;
-  text-align:center;
-}
-
-.section-content {
-  width:70%;
-  margin:0 auto;
-  display:none;
-  text-align:left;
-}
-
-.section-content ul {
-  list-style-type:none;
-  padding:0;
-}
-
-.section-content * {
-  line-height:1.5em;
-}
-
-#spectacular {
-  top:0;
-  left:0;
-}
-
-#spectacular .section-image {
-  background-image:url("/_img/christmas/Splashpage.jpg");
-}
-
-#spectacular .section-title h1 {
-  font-size:3em;
-  letter-spacing:0.1em;
-  font-family:"Homestead-Display";
-  margin:0;
-}
-
-#spectacular:hover .section-image {
-  background-image:url("/_img/christmas/Spectacular-2.jpg");
-}
-
-#light-night {
-  top:0;
-  left:50%;
-}
-
-#light-night .section-image {
-  background-image:url("/_img/christmas/Christmas-Light-Night-Artwork.jpg");
-}
-
-#light-night .section-title h1 {
-  font-size:2em;
-  letter-spacing:0.1em;
-  line-height:1.15em;
-  margin:0;
-}
-
-#light-night .section-title h4 {
-  font-size:1.05em;
-  letter-spacing:0.1em;
-  line-height:1.3em;
-  margin:0;
-}
-
-#light-night:hover .section-image {
-  background-image:url("/_img/christmas/Christmas-Light-Night-3.jpg");
-}
-
-#eve {
-  top:50%;
-  left:0;
-}
-
-#eve .section-image {
-  background-image:url("/_img/christmas/Christmas-Eve.jpg");
-}
-
-#eve:hover .section-image {
-  background-image:url("/_img/christmas/Christmas-Eve-2.jpg");
-}
-
-#watch {
-  top:50%;
-  left:50%;
-}
-
-#watch .section-image {
-  background-image:url("/_img/christmas/Christmas-day.jpeg");
-  opacity:0.7;
-}
-
-#watch:hover .section-image {
-  opacity:0.4;
-  background-image:url("/_img/christmas/Christmas-day-2.jpeg");
-}
-
-@media only screen and (max-width: 991px) {
-  body {
-    font-size:14px;
-    background-color:#F3F3F3;
-  }
-
-  .btn-default {
-    background-color:#bf0404;
-    border-color:#bf0404;
-    color:white;
-    box-shadow:none;
-  }
-
-  .btn-default:active, .btn-default:focus, .btn-default:hover {
-    background-color:#ffcccc;
-    border-color:#ffcccc;
-  }
-
-  .wrapper {
-    position:static;
-    width:100%;
-    height:100%;
-  }
-
-  .grid {
-    position:static;
-    width:95%;
-    height:250px;
-    margin:0 auto;
-  }
-
-  .grid:first-child {
-    margin-top:2.5%;
-  }
-
-  .grid:hover .section-title {
-    display:block;
-  }
-
-  .grid:hover .section-image {
-    opacity:1;
-  }
-
-  #watch:hover .section-image {
-    opacity:0.7;
-  }
-
-  .grid:hover .section-content {
-    display:none;
-  }
-
-  .grid-mobile {
-    display:block;
-    margin:0 auto 2.5% auto;
-  }
-
-  .grid-mobile .section-wrapper {
-    background-color:white;
-  }
-
-  .grid-mobile .section-content {
-    display:block;
-    width:50%;
-  }
-
-  .grid-mobile .section-caption {
-    color:black;
-  }
-
-  .grid-mobile .section-caption strong {
-    color:#96c6b9;
-  }
-
-  .grid-mobile:hover .section-content {
-    display:block;
-  }
-
-  #spectacular-mobile {
-    height:325px;
-  }
-
-  #light-night-mobile {
-    height:200px;
-  }
-
-  #eve-mobile {
-    height:250px;
-  }
-
-  #watch-mobile {
-    height:300px;
-  }
-
-  .section-wrapper {
-    position:relative;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-  }
-
-  .section-image {
-    position:static;
-  }
-
-  #spectacular:hover .section-image {
-    background-image:url("/_img/christmas/Splashpage.jpg");
-  }
-
-  #light-night:hover .section-image {
-    background-image:url("/_img/christmas/Christmas-Light-Night-Artwork.jpg");
-  }
-
-  #eve:hover .section-image {
-    background-image:url("/_img/christmas/Christmas-Eve.jpg");
-  }
-
-  #watch:hover .section-image {
-    background-image:url("/_img/christmas/Christmas-day.jpeg");
-  }
-
-  .section-content {
-    position:static;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  body {
-    font-size:13px;
-  }
-
-  .grid-mobile .section-content {
-    width:70%;
-  }
+.content .inner
+{
+  padding-top:30px;
+  padding-bottom:30px;
 }
