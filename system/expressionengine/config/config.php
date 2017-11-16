@@ -15,7 +15,7 @@ $config['app_version'] = "272";
 $config['install_lock'] = "";
 $config['license_number'] = "2839-0301-3052-3653";
 $config['debug'] = "1";
-$config['cp_url'] = 'http://journeychurch.dev/system.php';
+$config['cp_url'] = 'http://ee-dev.journeychurch.tv/system.php';
 $config['doc_url'] = "http://ellislab.com/expressionengine/user-guide/";
 $config['is_system_on'] = "y";
 $config['allow_extensions'] = 'y';
@@ -38,7 +38,7 @@ $config['tz_country'] = "us";
 |	http://example.com/
 |
 */
-$config['base_url']	= 'http://journeychurch.dev/';
+$config['base_url']	= 'http://ee-dev.journeychurch.tv/';
 
 /*
 |--------------------------------------------------------------------------
@@ -185,7 +185,7 @@ $config['function_trigger'] = 'M';
 | Error Logging Threshold
 |--------------------------------------------------------------------------
 |
-| If you have enabled error logging, you can set an error threshold to 
+| If you have enabled error logging, you can set an error threshold to
 | determine what gets logged. Threshold options are:
 |
 |	0 = Disables logging, Error logging TURNED OFF
