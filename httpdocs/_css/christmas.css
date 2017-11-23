@@ -1,21 +1,37 @@
+/*
+  Colors
+  Green: #90D3C0
+  Dark Red: #BC3036
+  Dark Blue: #11606D
+  Light Blue: #C8EBF8
+  Dark Green: #26632A
+*/
+
 body
 {
   font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
   font-weight:300;
-  background-color:black;
-  color:white;
-  background-image:url("/_img/christmas/Christmas-day.jpeg");
 }
 
-section
+h3, h4, h5, h6
 {
-  padding:25px 0;
+  font-weight:300;
+}
+
+h1, h2
+{
+  font-weight:200;
+}
+
+section h1, section h2
+{
+  margin-top:0;
 }
 
 .bg-img
 {
   background-color:black;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -28,6 +44,18 @@ section
 {
   padding-right:0;
   padding-left:0;
+}
+
+.vertical-align
+{
+  display:table;
+  height:100%;
+}
+
+.vertical-align-wrapper
+{
+  display:table-cell;
+  vertical-align:middle
 }
 
 .btn-default
@@ -45,4 +73,70 @@ section
 {
   padding-top:30px;
   padding-bottom:30px;
+}
+
+.btn
+{
+  border:0;
+  border-radius:0;
+  padding:10px 15px;
+}
+
+.btn-default
+{
+  color:#11606D;
+  background-color:white;
+  text-transform:uppercase;
+}
+
+.btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:active:focus, .btn-default:active:hover
+{
+  color:#11606D;
+  background-color:#C8EBF8;
+}
+
+#spectacular
+{
+  padding:50px 0;
+  background-color:#11606D;
+  color:white;
+}
+
+#spectacular-serving
+{
+  padding:25px 0;
+  color:#11606D;
+  background-color:#90D3C0;
+}
+
+#light-night
+{
+  background-color:white;
+  padding:50px 0;
+}
+
+#light-night .content .inner
+{
+  background-color:#BC3036;
+  padding:45px;
+  height:300px;
+  color:white;
+}
+
+#light-night .cover .inner
+{
+  background-image:url("/_img/christmas/Christmas-Light-Night.jpg");
+  height:300px;
+}
+
+#eve
+{
+  background-image:url("/_img/christmas/Christmas-Eve.jpg");
+  color:white;
+  padding:50px 0;
+}
+
+#day-nye
+{
+  padding:50px 0;
 }
