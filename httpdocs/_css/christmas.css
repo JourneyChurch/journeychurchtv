@@ -5,6 +5,7 @@
   Dark Blue: #11606D
   Light Blue: #C8EBF8
   Dark Green: #26632A
+  Pink: #F10389
 */
 
 body
@@ -87,6 +88,7 @@ section h1, section h2
   color:#11606D;
   background-color:white;
   text-transform:uppercase;
+  margin:0;
 }
 
 .btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:active:focus, .btn-default:active:hover
@@ -95,16 +97,42 @@ section h1, section h2
   background-color:#C8EBF8;
 }
 
+.btn-separator
+{
+  height:15px;
+}
+
+section
+{
+  padding:0;
+}
+
+.content, .cover
+{
+  padding-top:15px;
+}
+
+section:last-child .content
+{
+  padding-bottom:15px;
+}
+
 #spectacular
 {
-  padding:50px 0;
+  padding:15px 0;
   background-color:#11606D;
   color:white;
 }
 
+#spectacular .content
+{
+  padding-top:45px;
+  padding-bottom:15px;
+}
+
 #spectacular-serving
 {
-  padding:25px 0;
+  padding:15px 0;
   color:#11606D;
   background-color:#90D3C0;
 }
@@ -112,7 +140,6 @@ section h1, section h2
 #light-night
 {
   background-color:white;
-  padding:50px 0;
 }
 
 #light-night .content .inner
@@ -131,12 +158,77 @@ section h1, section h2
 
 #eve
 {
-  background-image:url("/_img/christmas/Christmas-Eve.jpg");
+  background-color:white;
+}
+
+#eve .content .inner
+{
+  background-color:#11606D;
+  padding:45px;
+  height:300px;
   color:white;
-  padding:50px 0;
+}
+
+#eve .cover .inner
+{
+  background-image:url("/_img/christmas/Christmas-Eve.jpg");
+  height:300px;
 }
 
 #day-nye
 {
-  padding:50px 0;
+  background-color:white;
+}
+
+#day-nye .content .inner
+{
+  background-color:#C8EBF8;
+  color:#11606D;
+  padding:45px;
+  height:300px;
+}
+
+#day-nye .cover .inner
+{
+  background-image:url("/_img/christmas/Christmas-day.jpeg");
+  height:300px;
+}
+
+@media screen and (min-width: 992px)
+{
+  .btn-default
+  {
+    margin:0;
+  }
+
+  #spectacular
+  {
+    padding:50px 0;
+  }
+
+  #spectacular .content
+  {
+    padding-top:30px;
+    padding-bottom:0;
+  }
+
+  #spectacular .cover
+  {
+    padding-top:0;
+  }
+
+  #spectacular-serving
+  {
+    padding:30px 0;
+  }
+
+  #light-night, #eve, #day-nye
+  {
+    padding-top:15px;
+  }
+
+  #day-nye
+  {
+    padding-bottom:15px;
+  }
 }
