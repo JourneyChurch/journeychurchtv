@@ -55,7 +55,7 @@
 		</div>
 		{exp:channel:entries channel="series" category="7" sort="desc" orderby="series-end" dynamic="no" limit="5"}
 			<div class="grid_4 series">
-				<a href="/study/{url_title}">
+				<a href="/series/{url_title}">
 					{if series-img}<img src="{series-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
 				</a>
 			</div>
@@ -73,13 +73,13 @@
 			<h2>Lifestream</h2>
 			{exp:channel:entries channel="series" category="37" sort="desc" orderby="series-end" dynamic="no" limit="5"}
 				<div class="grid_3 series alpha">
-					<a href="/study/{url_title}">
+					<a href="/series/{url_title}">
 						{if series-img}<img src="{series-img:med}" alt="{title}">{if:else}<img src="/_img/media/_med/BROKEN.png" alt="{title}">{/if}
 					</a>
 				</div>
 			{/exp:channel:entries}
 			<div class="grid_3 series media-viewall media-viewall-small alpha">
-				<a href="/study/lifestream">
+				<a href="/series/lifestream">
 					<h2>View All <i class="fa fa-chevron-right"></i></h2>
 				</a>
 			</div>
