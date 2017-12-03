@@ -6,6 +6,7 @@
   Light Blue: #C8EBF8
   Dark Green: #26632A
   Pink: #F10389
+  Orange: #FEBA55
 */
 
 body
@@ -65,17 +66,6 @@ section h1, section h2
   margin-bottom:5px;
 }
 
-.wrapper
-{
-  padding:25px 0;
-}
-
-.content .inner
-{
-  padding-top:30px;
-  padding-bottom:30px;
-}
-
 .btn
 {
   border:0;
@@ -109,12 +99,14 @@ section
 
 .content, .cover
 {
-  padding-top:15px;
+  padding-top:7.5px;
+  padding-bottom:7.5px;
 }
 
-section:last-child .content
+#events
 {
-  padding-bottom:15px;
+  padding-top:7.5px;
+  padding-bottom:7.5px;
 }
 
 #spectacular
@@ -135,6 +127,19 @@ section:last-child .content
   padding:15px 0;
   color:#11606D;
   background-color:#90D3C0;
+}
+
+#advent-adventure
+{
+  background-color:white;
+}
+
+#advent-adventure .content .inner
+{
+  background-color:#FEBA55;
+  padding:45px;
+  height:300px;
+  color:white;
 }
 
 #light-night
@@ -194,6 +199,14 @@ section:last-child .content
   height:300px;
 }
 
+@media screen and (min-width: 768px)
+{
+  #advent-adventure .cover .inner
+  {
+    height:300px;
+  }
+}
+
 @media screen and (min-width: 992px)
 {
   .btn-default
@@ -222,13 +235,15 @@ section:last-child .content
     padding:30px 0;
   }
 
-  #light-night, #eve, #day-nye
+  .content, .cover
   {
     padding-top:15px;
+    padding-bottom:15px;
   }
 
-  #day-nye
+  #events
   {
+    padding-top:15px;
     padding-bottom:15px;
   }
 }
