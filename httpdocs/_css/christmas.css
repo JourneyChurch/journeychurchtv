@@ -122,6 +122,18 @@ section
   padding-bottom:15px;
 }
 
+#spectacular h4
+{
+
+}
+
+#spectacular .content small
+{
+  color:white;
+  font-size:13px;
+  font-weight:200;
+}
+
 #spectacular-serving
 {
   padding:15px 0;
@@ -221,7 +233,7 @@ section
 
   #spectacular .content
   {
-    padding-top:30px;
+    padding-top:20px;
     padding-bottom:0;
   }
 
