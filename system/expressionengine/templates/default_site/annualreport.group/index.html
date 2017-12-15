@@ -1,11 +1,11 @@
+{exp:channel:entries channel="annual_report" limit="1"}
 <html lang="en">
   <head>
-    <title>2017 Mid-annual Report</title>
+    <title>{annual_report_year} Annual Report</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<meta property="og:image" content="http://journeychurch.tv/_img/auditions.jpg"/>-->
-    <meta property="og:title" content="2017 Mid-annual Report"/>
-    <meta property="og:description" content="We've had a great year so far full of exciting moments and fun memories! View our recap of 2017 so far at journeychurch.tv/annualreport." />
+    <meta property="og:title" content="{annual_report_year} Annual Report"/>
+    <meta property="og:description" content="We've had a great year full of exciting moments and fun memories! View our recap of {annual_report_year} so far at journeychurch.tv/annualreport." />
     <meta property="og:url" content="http://journeychurch.tv/annualreport"/>
     <meta property="og:site_name" content="JourneyChurch.tv"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -14,169 +14,862 @@
   </head>
 
   <body class="text-center">
-    {exp:channel:entries channel="mid_annual_report" limit="1"}
-      <section id="intro">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6 col-sm-push-6 col-lg-4 col-lg-push-8 no-gutter">
-              <div class="light-blue height-taller">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      <img src="/_img/annualreport_2017/logo.png" class="logo img-responsive center-block">
-                      <br>
-                      <h4 class="text-uppercase font-light">Journeychurch.tv</h4>
-                      <h4 class="font-light">{mid_annual_report_year} Mid-annual Report</h4>
-                    </div>
+    <section id="intro">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 col-sm-push-6 col-lg-4 col-lg-push-8 no-gutter">
+            <div class="light-blue height-taller">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    <img src="/_img/annualreport_2017/logo.png" class="logo img-responsive center-block">
+                    <br>
+                    <h4 class="text-uppercase font-light">Journeychurch.tv</h4>
+                    <h4 class="font-light">{annual_report_year} Mid-annual Report</h4>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="col-sm-6 col-sm-pull-6 col-lg-8 col-lg-pull-4 no-gutter">
-              <div class="dark-green height-taller">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad-narrow center-block">
-                      {mid_annual_report_description}
-                    </div>
+          <div class="col-sm-6 col-sm-pull-6 col-lg-8 col-lg-pull-4 no-gutter">
+            <div class="dark-green height-taller">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad-narrow center-block">
+                    {annual_report_description}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="reports">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6 no-gutter">
-              <div class="blue height-short">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_1}
-                    </div>
-                  </div>
-                </div>
+    <section id="section-1">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title no-gutter">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h2>{annual_report_section_1_title}</h2>
               </div>
+            </div>
+          </div>
 
-              <div class="light-green height-tall">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_3}
-                    </div>
-                  </div>
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter">
+            <div class="height-short blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_1_block_1}
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-6 no-gutter">
-              <div class="green height-tall">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_2}
-                    </div>
-                  </div>
+            <div class="height-tall light-green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_1_block_3}
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div class="dark-blue height-short">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_4}
-                    </div>
-                  </div>
+          <div class="col-md-6 no-gutter">
+            <div class="height-tall green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_1_block_2}
                 </div>
               </div>
             </div>
 
-            <div class="clearfix"></div>
-
-            <div class="col-md-4 no-gutter">
-              <div class="light-blue height-medium">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_5}
-                    </div>
-                  </div>
+            <div class="height-short blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_1_block_4}
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div class="green height-medium">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_8}
-                    </div>
-                  </div>
+          <div class="col-md-4 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_1_block_5}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_1_block_6}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_1_block_7}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-2">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title no-gutter">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h2>{annual_report_section_2_title}</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter">
+            <div class="height-tall green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_2_block_1}
                 </div>
               </div>
             </div>
 
-            <div class="col-md-4 no-gutter">
-              <div class="dark-green height-medium">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_6}
-                    </div>
-                  </div>
+            <div class="height-short dark-blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_2_block_3}
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div class="dark-blue height-medium">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_9}
-                    </div>
-                  </div>
+          <div class="col-md-6 no-gutter">
+            <div class="height-short blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_2_block_2}
                 </div>
               </div>
             </div>
 
-            <div class="col-md-4 no-gutter">
-              <div class="light-green height-taller">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad center-block">
-                      {mid_annual_report_block_7}
-                    </div>
-                  </div>
+            <div class="height-tall light-green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_2_block_4}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_2_block_5}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_2_block_6}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_2_block_7}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-3">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title no-gutter">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h2>{annual_report_section_3_title}</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter">
+            <div class="height-short green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_3_block_1}
+                </div>
+              </div>
+            </div>
+
+            <div class="height-tall blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_3_block_3}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter">
+            <div class="height-tall light-green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_3_block_2}
+                </div>
+              </div>
+            </div>
+
+            <div class="height-short light-blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_3_block_4}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_3_block_5}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_3_block_6}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_3_block_7}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-4">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h2>{annual_report_section_4_title}</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_4_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_4_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_4_block_3}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_4_block_4}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_5_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-4 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_5_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_5_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_5_block_3}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium light-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_5_block_4}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_5_block_5}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_5_block_6}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-6">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_6_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-4 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_3}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_4}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_5}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_6}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_7}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_8}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_6_block_9}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-7">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_7_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-8 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium light-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_3}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_4}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_5}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_6}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_7}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_7_block_8}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-8">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_8_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter height-tall dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_8_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-tall blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_8_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 no-gutter height-short green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_8_block_3}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-9">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_9_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-4 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_9_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_9_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 no-gutter height-short green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_9_block_3}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-10">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_10_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter">
+            <div class="height-short blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_10_block_1}
+                </div>
+              </div>
+            </div>
+
+            <div class="height-tall green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_10_block_3}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter">
+            <div class="height-tall light-green">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_10_block_2}
+                </div>
+              </div>
+            </div>
+
+            <div class="height-short blue">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  {annual_report_section_10_block_4}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-12 no-gutter">
-              <div class="blue height-tall">
-                <div class="vertical-align-wrapper">
-                  <div class="vertical-align">
-                    <div class="pad-narrow center-block">
-                      {mid_annual_report_block_10a}
+    <section id="section-11">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_11_title}</h1>
+              </div>
+            </div>
+          </div>
 
-                      <br>
+          <div class="clearfix"></div>
 
-                      {mid_annual_report_block_10b}
-                    </div>
-                  </div>
-                </div>
+          <div class="col-md-6 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_11_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_11_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_11_block_3}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_11_block_4}
               </div>
             </div>
           </div>
         </div>
-      </section>
-    {/exp:channel:entries}
+      </div>
+    </section>
+
+    <section id="section-12">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_12_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-4 no-gutter height-medium light-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_12_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_12_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_12_block_3}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter height-medium light-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_12_block_4}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 no-gutter height-short dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_12_block_5}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-13">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_13_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter height-medium green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_13_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_13_block_2}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium dark-green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_13_block_3}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-medium dark-blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_13_block_4}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-14">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 height-short title">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                <h1>{annual_report_section_14_title}</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-6 no-gutter height-tall blue">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_14_block_1}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 no-gutter height-tall green">
+            <div class="vertical-align-wrapper">
+              <div class="vertical-align">
+                {annual_report_section_14_block_2}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
+{/exp:channel:entries}
