@@ -1,4 +1,9 @@
 {exp:channel:entries channel="annual_report" limit="1"}
+
+{if no_results}
+  {redirect="/"}
+{/if}
+
 <html lang="en">
   <head>
     <title>{annual_report_year} Annual Report</title>
