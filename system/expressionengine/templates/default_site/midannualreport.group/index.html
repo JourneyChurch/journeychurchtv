@@ -1,0 +1,186 @@
+{exp:channel:entries channel="mid_annual_report" limit="1"}
+
+{if no_results}
+  {redirect="/"}
+{/if}
+
+<html lang="en">
+  <head>
+    <title>{mid_annual_report_year} Mid-annual Report</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="{mid_annual_report_year} Mid-annual Report"/>
+    <meta property="og:description" content="We've had a great year so far full of exciting moments and fun memories! View our recap of {mid_annual_report_year} so far at journeychurch.tv/midannualreport." />
+    <meta property="og:url" content="http://journeychurch.tv/midannualreport"/>
+    <meta property="og:site_name" content="JourneyChurch.tv"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6186432/755202/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/_css/midannualreport.css">
+  </head>
+
+  <body class="text-center">
+    <section id="intro">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 col-sm-push-6 col-lg-4 col-lg-push-8 no-gutter">
+            <div class="light-blue height-taller">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    <img src="/_img/annualreport_2017/logo.png" class="logo img-responsive center-block">
+                    <br>
+                    <h4 class="text-uppercase font-light">Journeychurch.tv</h4>
+                    <h4 class="font-light">{mid_annual_report_year} Mid-annual Report</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-sm-pull-6 col-lg-8 col-lg-pull-4 no-gutter">
+            <div class="dark-green height-taller">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad-narrow center-block">
+                    {mid_annual_report_description}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 no-gutter">
+            <div class="blue height-short">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_1}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="light-green height-tall">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_3}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 no-gutter">
+            <div class="green height-tall">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_2}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dark-blue height-short">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_4}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="col-md-4 no-gutter">
+            <div class="light-blue height-medium">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_5}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="green height-medium">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_8}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter">
+            <div class="dark-green height-medium">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_6}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dark-blue height-medium">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_9}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 no-gutter">
+            <div class="light-green height-taller">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad center-block">
+                    {mid_annual_report_block_7}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 no-gutter">
+            <div class="blue height-tall">
+              <div class="vertical-align-wrapper">
+                <div class="vertical-align">
+                  <div class="pad-narrow center-block">
+                    {mid_annual_report_block_10a}
+
+                    <br>
+
+                    {mid_annual_report_block_10b}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+{/exp:channel:entries}
