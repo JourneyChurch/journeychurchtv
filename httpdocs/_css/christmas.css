@@ -1,261 +1,400 @@
 /*
-  Colors
-  Green: #90D3C0
-  Dark Red: #BC3036
-  Dark Blue: #11606D
-  Light Blue: #C8EBF8
-  Dark Green: #26632A
-  Pink: #F10389
-  Orange: #FEBA55
+  Colors:
+
+  Red: #bf0404
+  Green: #063b17
+  Yellow (text): #ffda12
+  Pink: #ffcccc
+  Blue (optional): #96c6b9
+  White: #ffffff
 */
 
-body
-{
-  font-family:'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
-  font-weight:300;
+@font-face {
+  font-family: 'Homestead-Regular';
+  src: url('/_font/Homestead-Regular/Homestead-Regular.eot'); /* IE9 Compat Modes */
+  src: url('/_font/Homestead-Regular/Homestead-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/Homestead-Regular/Homestead-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/_font/Homestead-Regular/Homestead-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/Homestead-Regular/Homestead-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/Homestead-Regular/Homestead-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
-h3, h4, h5, h6
-{
-  font-weight:300;
+@font-face {
+  font-family: 'Homestead-Display';
+  src: url('/_font/Homestead-Display/Homestead-Display.eot'); /* IE9 Compat Modes */
+  src: url('/_font/Homestead-Display/Homestead-Display.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/_font/Homestead-Display/Homestead-Display.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/_font/Homestead-Display/Homestead-Display.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/_font/Homestead-Display/Homestead-Display.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/_font/Homestead-Display/Homestead-Display.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
-h1, h2
-{
-  font-weight:200;
+html, body {
+  height:100%;
+  min-height:800px;
 }
 
-section h1, section h2
-{
-  margin-top:0;
+body {
+  font-size:16px;
 }
 
-.bg-img
-{
-  background-color:black;
-  background-attachment: scroll;
-  background-position: center center;
-  background-repeat: no-repeat;
+p {
+  margin:15px 0;
+  line-height:2em;
+  font-size:1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gotham SSm 2r", "Gotham SSm A", "Gotham SSm B", Arial;
+  font-style: normal;
+  font-weight: 200;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1.12em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
+
+strong {
+  font-family: "Gotham SSm 5r", "Gotham SSm A", "Gotham SSm B", Arial;
+  font-style: normal;
+  font-weight: 500 !important;
+}
+
+.bg-img {
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-attachment:scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.no-gutter
-{
-  padding-right:0;
-  padding-left:0;
-}
-
-.vertical-align
-{
+.v-center-wrapper {
   display:table;
+  width:100%;
   height:100%;
 }
 
-.vertical-align-wrapper
-{
+.v-center {
   display:table-cell;
-  vertical-align:middle
+  vertical-align:middle;
 }
 
-.btn-default
-{
-  margin-top:5px;
-  margin-bottom:5px;
-}
-
-.btn
-{
-  border:0;
-  border-radius:0;
-  padding:10px 15px;
-}
-
-.btn-default
-{
-  color:#11606D;
-  background-color:white;
+.btn-default {
+  border-radius:0px;
+  text-shadow:none;
+  background-image:none;
+  box-shadow:none;
+  padding:10px 17px;
+  font-family: "Gotham SSm 7r", "Gotham SSm A", "Gotham SSm B", Arial;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing:0.15em;
   text-transform:uppercase;
-  margin:0;
+  font-size:0.7em;
+  color:#bf0404;
+  background-color:white;
+  border:0;
+  /*border:2px solid #bf0404;*/
+  margin-top:5px;
 }
 
-.btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:active:focus, .btn-default:active:hover
-{
-  color:#11606D;
-  background-color:#C8EBF8;
+.btn-default:active, .btn-default:focus, .btn-default:hover {
+  background-color:#bf0404;
+  border-color:#bf0404;
+  color:white;
+  box-shadow:none;
 }
 
-.btn-separator
-{
-  height:15px;
+.btn-default:active:focus {
+  background-color:#ffcccc;
+  border-color:#ffcccc;
+  color:white;
+  box-shadow:none;
 }
 
-section
-{
+.wrapper {
+  position:relative;
+  height:100%;
+  width:100%;
+}
+
+.grid {
+  position:absolute;
+  width:50%;
+  height:50%;
+}
+
+.grid:hover .section-image {
+  opacity:0.4;
+  transition:0.25s ease-in opacity;
+}
+
+.grid:hover .section-title {
+  display:none;
+}
+
+.grid:hover .section-content {
+  display:block;
+}
+
+.grid-mobile {
+  display:none;
+}
+
+.section-wrapper {
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color:black;
+}
+
+.section-image {
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  transition:0.25s ease-in opacity;
+}
+
+.section-caption {
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  color:white;
+  text-align:center;
+}
+
+.section-content {
+  width:70%;
+  margin:0 auto;
+  display:none;
+  text-align:left;
+}
+
+.section-content ul {
+  list-style-type:none;
   padding:0;
 }
 
-.content, .cover
-{
-  padding-top:7.5px;
-  padding-bottom:7.5px;
+.section-content * {
+  line-height:1.5em;
 }
 
-#events
-{
-  padding-top:7.5px;
-  padding-bottom:7.5px;
+#spectacular {
+  top:0;
+  left:0;
 }
 
-#spectacular
-{
-  padding:15px 0;
-  background-color:#11606D;
-  color:white;
+#spectacular .section-image {
+  background-image:url("/_img/christmas/Splashpage.jpg");
 }
 
-#spectacular .content
-{
-  padding-top:45px;
-  padding-bottom:15px;
+#spectacular .section-title h1 {
+  font-size:3em;
+  letter-spacing:0.1em;
+  font-family:"Homestead-Display";
+  margin:0;
 }
 
-#spectacular h4
-{
-
+#spectacular:hover .section-image {
+  background-image:url("/_img/christmas/Spectacular-2.jpg");
 }
 
-#spectacular .content small
-{
-  color:white;
-  font-size:13px;
-  font-weight:200;
+#light-night {
+  top:0;
+  left:50%;
 }
 
-#spectacular-serving
-{
-  padding:15px 0;
-  color:#11606D;
-  background-color:#90D3C0;
+#light-night .section-image {
+  background-image:url("/_img/christmas/Christmas-Light-Night-Artwork.jpg");
 }
 
-#advent-adventure
-{
-  background-color:white;
+#light-night .section-title h1 {
+  font-size:2em;
+  letter-spacing:0.1em;
+  line-height:1.15em;
+  margin:0;
 }
 
-#advent-adventure .content .inner
-{
-  background-color:#FEBA55;
-  padding:45px;
-  height:300px;
-  color:white;
+#light-night .section-title h4 {
+  font-size:1.05em;
+  letter-spacing:0.1em;
+  line-height:1.3em;
+  margin:0;
 }
 
-#light-night
-{
-  background-color:white;
+#light-night:hover .section-image {
+  background-image:url("/_img/christmas/Christmas-Light-Night-3.jpg");
 }
 
-#light-night .content .inner
-{
-  background-color:#BC3036;
-  padding:45px;
-  height:300px;
-  color:white;
+#eve {
+  top:50%;
+  left:0;
 }
 
-#light-night .cover .inner
-{
-  background-image:url("/_img/christmas/Christmas-Light-Night.jpg");
-  height:300px;
-}
-
-#eve
-{
-  background-color:white;
-}
-
-#eve .content .inner
-{
-  background-color:#11606D;
-  padding:45px;
-  height:300px;
-  color:white;
-}
-
-#eve .cover .inner
-{
+#eve .section-image {
   background-image:url("/_img/christmas/Christmas-Eve.jpg");
-  height:300px;
 }
 
-#day-nye
-{
-  background-color:white;
+#eve:hover .section-image {
+  background-image:url("/_img/christmas/Christmas-Eve-2.jpg");
 }
 
-#day-nye .content .inner
-{
-  background-color:#C8EBF8;
-  color:#11606D;
-  padding:45px;
-  height:300px;
+#watch {
+  top:50%;
+  left:50%;
 }
 
-#day-nye .cover .inner
-{
+#watch .section-image {
   background-image:url("/_img/christmas/Christmas-day.jpeg");
-  height:300px;
+  opacity:0.7;
 }
 
-@media screen and (min-width: 768px)
-{
-  #advent-adventure .cover .inner
-  {
+#watch:hover .section-image {
+  opacity:0.4;
+  background-image:url("/_img/christmas/Christmas-day-2.jpeg");
+}
+
+@media only screen and (max-width: 991px) {
+  body {
+    font-size:14px;
+    background-color:#F3F3F3;
+  }
+
+  .btn-default {
+    background-color:#bf0404;
+    border-color:#bf0404;
+    color:white;
+    box-shadow:none;
+  }
+
+  .btn-default:active, .btn-default:focus, .btn-default:hover {
+    background-color:#ffcccc;
+    border-color:#ffcccc;
+  }
+
+  .wrapper {
+    position:static;
+    width:100%;
+    height:100%;
+  }
+
+  .grid {
+    position:static;
+    width:95%;
+    height:250px;
+    margin:0 auto;
+  }
+
+  .grid:first-child {
+    margin-top:2.5%;
+  }
+
+  .grid:hover .section-title {
+    display:block;
+  }
+
+  .grid:hover .section-image {
+    opacity:1;
+  }
+
+  #watch:hover .section-image {
+    opacity:0.7;
+  }
+
+  .grid:hover .section-content {
+    display:none;
+  }
+
+  .grid-mobile {
+    display:block;
+    margin:0 auto 2.5% auto;
+  }
+
+  .grid-mobile .section-wrapper {
+    background-color:white;
+  }
+
+  .grid-mobile .section-content {
+    display:block;
+    width:50%;
+  }
+
+  .grid-mobile .section-caption {
+    color:black;
+  }
+
+  .grid-mobile .section-caption strong {
+    color:#96c6b9;
+  }
+
+  .grid-mobile:hover .section-content {
+    display:block;
+  }
+
+  #spectacular-mobile {
+    height:325px;
+  }
+
+  #light-night-mobile {
+    height:200px;
+  }
+
+  #eve-mobile {
+    height:250px;
+  }
+
+  #watch-mobile {
     height:300px;
   }
+
+  .section-wrapper {
+    position:relative;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+  }
+
+  .section-image {
+    position:static;
+  }
+
+  #spectacular:hover .section-image {
+    background-image:url("/_img/christmas/Splashpage.jpg");
+  }
+
+  #light-night:hover .section-image {
+    background-image:url("/_img/christmas/Christmas-Light-Night-Artwork.jpg");
+  }
+
+  #eve:hover .section-image {
+    background-image:url("/_img/christmas/Christmas-Eve.jpg");
+  }
+
+  #watch:hover .section-image {
+    background-image:url("/_img/christmas/Christmas-day.jpeg");
+  }
+
+  .section-content {
+    position:static;
+  }
 }
 
-@media screen and (min-width: 992px)
-{
-  .btn-default
-  {
-    margin:0;
+@media only screen and (max-width: 767px) {
+  body {
+    font-size:13px;
   }
 
-  #spectacular
-  {
-    padding:50px 0;
-  }
-
-  #spectacular .content
-  {
-    padding-top:20px;
-    padding-bottom:0;
-  }
-
-  #spectacular .cover
-  {
-    padding-top:0;
-  }
-
-  #spectacular-serving
-  {
-    padding:30px 0;
-  }
-
-  .content, .cover
-  {
-    padding-top:15px;
-    padding-bottom:15px;
-  }
-
-  #events
-  {
-    padding-top:15px;
-    padding-bottom:15px;
+  .grid-mobile .section-content {
+    width:70%;
   }
 }

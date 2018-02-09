@@ -5,7 +5,6 @@ email_images/*
 uploads/*
 cache/*
 /system/expressionengine/cache/*
-/system/expressionengine/third_party/acs_events/config.php
 
 # Compiled source #
 ###################

@@ -13,8 +13,8 @@
 body {
   font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', Arial;
   font-style: normal;
-  font-size:12px;
   color:white;
+  font-size:12px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,6 +37,14 @@ h3 {
 
 h4 {
   font-size: 1.5em;
+}
+
+h5 {
+
+}
+
+h6 {
+
 }
 
 .font-light {
@@ -69,11 +77,6 @@ h4 {
 
 .light-green {
   background-color: #CFCA74;
-}
-
-.title {
-  background-color:white;
-  color:#16818B;
 }
 
 .no-gutter {
