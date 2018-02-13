@@ -4,9 +4,9 @@ $active_group = 'expressionengine';
 $active_record = TRUE;
 
 $db['expressionengine']['hostname'] = 'localhost';
-$db['expressionengine']['username'] = 'journeydev';
-$db['expressionengine']['password'] = 'Zpf3o0!2';
-$db['expressionengine']['database'] = 'eedev_';
+$db['expressionengine']['username'] = 'root';
+$db['expressionengine']['password'] = 'root';
+$db['expressionengine']['database'] = 'journeychurch';
 $db['expressionengine']['dbdriver'] = 'mysql';
 $db['expressionengine']['pconnect'] = FALSE;
 $db['expressionengine']['dbprefix'] = 'exp_';
