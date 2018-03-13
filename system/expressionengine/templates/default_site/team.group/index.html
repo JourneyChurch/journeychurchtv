@@ -11,17 +11,19 @@
 </div>
 
 <div class="container clearfix">
-	<h2 class="grid_12 pastorclark">Pastor Clark & Robin Mitchell</h2>
+	{exp:channel:entries channel="Team" entry_id="2560"}
+	<h2 class="grid_12 pastorclark">{title}</h2>
 	<div class="team-entry" style="padding-top:25px">
 		<div class="grid_5">
-			<img src="/_img/ClarkRobin.jpg" style="max-width:100%;">
+			<img src="{team-photo}" style="max-width:100%;">
 		</div>
 		<div class="grid_7">
-			<p style="font-size:14px;margin-top:20px">At age 15, Clark Mitchell knew God was shaping his desire to help lead people into their God-given potential and dreams. It was that same dream and passion that motivated him to begin JourneyChurch with his wife and 34 others in late 2001. As the church continued to see unprecedented favor in leading the next generation, Pastor Clark continued to look for innovative ways to transform cities one life at a time. Ten years after founding JourneyChurch, Clark and Robin began Loveworks Leadership, Inc. (LLI) Again, the initiative was met with unprecedented enthusiasm as LLI created environments for at-risk middle school students to receive academic tutoring, life skills training, and leadership development to give them hope and to shape their character to become the leaders they were created to be.</p><br>
+			<p style="font-size:14px;margin-top:20px">{team-bio}</p><br>
 			<a href="/pastorclark">Learn more about Pastor Clark</a>
 			<div class="clear"></div>
 		</div>
 	</div>
+	{/exp:channel:entries}
 	<div class="clear marg-b-40">&nbsp;</div>
 
 	<div class="grid_12">
