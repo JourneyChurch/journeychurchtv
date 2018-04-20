@@ -192,8 +192,7 @@ div.capty-caption a {
 
 /* TOP SECTION */
 .top {
-	background-image: url(/_img/bg-texture.jpg);
-	background-repeat: repeat;
+	background: none;
 }
 
 .countdown {

@@ -4,21 +4,7 @@
 
 	/* Full Size Top */
 	.journeylogo {
-		background-image: url(/_img/logo.png);
-		text-transform: uppercase;
-		background-repeat: no-repeat;
-		height: 45px;
-		margin-top: 10px;
-		padding-top: 16px;
-	}
-	.journeylogo span {
-		font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial; font-weight: 100; font-style: normal;
-		font-size: 14px;
-		color: #FFFFFF;
-		margin-top: 15px;
-		padding-left: 52px;
-		-moz-padding-start: 52px;
-		 -webkit-padding-start: 52px;
+		padding-top: 15px;
 	}
 
 	.bar-enabled {
@@ -50,7 +36,7 @@
 		float: left;
 		position:relative;
 		z-index: 100;
-		color: #FFFFFF;
+		color: #000;
 		font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial;
 		font-weight: 400;
 		font-size: 12px;
@@ -59,7 +45,7 @@
 		cursor: pointer;
 	}
 	ul.nav-main li a {
-		color: #FFFFFF!important;
+		color: #000!important;
 		font-family: 'Gotham SSm 5r', 'Gotham SSm A', 'Gotham SSm B', 'Montserrat', Arial !important;
 		font-weight: 400!important;
 		font-size: 12px!important;

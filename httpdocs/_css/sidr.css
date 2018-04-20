@@ -1,5 +1,5 @@
 #mobile {
-	background-image: url(/_img/bg-texture.jpg);
+	background: #fff;
 	padding: 10px 0;
 }
 #mobile-top {
@@ -19,7 +19,7 @@
 	width: 45px;
 }
 #opensidr {
-	color: #FFFFFF;
+	color: #000;
 	font-size: 28px;
 	padding-top: 10px;
 	float: left;
@@ -45,8 +45,8 @@
     overflow-y: auto;
     font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
     font-size: 15px;
-    background-image: url(/_img/bg-texture.jpg);
-    color: #fff;
+    background: none;
+    color: #000;
     -webkit-box-shadow: inset -5px 0 15px -5px #222;
     -moz-box-shadow: inset -5px 0 15px -5px #222;
    	box-shadow: inset -5px 0 15px -5px #020202;
@@ -112,7 +112,7 @@
     padding: 0 15px;
     display: block;
     text-decoration: none;
-    color: #fff;
+    color: #000;
 }
 .sidr ul li ul {
     border-bottom: none;
@@ -161,7 +161,7 @@
 }
 .sidr input[type=button], .sidr input[type=submit] {
     color: #333;
-    background: #fff;
+    background: #000;
 }
 .sidr input[type=button]:hover, .sidr input[type=submit]:hover {
     background: rgba(255, 255, 255, 0.9);
