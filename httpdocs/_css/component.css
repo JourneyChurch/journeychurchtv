@@ -133,7 +133,7 @@
 
 /*Boxes */
 	.boxes {
-		margin: 0 auto;
+		margin: 20px auto 0;
 		margin-bottom: 15px;
 		list-style: none;
 		text-align: center;
